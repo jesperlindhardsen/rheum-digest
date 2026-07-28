@@ -30,7 +30,17 @@
 
 <script>
 const DISEASE_ORDER = ["RA","PsA/SpA","SLE","IIM","Vasculitis","Sjögren","SSc","PMR/crystal","Autoinflammatory","General"];
+const DISEASE_LABEL = {
+  "RA": "RA", "PsA/SpA": "PsA/SpA", "SLE": "SLE", "IIM": "IIM",
+  "Vasculitis": "Vaskulitis", "Sjögren": "Sjögren", "SSc": "SSc",
+  "PMR/crystal": "PMR/krystal", "Autoinflammatory": "Autoinflammatorisk", "General": "Generelt"
+};
 const EVIDENCE_ORDER = ["RCT","Guideline/consensus","Evidence synthesis","Observational","Clinical case/survey"];
+const EVIDENCE_LABEL = {
+  "RCT": "RCT", "Guideline/consensus": "Retningslinje/konsensus",
+  "Evidence synthesis": "Evidensopsummering", "Observational": "Observationelt",
+  "Clinical case/survey": "Klinisk case/opgørelse"
+};
 const BUCKET_LABEL = {recent: "Seneste måned", mid: "1–6 måneder", older: "Ældre"};
 const BUCKET_ORDER = ["recent","mid","older"];
 
@@ -105,7 +115,7 @@ function renderEvidenceTabs() {
   el.innerHTML = EVIDENCE_ORDER.map(type => {
     const count = library.filter(r => r.evidence_type === type).length;
     const active = type === activeEvidence ? "active" : "";
-    return `<div class="tab-item ${active}" onclick="selectEvidence('${type}')"><span>${type}</span><span class="count">${count}</span></div>`;
+    return `<div class="tab-item ${active}" onclick="selectEvidence('${type}')"><span>${EVIDENCE_LABEL[type]}</span><span class="count">${count}</span></div>`;
   }).join("");
 }
 
@@ -117,7 +127,7 @@ function renderDiseaseTabs(diseaseGroups) {
   }
   el.innerHTML = diseaseGroups.map(group => {
     const active = group === activeDisease ? "active" : "";
-    return `<div class="etab ${active}" onclick="selectDisease('${group}')">${group}</div>`;
+    return `<div class="etab ${active}" onclick="selectDisease('${group}')">${DISEASE_LABEL[group]}</div>`;
   }).join("");
 }
 
