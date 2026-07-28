@@ -8,9 +8,9 @@ Weekly rheumatology evidence digest. Runs autonomously, no prompts needed once s
   title/authors/dates/abstracts extracted verbatim, no AI involved
 - **AI**: reads each fetched hit and assigns `disease_group` — a label only, never touches
   the fetched content
-- **update_library.py** (deterministic script): dedups, buckets, writes `data/library.json`
+- **update_library.py** (deterministic script): dedups, buckets, writes `docs/data/library.json`
   (falls back to its own regex classifier only if AI didn't label a hit)
-- **docs/index.html** (static page): reads `data/library.json` client-side via JS — no regeneration needed per run
+- **docs/index.html** (static page): reads `docs/data/library.json` client-side via JS — no regeneration needed per run
 - **digests/YYYY-MM-DD.md** (optional weekly snapshot): audit trail of that week's new items only
 
 This split matters: AI's only touch on the data is assigning a category label — it never
@@ -39,7 +39,7 @@ Query strings and evidence-type filters live in `fetch_pubmed.py`
 Evidence types (5): RCT, Guideline/consensus, Evidence synthesis, Observational, Clinical case/survey
 
 ## STEP 2 — UPDATE LIBRARY (run update_library.py)
-Pass the classified hits into `update_library(new_hits, "data/library.json")`. The script:
+Pass the classified hits into `update_library(new_hits, "docs/data/library.json")`. The script:
 - Dedups by PMID against existing records
 - Prepends new records (newest first)
 - Drops records >24 months old
@@ -47,10 +47,10 @@ Pass the classified hits into `update_library(new_hits, "data/library.json")`. T
   - `recent` = last month
   - `mid` = 1–6 months
   - `older` = 6–24 months
-- Writes `data/library.json`
+- Writes `docs/data/library.json`
 
 ## STEP 3 — VIEWER (static, no regeneration)
-`docs/index.html` + `docs/assets/style.css` read `data/library.json` at load time via fetch
+`docs/index.html` + `docs/assets/style.css` read `docs/data/library.json` at load time via fetch
 (cache-busted). Layout:
 - Left sidebar: disease-group tabs, each with a live hit count
 - Top of viewer: evidence-type tabs (only types with hits shown)
@@ -72,7 +72,7 @@ Commit to `digests/YYYY-MM-DD.md`.
 24 months. Older records are pruned automatically by `update_library.py` on every run.
 
 ## DONE criteria
-`data/library.json` updated AND `docs/index.html` unchanged (static, no regen needed) AND
+`docs/data/library.json` updated AND `docs/index.html` unchanged (static, no regen needed) AND
 (optionally) `digests/YYYY-MM-DD.md` committed. Report: records added + total + hit count per
 disease group.
 

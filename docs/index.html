@@ -121,7 +121,7 @@ function renderDiseaseTabs(diseaseGroups) {
   }).join("");
 }
 
-fetch("../data/library.json?t=" + Date.now(), {cache: "no-store"})
+fetch("data/library.json?t=" + Date.now(), {cache: "no-store"})
   .then(r => r.json())
   .then(data => {
     library = data;
