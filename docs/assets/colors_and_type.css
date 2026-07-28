@@ -1,0 +1,269 @@
+/* ============================================================
+   Salix — Rheumatology Presentation System
+   Core tokens: color, type, spacing, radii, shadow
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* ============================================================
+     COLOR — organic, slightly muted, warm-leaning
+     ============================================================ */
+
+  /* Neutrals — warm paper to deep ink */
+  --paper:        #F6F1E8;   /* warm cream background */
+  --paper-2:      #EFE8DA;   /* slightly deeper paper */
+  --paper-3:      #E5DCC8;   /* tonal divider */
+  --ink:          #1F2420;   /* deep ink (primary text) */
+  --ink-2:        #3D4540;   /* secondary text */
+  --ink-3:        #6B736C;   /* tertiary / captions */
+  --ink-4:        #9BA098;   /* muted / placeholder */
+  --line:         #D8CDB7;   /* hairline divider on paper */
+  --line-soft:    #E8DFCB;   /* softer divider */
+
+  /* Brand palette — earthy, botanical */
+  --moss:         #4A6B4A;   /* primary — sage/moss green */
+  --moss-deep:    #2E4A33;   /* moss on light */
+  --moss-soft:    #C9D4C0;   /* moss tint */
+  --moss-wash:    #E4EADC;   /* wash background */
+
+  --clay:         #B8634A;   /* terracotta accent */
+  --clay-deep:    #8E4632;   /* deep clay */
+  --clay-soft:    #E8C8B8;   /* clay tint */
+  --clay-wash:    #F2DDD0;   /* wash */
+
+  --ochre:        #C8954A;   /* amber / mustard */
+  --ochre-deep:   #9A6E2E;
+  --ochre-soft:   #E8D4A8;
+  --ochre-wash:   #F2E5C5;
+
+  --slate:        #5A7585;   /* dusty blue */
+  --slate-deep:   #3D5663;
+  --slate-soft:   #BFCDD4;
+  --slate-wash:   #DCE5E9;
+
+  --plum:         #7A4A5C;   /* muted plum */
+  --plum-deep:    #5A3343;
+  --plum-soft:    #D4BCC4;
+  --plum-wash:    #E6D5DB;
+
+  /* Semantic */
+  --fg:           var(--ink);
+  --fg-2:         var(--ink-2);
+  --fg-3:         var(--ink-3);
+  --fg-muted:     var(--ink-4);
+  --bg:           var(--paper);
+  --bg-2:         var(--paper-2);
+  --bg-elevated:  #FBF7EF;
+  --border:       var(--line);
+  --border-soft:  var(--line-soft);
+  --accent:       var(--moss);
+  --accent-deep:  var(--moss-deep);
+  --accent-soft:  var(--moss-soft);
+
+  /* Clinical signals (kept muted — never garish) */
+  --signal-positive: #4A6B4A;   /* moss — improvement / positive finding */
+  --signal-caution:  #C8954A;   /* ochre — caution / monitor */
+  --signal-alert:    #B8634A;   /* clay — alert / contraindication */
+  --signal-info:     #5A7585;   /* slate — informational */
+
+  /* ============================================================
+     TYPE — Instrument Serif (display) + Manrope (UI/body) + JetBrains (mono)
+     ============================================================ */
+  --font-display: "Mulish", "Manrope", system-ui, -apple-system, sans-serif;
+  --font-body:    "Manrope", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Type scale — generous, optimized for 1920x1080 presentations */
+  --fs-display:   96px;   /* title slides */
+  --fs-h1:        64px;   /* section titles */
+  --fs-h2:        44px;   /* slide titles */
+  --fs-h3:        32px;   /* subsections */
+  --fs-h4:        24px;   /* card heads */
+  --fs-lg:        22px;   /* lead body */
+  --fs-body:      20px;   /* body */
+  --fs-sm:        16px;   /* small body */
+  --fs-cap:       13px;   /* captions / labels */
+  --fs-micro:     11px;   /* attribution */
+
+  /* Line heights */
+  --lh-tight:     1.05;   /* @kind font */
+  --lh-snug:      1.2;    /* @kind font */
+  --lh-normal:    1.45;   /* @kind font */
+  --lh-relaxed:   1.6;    /* @kind font */
+
+  /* Letter spacing */
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-label:   0.12em;   /* uppercase eyebrow labels */
+
+  /* Weights */
+  --w-light:      300;   /* @kind font */
+  --w-reg:        400;   /* @kind font */
+  --w-med:        500;   /* @kind font */
+  --w-semi:       600;   /* @kind font */
+  --w-bold:       700;   /* @kind font */
+
+  /* ============================================================
+     SPACING — 4px base, generous on slides
+     ============================================================ */
+  --s-1:   4px;
+  --s-2:   8px;
+  --s-3:   12px;
+  --s-4:   16px;
+  --s-5:   20px;
+  --s-6:   24px;
+  --s-8:   32px;
+  --s-10:  40px;
+  --s-12:  48px;
+  --s-16:  64px;
+  --s-20:  80px;
+  --s-24:  96px;
+  --s-32:  128px;
+
+  /* ============================================================
+     RADII — slightly rounded, organic; never pill-y on cards
+     ============================================================ */
+  --r-xs:  4px;
+  --r-sm:  8px;
+  --r-md:  12px;   /* default card/object radius */
+  --r-lg:  20px;
+  --r-xl:  28px;
+  --r-pill: 999px;
+
+  /* ============================================================
+     SHADOWS — very soft, paper-like; no harsh drop shadows
+     ============================================================ */
+  --shadow-xs:  0 1px 2px rgba(31, 36, 32, 0.04);
+  --shadow-sm:  0 2px 8px rgba(31, 36, 32, 0.05), 0 1px 2px rgba(31, 36, 32, 0.04);
+  --shadow-md:  0 6px 18px rgba(31, 36, 32, 0.06), 0 2px 6px rgba(31, 36, 32, 0.04);
+  --shadow-lg:  0 16px 40px rgba(31, 36, 32, 0.08), 0 4px 12px rgba(31, 36, 32, 0.04);
+  --shadow-inset: inset 0 0 0 1px rgba(31, 36, 32, 0.06);
+
+  /* ============================================================
+     MOTION — quiet, never bouncy
+     ============================================================ */
+  --ease-out:  cubic-bezier(0.22, 0.61, 0.36, 1);   /* @kind other */
+  --ease-in-out: cubic-bezier(0.45, 0, 0.25, 1);    /* @kind other */
+  --dur-fast:  120ms;   /* @kind other */
+  --dur-base:  200ms;   /* @kind other */
+  --dur-slow:  360ms;   /* @kind other */
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   ============================================================ */
+.salix, body.salix {
+  font-family: var(--font-body);
+  color: var(--fg);
+  background: var(--bg);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  font-weight: var(--w-reg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.salix .display,
+.salix h1.display {
+  font-family: var(--font-display);
+  font-weight: var(--w-med);
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+}
+
+.salix h1 {
+  font-family: var(--font-display);
+  font-weight: var(--w-med);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+  margin: 0;
+}
+.salix h2 {
+  font-family: var(--font-display);
+  font-weight: var(--w-med);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--fg);
+  margin: 0;
+}
+.salix h3 {
+  font-family: var(--font-body);
+  font-weight: var(--w-semi);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--fg);
+  margin: 0;
+}
+.salix h4 {
+  font-family: var(--font-body);
+  font-weight: var(--w-semi);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  color: var(--fg);
+  margin: 0;
+}
+.salix p {
+  margin: 0 0 var(--s-4) 0;
+  color: var(--fg-2);
+  text-wrap: pretty;
+  max-width: 65ch;
+}
+.salix .lead {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+}
+.salix .eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--w-semi);
+  font-size: var(--fs-cap);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--moss-deep);
+}
+.salix .caption {
+  font-size: var(--fs-cap);
+  color: var(--fg-3);
+  letter-spacing: var(--tracking-wide);
+}
+.salix .micro {
+  font-size: var(--fs-micro);
+  color: var(--fg-3);
+  letter-spacing: var(--tracking-wide);
+}
+.salix code, .salix .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--paper-2);
+  padding: 0.1em 0.4em;
+  border-radius: var(--r-xs);
+  color: var(--ink-2);
+}
+.salix em.italic-display,
+.salix .italic-display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: var(--w-med);
+}
+
+/* Common surfaces */
+.salix .card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-md);
+  padding: var(--s-6);
+  box-shadow: var(--shadow-sm);
+}
+.salix .divider {
+  height: 1px;
+  background: var(--border);
+  border: none;
+}

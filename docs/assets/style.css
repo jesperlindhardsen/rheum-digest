@@ -1,0 +1,318 @@
+/* ============================================================
+   Reuma-evidens — Salix-styled
+   Self-contained: pulls in design tokens, then styles the page.
+   ============================================================ */
+@import url("colors_and_type.css");
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--moss-deep); text-decoration: none; }
+a:hover { color: var(--moss); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-6);
+  padding: var(--s-4) var(--s-10);
+  background: rgba(246, 241, 232, 0.94);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.brand svg { display: block; width: 30px; height: 30px; }
+.brand .wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--w-semi);
+  font-size: 22px;
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.brand .wordmark em {
+  font-style: italic;
+  color: var(--moss-deep);
+}
+#updated-date {
+  font-family: var(--font-mono);
+  font-size: var(--fs-cap);
+  color: var(--ink-3);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ---------- App shell ---------- */
+#app {
+  display: flex;
+  gap: var(--s-10);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: var(--s-10);
+  align-items: flex-start;
+}
+
+/* ---------- Evidence-type tabs (left rail) ---------- */
+.tabs-col {
+  width: 232px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 84px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tab-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding: 10px 14px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  color: var(--ink-2);
+  font-weight: var(--w-med);
+  font-size: var(--fs-sm);
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+.tab-item:hover { background: var(--paper-2); }
+.tab-item.active {
+  background: var(--moss-wash);
+  color: var(--moss-deep);
+  font-weight: var(--w-semi);
+}
+.tab-item .count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  color: var(--ink-4);
+  background: var(--paper-2);
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  min-width: 26px;
+  text-align: center;
+}
+.tab-item.active .count {
+  color: var(--moss-deep);
+  background: var(--bg-elevated);
+}
+
+/* ---------- Viewer ---------- */
+#viewer {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------- Disease-group tabs (row) ---------- */
+.tabs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-6);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--s-8);
+}
+.etab {
+  padding: 0 0 12px 0;
+  cursor: pointer;
+  color: var(--ink-3);
+  font-weight: var(--w-med);
+  font-size: var(--fs-sm);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.etab:hover { color: var(--ink); }
+.etab.active {
+  color: var(--moss-deep);
+  border-bottom-color: var(--moss);
+  font-weight: var(--w-semi);
+}
+
+/* ---------- Time buckets ---------- */
+.time-bucket {
+  border-top: 1px solid var(--line-soft);
+}
+.time-bucket:first-child { border-top: none; }
+.time-bucket > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-5) 0;
+  font-family: var(--font-body);
+  font-weight: var(--w-semi);
+  font-size: var(--fs-h4);
+  color: var(--ink);
+}
+.time-bucket > summary::-webkit-details-marker { display: none; }
+.time-bucket > summary::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1.75px solid var(--ink-3);
+  border-bottom: 1.75px solid var(--ink-3);
+  transform: rotate(-45deg);
+  transition: transform var(--dur-base) var(--ease-out);
+  margin-right: 2px;
+}
+.time-bucket[open] > summary::before { transform: rotate(45deg); }
+.bucket-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding-bottom: var(--s-8);
+}
+
+/* ---------- Study item ---------- */
+.item {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-md);
+  padding: var(--s-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--dur-base) var(--ease-out);
+}
+.item:hover { box-shadow: var(--shadow-md); }
+.item .title {
+  margin: 0 0 var(--s-2) 0;
+  font-family: var(--font-body);
+  font-weight: var(--w-semi);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-snug);
+  color: var(--ink);
+  max-width: none;
+}
+.tier-badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 2px 8px;
+  border-radius: var(--r-pill);
+  transform: translateY(-1px);
+}
+.tier-badge.t1 { background: var(--moss-wash);  color: var(--moss-deep); }
+.tier-badge.t2 { background: var(--slate-wash); color: var(--slate-deep); }
+.tier-badge.t3 { background: var(--ochre-wash); color: var(--ochre-deep); }
+.tier-badge.t4 { background: var(--paper-2);    color: var(--ink-3); }
+
+.item .meta {
+  margin: 0;
+  font-size: var(--fs-cap);
+  color: var(--ink-3);
+  letter-spacing: var(--tracking-wide);
+  max-width: none;
+}
+.item .meta a { font-family: var(--font-mono); font-size: 0.95em; }
+
+/* ---------- Abstract toggle ---------- */
+.abstract-toggle { margin-top: var(--s-4); }
+.abstract-toggle > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--moss-deep);
+  width: fit-content;
+}
+.abstract-toggle > summary::-webkit-details-marker { display: none; }
+.abstract-toggle > summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1;
+}
+.abstract-toggle[open] > summary::after { content: "–"; }
+.abstract-full {
+  margin-top: var(--s-3);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line-soft);
+}
+.abstract-full p {
+  margin: 0 0 var(--s-3) 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--ink-2);
+  max-width: 68ch;
+}
+.abstract-full p:last-child { margin-bottom: 0; }
+.abstract-full strong { color: var(--moss-deep); font-weight: var(--w-semi); }
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-4);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line-soft);
+}
+.keyword-chip {
+  font-size: var(--fs-micro);
+  color: var(--ink-3);
+  background: var(--paper-2);
+  border-radius: var(--r-pill);
+  padding: 3px 10px;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ---------- Empty / footer ---------- */
+.empty-note {
+  color: var(--ink-3);
+  font-style: italic;
+  padding: var(--s-12) 0;
+  font-size: var(--fs-sm);
+}
+.site-footer {
+  text-align: center;
+  padding: var(--s-8) var(--s-10) var(--s-12);
+  font-size: var(--fs-cap);
+  color: var(--ink-3);
+  letter-spacing: var(--tracking-wide);
+  border-top: 1px solid var(--line-soft);
+  margin-top: var(--s-6);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 820px) {
+  #app { flex-direction: column; padding: var(--s-6); gap: var(--s-6); }
+  .tabs-col {
+    width: 100%;
+    position: static;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: var(--s-2);
+    padding-bottom: var(--s-2);
+  }
+  .tab-item { flex-shrink: 0; }
+  .site-header { padding: var(--s-4) var(--s-6); }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reuma-evidens</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="salix">
+<header class="site-header">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4C16 4 8 10 8 18C8 23.5 11.5 28 16 28C20.5 28 24 23.5 24 18C24 10 16 4 16 4Z" stroke="#2E4A33" stroke-width="1.75" stroke-linejoin="round"/>
+      <path d="M16 10V26" stroke="#2E4A33" stroke-width="1.75" stroke-linecap="round"/>
+    </svg>
+    <span class="wordmark">Reuma-<em>evidens</em></span>
+  </div>
+  <span id="updated-date"></span>
+</header>
+
+<div id="app">
+  <div id="evidence-tabs" class="tabs-col"></div>
+  <div id="viewer">
+    <div id="disease-tabs" class="tabs-row"></div>
+    <div id="panel"></div>
+  </div>
+</div>
+
+<footer class="site-footer">Genereret automatisk fra PubMed. Opdateres ugentligt.</footer>
+
+<script>
+const DISEASE_ORDER = ["RA","PsA/SpA","SLE","IIM","Vasculitis","Sjögren","SSc","PMR/crystal","Autoinflammatory","General"];
+const EVIDENCE_ORDER = ["RCT","Guideline/consensus","Evidence synthesis","Observational","Clinical case/survey"];
+const BUCKET_LABEL = {recent: "Seneste måned", mid: "1–6 måneder", older: "Ældre"};
+const BUCKET_ORDER = ["recent","mid","older"];
+
+let library = [];
+let activeDisease = null;
+let activeEvidence = null;
+
+function authorLine(rec) {
+  if (rec.first_author === rec.last_author) return rec.first_author;
+  return `${rec.first_author}...${rec.last_author}`;
+}
+
+function renderItem(rec) {
+  const sections = rec.abstract_sections.map(s =>
+    s.label ? `<p><strong>${s.label}:</strong> ${s.text}</p>` : `<p>${s.text}</p>`
+  ).join("");
+  const keywords = (rec.keywords && rec.keywords.length)
+    ? `<div class="keywords">${rec.keywords.map(k => `<span class="keyword-chip">${k}</span>`).join("")}</div>`
+    : "";
+  return `
+    <div class="item">
+      <p class="title">${rec.title}<span class="tier-badge t${rec.tier}">T${rec.tier}</span></p>
+      <p class="meta">${authorLine(rec)} · ${rec.journal} · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a></p>
+      <details class="abstract-toggle">
+        <summary>Vis abstract</summary>
+        <div class="abstract-full">${sections}${keywords}</div>
+      </details>
+    </div>`;
+}
+
+function renderPanel() {
+  const panel = document.getElementById("panel");
+  const items = library.filter(r => r.disease_group === activeDisease && r.evidence_type === activeEvidence);
+
+  if (items.length === 0) {
+    panel.innerHTML = `<p class="empty-note">Ingen nye.</p>`;
+    return;
+  }
+
+  let html = "";
+  BUCKET_ORDER.forEach(bucket => {
+    const bucketItems = items.filter(r => r.time_bucket === bucket);
+    if (bucketItems.length === 0) return;
+    const openAttr = bucket === "recent" ? "open" : "";
+    html += `
+      <details ${openAttr} class="time-bucket">
+        <summary>${BUCKET_LABEL[bucket]} (${bucketItems.length})</summary>
+        <div class="bucket-items">${bucketItems.map(renderItem).join("")}</div>
+      </details>`;
+  });
+  panel.innerHTML = html;
+}
+
+function selectEvidence(type) {
+  activeEvidence = type;
+  const typeItems = library.filter(r => r.evidence_type === type);
+  const diseaseGroups = DISEASE_ORDER.filter(g => typeItems.some(r => r.disease_group === g));
+  activeDisease = diseaseGroups[0] || DISEASE_ORDER[0];
+  renderEvidenceTabs();
+  renderDiseaseTabs(diseaseGroups);
+  renderPanel();
+}
+
+function selectDisease(group) {
+  activeDisease = group;
+  renderDiseaseTabs(DISEASE_ORDER.filter(g => library.some(r => r.evidence_type === activeEvidence && r.disease_group === g)));
+  renderPanel();
+}
+
+function renderEvidenceTabs() {
+  const el = document.getElementById("evidence-tabs");
+  el.innerHTML = EVIDENCE_ORDER.map(type => {
+    const count = library.filter(r => r.evidence_type === type).length;
+    const active = type === activeEvidence ? "active" : "";
+    return `<div class="tab-item ${active}" onclick="selectEvidence('${type}')"><span>${type}</span><span class="count">${count}</span></div>`;
+  }).join("");
+}
+
+function renderDiseaseTabs(diseaseGroups) {
+  const el = document.getElementById("disease-tabs");
+  if (diseaseGroups.length === 0) {
+    el.innerHTML = "";
+    return;
+  }
+  el.innerHTML = diseaseGroups.map(group => {
+    const active = group === activeDisease ? "active" : "";
+    return `<div class="etab ${active}" onclick="selectDisease('${group}')">${group}</div>`;
+  }).join("");
+}
+
+fetch("../data/library.json?t=" + Date.now(), {cache: "no-store"})
+  .then(r => r.json())
+  .then(data => {
+    library = data;
+    if (library.length > 0) {
+      const dates = library.map(r => r.date).sort().reverse();
+      document.getElementById("updated-date").textContent = "Sidst opdateret: " + dates[0];
+    }
+    selectEvidence(EVIDENCE_ORDER.find(t => library.some(r => r.evidence_type === t)) || EVIDENCE_ORDER[0]);
+  })
+  .catch(err => {
+    document.getElementById("panel").innerHTML = `<p class="empty-note">Kunne ikke indlæse data.</p>`;
+    console.error(err);
+  });
+</script>
+</body>
+</html>
