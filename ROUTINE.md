@@ -127,10 +127,22 @@ disease group.
   hit (reading only, never rewriting title/authors/abstract) → `update_library.update_library()`.
 - If PubMed's structured-abstract labels are missing for a record, don't invent them —
   store as a single unlabeled section (`fetch_pubmed.py` already does this automatically).
-- Tier is looked up automatically in `fetch_pubmed.py` by journal name (`TIER_MAP`) — no
-  manual or AI judgment needed:
-  - T1: NEJM, Lancet, JAMA, Nature Medicine, BMJ
-  - T2: Lancet Rheumatology, Ann Rheum Dis, Arthritis & Rheumatology, Nat Rev Rheumatol
-  - T3: Rheumatology (Oxford), Arthritis Res Ther, RMD Open, Semin Arthritis Rheum,
-        J Rheumatol, Arthritis Care Res
+- Tier is assigned automatically by `fetch_pubmed.journal_tier()` from the journal's
+  ISO abbreviation — no manual or AI judgment needed. Stored as 1–4; the viewer names
+  them (`TIER_LABEL` in `docs/index.html`):
+  - **1 · Top medicin** — `TIER1_JOURNALS`: NEJM, Lancet, JAMA, BMJ, Ann Intern Med,
+    Nature Medicine, NEJM Evidence, JAMA Intern Med, JAMA Netw Open, EClinicalMedicine.
+    Plus `TIER1_PREFIXES` for the Lancet's regional titles, which only ever appear with
+    a suffix (Lancet Reg Health Eur / Am / …) and so can't be matched exactly.
+  - **2 · Top reumatologi** — `TIER2_JOURNALS`: Ann Rheum Dis, Arthritis & Rheumatology,
+    Lancet Rheumatology, Nat Rev Rheumatol, Rheumatology (Oxford), RMD Open,
+    Semin Arthritis Rheum, J Rheumatol, Arthritis Care Res, Arthritis Res Ther.
+  - **3 · Reumatologi** — everything else rheumatological. Deliberately *not* a list:
+    `RHEUM_JOURNAL` matches the journal name (rheum/reumat/arthrit/lupus/scleroder/
+    sjögren/myositis/vasculit/spondyl/musculoskelet/osteoarthr/gout/connective tissue),
+    so new rheumatology journals are caught without maintenance. `NON_RHEUM_JOURNAL`
+    subtracts radiology/arthroplasty/surgery/orthopaedics — those are neighbouring
+    fields, not rheumatology. `TIER3_JOURNALS` holds the ones whose names contain no
+    such keyword at all (Joint Bone Spine); expect to add to it occasionally.
+  - **4 · Øvrige** — everything else.
   - T4: everything else

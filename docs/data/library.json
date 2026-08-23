@@ -45,7 +45,7 @@
     {
       "pmid": "42603715",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Altaffer",
       "last_author": "Weiss",
@@ -274,7 +274,7 @@
     {
       "pmid": "42601086",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Huang",
       "last_author": "Lee",
@@ -314,7 +314,7 @@
     {
       "pmid": "42601521",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Shen",
       "last_author": "Wang",
@@ -417,7 +417,7 @@
     {
       "pmid": "42592900",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Scand J Rheumatol",
       "first_author": "Stjärne",
       "last_author": "Østerås",
@@ -532,7 +532,7 @@
     {
       "pmid": "42593260",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus",
       "first_author": "Özçelik",
       "last_author": "Çelikel Acar",
@@ -562,7 +562,7 @@
     {
       "pmid": "42593580",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Yang",
       "last_author": "Yan",
@@ -670,7 +670,7 @@
     {
       "pmid": "42587427",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Pou",
       "last_author": "Diaz-Torne",
@@ -866,7 +866,7 @@
     {
       "pmid": "42583764",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus",
       "first_author": "Patel",
       "last_author": "Worley",
@@ -894,7 +894,7 @@
     {
       "pmid": "42584078",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Pappa",
       "last_author": "Fanouriakis",
@@ -934,7 +934,7 @@
     {
       "pmid": "42584086",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Kougkas",
       "last_author": "Fragoulis",
@@ -974,7 +974,7 @@
     {
       "pmid": "42584707",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Kul",
       "last_author": "Yetişgin",
@@ -1004,7 +1004,7 @@
     {
       "pmid": "42602014",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "J Psoriasis Psoriatic Arthritis",
       "first_author": "Strober",
       "last_author": "Gniadecki",
@@ -1435,7 +1435,7 @@
     {
       "pmid": "42574728",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 1,
       "journal": "Ann Intern Med",
       "first_author": "Miettinen",
       "last_author": "Rämö",
@@ -1541,7 +1541,7 @@
     {
       "pmid": "42573228",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "Holladay",
       "last_author": "Curtis",
@@ -1661,7 +1661,7 @@
     {
       "pmid": "42591410",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Adv Pract",
       "first_author": "Monjo-Henry",
       "last_author": "Plasencia-Rodríguez",
@@ -1685,7 +1685,7 @@
     {
       "pmid": "42575539",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Giollo",
       "last_author": "Spiezia",
@@ -1731,7 +1731,7 @@
     {
       "pmid": "42570091",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Głuszak",
       "last_author": "Grygiel-Górniak",
@@ -1871,7 +1871,7 @@
     {
       "pmid": "42579998",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Shanshan",
       "last_author": "Xiaoming",
@@ -2042,7 +2042,7 @@
     {
       "pmid": "42566049",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Šimunić",
       "last_author": "Barešić",
@@ -2215,7 +2215,7 @@
     {
       "pmid": "42568135",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Uribe-Ruíz",
       "last_author": "Rodelo-Ceballos",
@@ -2258,7 +2258,7 @@
     {
       "pmid": "42568146",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Mishra",
       "last_author": "Aggarwal",
@@ -2303,7 +2303,7 @@
     {
       "pmid": "42565853",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Gwóźdź-Broczkowska",
       "last_author": "Gwóźdź-Broczkowska",
@@ -2334,7 +2334,7 @@
     {
       "pmid": "42565551",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Charlton",
       "last_author": "McGrogan",
@@ -2378,7 +2378,7 @@
     {
       "pmid": "42565888",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Romana",
       "last_author": "Louis-Sidney",
@@ -2409,7 +2409,7 @@
     {
       "pmid": "42568143",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Ghassemi",
       "last_author": "Aspinall",
@@ -2787,7 +2787,7 @@
     {
       "pmid": "42562427",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Zhang",
       "last_author": "He",
@@ -2827,7 +2827,7 @@
     {
       "pmid": "42560474",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Kılıç",
       "last_author": "Özgöçmen",
@@ -3091,7 +3091,7 @@
     {
       "pmid": "42557132",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Reumatol Clin (Engl Ed)",
       "first_author": "Rangel Ayón",
       "last_author": "Bravo Oro",
@@ -3134,7 +3134,7 @@
     {
       "pmid": "42556874",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Koelmeyer",
       "last_author": "Hoi",
@@ -3438,7 +3438,7 @@
     {
       "pmid": "42550248",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Memon",
       "last_author": "Sankaralingam",
@@ -3536,7 +3536,7 @@
     {
       "pmid": "42550490",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Mod Rheumatol",
       "first_author": "Umemoto",
       "last_author": "Miyake",
@@ -3650,7 +3650,7 @@
     {
       "pmid": "42552165",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Reumatol Clin (Engl Ed)",
       "first_author": "Rúa-Figueroa",
       "last_author": "Puñal Riobóo",
@@ -3770,7 +3770,7 @@
     {
       "pmid": "42550264",
       "evidence_type": "Evidence synthesis",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Lewandowska-Polak",
       "last_author": "Makowska",
@@ -3798,7 +3798,7 @@
     {
       "pmid": "42552072",
       "evidence_type": "Evidence synthesis",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Shams",
       "last_author": "Studenic",
@@ -4161,7 +4161,7 @@
     {
       "pmid": "42576619",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Arkachaisri",
       "last_author": "Farman",
@@ -4206,7 +4206,7 @@
     {
       "pmid": "42596732",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Lackie",
       "last_author": "Batthish",
@@ -4273,7 +4273,7 @@
     {
       "pmid": "42601817",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Jain",
       "last_author": "Bagri",
@@ -4347,7 +4347,7 @@
     {
       "pmid": "42572441",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Krutko",
       "last_author": "Braaten",
@@ -4383,7 +4383,7 @@
     {
       "pmid": "42581601",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Getachew",
       "last_author": "Sparks",
@@ -4459,7 +4459,7 @@
     {
       "pmid": "42567831",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Jeng",
       "last_author": "Wong",
@@ -4483,7 +4483,7 @@
     {
       "pmid": "42563429",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Kollert",
       "last_author": "Daikeler",
@@ -4543,7 +4543,7 @@
     {
       "pmid": "42568206",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Thoma",
       "last_author": "Allen",
@@ -4579,7 +4579,7 @@
     {
       "pmid": "42549989",
       "evidence_type": "Evidence synthesis",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Barile",
       "last_author": "Corrado",
@@ -4627,7 +4627,7 @@
     {
       "pmid": "42529944",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Taniguchi",
       "last_author": "Okada",
@@ -4651,7 +4651,7 @@
     {
       "pmid": "42530081",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Xue",
       "last_author": "Zou",
@@ -4758,7 +4758,7 @@
     {
       "pmid": "42532981",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Mendel",
       "last_author": "Pagnoux",
@@ -4906,7 +4906,7 @@
     {
       "pmid": "42541684",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Bedaiwi",
       "last_author": "Alanazi",
@@ -4949,7 +4949,7 @@
     {
       "pmid": "42542376",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Ogdie",
       "last_author": "Mease",
@@ -5021,7 +5021,7 @@
     {
       "pmid": "42538780",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Dadson",
       "last_author": "Roivainen",
@@ -5081,7 +5081,7 @@
     {
       "pmid": "42542377",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Barber",
       "last_author": "Lacaille",
@@ -5117,7 +5117,7 @@
     {
       "pmid": "42544852",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Fujiwara",
       "last_author": "Nakashima",
@@ -5423,7 +5423,7 @@
     {
       "pmid": "42535412",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "Powell",
       "last_author": "Ma",
@@ -5639,7 +5639,7 @@
     {
       "pmid": "42542746",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Ther Adv Musculoskelet Dis",
       "first_author": "Barnes",
       "last_author": "Robson",
@@ -5763,7 +5763,7 @@
     {
       "pmid": "42538057",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Vrabie",
       "last_author": "Ismail",
@@ -5874,7 +5874,7 @@
     {
       "pmid": "42536325",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Alhusani",
       "last_author": "Merashli",
@@ -6317,7 +6317,7 @@
     {
       "pmid": "42532550",
       "evidence_type": "Evidence synthesis",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Matucci-Cerinic",
       "last_author": "Dusser",
@@ -6362,7 +6362,7 @@
     {
       "pmid": "42530542",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus",
       "first_author": "Kishida",
       "last_author": "Sekijima",
@@ -6623,7 +6623,7 @@
     {
       "pmid": "42561764",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Muratore",
       "last_author": "Salvarani",
@@ -6663,7 +6663,7 @@
     {
       "pmid": "42556248",
       "evidence_type": "Clinical case/survey",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Hong",
       "last_author": "Proudman",
@@ -6735,7 +6735,7 @@
     {
       "pmid": "42551405",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Treister-Goltzman",
       "last_author": "Treister-Goltzman",
@@ -6782,7 +6782,7 @@
     {
       "pmid": "42525382",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Parker",
       "last_author": "Kenna",
@@ -6891,7 +6891,7 @@
     {
       "pmid": "42536884",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "J Clin Rheumatol",
       "first_author": "Singh",
       "last_author": "Qu",
@@ -7201,7 +7201,7 @@
     {
       "pmid": "42561765",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Gilad-Dor",
       "last_author": "Druyan",
@@ -7335,7 +7335,7 @@
     {
       "pmid": "42521955",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Baranskaya",
       "last_author": "Reynolds",
@@ -7380,7 +7380,7 @@
     {
       "pmid": "42521601",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Staeva",
       "last_author": "Lim",
@@ -7755,7 +7755,7 @@
     {
       "pmid": "42508942",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Chandratre",
       "last_author": "Situnayake",
@@ -7820,7 +7820,7 @@
     {
       "pmid": "42508961",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Ceccarelli",
       "last_author": "Conti",
@@ -7861,7 +7861,7 @@
     {
       "pmid": "42508962",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Hsu",
       "last_author": "Chen",
@@ -7957,7 +7957,7 @@
     {
       "pmid": "42507767",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "J Clin Rheumatol",
       "first_author": "Schneeberger",
       "last_author": "de la Vega",
@@ -8373,7 +8373,7 @@
     {
       "pmid": "42495908",
       "evidence_type": "Clinical case/survey",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "Gaffo",
       "last_author": "Schlesinger",
@@ -8409,7 +8409,7 @@
     {
       "pmid": "42496929",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Chua",
       "last_author": "Kitching",
@@ -8482,7 +8482,7 @@
     {
       "pmid": "42497913",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Joint Bone Spine",
       "first_author": "Steimer",
       "last_author": "Ciurea",
@@ -8590,7 +8590,7 @@
     {
       "pmid": "42496750",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Saidi",
       "last_author": "Cabezas",
@@ -8621,7 +8621,7 @@
     {
       "pmid": "42569792",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Adv Pract",
       "first_author": "Nowak",
       "last_author": "McHenry",
@@ -8863,7 +8863,7 @@
     {
       "pmid": "42542620",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 1,
       "journal": "EClinicalMedicine",
       "first_author": "Corsi-Zuelli",
       "last_author": "Upthegrove",
@@ -8942,7 +8942,7 @@
     {
       "pmid": "42493211",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Sako",
       "last_author": "Iwata",
@@ -9106,7 +9106,7 @@
     {
       "pmid": "42481815",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Cen",
       "last_author": "Cao",
@@ -9190,7 +9190,7 @@
     {
       "pmid": "42484796",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Liu",
       "last_author": "Luo",
@@ -9261,7 +9261,7 @@
     {
       "pmid": "42484290",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Mehta",
       "last_author": "Touma",
@@ -9304,7 +9304,7 @@
     {
       "pmid": "42481994",
       "evidence_type": "Evidence synthesis",
-      "tier": 4,
+      "tier": 3,
       "journal": "BMC Musculoskelet Disord",
       "first_author": "Dong",
       "last_author": "Yue",
@@ -9415,7 +9415,7 @@
     {
       "pmid": "42597774",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Adv Pract",
       "first_author": "Henning",
       "last_author": "McLean",
@@ -9496,7 +9496,7 @@
     {
       "pmid": "42539832",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Adv Pract",
       "first_author": "Lakin",
       "last_author": "Gordon",
@@ -9542,7 +9542,7 @@
     {
       "pmid": "42544615",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Exp Rheumatol",
       "first_author": "Yayla",
       "last_author": "Akdogan",
@@ -9745,7 +9745,7 @@
     {
       "pmid": "42482170",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Adv Rheumatol",
       "first_author": "Santos",
       "last_author": "Xavier",
@@ -9787,7 +9787,7 @@
     {
       "pmid": "42482401",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "George",
       "last_author": "Kremer",
@@ -9895,7 +9895,7 @@
     {
       "pmid": "42477791",
       "evidence_type": "Observational",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Guo",
       "last_author": "Lu",
@@ -10016,7 +10016,7 @@
     {
       "pmid": "42476625",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Moreno-Torres",
       "last_author": "Espinosa",
@@ -10058,7 +10058,7 @@
     {
       "pmid": "42476357",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Joint Bone Spine",
       "first_author": "Perrot",
       "last_author": "Pham",
@@ -10772,7 +10772,7 @@
     {
       "pmid": "42472055",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Adv Pract",
       "first_author": "Kellner",
       "last_author": "Ranganath",
@@ -11416,7 +11416,7 @@
     {
       "pmid": "42544607",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Exp Rheumatol",
       "first_author": "Li",
       "last_author": "Wang",
@@ -12155,7 +12155,7 @@
     {
       "pmid": "42399075",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Dag",
       "last_author": "de Jong",
@@ -12897,7 +12897,7 @@
     {
       "pmid": "42421251",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Mod Rheumatol",
       "first_author": "Ozbudak",
       "last_author": "Zihni",
@@ -12944,7 +12944,7 @@
     {
       "pmid": "41922000",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Richard",
       "last_author": "Rohekar",
@@ -12968,7 +12968,7 @@
     {
       "pmid": "42362943",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Yamaoka",
       "last_author": "Lau",
@@ -13062,7 +13062,7 @@
     {
       "pmid": "42473428",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Kutluca",
       "last_author": "Çitil",
@@ -13107,7 +13107,7 @@
     {
       "pmid": "42487558",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Xu",
       "last_author": "Han",
@@ -13131,7 +13131,7 @@
     {
       "pmid": "42498684",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Xue",
       "last_author": "Zou",
@@ -13311,7 +13311,7 @@
     {
       "pmid": "42503235",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Touma",
       "last_author": "Waratani",
@@ -13455,7 +13455,7 @@
     {
       "pmid": "42348239",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Xavier",
       "last_author": "Ferreira",
@@ -13538,7 +13538,7 @@
     {
       "pmid": "41410387",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Mod Rheumatol",
       "first_author": "Atsumi",
       "last_author": "Matsukawa",
@@ -13585,7 +13585,7 @@
     {
       "pmid": "42384964",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Coates",
       "last_author": "Gossec",
@@ -13633,7 +13633,7 @@
     {
       "pmid": "42476581",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Scott",
       "last_author": "Shenker",
@@ -13885,7 +13885,7 @@
     {
       "pmid": "42365560",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "El Miedany",
       "last_author": "El Miedany",
@@ -14188,7 +14188,7 @@
     {
       "pmid": "42342288",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Fleischmann",
       "last_author": "Mysler",
@@ -14425,7 +14425,7 @@
     {
       "pmid": "42331396",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Meijs",
       "last_author": "Hernell",
@@ -14798,7 +14798,7 @@
     {
       "pmid": "41985922",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Rebollo-Giménez",
       "last_author": "Rosina",
@@ -14984,7 +14984,7 @@
     {
       "pmid": "42270533",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Reumatol Clin (Engl Ed)",
       "first_author": "Chacón-Abril",
       "last_author": "Rodríguez-Reyna",
@@ -15019,7 +15019,7 @@
     {
       "pmid": "42262593",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Önal",
       "last_author": "Bodur",
@@ -15240,7 +15240,7 @@
     {
       "pmid": "42249242",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Yoshida",
       "last_author": "Hirata",
@@ -15326,7 +15326,7 @@
     {
       "pmid": "42247003",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "van Wissen",
       "last_author": "van den Hout",
@@ -15491,7 +15491,7 @@
     {
       "pmid": "42234457",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 1,
       "journal": "NEJM Evid",
       "first_author": "Stone",
       "last_author": "Mendelson",
@@ -15527,7 +15527,7 @@
     {
       "pmid": "42336388",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Md Yusof",
       "last_author": "Vital",
@@ -15828,7 +15828,7 @@
     {
       "pmid": "41912277",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Musculoskeletal Care",
       "first_author": "da Silva Santos",
       "last_author": "Dantas",
@@ -16009,7 +16009,7 @@
     {
       "pmid": "42247731",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Kwanyuen",
       "last_author": "Turesson",
@@ -16130,7 +16130,7 @@
     {
       "pmid": "42204623",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Perton",
       "last_author": "Welsing",
@@ -16177,7 +16177,7 @@
     {
       "pmid": "42209019",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Nevins",
       "last_author": "Bergstra",
@@ -16543,7 +16543,7 @@
     {
       "pmid": "42171657",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Mod Rheumatol",
       "first_author": "Takeuchi",
       "last_author": "Tani",
@@ -16628,7 +16628,7 @@
     {
       "pmid": "42167880",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Lin",
       "last_author": "Connelly",
@@ -16710,7 +16710,7 @@
     {
       "pmid": "42167889",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Maksymowych",
       "last_author": "Greenberg",
@@ -16836,7 +16836,7 @@
     {
       "pmid": "42163316",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Adv Rheumatol",
       "first_author": "Pilotti",
       "last_author": "Xavier",
@@ -17048,7 +17048,7 @@
     {
       "pmid": "42190485",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Murdoch",
       "last_author": "Dalbeth",
@@ -17147,7 +17147,7 @@
     {
       "pmid": "42128531",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Lin",
       "last_author": "Tsai",
@@ -17189,7 +17189,7 @@
     {
       "pmid": "42128532",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Navarro-Compán",
       "last_author": "Marzo-Ortega",
@@ -17235,7 +17235,7 @@
     {
       "pmid": "42129922",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "BMC Rheumatol",
       "first_author": "Yamada",
       "last_author": "Hashimoto",
@@ -17323,7 +17323,7 @@
     {
       "pmid": "42540097",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Grunsted",
       "last_author": "Xu",
@@ -17482,7 +17482,7 @@
     {
       "pmid": "42107587",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Joint Bone Spine",
       "first_author": "Espitia",
       "last_author": "Regent",
@@ -17593,7 +17593,7 @@
     {
       "pmid": "42540192",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Groenen",
       "last_author": "Broeder",
@@ -17629,7 +17629,7 @@
     {
       "pmid": "42143715",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Buttgereit",
       "last_author": "Dejaco",
@@ -17653,7 +17653,7 @@
     {
       "pmid": "42143716",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Aamar",
       "last_author": "Aamar",
@@ -17677,7 +17677,7 @@
     {
       "pmid": "41838419",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Gossec",
       "last_author": "McInnes",
@@ -17869,7 +17869,7 @@
     {
       "pmid": "42303341",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Reumatol Clin (Engl Ed)",
       "first_author": "Navarro",
       "last_author": "Kerzberg",
@@ -17960,7 +17960,7 @@
     {
       "pmid": "42101839",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 1,
       "journal": "JAMA Netw Open",
       "first_author": "Zhu",
       "last_author": "Huang",
@@ -18305,7 +18305,7 @@
     {
       "pmid": "42478015",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Arch Rheumatol",
       "first_author": "Liu",
       "last_author": "Xi",
@@ -18341,7 +18341,7 @@
     {
       "pmid": "42478009",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "Arch Rheumatol",
       "first_author": "Karacif",
       "last_author": "Ayla",
@@ -18377,7 +18377,7 @@
     {
       "pmid": "42540149",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Steimer",
       "last_author": "Ciurea",
@@ -18449,7 +18449,7 @@
     {
       "pmid": "42540107",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Spiera",
       "last_author": "Chen",
@@ -18824,7 +18824,7 @@
     {
       "pmid": "41206733",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Mod Rheumatol",
       "first_author": "Nakaphan",
       "last_author": "Siranart",
@@ -18939,7 +18939,7 @@
     {
       "pmid": "41965705",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Ramiro",
       "last_author": "Ogdie",
@@ -18981,7 +18981,7 @@
     {
       "pmid": "42540120",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Kwan",
       "last_author": "Fong",
@@ -19017,7 +19017,7 @@
     {
       "pmid": "42539970",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Alunno",
       "last_author": "Nurmohamed",
@@ -19053,7 +19053,7 @@
     {
       "pmid": "41966849",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Reumatol Clin (Engl Ed)",
       "first_author": "Narváez",
       "last_author": "Balsa",
@@ -19129,7 +19129,7 @@
     {
       "pmid": "42540147",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Westermann",
       "last_author": "Hellgren",
@@ -19165,7 +19165,7 @@
     {
       "pmid": "41958423",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Reumatismo",
       "first_author": "Ughi",
       "last_author": "Doria",
@@ -19201,7 +19201,7 @@
     {
       "pmid": "42540036",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Chan",
       "last_author": "Nossent",
@@ -19237,7 +19237,7 @@
     {
       "pmid": "41951251",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Doria",
       "last_author": "Kielar",
@@ -19374,7 +19374,7 @@
     {
       "pmid": "42540226",
       "evidence_type": "Observational",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Omura",
       "last_author": "Kawahito",
@@ -19476,7 +19476,7 @@
     {
       "pmid": "41936732",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Khojakulova",
       "last_author": "Kocyigit",
@@ -19519,7 +19519,7 @@
     {
       "pmid": "42540139",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "La Bella",
       "last_author": "Benavent",
@@ -19555,7 +19555,7 @@
     {
       "pmid": "42540174",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Serin",
       "last_author": "Hatemi",
@@ -19591,7 +19591,7 @@
     {
       "pmid": "41974617",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Arkachaisri",
       "last_author": "Farman",
@@ -19634,7 +19634,7 @@
     {
       "pmid": "41949339",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Luo",
       "last_author": "Duan",
@@ -19714,7 +19714,7 @@
     {
       "pmid": "41922627",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Xia",
       "last_author": "Lu",
@@ -19920,7 +19920,7 @@
     {
       "pmid": "41969817",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Immunol Res",
       "first_author": "Zeng",
       "last_author": "Xu",
@@ -20006,7 +20006,7 @@
     {
       "pmid": "41913302",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "BMC Rheumatol",
       "first_author": "Islam",
       "last_author": "Rahman",
@@ -20143,7 +20143,7 @@
     {
       "pmid": "41903071",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Özçelep",
       "last_author": "Alkan",
@@ -20188,7 +20188,7 @@
     {
       "pmid": "42540125",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Ataca",
       "last_author": "Gulle",
@@ -20355,7 +20355,7 @@
     {
       "pmid": "41932224",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Pasoto",
       "last_author": "da Silva",
@@ -20403,7 +20403,7 @@
     {
       "pmid": "41930660",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Exp Rheumatol",
       "first_author": "Alibaz-Oner",
       "last_author": "Aksu",
@@ -20785,7 +20785,7 @@
     {
       "pmid": "42077650",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 1,
       "journal": "EClinicalMedicine",
       "first_author": "Zhang",
       "last_author": "Liu",
@@ -20867,7 +20867,7 @@
     {
       "pmid": "42370102",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Husum",
       "last_author": "Schreiber",
@@ -20937,7 +20937,7 @@
     {
       "pmid": "41821126",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Bentvelzen",
       "last_author": "Welsing",
@@ -21035,7 +21035,7 @@
     {
       "pmid": "41327784",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "Deboo",
       "last_author": "Carsons",
@@ -21107,7 +21107,7 @@
     {
       "pmid": "41734287",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Denton",
       "last_author": "Dehbi",
@@ -21156,7 +21156,7 @@
     {
       "pmid": "41578952",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Blanco",
       "last_author": "Oreiro",
@@ -21203,7 +21203,7 @@
     {
       "pmid": "41781163",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Taylor",
       "last_author": "Fei",
@@ -21244,7 +21244,7 @@
     {
       "pmid": "41770849",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus",
       "first_author": "Williams",
       "last_author": "Oates",
@@ -21385,7 +21385,7 @@
     {
       "pmid": "41241398",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "O'Connor",
       "last_author": "Brunner",
@@ -21425,7 +21425,7 @@
     {
       "pmid": "41241391",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Garcia-Salinas",
       "last_author": "Santos-Moreno",
@@ -21465,7 +21465,7 @@
     {
       "pmid": "41782909",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Ther Adv Musculoskelet Dis",
       "first_author": "Bautista-Molano",
       "last_author": "Soriano",
@@ -21509,7 +21509,7 @@
     {
       "pmid": "41782910",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Ther Adv Musculoskelet Dis",
       "first_author": "Narváez",
       "last_author": "Loza",
@@ -21665,7 +21665,7 @@
     {
       "pmid": "41728909",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "J Clin Rheumatol",
       "first_author": "Morel",
       "last_author": "Appenzeller",
@@ -21827,7 +21827,7 @@
     {
       "pmid": "41717826",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Curr Opin Rheumatol",
       "first_author": "Chiara",
       "last_author": "Vaglio",
@@ -21943,7 +21943,7 @@
     {
       "pmid": "41698796",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Gaudioso",
       "last_author": "Reuss-Borst",
@@ -22065,7 +22065,7 @@
     {
       "pmid": "41669983",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus",
       "first_author": "Williams",
       "last_author": "Oates",
@@ -22242,7 +22242,7 @@
     {
       "pmid": "41652447",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Torii",
       "last_author": "Hashimoto",
@@ -22364,7 +22364,7 @@
     {
       "pmid": "41632483",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Xue",
       "last_author": "Zou",
@@ -22411,7 +22411,7 @@
     {
       "pmid": "41533706",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Kazemi",
       "last_author": "Olsen",
@@ -22524,7 +22524,7 @@
     {
       "pmid": "41652650",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Togizbayev",
       "last_author": "Eraliyeva",
@@ -22626,7 +22626,7 @@
     {
       "pmid": "41612350",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "BMC Musculoskelet Disord",
       "first_author": "D'Agostino",
       "last_author": "Schett",
@@ -22657,7 +22657,7 @@
     {
       "pmid": "41617358",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Smolen",
       "last_author": "Taylor",
@@ -22821,7 +22821,7 @@
     {
       "pmid": "41578353",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Adv Rheumatol",
       "first_author": "Pileggi",
       "last_author": "Souza",
@@ -22959,7 +22959,7 @@
     {
       "pmid": "41558803",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Claassen",
       "last_author": "van der Helm-van Mil",
@@ -23000,7 +23000,7 @@
     {
       "pmid": "41555451",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Ramiro",
       "last_author": "Navarro-Compán",
@@ -23030,7 +23030,7 @@
     {
       "pmid": "41546125",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Adv Rheumatol",
       "first_author": "Heymann",
       "last_author": "Fernandez",
@@ -23148,7 +23148,7 @@
     {
       "pmid": "41544399",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Bergstra",
       "last_author": "van der Helm-van Mil",
@@ -23191,7 +23191,7 @@
     {
       "pmid": "41092316",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Zhao",
       "last_author": "Ngoc Phuong Huynh",
@@ -23268,7 +23268,7 @@
     {
       "pmid": "40971670",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Marzo-Ortega",
       "last_author": "Schett",
@@ -23313,7 +23313,7 @@
     {
       "pmid": "41506743",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Taylor",
       "last_author": "Mease",
@@ -23754,7 +23754,7 @@
     {
       "pmid": "42317568",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "J Scleroderma Relat Disord",
       "first_author": "McMahan",
       "last_author": "Hughes",
@@ -23796,7 +23796,7 @@
     {
       "pmid": "42311957",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "J Scleroderma Relat Disord",
       "first_author": "Hughes",
       "last_author": "McMahan",
@@ -23839,7 +23839,7 @@
     {
       "pmid": "41546150",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Huang",
       "last_author": "Luo",
@@ -23901,7 +23901,7 @@
     {
       "pmid": "40953957",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Weiss",
       "last_author": "Brunner",
@@ -23975,7 +23975,7 @@
     {
       "pmid": "41475837",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Parodis",
       "last_author": "Amoura",
@@ -24169,7 +24169,7 @@
     {
       "pmid": "41454829",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus",
       "first_author": "Nunes Filho",
       "last_author": "Borba Neto",
@@ -24382,7 +24382,7 @@
     {
       "pmid": "41536914",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Adv Pract",
       "first_author": "Gregory",
       "last_author": "McCrum",
@@ -24466,7 +24466,7 @@
     {
       "pmid": "41423293",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Chen",
       "last_author": "Xue",
@@ -24511,7 +24511,7 @@
     {
       "pmid": "40897521",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "Pascart",
       "last_author": "Ducoulombier",
@@ -24662,7 +24662,7 @@
     {
       "pmid": "41407432",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Hadsbjerg",
       "last_author": "Østergaard",
@@ -24802,7 +24802,7 @@
     {
       "pmid": "41396391",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Ther",
       "first_author": "Gladman",
       "last_author": "Coates",
@@ -24924,7 +24924,7 @@
     {
       "pmid": "41396281",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Bakker",
       "last_author": "van Weely",
@@ -24955,7 +24955,7 @@
     {
       "pmid": "42540092",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Girard-Guyonvarc'h",
       "last_author": "Stamm",
@@ -25056,7 +25056,7 @@
     {
       "pmid": "41381211",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Ebina",
       "last_author": "Takeuchi",
@@ -25102,7 +25102,7 @@
     {
       "pmid": "41372962",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Rodolfi",
       "last_author": "Spierings",
@@ -25134,7 +25134,7 @@
     {
       "pmid": "41410348",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "J Clin Rheumatol",
       "first_author": "Manrique de Lara",
       "last_author": "Pons-Estel",
@@ -25351,7 +25351,7 @@
     {
       "pmid": "42540144",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Witte",
       "last_author": "Hermann",
@@ -25418,7 +25418,7 @@
     {
       "pmid": "40953951",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Ye",
       "last_author": "Jamal",
@@ -25461,7 +25461,7 @@
     {
       "pmid": "40816745",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Garcia-Salinas",
       "last_author": "Santos-Moreno",
@@ -25501,7 +25501,7 @@
     {
       "pmid": "40953945",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Ye",
       "last_author": "Jamal",
@@ -25544,7 +25544,7 @@
     {
       "pmid": "41408498",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Fusama",
       "last_author": "Takeuchi",
@@ -25647,7 +25647,7 @@
     {
       "pmid": "41318847",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Rong",
       "last_author": "Zhang",
@@ -25689,7 +25689,7 @@
     {
       "pmid": "41318485",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Gossec",
       "last_author": "Kishimoto",
@@ -25782,7 +25782,7 @@
     {
       "pmid": "41314667",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Marzo-Ortega",
       "last_author": "Deodhar",
@@ -25828,7 +25828,7 @@
     {
       "pmid": "41314669",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Mistegaard",
       "last_author": "Proft",
@@ -26067,7 +26067,7 @@
     {
       "pmid": "40827007",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "Pryymachenko",
       "last_author": "Stamp",
@@ -26193,7 +26193,7 @@
     {
       "pmid": "41120227",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "Kiefer",
       "last_author": "Kiltz",
@@ -26229,7 +26229,7 @@
     {
       "pmid": "40771143",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "Barry",
       "last_author": "Mikuls",
@@ -26354,7 +26354,7 @@
     {
       "pmid": "41239458",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Feist",
       "last_author": "Smolen",
@@ -26546,7 +26546,7 @@
     {
       "pmid": "41225655",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "BMC Rheumatol",
       "first_author": "Ren",
       "last_author": "Yan",
@@ -26597,7 +26597,7 @@
     {
       "pmid": "41234672",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Adv Pract",
       "first_author": "Franco",
       "last_author": "Talesnik",
@@ -26663,7 +26663,7 @@
     {
       "pmid": "41219127",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Mitropoulos",
       "last_author": "Klonizakis",
@@ -26756,7 +26756,7 @@
     {
       "pmid": "41247141",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Reumatismo",
       "first_author": "Crotti",
       "last_author": "Sebastiani",
@@ -26792,7 +26792,7 @@
     {
       "pmid": "41211752",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Scand J Rheumatol",
       "first_author": "van Dongen",
       "last_author": "Walrabenstein",
@@ -26828,7 +26828,7 @@
     {
       "pmid": "41206822",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Selvadurai",
       "last_author": "Aung",
@@ -27049,7 +27049,7 @@
     {
       "pmid": "41193232",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Kameda",
       "last_author": "Tanaka",
@@ -27089,7 +27089,7 @@
     {
       "pmid": "41182321",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Care Res (Hoboken)",
       "first_author": "Sammaritano",
       "last_author": "Mustafa",
@@ -27169,7 +27169,7 @@
     {
       "pmid": "40845173",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Pagnoux",
       "last_author": "Mendel",
@@ -27193,7 +27193,7 @@
     {
       "pmid": "40750315",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "J Rheumatol",
       "first_author": "Ribeiro",
       "last_author": "García-Salinas",
@@ -27280,7 +27280,7 @@
     {
       "pmid": "41165066",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus",
       "first_author": "Caruso Mazzolani",
       "last_author": "Gualano",
@@ -27310,7 +27310,7 @@
     {
       "pmid": "41148515",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Mo",
       "last_author": "Dai",
@@ -27444,7 +27444,7 @@
     {
       "pmid": "41146314",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Perton",
       "last_author": "Welsing",
@@ -27530,7 +27530,7 @@
     {
       "pmid": "41136221",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Witte",
       "last_author": "Wenzel",
@@ -27574,7 +27574,7 @@
     {
       "pmid": "41125403",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Ramiro",
       "last_author": "McGonagle",
@@ -27666,7 +27666,7 @@
     {
       "pmid": "41120192",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Lupus Sci Med",
       "first_author": "Leung",
       "last_author": "Williams",
@@ -27708,7 +27708,7 @@
     {
       "pmid": "41107055",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Smith",
       "last_author": "Cutolo",
@@ -27864,7 +27864,7 @@
     {
       "pmid": "41105460",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Exp Rheumatol",
       "first_author": "Ye",
       "last_author": "Li",
@@ -28006,7 +28006,7 @@
     {
       "pmid": "41052893",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Geetha",
       "last_author": "Jayne",
@@ -28052,7 +28052,7 @@
     {
       "pmid": "41052889",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Gavin",
       "last_author": "Ferrari",
@@ -28345,7 +28345,7 @@
     {
       "pmid": "40991063",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Sloan",
       "last_author": "Naughton",
@@ -28454,7 +28454,7 @@
     {
       "pmid": "41004307",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Exp Rheumatol",
       "first_author": "Hosokawa",
       "last_author": "Kaneko",
@@ -28490,7 +28490,7 @@
     {
       "pmid": "42540103",
       "evidence_type": "Clinical case/survey",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Albach",
       "last_author": "Simon",
@@ -28514,7 +28514,7 @@
     {
       "pmid": "40968365",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Bilberg",
       "last_author": "Mannerkorpi",
@@ -28598,7 +28598,7 @@
     {
       "pmid": "41045868",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Ward",
       "last_author": "Constantinescu",
@@ -28642,7 +28642,7 @@
     {
       "pmid": "40994732",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Adv Pract",
       "first_author": "van der Leeuw",
       "last_author": "van Laar",
@@ -28726,7 +28726,7 @@
     {
       "pmid": "40931328",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "BMC Rheumatol",
       "first_author": "Torell",
       "last_author": "Haglund",
@@ -28756,7 +28756,7 @@
     {
       "pmid": "41045867",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Alnaqbi",
       "last_author": "Poddubnyy",
@@ -28915,7 +28915,7 @@
     {
       "pmid": "40913677",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Akgöz",
       "last_author": "Ünal",
@@ -29062,7 +29062,7 @@
     {
       "pmid": "40924426",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 1,
       "journal": "JAMA Netw Open",
       "first_author": "Knitza",
       "last_author": "Klein",
@@ -29114,7 +29114,7 @@
     {
       "pmid": "42368617",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Madrid-García",
       "last_author": "Freites-Núñez",
@@ -29361,7 +29361,7 @@
     {
       "pmid": "40883646",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Prasad",
       "last_author": "Jain",
@@ -29404,7 +29404,7 @@
     {
       "pmid": "40913838",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Joerns",
       "last_author": "Kronzer",
@@ -29482,7 +29482,7 @@
     {
       "pmid": "40907277",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Ausma",
       "last_author": "Arends",
@@ -29601,7 +29601,7 @@
     {
       "pmid": "40854810",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Coates",
       "last_author": "Gossec",
@@ -29641,7 +29641,7 @@
     {
       "pmid": "42368611",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "EULAR Rheumatol Open",
       "first_author": "Kostopoulou",
       "last_author": "Fanouriakis",
@@ -29817,7 +29817,7 @@
     {
       "pmid": "40852405",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "J Scleroderma Relat Disord",
       "first_author": "Maltez",
       "last_author": "Hughes",
@@ -29859,7 +29859,7 @@
     {
       "pmid": "40829888",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Merrill",
       "last_author": "D'Silva",
@@ -29899,7 +29899,7 @@
     {
       "pmid": "40818016",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Aguila",
       "last_author": "Domiciano",
@@ -29941,7 +29941,7 @@
     {
       "pmid": "40813108",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Shen",
       "last_author": "Shisha",
@@ -30033,7 +30033,7 @@
     {
       "pmid": "40794196",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Okyar",
       "last_author": "Kocyigit",
@@ -30063,7 +30063,7 @@
     {
       "pmid": "40795468",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "J Clin Rheumatol",
       "first_author": "Quiñones",
       "last_author": "Kerr",
@@ -30103,7 +30103,7 @@
     {
       "pmid": "40803820",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Winthrop",
       "last_author": "Cunningham",
@@ -30245,7 +30245,7 @@
     {
       "pmid": "40764228",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Reumatol Clin (Engl Ed)",
       "first_author": "Cañete",
       "last_author": "Díaz Del Campo Fontecha",
@@ -30276,7 +30276,7 @@
     {
       "pmid": "40759562",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "RMD Open",
       "first_author": "Agueusop",
       "last_author": "Biesemann",
@@ -30316,7 +30316,7 @@
     {
       "pmid": "40851321",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Li",
       "last_author": "Zhao",
@@ -30358,7 +30358,7 @@
     {
       "pmid": "40810458",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "ACR Open Rheumatol",
       "first_author": "Klionsky",
       "last_author": "LaMoreaux",
@@ -30394,7 +30394,7 @@
     {
       "pmid": "40725984",
       "evidence_type": "Guideline/consensus",
-      "tier": 4,
+      "tier": 3,
       "journal": "Int J Rheum Dis",
       "first_author": "Leung",
       "last_author": "Tam",
@@ -30434,7 +30434,7 @@
     {
       "pmid": "40748484",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Rheumatol Int",
       "first_author": "Fayet",
       "last_author": "Soubrier",
@@ -30465,7 +30465,7 @@
     {
       "pmid": "40720835",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 1,
       "journal": "Ann Intern Med",
       "first_author": "Terrier",
       "last_author": "Puéchal",
@@ -30624,7 +30624,7 @@
     {
       "pmid": "40713837",
       "evidence_type": "RCT",
-      "tier": 3,
+      "tier": 2,
       "journal": "Arthritis Res Ther",
       "first_author": "Fatima",
       "last_author": "Maglio",
@@ -30666,7 +30666,7 @@
     {
       "pmid": "40715923",
       "evidence_type": "RCT",
-      "tier": 4,
+      "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Yentur",
       "last_author": "Koca",
@@ -30754,7 +30754,7 @@
     {
       "pmid": "40712275",
       "evidence_type": "Guideline/consensus",
-      "tier": 3,
+      "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Santos",
       "last_author": "Sepriano",

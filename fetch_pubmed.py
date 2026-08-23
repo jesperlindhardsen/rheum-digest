@@ -16,6 +16,7 @@ Usage: import this module and call fetch_all_hits()
 """
 
 import os
+import re
 import time
 from datetime import datetime, timedelta
 from xml.etree import ElementTree as ET
@@ -70,14 +71,48 @@ LANGUAGE_FILTER = '(english[la] OR danish[la])'
 # typo rather than a post-dated issue. See _parse_date.
 FUTURE_DATE_TOLERANCE_DAYS = 120
 
-# Keys are PubMed's ISO abbreviation (MedlineJournalInfo/ISOAbbreviation) --
-# the canonical short form PubMed itself uses, so lookups need no fuzzy matching.
-TIER_MAP = {
-    "N Engl J Med": 1, "Lancet": 1, "JAMA": 1, "Nat Med": 1, "BMJ": 1,
-    "Lancet Rheumatol": 2, "Ann Rheum Dis": 2, "Arthritis Rheumatol": 2, "Nat Rev Rheumatol": 2,
-    "Rheumatology (Oxford)": 3, "Arthritis Res Ther": 3, "RMD Open": 3,
-    "Semin Arthritis Rheum": 3, "J Rheumatol": 3, "Arthritis Care Res (Hoboken)": 3,
+# Four journal classes, in the viewer's words: top medicine / top rheumatology /
+# rheumatology / everything else. Names below are PubMed's ISO abbreviation
+# (MedlineJournalInfo/ISOAbbreviation), the canonical short form PubMed itself
+# uses, so exact lookups need no fuzzy matching.
+TIER1_JOURNALS = {
+    "N Engl J Med", "Lancet", "JAMA", "BMJ", "Ann Intern Med", "Nat Med",
+    "NEJM Evid", "JAMA Intern Med", "JAMA Netw Open", "EClinicalMedicine",
 }
+TIER2_JOURNALS = {
+    "Ann Rheum Dis", "Arthritis Rheumatol", "Lancet Rheumatol", "Nat Rev Rheumatol",
+    "Rheumatology (Oxford)", "RMD Open", "Semin Arthritis Rheum", "J Rheumatol",
+    "Arthritis Care Res (Hoboken)", "Arthritis Res Ther",
+}
+
+# The Lancet's regional titles only ever appear with a suffix -- Lancet Reg
+# Health Eur, ... Am, ... West Pac -- so an exact key would never match.
+TIER1_PREFIXES = ("Lancet Reg Health",)
+
+# Tier 3 is open-ended by design: new rheumatology journals appear constantly,
+# and an explicit list would always lag behind them. Matching the name keeps it
+# self-maintaining. \brheum (not rheumat) so "Int J Rheum Dis" is caught, and
+# no bare "arthro" -- that pulled in arthroplasty, which is orthopaedics.
+RHEUM_JOURNAL = re.compile(
+    r"\brheum|reumat|arthrit|lupus|scleroder|sj[oö]gren|myositis|vasculit|"
+    r"spondyl|musculoskelet|osteoarthr|\bgout\b|connective tissue", re.IGNORECASE)
+NON_RHEUM_JOURNAL = re.compile(r"radiol|arthroplast|surg|orthop", re.IGNORECASE)
+
+# Rheumatology journals whose names carry none of the keywords above.
+TIER3_JOURNALS = {"Joint Bone Spine"}
+
+
+def journal_tier(iso_abbrev: str) -> int:
+    """1 top medicine, 2 top rheumatology, 3 rheumatology, 4 everything else."""
+    if iso_abbrev in TIER1_JOURNALS or iso_abbrev.startswith(TIER1_PREFIXES):
+        return 1
+    if iso_abbrev in TIER2_JOURNALS:
+        return 2
+    if iso_abbrev in TIER3_JOURNALS:
+        return 3
+    if RHEUM_JOURNAL.search(iso_abbrev) and not NON_RHEUM_JOURNAL.search(iso_abbrev):
+        return 3
+    return 4
 
 
 def _session() -> requests.Session:
@@ -212,7 +247,7 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
     last_author = last_names[-1] if last_names else first_author
 
     iso_abbrev = _text(article.find(".//Journal/ISOAbbreviation")) or "Unknown"
-    tier = TIER_MAP.get(iso_abbrev, 4)
+    tier = journal_tier(iso_abbrev)
 
     abstract_sections = _parse_abstract(article)
     if not abstract_sections:

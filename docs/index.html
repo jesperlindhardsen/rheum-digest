@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=9">
+<link rel="stylesheet" href="assets/style.css?v=10">
 </head>
 <body class="salix">
 <header class="site-header">
@@ -53,6 +53,11 @@ const MONTHS_DA = ["januar","februar","marts","april","maj","juni",
                    "juli","august","september","oktober","november","december"];
 
 const TIERS = [1, 2, 3, 4];
+// What the tiers actually mean, in the reader's words. Stored as 1-4 so the
+// data stays language-neutral; only the viewer names them.
+const TIER_LABEL = {
+  1: "Top medicin", 2: "Top reumatologi", 3: "Reumatologi", 4: "Øvrige"
+};
 
 let library = [];
 let activeDisease = null;
@@ -115,7 +120,7 @@ function renderItem(rec) {
     : "";
   return `
     <div class="item">
-      <p class="title">${rec.title}<span class="tier-badge t${rec.tier}">T${rec.tier}</span></p>
+      <p class="title">${rec.title}<span class="tier-badge t${rec.tier}">${TIER_LABEL[rec.tier]}</span></p>
       <p class="meta">${authorLine(rec)} · <span class="journal">${rec.journal}</span> · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a></p>
       ${keywords}
       <details class="abstract-toggle">
@@ -129,7 +134,7 @@ function renderPanel() {
   const panel = document.getElementById("panel");
 
   if (activeTiers.size === 0) {
-    panel.innerHTML = `<p class="empty-note">Vælg mindst ét niveau.</p>`;
+    panel.innerHTML = `<p class="empty-note">Vælg mindst én tidsskrifttype.</p>`;
     return;
   }
 
@@ -203,11 +208,11 @@ function toggleTier(tier) {
 
 function renderTierFilter() {
   const el = document.getElementById("tier-filter");
-  el.innerHTML = `<span class="tier-filter-label">Niveau</span>` + TIERS.map(tier => {
+  el.innerHTML = `<span class="tier-filter-label">Tidsskrifttype</span>` + TIERS.map(tier => {
     const on = activeTiers.has(tier);
     const count = library.filter(r => r.tier === tier && inEvidence(r)).length;
     return `<label class="tier-chip t${tier}${on ? " on" : ""}">
-      <input type="checkbox" ${on ? "checked" : ""} onchange="toggleTier(${tier})">T${tier}
+      <input type="checkbox" ${on ? "checked" : ""} onchange="toggleTier(${tier})">${TIER_LABEL[tier]}
       <span class="tier-chip-count">${count}</span>
     </label>`;
   }).join("");
