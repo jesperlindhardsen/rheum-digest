@@ -59,6 +59,30 @@ EVIDENCE_FILTERS = {
     "Clinical case/survey": '("Case Reports"[pt] OR "case series"[tiab] OR survey[tiab])',
 }
 
+# Which query found a hit is a poor guide to what it is: the [tiab] clauses in
+# EVIDENCE_FILTERS are deliberately loose, so a systematic review that merely
+# mentions "randomized controlled trial" in its abstract is returned by the RCT
+# query -- and since fetch_all_hits dedups first-wins, that label stuck.
+# PubMed's own PublicationType is authoritative, so prefer it, most specific
+# first. Falls back to the finding query only when the record carries none of
+# these (common for ahead-of-print records not yet MeSH-indexed).
+EVIDENCE_PRECEDENCE = [
+    ("Guideline/consensus", {"Guideline", "Practice Guideline", "Consensus Development Conference"}),
+    ("Evidence synthesis", {"Systematic Review", "Meta-Analysis"}),
+    ("RCT", {"Randomized Controlled Trial"}),
+    ("Observational", {"Observational Study"}),
+    ("Clinical case/survey", {"Case Reports"}),
+]
+
+
+def classify_evidence_type(publication_types, fallback: str) -> str:
+    types = set(publication_types)
+    for name, tags in EVIDENCE_PRECEDENCE:
+        if types & tags:
+            return name
+    return fallback
+
+
 EXCLUDE_TYPES = {"Preprint", "Published Erratum", "Retraction of Publication", "Retracted Publication"}
 
 # Only English- and Danish-language articles. Applied twice: as a PubMed search
@@ -235,6 +259,9 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
     if not set(languages) & ALLOWED_LANGUAGES:
         return None
 
+    # The finding query is only a fallback; PubMed's own type wins.
+    evidence_type = classify_evidence_type(pub_types, evidence_type)
+
     pmid = _text(pubmed_article.find(".//PMID"))
     title = _text(article.find("ArticleTitle"))
     date = _parse_date(pubmed_article)
@@ -260,6 +287,7 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
     return {
         "pmid": pmid,
         "languages": languages,
+        "publication_types": sorted(pub_types),
         "journal": iso_abbrev,
         "first_author": first_author,
         "last_author": last_author,

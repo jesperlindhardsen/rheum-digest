@@ -58,8 +58,19 @@ Query strings and evidence-type filters live in `fetch_pubmed.py`
 
 Evidence types (5), by stored key: RCT, Guideline/consensus, Evidence synthesis,
 Observational, Clinical case/survey. The viewer relabels these for display
-(`EVIDENCE_LABEL` in `docs/index.html`) — notably Evidence synthesis reads
-"Meta/reviews". The keys are what lives in the data; don't rename them there.
+(`EVIDENCE_LABEL` for the tabs, `EVIDENCE_BADGE` for the shorter on-card chip, both
+in `docs/index.html`) — notably Evidence synthesis reads "Meta/reviews". The keys
+are what lives in the data; don't rename them there.
+
+**Which query found a hit does not decide its type.** The `[tiab]` clauses in
+`EVIDENCE_FILTERS` are deliberately loose — a systematic review that merely mentions
+"randomized controlled trial" in its abstract is returned by the RCT query — and
+`fetch_all_hits` dedups first-wins, so that label would stick. `classify_evidence_type()`
+therefore derives the type from PubMed's own `PublicationType`, most specific first
+(`EVIDENCE_PRECEDENCE`: Guideline → Evidence synthesis → RCT → Observational → Case).
+The finding query is only the fallback, used when a record carries none of those tags —
+common for ahead-of-print records not yet MeSH-indexed (296 of the current 826).
+Each record stores its `publication_types` so this stays auditable without re-fetching.
 
 ## STEP 2 — UPDATE LIBRARY (run update_library.py)
 Pass the classified hits into `update_library(new_hits, "docs/data/library.json")`. The script:

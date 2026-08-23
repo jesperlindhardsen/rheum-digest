@@ -40,6 +40,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -76,6 +80,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -117,6 +124,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Review",
+        "Systematic Review"
       ]
     },
     {
@@ -167,6 +180,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -204,6 +221,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -245,6 +266,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -269,6 +294,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -309,6 +337,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -351,6 +382,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -381,6 +415,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -412,6 +450,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comment",
+        "Editorial"
       ]
     },
     {
@@ -448,6 +490,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -499,6 +544,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -527,6 +575,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -557,6 +609,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -599,6 +654,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -629,6 +687,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -665,6 +727,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -710,6 +775,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -740,6 +808,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -807,11 +879,14 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
       "pmid": "42586922",
-      "evidence_type": "Observational",
+      "evidence_type": "Clinical case/survey",
       "tier": 4,
       "journal": "Arch Bronconeumol",
       "first_author": "Boira",
@@ -832,6 +907,10 @@
       "languages": [
         "eng",
         "spa"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -861,6 +940,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -889,6 +971,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -929,6 +1014,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -969,6 +1057,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -999,6 +1090,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -1046,6 +1140,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -1092,6 +1189,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -1122,6 +1222,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1166,6 +1270,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1204,6 +1312,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1234,6 +1346,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -1264,6 +1379,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Review"
       ]
     },
     {
@@ -1304,6 +1424,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -1328,6 +1452,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1366,6 +1494,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1406,6 +1538,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -1430,6 +1565,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
       ]
     },
     {
@@ -1494,6 +1633,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -1536,6 +1678,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -1572,6 +1717,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -1599,6 +1747,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1623,6 +1775,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Letter"
       ]
     },
     {
@@ -1656,6 +1811,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1680,6 +1839,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1726,6 +1889,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -1757,6 +1924,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1787,6 +1958,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study"
       ]
     },
     {
@@ -1825,6 +2000,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1866,6 +2045,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -1908,6 +2091,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -1950,6 +2136,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -1994,6 +2184,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -2037,6 +2231,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2068,6 +2265,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2092,6 +2292,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -2123,6 +2327,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -2164,6 +2372,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2210,6 +2421,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -2253,6 +2469,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2298,6 +2517,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2329,6 +2551,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -2373,6 +2599,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2404,6 +2633,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2445,6 +2677,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2481,6 +2716,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2513,6 +2751,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2555,6 +2796,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2597,6 +2841,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2633,6 +2880,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -2679,11 +2930,14 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
       "pmid": "42562678",
-      "evidence_type": "Observational",
+      "evidence_type": "Guideline/consensus",
       "tier": 4,
       "journal": "Rev Med Interne",
       "first_author": "de Boysson",
@@ -2711,6 +2965,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Review"
       ]
     },
     {
@@ -2758,6 +3017,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2782,6 +3044,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -2822,6 +3088,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2863,6 +3132,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2906,6 +3178,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2937,6 +3212,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -2961,6 +3239,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3002,6 +3283,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3032,6 +3316,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -3059,6 +3347,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -3086,6 +3378,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -3129,6 +3425,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -3169,6 +3469,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3215,6 +3518,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3251,6 +3557,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3291,6 +3600,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -3339,6 +3652,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3370,6 +3686,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
       ]
     },
     {
@@ -3433,6 +3753,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3465,6 +3788,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -3507,6 +3835,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -3531,6 +3863,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -3576,6 +3912,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3600,6 +3939,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -3645,6 +3988,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3678,6 +4024,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -3702,6 +4052,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3729,6 +4082,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -3765,6 +4122,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -3793,6 +4153,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -3839,6 +4203,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -3882,6 +4251,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -3912,6 +4285,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -3955,6 +4332,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -3987,6 +4368,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4029,6 +4414,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4072,6 +4460,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4102,6 +4493,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4132,6 +4527,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4156,6 +4555,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4201,6 +4604,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -4237,6 +4645,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4268,6 +4679,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4304,6 +4719,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4342,6 +4760,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4378,6 +4800,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4414,6 +4839,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4454,6 +4882,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -4478,6 +4910,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4502,6 +4938,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4538,6 +4978,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4574,6 +5018,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4622,6 +5069,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -4646,6 +5097,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4691,6 +5146,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -4721,6 +5183,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -4753,6 +5219,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study"
       ]
     },
     {
@@ -4789,6 +5259,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4831,6 +5304,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4861,6 +5337,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -4901,6 +5381,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -4944,6 +5428,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -4980,6 +5467,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5016,6 +5506,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study"
       ]
     },
     {
@@ -5040,6 +5534,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -5076,6 +5574,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5112,6 +5613,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5154,6 +5658,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5190,6 +5697,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -5232,6 +5744,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5262,6 +5777,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -5305,6 +5824,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5352,6 +5874,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Network Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -5382,6 +5909,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -5418,6 +5949,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -5454,6 +5989,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5478,6 +6016,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -5521,6 +6063,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -5553,6 +6099,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5584,6 +6133,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -5634,6 +6187,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -5667,6 +6224,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -5697,6 +6258,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -5727,6 +6292,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5758,6 +6326,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -5798,6 +6371,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -5828,6 +6405,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
       ]
     },
     {
@@ -5869,6 +6450,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -5912,6 +6497,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -5945,6 +6533,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -5995,6 +6587,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -6037,6 +6633,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6075,6 +6674,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -6105,6 +6708,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -6154,6 +6761,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -6196,6 +6807,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6223,6 +6837,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -6252,6 +6870,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -6281,6 +6903,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -6312,6 +6938,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -6357,6 +6987,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -6386,6 +7020,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6417,6 +7054,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6458,6 +7098,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6490,6 +7133,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6533,6 +7179,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -6576,6 +7226,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6618,6 +7271,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6658,6 +7314,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6700,6 +7359,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -6730,6 +7393,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6777,6 +7443,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6819,6 +7488,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6846,6 +7518,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -6886,6 +7562,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -6928,6 +7608,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -6958,6 +7641,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -6992,6 +7679,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7030,6 +7720,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7077,6 +7771,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7110,6 +7807,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7153,6 +7854,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7196,6 +7901,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7241,6 +7949,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7271,6 +7982,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7301,6 +8016,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7330,6 +8049,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7375,6 +8098,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7412,6 +8138,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -7468,6 +8198,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Historical Article",
+        "Journal Article"
       ]
     },
     {
@@ -7498,6 +8233,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7536,6 +8275,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7566,6 +8309,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7602,6 +8349,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7633,6 +8383,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7680,6 +8434,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7709,6 +8466,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7750,6 +8511,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7791,6 +8555,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7815,6 +8582,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7856,6 +8627,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7896,6 +8670,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7920,6 +8697,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -7952,6 +8732,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -7998,6 +8782,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8050,6 +8837,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8074,6 +8864,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -8121,6 +8915,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8170,6 +8967,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -8202,6 +9004,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -8245,6 +9051,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -8288,6 +9098,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -8332,6 +9146,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8368,6 +9185,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8404,6 +9224,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8435,6 +9258,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8477,6 +9303,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8513,6 +9342,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8544,6 +9376,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8585,6 +9420,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Observational Study"
       ]
     },
     {
@@ -8616,6 +9456,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -8657,6 +9501,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8696,6 +9543,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -8734,6 +9585,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -8778,6 +9633,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -8816,6 +9675,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -8858,6 +9721,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8904,6 +9770,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8937,6 +9806,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -8977,6 +9849,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9007,6 +9882,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -9049,6 +9928,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -9101,6 +9985,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -9143,6 +10031,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9185,6 +10076,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9228,6 +10122,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9256,6 +10153,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -9299,6 +10200,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -9339,6 +10245,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -9368,6 +10278,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9410,6 +10323,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -9453,6 +10370,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9491,6 +10411,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -9537,6 +10461,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9573,6 +10500,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9615,6 +10545,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase IV",
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -9652,6 +10588,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9693,6 +10632,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9740,6 +10682,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9782,6 +10727,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -9818,6 +10767,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9860,6 +10812,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9890,6 +10845,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -9931,6 +10890,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -9960,6 +10922,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -9987,6 +10953,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10011,6 +10981,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10053,6 +11027,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10094,6 +11071,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10136,6 +11116,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10182,6 +11166,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10227,6 +11214,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10269,6 +11259,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -10306,6 +11302,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10336,6 +11336,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10375,6 +11379,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10417,6 +11425,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10460,6 +11471,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10503,6 +11517,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10535,6 +11552,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10581,6 +11602,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10623,6 +11648,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10664,6 +11692,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10707,6 +11739,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -10743,6 +11779,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10767,6 +11807,11 @@
       ],
       "languages": [
         "dan"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "English Abstract",
+        "Journal Article"
       ]
     },
     {
@@ -10810,6 +11855,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10853,6 +11901,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -10888,6 +11939,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10920,6 +11975,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10950,6 +12009,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -10981,6 +12044,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11012,6 +12079,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11055,6 +12126,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -11083,6 +12157,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11125,6 +12203,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11156,6 +12238,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11192,6 +12278,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11223,6 +12313,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11268,6 +12362,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -11308,6 +12405,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -11346,6 +12447,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11376,6 +12481,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11411,6 +12520,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11447,6 +12560,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -11485,6 +12601,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11519,6 +12639,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11551,6 +12675,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11583,6 +12711,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article",
+        "Scoping Review"
       ]
     },
     {
@@ -11627,6 +12760,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -11669,6 +12806,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11707,6 +12848,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11747,6 +12892,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11777,6 +12926,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11808,6 +12961,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11838,6 +12995,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -11880,6 +13041,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study"
       ]
     },
     {
@@ -11904,6 +13069,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -11946,6 +13114,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -11985,6 +13156,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12027,6 +13202,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -12060,6 +13238,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12090,6 +13272,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12120,6 +13306,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12150,6 +13340,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12190,6 +13384,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -12220,6 +13419,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12262,6 +13465,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12307,6 +13514,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -12345,6 +13556,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12389,6 +13604,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12419,6 +13638,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12451,6 +13674,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12486,6 +13713,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12519,6 +13750,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12559,6 +13794,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -12592,6 +13832,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12616,6 +13860,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12640,6 +13888,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12670,6 +13922,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12703,6 +13959,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12733,6 +13993,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12768,6 +14032,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12798,6 +14066,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -12834,6 +14106,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Observational Study"
       ]
     },
     {
@@ -12892,6 +14169,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -12939,6 +14220,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -12963,6 +14247,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Letter"
       ]
     },
     {
@@ -13001,6 +14288,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -13057,6 +14348,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -13102,6 +14397,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -13126,6 +14425,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Letter"
       ]
     },
     {
@@ -13174,6 +14476,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -13204,6 +14513,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13228,6 +14541,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13277,6 +14594,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -13306,6 +14628,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13342,6 +14668,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -13370,6 +14699,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13405,6 +14738,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13450,6 +14787,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -13491,6 +14832,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -13533,6 +14877,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -13580,6 +14928,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -13628,6 +14982,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -13657,6 +15017,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -13694,6 +15059,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13724,6 +15093,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13754,6 +15127,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13784,6 +15161,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13817,6 +15198,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13847,6 +15232,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13880,6 +15269,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13928,6 +15321,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -13968,6 +15365,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -13997,6 +15398,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14027,6 +15432,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14057,6 +15466,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14088,6 +15501,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -14118,6 +15534,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14148,6 +15568,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14183,6 +15607,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -14228,6 +15656,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -14258,6 +15692,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -14301,6 +15739,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -14335,6 +15778,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14365,6 +15812,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14396,6 +15847,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14420,6 +15875,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14465,6 +15924,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -14495,6 +15959,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14537,6 +16005,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -14575,6 +16046,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14604,6 +16079,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14640,6 +16119,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -14670,6 +16152,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14700,6 +16186,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14739,6 +16229,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14763,6 +16257,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14793,6 +16291,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14829,6 +16331,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -14871,6 +16376,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -14901,6 +16409,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14938,6 +16450,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -14979,6 +16495,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -15014,6 +16534,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -15046,6 +16570,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -15083,6 +16611,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15119,6 +16651,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15159,6 +16695,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15183,6 +16723,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -15211,6 +16755,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -15235,6 +16782,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -15278,11 +16829,15 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "42260845",
-      "evidence_type": "RCT",
+      "evidence_type": "Evidence synthesis",
       "tier": 4,
       "journal": "Medicine (Baltimore)",
       "first_author": "Gou",
@@ -15321,6 +16876,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -15350,6 +16910,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -15393,6 +16957,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -15431,6 +16998,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15455,6 +17026,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15486,6 +17061,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15522,6 +17101,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -15552,6 +17137,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -15588,6 +17178,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -15618,6 +17211,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -15643,6 +17239,11 @@
       "languages": [
         "eng",
         "spa"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -15667,6 +17268,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15703,6 +17308,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -15727,6 +17335,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15751,6 +17363,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15775,6 +17391,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15799,6 +17419,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15823,6 +17447,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -15870,6 +17498,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -15916,6 +17548,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -15957,6 +17593,9 @@
       "languages": [
         "por",
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -16004,6 +17643,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16044,6 +17687,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -16085,6 +17731,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16125,6 +17778,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16172,6 +17831,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16212,6 +17875,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -16252,6 +17922,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -16303,6 +17977,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -16348,6 +18025,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16394,6 +18076,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -16442,6 +18127,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16490,6 +18179,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16514,6 +18208,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Letter"
       ]
     },
     {
@@ -16538,6 +18235,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -16580,6 +18283,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -16623,6 +18329,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16664,6 +18374,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16705,6 +18420,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16749,6 +18471,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16791,6 +18519,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -16831,6 +18563,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -16876,11 +18613,15 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "42245676",
-      "evidence_type": "RCT",
+      "evidence_type": "Evidence synthesis",
       "tier": 4,
       "journal": "Front Immunol",
       "first_author": "Xu",
@@ -16922,6 +18663,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -16969,6 +18715,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article",
+        "Practice Guideline",
+        "Systematic Review"
       ]
     },
     {
@@ -16997,6 +18749,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -17043,11 +18799,15 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "42190485",
-      "evidence_type": "RCT",
+      "evidence_type": "Evidence synthesis",
       "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Murdoch",
@@ -17082,6 +18842,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -17118,6 +18882,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -17142,6 +18909,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -17184,6 +18957,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -17230,6 +19007,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -17271,6 +19052,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -17318,6 +19102,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -17354,6 +19141,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -17390,6 +19180,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -17430,6 +19225,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -17477,6 +19278,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -17519,6 +19324,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -17548,6 +19356,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -17588,6 +19400,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -17624,6 +19442,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -17648,6 +19469,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comment",
+        "Editorial"
       ]
     },
     {
@@ -17672,6 +19497,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comment",
+        "Editorial"
       ]
     },
     {
@@ -17719,6 +19548,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -17750,6 +19585,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -17790,6 +19629,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -17840,6 +19682,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial",
+        "Journal Article"
       ]
     },
     {
@@ -17864,6 +19710,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -17913,6 +19764,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -17955,6 +19809,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18007,6 +19865,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18047,6 +19912,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18089,6 +19960,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -18136,6 +20010,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Equivalence Trial",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18178,6 +20059,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18209,6 +20096,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18257,6 +20150,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -18300,6 +20197,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18336,6 +20237,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -18372,6 +20276,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -18408,6 +20315,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -18444,6 +20354,14 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase IV",
+        "Comparative Study",
+        "Equivalence Trial",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18480,6 +20398,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -18504,6 +20425,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18528,11 +20455,15 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
       "pmid": "42019602",
-      "evidence_type": "RCT",
+      "evidence_type": "Observational",
       "tier": 4,
       "journal": "Am J Kidney Dis",
       "first_author": "Fukui",
@@ -18603,6 +20534,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -18639,11 +20574,17 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "41997804",
-      "evidence_type": "Guideline/consensus",
+      "evidence_type": "Evidence synthesis",
       "tier": 2,
       "journal": "Ann Rheum Dis",
       "first_author": "Konzett",
@@ -18675,6 +20616,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -18717,6 +20662,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study"
       ]
     },
     {
@@ -18757,6 +20707,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18787,6 +20743,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -18819,11 +20779,14 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
       "pmid": "41206733",
-      "evidence_type": "RCT",
+      "evidence_type": "Evidence synthesis",
       "tier": 3,
       "journal": "Mod Rheumatol",
       "first_author": "Nakaphan",
@@ -18860,6 +20823,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -18902,6 +20870,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -18934,6 +20906,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -18976,6 +20952,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -19012,6 +20993,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19048,11 +21032,14 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
       "pmid": "41966849",
-      "evidence_type": "Guideline/consensus",
+      "evidence_type": "Evidence synthesis",
       "tier": 3,
       "journal": "Reumatol Clin (Engl Ed)",
       "first_author": "Narváez",
@@ -19091,6 +21078,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -19124,6 +21115,10 @@
       "languages": [
         "eng",
         "spa"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -19160,6 +21155,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19196,6 +21194,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -19232,6 +21234,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19273,11 +21278,16 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "41951459",
-      "evidence_type": "Guideline/consensus",
+      "evidence_type": "Evidence synthesis",
       "tier": 2,
       "journal": "Ann Rheum Dis",
       "first_author": "Laskou",
@@ -19309,6 +21319,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
       ]
     },
     {
@@ -19369,6 +21383,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19405,6 +21422,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19441,6 +21461,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19471,6 +21494,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19514,6 +21540,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -19550,6 +21580,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19586,6 +21619,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19629,6 +21665,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article"
       ]
     },
     {
@@ -19669,6 +21709,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -19709,6 +21753,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -19751,6 +21800,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -19791,6 +21845,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -19841,6 +21899,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -19874,6 +21935,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -19915,6 +21980,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -19956,6 +22025,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -20001,6 +22073,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20031,6 +22107,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -20073,6 +22152,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Observational Study"
       ]
     },
     {
@@ -20102,6 +22186,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -20138,6 +22225,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20183,6 +22276,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20215,6 +22312,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -20244,6 +22345,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Review"
       ]
     },
     {
@@ -20289,6 +22395,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20318,6 +22430,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20350,6 +22466,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20398,6 +22518,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20434,6 +22558,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -20464,11 +22592,18 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "41877062",
-      "evidence_type": "RCT",
+      "evidence_type": "Evidence synthesis",
       "tier": 4,
       "journal": "BMC Nephrol",
       "first_author": "Guo",
@@ -20497,6 +22632,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -20541,6 +22681,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -20589,6 +22732,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -20619,6 +22766,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -20659,6 +22810,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Equivalence Trial",
+        "Journal Article",
+        "Multicenter Study",
+        "Pragmatic Clinical Trial",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20708,6 +22866,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -20744,6 +22907,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20780,6 +22947,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -20826,6 +22998,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -20862,6 +23037,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article"
       ]
     },
     {
@@ -20898,6 +23077,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -20932,6 +23114,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -20978,6 +23164,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21006,6 +23196,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -21030,6 +23224,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -21066,6 +23264,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -21102,6 +23304,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21151,6 +23359,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21198,6 +23412,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase IV",
+        "Equivalence Trial",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21239,6 +23460,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21270,6 +23497,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21316,6 +23547,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21356,6 +23591,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21380,6 +23621,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Letter"
       ]
     },
     {
@@ -21420,6 +23664,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Validation Study"
       ]
     },
     {
@@ -21460,6 +23709,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article"
       ]
     },
     {
@@ -21504,6 +23757,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -21553,6 +23809,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -21589,6 +23848,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Equivalence Trial",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21619,6 +23884,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21660,6 +23930,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -21703,6 +23976,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -21745,6 +24022,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21781,6 +24062,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21822,6 +24107,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21860,6 +24150,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -21902,6 +24196,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21938,6 +24236,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -21984,6 +24288,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -22024,6 +24332,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -22060,6 +24372,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -22090,6 +24408,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -22119,6 +24441,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -22155,6 +24480,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -22195,6 +24525,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Equivalence Trial",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -22237,6 +24572,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -22284,6 +24622,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Equivalence Trial",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -22319,6 +24662,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -22359,6 +24705,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -22406,11 +24756,18 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
       "pmid": "41533706",
-      "evidence_type": "RCT",
+      "evidence_type": "Observational",
       "tier": 2,
       "journal": "Rheumatology (Oxford)",
       "first_author": "Kazemi",
@@ -22447,6 +24804,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -22489,6 +24851,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -22519,6 +24886,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -22543,6 +24916,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Editorial"
       ]
     },
     {
@@ -22593,11 +24969,15 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "41556362",
-      "evidence_type": "RCT",
+      "evidence_type": "Evidence synthesis",
       "tier": 4,
       "journal": "CPT Pharmacometrics Syst Pharmacol",
       "first_author": "Pham",
@@ -22621,6 +25001,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
       ]
     },
     {
@@ -22652,6 +25036,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -22697,6 +25087,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -22733,6 +25130,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -22763,6 +25164,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -22792,6 +25197,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
       ]
     },
     {
@@ -22816,6 +25226,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -22840,6 +25254,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Systematic Review"
       ]
     },
     {
@@ -22875,6 +25294,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -22911,6 +25333,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -22954,6 +25380,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study"
       ]
     },
     {
@@ -22995,6 +25425,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -23025,6 +25460,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -23064,6 +25504,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Review"
       ]
     },
     {
@@ -23097,6 +25542,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -23143,6 +25592,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -23186,6 +25639,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -23233,6 +25690,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -23263,6 +25727,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -23308,6 +25775,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -23350,6 +25824,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -23374,6 +25854,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -23417,6 +25902,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -23459,6 +25948,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -23487,6 +25980,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -23529,6 +26026,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -23586,6 +26087,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -23623,6 +26128,9 @@
       "languages": [
         "eng",
         "por"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -23664,6 +26172,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -23692,6 +26203,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -23720,6 +26235,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -23749,6 +26268,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -23791,6 +26314,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -23834,6 +26360,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -23866,6 +26395,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article",
+        "Practice Guideline",
+        "Review"
       ]
     },
     {
@@ -23896,6 +26431,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -23937,6 +26479,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Validation Study"
       ]
     },
     {
@@ -23970,6 +26519,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -24012,6 +26568,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -24054,6 +26614,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24105,6 +26669,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24133,6 +26701,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24164,6 +26736,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24195,6 +26771,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24244,6 +26824,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24280,6 +26865,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24316,6 +26905,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24377,6 +26971,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24401,6 +27001,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Editorial"
       ]
     },
     {
@@ -24425,6 +27028,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24461,6 +27068,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24506,6 +27117,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -24542,6 +27159,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24584,6 +27205,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -24627,6 +27252,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -24657,6 +27286,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -24701,6 +27334,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -24749,6 +27386,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -24797,6 +27438,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -24841,6 +27487,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -24873,6 +27522,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -24919,6 +27572,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -24950,6 +27607,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -24986,6 +27648,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -25022,6 +27688,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25051,6 +27722,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25097,6 +27774,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -25129,6 +27811,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25171,6 +27859,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -25218,6 +27909,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25250,6 +27947,12 @@
       "languages": [
         "eng",
         "spa"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article",
+        "Practice Guideline",
+        "Review"
       ]
     },
     {
@@ -25286,6 +27989,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25310,6 +28019,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25346,6 +28059,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -25370,6 +28087,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -25413,6 +28134,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, U.S. Gov't, Non-P.H.S."
       ]
     },
     {
@@ -25456,6 +28183,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -25496,6 +28227,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article"
       ]
     },
     {
@@ -25539,6 +28274,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -25582,6 +28321,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -25606,6 +28348,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -25642,6 +28388,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25684,6 +28435,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25732,6 +28488,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25777,6 +28538,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25823,6 +28591,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -25865,11 +28639,17 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
       "pmid": "41327719",
-      "evidence_type": "RCT",
+      "evidence_type": "Evidence synthesis",
       "tier": 4,
       "journal": "Medicine (Baltimore)",
       "first_author": "Zhang",
@@ -25909,6 +28689,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -25942,6 +28727,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -25989,6 +28779,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26038,6 +28833,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -26062,6 +28861,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -26098,6 +28904,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Equivalence Trial",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26138,6 +28949,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26188,6 +29005,11 @@
       "languages": [
         "fre",
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26224,6 +29046,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26260,6 +29087,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, N.I.H., Extramural"
       ]
     },
     {
@@ -26304,6 +29137,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26349,6 +29188,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26380,6 +29225,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26442,6 +29293,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26484,6 +29339,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -26517,6 +29376,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -26541,6 +29403,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -26592,6 +29458,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -26622,6 +29491,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -26658,6 +29531,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26703,6 +29580,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -26751,6 +29634,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -26787,6 +29673,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Systematic Review"
       ]
     },
     {
@@ -26823,6 +29714,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -26867,6 +29763,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26897,6 +29797,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -26933,6 +29838,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -26975,6 +29885,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27008,6 +29922,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -27044,6 +29961,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -27084,6 +30005,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -27120,6 +30047,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -27164,6 +30095,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27188,6 +30124,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -27229,6 +30168,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -27275,6 +30219,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -27305,11 +30252,15 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "41148515",
-      "evidence_type": "RCT",
+      "evidence_type": "Guideline/consensus",
       "tier": 3,
       "journal": "Clin Rheumatol",
       "first_author": "Mo",
@@ -27346,6 +30297,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -27394,6 +30349,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27439,6 +30398,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27485,6 +30448,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27525,6 +30492,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27569,6 +30542,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase I",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27615,6 +30594,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -27661,6 +30647,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -27703,6 +30692,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27745,6 +30738,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -27787,6 +30785,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27823,6 +30825,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -27859,6 +30865,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27895,6 +30907,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -27935,6 +30953,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -27977,6 +30999,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28001,6 +31027,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28047,6 +31078,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -28087,6 +31125,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -28116,6 +31160,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28147,6 +31195,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -28171,6 +31223,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -28206,6 +31262,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Review"
       ]
     },
     {
@@ -28248,6 +31309,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -28290,6 +31356,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial Protocol",
+        "Journal Article"
       ]
     },
     {
@@ -28340,6 +31410,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28371,6 +31446,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -28413,6 +31493,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article"
       ]
     },
     {
@@ -28449,6 +31533,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase IV",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28485,6 +31575,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28509,6 +31603,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
       ]
     },
     {
@@ -28557,6 +31655,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28593,6 +31696,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28637,6 +31746,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Equivalence Trial",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28682,6 +31796,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -28721,6 +31838,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -28751,6 +31871,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -28799,6 +31922,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article"
       ]
     },
     {
@@ -28843,6 +31970,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28874,6 +32005,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28910,6 +32045,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -28941,6 +32079,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -28981,6 +32123,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -29017,6 +32165,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -29057,6 +32209,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -29109,6 +32265,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -29145,6 +32306,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -29181,6 +32345,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -29221,6 +32392,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -29270,6 +32445,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -29310,6 +32491,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -29356,6 +32543,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -29399,11 +32591,17 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Pragmatic Clinical Trial",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "40913838",
-      "evidence_type": "RCT",
+      "evidence_type": "Evidence synthesis",
       "tier": 2,
       "journal": "Semin Arthritis Rheum",
       "first_author": "Joerns",
@@ -29441,6 +32639,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -29477,6 +32680,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -29519,6 +32726,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -29555,11 +32765,15 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "40876558",
-      "evidence_type": "Guideline/consensus",
+      "evidence_type": "Evidence synthesis",
       "tier": 4,
       "journal": "Autoimmun Rev",
       "first_author": "Fassio",
@@ -29596,6 +32810,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
       ]
     },
     {
@@ -29636,6 +32855,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -29672,6 +32897,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -29708,6 +32937,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Comparative Study",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -29744,6 +32980,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -29774,6 +33013,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -29812,6 +33055,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -29854,6 +33100,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -29894,6 +33143,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -29936,6 +33192,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -29982,6 +33242,13 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase II",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -30028,6 +33295,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -30058,11 +33330,15 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
       "pmid": "40795468",
-      "evidence_type": "RCT",
+      "evidence_type": "Observational",
       "tier": 3,
       "journal": "J Clin Rheumatol",
       "first_author": "Quiñones",
@@ -30098,6 +33374,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
       ]
     },
     {
@@ -30138,6 +33418,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -30174,6 +33460,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -30210,6 +33500,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -30240,6 +33535,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -30271,6 +33569,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -30311,6 +33613,12 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Journal Article",
+        "Randomized Controlled Trial",
+        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -30353,6 +33661,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -30389,6 +33701,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -30429,6 +33744,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Consensus Statement",
+        "Journal Article",
+        "Practice Guideline"
       ]
     },
     {
@@ -30460,6 +33780,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -30524,6 +33848,14 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial, Phase III",
+        "Comparative Study",
+        "Equivalence Trial",
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -30568,6 +33900,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Multicenter Study",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -30619,6 +33956,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -30661,6 +34002,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -30706,6 +34051,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     },
     {
@@ -30749,6 +34098,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -30790,6 +34142,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -30819,6 +34174,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -30863,6 +34221,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -30895,6 +34256,10 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
       ]
     },
     {
@@ -30925,6 +34290,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -30956,6 +34324,9 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
       ]
     },
     {
@@ -30998,6 +34369,11 @@
       ],
       "languages": [
         "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Randomized Controlled Trial"
       ]
     }
   ]

@@ -136,6 +136,7 @@ def update_library(new_hits: list, library_path: str, today: datetime = None) ->
         record = {
             "pmid": hit["pmid"],
             "languages": hit.get("languages", []),
+            "publication_types": hit.get("publication_types", []),
             "disease_groups": groups,
             "evidence_type": hit["evidence_type"],
             "tier": hit["tier"],
