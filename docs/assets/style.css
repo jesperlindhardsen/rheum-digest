@@ -335,9 +335,7 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   display: flex;
   flex-wrap: wrap;
   gap: var(--s-2);
-  margin-top: var(--s-4);
-  padding-top: var(--s-4);
-  border-top: 1px solid var(--line-soft);
+  margin-top: var(--s-3);
 }
 .keyword-chip {
   font-size: var(--fs-micro);

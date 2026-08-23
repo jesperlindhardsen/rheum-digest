@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=8">
+<link rel="stylesheet" href="assets/style.css?v=9">
 </head>
 <body class="salix">
 <header class="site-header">
@@ -117,9 +117,10 @@ function renderItem(rec) {
     <div class="item">
       <p class="title">${rec.title}<span class="tier-badge t${rec.tier}">T${rec.tier}</span></p>
       <p class="meta">${authorLine(rec)} · <span class="journal">${rec.journal}</span> · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a></p>
+      ${keywords}
       <details class="abstract-toggle">
         <summary>Vis abstract</summary>
-        <div class="abstract-full">${sections}${keywords}</div>
+        <div class="abstract-full">${sections}</div>
       </details>
     </div>`;
 }

@@ -99,9 +99,12 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
     are months old therefore opens on a dated section, not on "Seneste måned".
   - Records post-dated past the run month (journals publish issues ahead) are
     folded into the "Seneste måned" section rather than sorting above it.
-- Each item: title + tier badge (T1–T4, color-coded, sort-only — no explanation shown to user),
-  authors ("A" / "A & B" / "First...Last" for 3+), journal, PMID link, collapsible full abstract
-  rendered as labeled paragraphs (not flattened text)
+- Each item, in order: title + tier badge (T1–T4, color-coded, sort-only — no
+  explanation shown to user); reference line (authors as "Name" when first and last
+  author match, otherwise "First...Last"; journal in bold; date; PMID link); PubMed
+  keyword chips, when the record has any; then the collapsible abstract, rendered as
+  labeled paragraphs (not flattened text). The keywords sit above the toggle so they
+  stay visible while the abstract is collapsed.
 - Empty combo: "Ingen nye."
 
 No AI involvement in this step — it's pure JS reading JSON.
