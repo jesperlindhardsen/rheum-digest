@@ -4,7 +4,7 @@
 Weekly rheumatology evidence digest. Runs autonomously, no prompts needed once set up.
 
 ## Architecture
-- **fetch_pubmed.py** (deterministic script): runs all 50 PubMed queries, parses XML —
+- **fetch_pubmed.py** (deterministic script): runs all 55 PubMed queries, parses XML —
   title/authors/dates/abstracts extracted verbatim, no AI involved
 - **AI**: reads each fetched hit and assigns `disease_groups` — labels only, never touches
   the fetched content
@@ -74,13 +74,14 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
 ## STEP 3 — VIEWER (static, no regeneration)
 `docs/index.html` + `docs/assets/style.css` read `docs/data/library.json` at load time via fetch
 (cache-busted). Layout:
-- Left sidebar: disease-group tabs, each with a live hit count
-- An **"Alle"** tab sits last among the disease tabs and shows every article for the
-  active evidence type. It's a viewer-only pseudo-group (`ALL_GROUP` in
-  `docs/index.html`) — never a stored label, so it stays out of `DISEASE_ORDER`,
+- Left sidebar: evidence-type tabs, led by an **"Alt"** tab (all types), each with a
+  live count
+- Disease-group tabs across the top, led by an **"Alle"** tab (all groups)
+- Default view is **Alt × Alle** — the whole library — and both pseudo-tabs come
+  first in their row. They are viewer-only (`ALL_EVIDENCE` / `ALL_GROUP` in
+  `docs/index.html`), never stored values, so they stay out of `DISEASE_ORDER`,
   out of `disease_groups`, and out of the digests. A cross-listed article appears
   once under "Alle", not twice.
-- Top of viewer: evidence-type tabs (only types with hits shown)
 - Tier filter: T1–T4 checkboxes, all on by default, each showing its count within
   the active evidence type. Applies to everything — tab counts and which disease
   tabs appear follow it, so a count never promises items the filter is hiding.

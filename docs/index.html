@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=7">
+<link rel="stylesheet" href="assets/style.css?v=8">
 </head>
 <body class="salix">
 <header class="site-header">
@@ -31,8 +31,8 @@
 // Display order only. Classification precedence is DISEASE_PATTERNS in
 // update_library.py and is deliberately different — don't sync the two.
 const DISEASE_ORDER = ["RA","PsA/SpA","PMR/GCA","Crystal","General","SLE","IIM","Vasculitis","Sjögren","SSc","Autoinflammatory"];
-// A viewer-only pseudo-group appended after the real ones: never a stored
-// label, so it stays out of DISEASE_ORDER and out of the digests.
+// A viewer-only pseudo-group shown first and selected by default: never a
+// stored label, so it stays out of DISEASE_ORDER and out of the digests.
 const ALL_GROUP = "__all__";
 const DISEASE_LABEL = {
   "RA": "RA", "PsA/SpA": "PsA/SpA", "SLE": "SLE", "IIM": "IIM",
@@ -41,7 +41,10 @@ const DISEASE_LABEL = {
   [ALL_GROUP]: "Alle"
 };
 const EVIDENCE_ORDER = ["RCT","Guideline/consensus","Evidence synthesis","Observational","Clinical case/survey"];
+// Viewer-only, like ALL_GROUP: never a stored evidence_type.
+const ALL_EVIDENCE = "__all_ev__";
 const EVIDENCE_LABEL = {
+  [ALL_EVIDENCE]: "Alt",
   "RCT": "RCT", "Guideline/consensus": "Retningslinje/konsensus",
   "Evidence synthesis": "Evidensopsummering", "Observational": "Observationelt",
   "Clinical case/survey": "Klinisk case/opgørelse"
@@ -87,6 +90,10 @@ function inDisease(rec) {
   return activeDisease === ALL_GROUP || groupsOf(rec).includes(activeDisease);
 }
 
+function inEvidence(rec) {
+  return activeEvidence === ALL_EVIDENCE || rec.evidence_type === activeEvidence;
+}
+
 function authorLine(rec) {
   if (rec.first_author === rec.last_author) return rec.first_author;
   return `${rec.first_author}...${rec.last_author}`;
@@ -118,7 +125,7 @@ function renderPanel() {
     return;
   }
 
-  const items = library.filter(r => inTier(r) && inDisease(r) && r.evidence_type === activeEvidence);
+  const items = library.filter(r => inTier(r) && inDisease(r) && inEvidence(r));
 
   if (items.length === 0) {
     panel.innerHTML = `<p class="empty-note">Ingen nye.</p>`;
@@ -154,8 +161,8 @@ function renderPanel() {
 // then repaint everything.
 function refresh() {
   const groups = DISEASE_ORDER.filter(g =>
-    library.some(r => inTier(r) && r.evidence_type === activeEvidence && groupsOf(r).includes(g)));
-  if (groups.length > 0) groups.push(ALL_GROUP);  // always last
+    library.some(r => inTier(r) && inEvidence(r) && groupsOf(r).includes(g)));
+  if (groups.length > 0) groups.unshift(ALL_GROUP);  // always first, the default
   if (!groups.includes(activeDisease)) {
     activeDisease = groups[0] || activeDisease;
   }
@@ -185,7 +192,7 @@ function renderTierFilter() {
   const el = document.getElementById("tier-filter");
   el.innerHTML = `<span class="tier-filter-label">Niveau</span>` + TIERS.map(tier => {
     const on = activeTiers.has(tier);
-    const count = library.filter(r => r.tier === tier && r.evidence_type === activeEvidence).length;
+    const count = library.filter(r => r.tier === tier && inEvidence(r)).length;
     return `<label class="tier-chip t${tier}${on ? " on" : ""}">
       <input type="checkbox" ${on ? "checked" : ""} onchange="toggleTier(${tier})">T${tier}
       <span class="tier-chip-count">${count}</span>
@@ -195,8 +202,9 @@ function renderTierFilter() {
 
 function renderEvidenceTabs() {
   const el = document.getElementById("evidence-tabs");
-  el.innerHTML = EVIDENCE_ORDER.map(type => {
-    const count = library.filter(r => inTier(r) && r.evidence_type === type).length;
+  el.innerHTML = [ALL_EVIDENCE, ...EVIDENCE_ORDER].map(type => {
+    const count = library.filter(r =>
+      inTier(r) && (type === ALL_EVIDENCE || r.evidence_type === type)).length;
     const active = type === activeEvidence ? "active" : "";
     return `<div class="tab-item ${active}" onclick="selectEvidence('${type}')"><span>${EVIDENCE_LABEL[type]}</span><span class="count">${count}</span></div>`;
   }).join("");
@@ -226,7 +234,8 @@ fetch("data/library.json?t=" + Date.now(), {cache: "no-store"})
     }
     // Set before any rendering: monthKey() folds post-dated records into it.
     currentMonth = (generatedAt || new Date().toISOString()).slice(0, 7);
-    selectEvidence(EVIDENCE_ORDER.find(t => library.some(r => r.evidence_type === t)) || EVIDENCE_ORDER[0]);
+    activeDisease = ALL_GROUP;
+    selectEvidence(ALL_EVIDENCE);
   })
   .catch(err => {
     document.getElementById("panel").innerHTML = `<p class="empty-note">Kunne ikke indlæse data.</p>`;
