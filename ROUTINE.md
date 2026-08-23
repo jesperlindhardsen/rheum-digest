@@ -177,10 +177,24 @@ from there, both places the user already checks on their own schedule:
 
 Flagged records are **not excluded** — they're included under AI's best-guess
 classification, same as any other hit, just visibly marked. The flag is a pointer
-for the user to look, not a verdict; only the user removes one (by fixing the
-underlying regex if it's a real recurring pattern, or hand-editing the record if
-it's a one-off), by finding it in the ⚑ view exactly as designed. There's no queue,
-no approval gate, and no code that resolves a flag on its own.
+for the user to look, not a verdict.
+
+**How a flag actually gets resolved: the user tells whoever is operating the
+digest (normally via a Claude Code chat) the PMID and the decision.** There is
+no button on the site and no automatic resolution — a `flagged` field, once set,
+sits on that record forever; `update_library.py` only ever touches new PMIDs, so
+nothing revisits it. The resolution is always a manual edit to
+`docs/data/library.json`, one of:
+- **Exclude it** — remove the record entirely (same as any other bad hit in this
+  project's history, e.g. PMID 42598105).
+- **Reclassify it** — fix `disease_groups`/`evidence_type` and clear `flagged`.
+- **Dismiss it** — it was a false alarm; just clear `flagged`, record unchanged.
+
+If the same shape of problem recurs across several flags, that's the signal to
+write a permanent deterministic rule (a new `PROTOCOL_TITLE`-style pattern, a
+`TIER`/`EXCLUDE_TYPES` addition, etc.) rather than resolving each one by hand
+forever — every fix in this file's history started as exactly that kind of
+one-off before becoming a rule.
 
 This only ever runs against **this week's new hits** (dozens, not the full library) —
 the existing 797 records were corrected by hand as each fix above landed, and won't be
