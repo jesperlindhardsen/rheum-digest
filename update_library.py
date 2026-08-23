@@ -162,6 +162,12 @@ def update_library(new_hits: list, library_path: str, today: datetime = None) ->
             "abstract_sections": hit["abstract_sections"],
             "keywords": hit.get("keywords", []),
         }
+        # Set only when AI's weekly read flags something a deterministic
+        # filter didn't catch (see ROUTINE.md) -- a short reason, shown on
+        # the card and countable in the header banner. Omitted entirely
+        # otherwise, not set to None, so it stays falsy in the viewer's JS.
+        if hit.get("flagged"):
+            record["flagged"] = hit["flagged"]
         library.insert(0, record)  # prepend, newest first
         existing_pmids.add(hit["pmid"])
         added += 1

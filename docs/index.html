@@ -6,14 +6,17 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=11">
+<link rel="stylesheet" href="assets/style.css?v=12">
 </head>
 <body class="salix">
 <header class="site-header">
   <div class="brand">
     <span class="wordmark">Reuma-<em>evidens</em></span>
   </div>
-  <span id="updated-date"></span>
+  <span class="header-right">
+    <span id="flag-banner"></span>
+    <span id="updated-date"></span>
+  </span>
 </header>
 
 <div id="app">
@@ -67,6 +70,7 @@ const TIER_LABEL = {
 let library = [];
 let activeDisease = null;
 let activeEvidence = null;
+let onlyFlagged = false;
 let activeTiers = new Set(TIERS);  // all on by default
 let currentMonth = null;  // "YYYY-MM" of the digest run
 
@@ -111,6 +115,29 @@ function inEvidence(rec) {
   return activeEvidence === ALL_EVIDENCE || rec.evidence_type === activeEvidence;
 }
 
+function passesFlagFilter(rec) {
+  return !onlyFlagged || !!rec.flagged;
+}
+
+function toggleFlaggedOnly() {
+  onlyFlagged = !onlyFlagged;
+  activeDisease = ALL_GROUP;
+  activeEvidence = ALL_EVIDENCE;
+  refresh();
+}
+
+function renderFlagBanner() {
+  const count = library.filter(r => r.flagged).length;
+  const el = document.getElementById("flag-banner");
+  if (count === 0) {
+    el.innerHTML = "";
+    return;
+  }
+  el.innerHTML = `<button class="flag-banner-btn${onlyFlagged ? " active" : ""}" onclick="toggleFlaggedOnly()">
+    ⚑ ${count} til gennemsyn${onlyFlagged ? " — vis alle" : ""}
+  </button>`;
+}
+
 function authorLine(rec) {
   if (rec.first_author === rec.last_author) return rec.first_author;
   return `${rec.first_author}...${rec.last_author}`;
@@ -124,10 +151,17 @@ function renderItem(rec) {
     + `<span class="evidence-chip">${EVIDENCE_BADGE[rec.evidence_type] || rec.evidence_type}</span>`
     + (rec.keywords || []).map(k => `<span class="keyword-chip">${k}</span>`).join("")
     + `</div>`;
+  // Set only when AI's weekly read flagged something a deterministic filter
+  // didn't catch (see ROUTINE.md) -- surfaced right on the card, not buried
+  // in a run log only visible during the unattended weekly run.
+  const flag = rec.flagged
+    ? `<p class="flag-note">⚑ ${rec.flagged}</p>`
+    : "";
   return `
     <div class="item">
       <p class="title">${rec.title}<span class="tier-badge t${rec.tier}">${TIER_LABEL[rec.tier]}</span></p>
       <p class="meta">${authorLine(rec)} · <span class="journal">${rec.journal}</span> · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a></p>
+      ${flag}
       ${chips}
       <details class="abstract-toggle">
         <summary>Vis abstract</summary>
@@ -144,10 +178,12 @@ function renderPanel() {
     return;
   }
 
-  const items = library.filter(r => inTier(r) && inDisease(r) && inEvidence(r));
+  const items = library.filter(r => inTier(r) && inDisease(r) && inEvidence(r) && passesFlagFilter(r));
 
   if (items.length === 0) {
-    panel.innerHTML = `<p class="empty-note">Ingen nye.</p>`;
+    panel.innerHTML = onlyFlagged
+      ? `<p class="empty-note">Ingen flagede poster her.</p>`
+      : `<p class="empty-note">Ingen nye.</p>`;
     return;
   }
 
@@ -185,7 +221,7 @@ function renderPanel() {
 // then repaint everything.
 function refresh() {
   const groups = DISEASE_ORDER.filter(g =>
-    library.some(r => inTier(r) && inEvidence(r) && groupsOf(r).includes(g)));
+    library.some(r => inTier(r) && inEvidence(r) && passesFlagFilter(r) && groupsOf(r).includes(g)));
   if (groups.length > 0) groups.unshift(ALL_GROUP);  // always first, the default
   if (!groups.includes(activeDisease)) {
     activeDisease = groups[0] || activeDisease;
@@ -193,6 +229,7 @@ function refresh() {
   renderEvidenceTabs();
   renderDiseaseTabs(groups);
   renderTierFilter();
+  renderFlagBanner();
   renderPanel();
 }
 
@@ -228,7 +265,7 @@ function renderEvidenceTabs() {
   const el = document.getElementById("evidence-tabs");
   el.innerHTML = [ALL_EVIDENCE, ...EVIDENCE_ORDER].map(type => {
     const count = library.filter(r =>
-      inTier(r) && (type === ALL_EVIDENCE || r.evidence_type === type)).length;
+      inTier(r) && passesFlagFilter(r) && (type === ALL_EVIDENCE || r.evidence_type === type)).length;
     const active = type === activeEvidence ? "active" : "";
     return `<div class="tab-item ${active}" onclick="selectEvidence('${type}')"><span>${EVIDENCE_LABEL[type]}</span><span class="count">${count}</span></div>`;
   }).join("");

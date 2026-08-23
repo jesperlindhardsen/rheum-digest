@@ -58,6 +58,29 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   color: var(--ink-3);
   letter-spacing: var(--tracking-wide);
 }
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+/* Only rendered when the weekly AI-review step actually flagged something --
+   see ROUTINE.md. Ochre: distinct from the moss "active" colour used
+   elsewhere, reads as "needs attention" without being alarm-red. */
+.flag-banner-btn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-cap);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: var(--ochre-deep);
+  background: var(--ochre-wash);
+  border: none;
+  border-radius: var(--r-pill);
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.flag-banner-btn:hover { background: var(--ochre-soft); }
+.flag-banner-btn.active { background: var(--ochre); color: var(--bg-elevated); }
 
 /* ---------- App shell ---------- */
 #app {
@@ -289,6 +312,12 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 }
 .item .meta a { font-family: var(--font-mono); font-size: 0.95em; }
 .item .meta .journal { font-weight: var(--w-semi); color: var(--ink-2); }
+.flag-note {
+  margin: var(--s-2) 0 0 0;
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--ochre-deep);
+}
 
 /* ---------- Abstract toggle ---------- */
 .abstract-toggle { margin-top: var(--s-4); }

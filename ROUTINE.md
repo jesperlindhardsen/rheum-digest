@@ -158,8 +158,29 @@ surfacing. So while AI is already reading each new hit's title and abstract to a
   second-guess it — PubMed's own tag stays authoritative.
 - **Flags suspected off-topic or non-evidence hits** that slipped past every
   deterministic filter (an acronym collision nobody's written a regex for yet, a
-  critique with no recognisable title pattern like PMID 42170841) in the run's final
-  report, by PMID, for the user to review — it does not drop them itself.
+  critique with no recognisable title pattern like PMID 42170841) — it does not
+  drop them itself.
+
+**Where a flag actually surfaces — not just a run log the user can't watch live.**
+The routine runs unattended at 06:00 Monday; nobody is there to read a session
+transcript or act on it mid-run. A flag is therefore never *only* text in the run's
+final report — it's written onto the record itself, as `hit["flagged"] = "<short
+reason>"`, which `update_library.py` carries into `docs/data/library.json` (omitted
+entirely when there's nothing to flag, not set to `None`). Two places pick it up
+from there, both places the user already checks on their own schedule:
+- **`docs/index.html`** renders a `⚑ <reason>` line directly on the card, and a
+  clickable "⚑ N til gennemsyn" badge in the header (rendered only when `N > 0`)
+  that filters the whole page down to just the flagged records.
+- **`digests/YYYY-MM-DD.md`** should list this week's flagged items in a short
+  "## Til gennemsyn" section (PMID + reason) if any exist, alongside the normal
+  per-group listing, so they surface in the file the user already reads weekly.
+
+Flagged records are **not excluded** — they're included under AI's best-guess
+classification, same as any other hit, just visibly marked. The flag is a pointer
+for the user to look, not a verdict; only the user removes one (by fixing the
+underlying regex if it's a real recurring pattern, or hand-editing the record if
+it's a one-off), by finding it in the ⚑ view exactly as designed. There's no queue,
+no approval gate, and no code that resolves a flag on its own.
 
 This only ever runs against **this week's new hits** (dozens, not the full library) —
 the existing 797 records were corrected by hand as each fix above landed, and won't be
@@ -229,6 +250,12 @@ No AI involvement in this step — it's pure JS reading JSON.
 ## STEP 4 — MARKDOWN ARCHIVE (optional, weekly audit trail)
 This week's new items only, same grouping logic.
 Format: `**{title}** — {first_author}...{last_author}, {journal} [T{tier}], PMID {pmid}`
+
+If any of this week's hits carry a `flagged` reason (see Step 1), open with a
+"## Til gennemsyn" section listing them — `**{title}** — {flagged reason}, PMID
+{pmid}` — before the normal per-group listing. Omit the section entirely when
+nothing was flagged.
+
 Commit to `digests/YYYY-MM-DD.md`.
 
 ## Retention
