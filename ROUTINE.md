@@ -19,6 +19,40 @@ This split matters: AI's only touch on the data is assigning a category label �
 generates, paraphrases, or edits a title, author, date, or abstract. Everything else is
 pure code.
 
+## STEP 0 — APPLY PENDING CORRECTIONS (GitHub issues, before fetching anything new)
+`docs/index.html` has a "Foreslå rettelse" form on every card (disease group(s),
+evidence type, or "ekskludér helt"; a flagged card also gets "afvis flag"). The site is
+static and can't write to `library.json` itself, so the form instead opens a
+pre-filled **GitHub issue**, labelled `rettelse`, that the user creates deliberately.
+That issue is the only way a correction exists until the routine picks it up here.
+
+Each run, before Step 1:
+- Try `gh issue list --repo jesperlindhardsen/rheum-digest --label rettelse --state open --json number,title,body`.
+  If `gh` isn't available/authenticated for the Issues API in this environment, say so
+  in the final report and skip this step entirely — don't fail the run over it.
+- For each open issue, the body is a short key/value list, e.g.:
+  ```
+  PMID: 42601766
+  Nuværende evidenstype: Clinical case/survey
+  Foreslået evidenstype: RCT
+  ```
+  or `Ekskludér artiklen: Ja`, or `Afvis eksisterende flag: Ja`. Find the record by
+  PMID in `docs/data/library.json` and apply exactly what's asked:
+  - **Ekskludér**: remove the record.
+  - **Sygdomsgrupper/evidenstype**: overwrite `disease_groups`/`evidence_type` with
+    the proposed value(s).
+  - **Afvis flag**: delete the `flagged` field, change nothing else.
+  - If the PMID isn't found (already removed, typo'd), don't guess — leave the issue
+    open and note it in the report instead of closing it silently.
+- Close each applied issue with `gh issue close --repo jesperlindhardsen/rheum-digest
+  <number> --comment "<what was changed>"`.
+- If any records were touched, that's part of the same commit this run makes in Step
+  2/6 (don't create a separate commit) — but do it *before* the new fetch, so this
+  week's dedup and bucket recompute already reflect the correction.
+- **This is batch, not instant.** A correction submitted any day of the week sits as
+  an open issue until the *next* Monday run. There's no other automation that checks
+  it sooner — say so if the user asks why nothing happened yet.
+
 ## STEP 1 — SEARCH (PubMed)
 - Date window: past 7 days (Entrez EDAT)
 - `fetch_pubmed.py` runs all 55 queries (11 disease groups × 5 evidence types) via PubMed

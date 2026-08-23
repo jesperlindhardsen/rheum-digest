@@ -388,6 +388,89 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   letter-spacing: var(--tracking-wide);
 }
 
+/* ---------- Correction form ---------- */
+/* Same visual language as .abstract-toggle, its own class so opening one
+   doesn't imply anything about the other. */
+.correction-toggle { margin-top: var(--s-3); }
+.correction-toggle > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  width: fit-content;
+}
+.correction-toggle > summary::-webkit-details-marker { display: none; }
+.correction-toggle > summary::after { content: "+"; font-family: var(--font-mono); font-size: 14px; line-height: 1; }
+.correction-toggle[open] > summary::after { content: "–"; }
+.correction-body {
+  margin-top: var(--s-3);
+  padding: var(--s-4);
+  background: var(--paper-2);
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+.correction-field { display: flex; flex-direction: column; gap: var(--s-2); }
+.correction-label {
+  font-size: var(--fs-micro);
+  font-weight: var(--w-semi);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.correction-checks { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.correction-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-cap);
+  color: var(--ink-2);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-pill);
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.correction-field select {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--ink);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-sm);
+  padding: 6px 10px;
+  width: fit-content;
+}
+.correction-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-cap);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.correction-submit {
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--bg-elevated);
+  background: var(--moss-deep);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.correction-submit:hover { background: var(--moss); }
+
 /* ---------- Empty / footer ---------- */
 .empty-note {
   color: var(--ink-3);

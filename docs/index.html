@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=12">
+<link rel="stylesheet" href="assets/style.css?v=13">
 </head>
 <body class="salix">
 <header class="site-header">
@@ -143,6 +143,89 @@ function authorLine(rec) {
   return `${rec.first_author}...${rec.last_author}`;
 }
 
+// The site is static (GitHub Pages) and can't write to library.json itself --
+// there's no server to receive the click. This builds a GitHub "new issue"
+// link, pre-filled and labelled "rettelse", so the actual write still goes
+// through a real GitHub action the user takes deliberately. The weekly
+// routine picks up open "rettelse" issues, applies them, and closes them --
+// see ROUTINE.md. A correction submitted this way lands at the *next*
+// Monday run, not instantly.
+const CORRECTION_REPO = "jesperlindhardsen/rheum-digest";
+
+function renderCorrectionForm(rec) {
+  const currentGroups = groupsOf(rec);
+  const groupChecks = DISEASE_ORDER.map(g => `
+    <label class="correction-chip">
+      <input type="checkbox" id="grp-${rec.pmid}-${g}" ${currentGroups.includes(g) ? "checked" : ""}>${DISEASE_LABEL[g]}
+    </label>`).join("");
+  const evidenceOptions = EVIDENCE_ORDER.map(t =>
+    `<option value="${t}" ${t === rec.evidence_type ? "selected" : ""}>${EVIDENCE_LABEL[t]}</option>`).join("");
+  const dismissRow = rec.flagged
+    ? `<label class="correction-check"><input type="checkbox" id="dismiss-${rec.pmid}"> Afvis flag (ingen ændring nødvendig)</label>`
+    : "";
+  return `
+    <details class="correction-toggle">
+      <summary>Foreslå rettelse</summary>
+      <div class="correction-body">
+        <div class="correction-field">
+          <span class="correction-label">Sygdomsgruppe(r)</span>
+          <div class="correction-checks">${groupChecks}</div>
+        </div>
+        <div class="correction-field">
+          <span class="correction-label">Evidenstype</span>
+          <select id="ev-${rec.pmid}">${evidenceOptions}</select>
+        </div>
+        <label class="correction-check"><input type="checkbox" id="excl-${rec.pmid}"> Ekskludér denne artikel helt</label>
+        ${dismissRow}
+        <button type="button" class="correction-submit" onclick="proposeCorrection('${rec.pmid}')">Opret rettelse på GitHub ↗</button>
+      </div>
+    </details>`;
+}
+
+function proposeCorrection(pmid) {
+  const rec = library.find(r => r.pmid === pmid);
+  const currentGroups = groupsOf(rec);
+  const selectedGroups = DISEASE_ORDER.filter(g => document.getElementById(`grp-${pmid}-${g}`).checked);
+  const selectedEvidence = document.getElementById(`ev-${pmid}`).value;
+  const exclude = document.getElementById(`excl-${pmid}`).checked;
+  const dismissEl = document.getElementById(`dismiss-${pmid}`);
+  const dismiss = dismissEl ? dismissEl.checked : false;
+
+  const groupsChanged = JSON.stringify([...currentGroups].sort()) !== JSON.stringify([...selectedGroups].sort());
+  const evidenceChanged = selectedEvidence !== rec.evidence_type;
+
+  if (!exclude && !dismiss && !groupsChanged && !evidenceChanged) {
+    alert("Ingen ændring valgt.");
+    return;
+  }
+
+  const lines = [`PMID: ${pmid}`, `Titel: ${rec.title}`, ""];
+  if (exclude) {
+    lines.push("Ekskludér artiklen: Ja");
+  } else {
+    if (groupsChanged) {
+      lines.push(`Nuværende sygdomsgrupper: ${currentGroups.join(", ")}`);
+      lines.push(`Foreslåede sygdomsgrupper: ${selectedGroups.join(", ") || "(ingen)"}`);
+      lines.push("");
+    }
+    if (evidenceChanged) {
+      lines.push(`Nuværende evidenstype: ${rec.evidence_type}`);
+      lines.push(`Foreslået evidenstype: ${selectedEvidence}`);
+      lines.push("");
+    }
+    if (dismiss) {
+      lines.push("Afvis eksisterende flag: Ja (ingen indholdsændring, fjern blot flaget)");
+    }
+  }
+
+  const title = `Rettelse: PMID ${pmid}`;
+  const url = `https://github.com/${CORRECTION_REPO}/issues/new`
+    + `?title=${encodeURIComponent(title)}`
+    + `&body=${encodeURIComponent(lines.join("\n"))}`
+    + `&labels=rettelse`;
+  window.open(url, "_blank");
+}
+
 function renderItem(rec) {
   const sections = rec.abstract_sections.map(s =>
     s.label ? `<p><strong>${s.label}:</strong> ${s.text}</p>` : `<p>${s.text}</p>`
@@ -167,6 +250,7 @@ function renderItem(rec) {
         <summary>Vis abstract</summary>
         <div class="abstract-full">${sections}</div>
       </details>
+      ${renderCorrectionForm(rec)}
     </div>`;
 }
 
