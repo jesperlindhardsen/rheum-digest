@@ -6468,43 +6468,6 @@
       ]
     },
     {
-      "pmid": "42598105",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Front Immunol",
-      "first_author": "Gao",
-      "last_author": "Wang",
-      "date": "2026-07-30",
-      "title": "Mechanistic interplay between extracellular vesicles and neutrophil extracellular traps: unveiling the \"sterile inflammation\" cascade in obesity-induced diabetes progression.",
-      "abstract_sections": [
-        {
-          "label": null,
-          "text": "Obesity-driven type 2 diabetes mellitus is sustained by chronic low-grade sterile inflammation. The intercellular mechanisms underlying this self-amplifying state remain incompletely defined. Extracellular vesicles and neutrophil extracellular traps have each been independently implicated in metabolic inflammation. Whether they form a coordinated pathological axis in the obesity/type 2 diabetes microenvironment has not been systematically synthesized. This narrative review integrates current mechanistic evidence in three areas: vesicle biogenesis and cargo remodeling in obesity; trap formation in the hyperglycemic and hyperlipidemic milieu; and molecular cross-talk between the two systems. We attend explicitly to the level of clinical evidence supporting each step. Our central argument is the following. Adipocyte- and macrophage-derived vesicles enriched in pro-inflammatory microRNAs activate neutrophils to undergo NETosis. The resulting traps release damage-associated molecules. These molecules stimulate further vesicle secretion. A self-reinforcing positive feedback circuit emerges. It operates through Toll-like receptor signaling, the NLRP3 inflammasome, peptidylarginine deiminase 4, and the cyclic GMP-AMP synthase-stimulator of interferon genes axis. The vesicle pool in obesity is not uniformly pathogenic. Insulin-sensitizing populations also exist. Hepatocyte exosomes from early-onset obese mice are enriched in microRNA-3075 and improve insulin sensitivity. Small vesicles from rosiglitazone-treated adipose tissue macrophages are enriched in microRNA-690 and exert similar effects. Any therapeutic strategy must preserve these protective populations. The pathogenic arm propagates local adipose inflammation systemically. This drives insulin resistance, pancreatic β-cell injury, hepatic inflammation, and the vascular, renal, and ocular complications of diabetes. Preclinical interruption of the circuit shows multi-organ benefit. Candidate strategies include peptidylarginine deiminase 4 inhibition, DNase I, NLRP3 blockade, and engineered therapeutic vesicles. Among clinically deployed agents, metformin and sodium-glucose cotransporter 2 inhibitors already show anti-trap and anti-inflammasome activity. The framework is mechanistically compelling. The evidence base, however, remains predominantly preclinical. No completed randomized controlled trial in obesity-related type 2 diabetes has yet validated it. Translation requires multidisciplinary collaboration, methodological standardization, sex-stratified design, and adequately powered prospective human studies."
-        }
-      ],
-      "keywords": [
-        "NLRP3 inflammasome",
-        "extracellular vesicles",
-        "insulin resistance",
-        "neutrophil extracellular traps",
-        "obesity",
-        "peptidylarginine deiminase 4",
-        "sterile inflammation",
-        "type 2 diabetes"
-      ],
-      "time_bucket": "recent",
-      "disease_groups": [
-        "General"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article",
-        "Review"
-      ]
-    },
-    {
       "pmid": "42597329",
       "evidence_type": "Clinical case/survey",
       "tier": 4,

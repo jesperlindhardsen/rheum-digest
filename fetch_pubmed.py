@@ -47,7 +47,13 @@ DISEASE_QUERIES = {
     "Sjögren": '("sjogren syndrome"[tiab] OR "sjögren"[tiab])',
     "SSc": '("systemic sclerosis"[tiab] OR "scleroderma"[tiab])',
     "Crystal": '("gout"[tiab] OR "gouty arthritis"[tiab] OR "calcium pyrophosphate"[tiab] OR "pseudogout"[tiab] OR "monosodium urate"[tiab])',
-    "Autoinflammatory": '("VEXAS syndrome"[tiab] OR "autoinflammatory disease"[tiab] OR "familial mediterranean fever"[tiab] OR "adult-onset Still"[tiab] OR "TRAPS"[tiab] OR "cryopyrin-associated periodic syndrome"[tiab])',
+    # "TRAPS"[tiab] alone also matches the plain word "traps" wherever it
+    # appears -- PubMed's [tiab] is case-insensitive -- which pulled in
+    # unrelated basic-science papers about "neutrophil extracellular traps"
+    # (PMID 42598105, an obesity/diabetes review with no rheumatology content
+    # at all). Excluding that exact phrase removes the collision without
+    # narrowing genuine TRAPS-disease hits, which essentially never contain it.
+    "Autoinflammatory": '("VEXAS syndrome"[tiab] OR "autoinflammatory disease"[tiab] OR "familial mediterranean fever"[tiab] OR "adult-onset Still"[tiab] OR ("TRAPS"[tiab] NOT "extracellular traps"[tiab]) OR "cryopyrin-associated periodic syndrome"[tiab])',
     "General": '("rheumatic disease"[tiab] OR "inflammatory rheumatic disease"[tiab] OR "rheumatology"[ti])',
 }
 

@@ -40,9 +40,23 @@ DISEASE_PATTERNS = [
     ("SSc", r"systemic sclerosis|scleroderma"),
     ("Crystal", r"\bgout\b|\bgouty\b|calcium pyrophosphate|\bCPPD\b|pseudogout|"
                 r"monosodium urate|crystal arthropathy|crystal arthritis"),
+    # Bare acronyms need disambiguation: \bTRAPS\b alone also matches the plain
+    # word "traps" (e.g. "extracellular traps" in NET biology, PMID 42598105),
+    # and \bCAPS\b is ambiguous even within rheumatology -- Cryopyrin-Associated
+    # Periodic Syndrome vs. Catastrophic Antiphospholipid Syndrome (both real,
+    # completely different diseases; PMID 42559394 used the latter). This is
+    # the fallback classifier only -- AI's disease_groups normally wins -- but
+    # the same collision applies here, so require the disambiguating context.
+    # The TRAPS branch is anchored with ^: an unanchored (?!.*extracellular
+    # traps) lets re.search retry from later positions in the text and defeats
+    # the exclusion the moment "traps" appears again anywhere after the
+    # disqualifying phrase (common -- the phrase is usually only spelled out
+    # once, then just "traps"/"NETs" afterward). Anchoring forces the whole
+    # check to run once, against the full text, from position zero.
     ("Autoinflammatory", r"VEXAS|autoinflammatory disease|familial mediterranean fever|"
-                          r"adult-onset still|\bTRAPS\b|cryopyrin-associated periodic syndrome|"
-                          r"\bCAPS\b"),
+                          r"adult-onset still|cryopyrin-associated periodic syndrome|"
+                          r"^(?=.*\bTRAPS\b)(?!.*extracellular traps)|"
+                          r"cryopyrin.{0,30}\bCAPS\b|\bCAPS\b.{0,30}cryopyrin"),
     ("General", r"rheumatic disease|inflammatory rheumatic|"
                 r"rheumatology.*(vaccin|pregnan|comorbid)"),
 ]

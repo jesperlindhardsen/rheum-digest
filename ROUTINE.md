@@ -54,6 +54,23 @@ arteritis) — one clinical spectrum, so GCA sits here rather than under Vasculi
 `Crystal` is gout and CPPD/pseudogout. Classification checks PMR/GCA before
 Vasculitis, since GCA matches both.
 
+**Bare acronyms are ambiguous and need disambiguation, in the PubMed query and in
+`DISEASE_PATTERNS` alike.** `"TRAPS"[tiab]` alone also matches the plain word
+"traps" wherever it appears — PubMed's `[tiab]` is case-insensitive — which pulled
+in basic-science papers about "neutrophil extracellular traps" (NETs) with no
+rheumatology content at all (PMID 42598105, an obesity/diabetes review). The
+query now excludes the exact phrase `"extracellular traps"[tiab]`; the fallback
+regex requires TRAPS to appear *without* that phrase anywhere in the text (an
+anchored `^(?=.*\bTRAPS\b)(?!.*extracellular traps)` — the anchor matters, since
+an unanchored negative lookahead lets `re.search` retry from a later position and
+the exclusion evaporates the moment the disqualifying phrase is only spelled out
+once and referred to as "traps" or "NETs" afterward, which is normal writing
+style). `CAPS` has the opposite problem — it's ambiguous even *within*
+rheumatology, meaning either Cryopyrin-Associated Periodic Syndrome or
+Catastrophic Antiphospholipid Syndrome (PMID 42559394, an SLE case correctly
+classified as SLE despite using "CAPS" for the latter). The fallback regex
+requires "cryopyrin" nearby before accepting a bare CAPS match.
+
 **Comments and correspondence are excluded, not classified.** A `Comment` on
 someone else's article, or a `Letter` that opens "Comment on:" / "Correspondence
 on:" / "Reply to:" / "Response to:", is secondary literature about another paper —
