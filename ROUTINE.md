@@ -23,7 +23,8 @@ pure code.
   E-utilities and parses results in code — title, journal, authors, PMID, date, and
   **structured abstract** (PubMed's labeled `AbstractText` sections — Background/Methods/
   Results/Conclusion — kept as separate `{label, text}` pairs) are extracted verbatim,
-  untouched by AI. Preprints & errata discarded automatically.
+  untouched by AI. Preprints, errata, and comments/correspondence are discarded
+automatically (see below).
 - **Language**: English and Danish only. Enforced twice in `fetch_pubmed.py` — as a
   PubMed search filter (`LANGUAGE_FILTER`, so other languages are never fetched) and
   again on the parsed `<Language>` tags (`ALLOWED_LANGUAGES`), which are authoritative.
@@ -52,6 +53,19 @@ PMR/GCA ahead of Vasculitis, General last). Reordering one must not reorder the 
 arteritis) — one clinical spectrum, so GCA sits here rather than under Vasculitis.
 `Crystal` is gout and CPPD/pseudogout. Classification checks PMR/GCA before
 Vasculitis, since GCA matches both.
+
+**Comments and correspondence are excluded, not classified.** A `Comment` on
+someone else's article, or a `Letter` that opens "Comment on:" / "Correspondence
+on:" / "Reply to:" / "Response to:", is secondary literature about another paper —
+it was never evidence in its own right, however the finding query happened to tag
+it. `EXCLUDE_TYPES` in `fetch_pubmed.py` drops any hit whose `PublicationType`
+includes `Comment`; `COMMENT_TITLE` drops the title-pattern cases PubMed's
+structured fields don't otherwise flag. `Editorial` alone is *not* excluded — a
+society sometimes publishes its own recommendations in that format (e.g. PMID
+41652650, the Qazaq College of Rheumatology's guidance), which is real content.
+Known gap: a critique with neither a recognisable title nor a `Comment` tag (e.g.
+PMID 42170841, "'More guidelines than rules': reconsidering key gaps...") slips
+through and needs manual removal — there's no PubMed field to catch it by.
 
 Query strings and evidence-type filters live in `fetch_pubmed.py`
 (`DISEASE_QUERIES`, `EVIDENCE_FILTERS`) — edit there, not here, to keep one source of truth.

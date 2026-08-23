@@ -113,7 +113,21 @@ def classify_evidence_type(publication_types, fallback: str) -> str:
     return fallback
 
 
-EXCLUDE_TYPES = {"Preprint", "Published Erratum", "Retraction of Publication", "Retracted Publication"}
+# "Comment" is secondary literature about someone else's article, not evidence
+# in its own right -- e.g. PMID 42587046, an editorial on a losartan/uric-acid
+# trial, which otherwise fell to the RCT query's [tiab] fallback and displayed
+# as an RCT. "Editorial" alone is NOT excluded: a society's own recommendations
+# are sometimes published in that format (PMID 41652650, the Qazaq College of
+# Rheumatology's guidance), and that is real content, not commentary.
+EXCLUDE_TYPES = {"Preprint", "Published Erratum", "Retraction of Publication",
+                 "Retracted Publication", "Comment"}
+
+# Comment letters carry PublicationType "Letter", identical to a letter with
+# real content (a case report, a consensus statement) -- PubMed's structured
+# fields don't distinguish them. Title wording is the only signal available
+# without reading the abstract, and MEDLINE's own convention for a comment
+# letter is to open with one of these phrases.
+COMMENT_TITLE = re.compile(r"^(comment on|correspondence on|reply to|response to)\s*[:\s]", re.IGNORECASE)
 
 # Only English- and Danish-language articles. Applied twice: as a PubMed search
 # filter (LANGUAGE_FILTER, so we don't fetch what we'd discard) and again on the
@@ -284,6 +298,10 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
     if pub_types & EXCLUDE_TYPES:
         return None
 
+    title = _text(article.find("ArticleTitle"))
+    if title and COMMENT_TITLE.search(title):
+        return None
+
     # An article can carry several <Language> tags; keep it if any is allowed.
     languages = [t.lower() for t in (_text(l) for l in article.findall(".//Language")) if t]
     if not set(languages) & ALLOWED_LANGUAGES:
@@ -293,7 +311,6 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
     evidence_type = classify_evidence_type(pub_types, evidence_type)
 
     pmid = _text(pubmed_article.find(".//PMID"))
-    title = _text(article.find("ArticleTitle"))
     date = _parse_date(pubmed_article)
     if not (pmid and title and date):
         return None

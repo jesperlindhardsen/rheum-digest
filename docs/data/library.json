@@ -422,41 +422,6 @@
       ]
     },
     {
-      "pmid": "42587046",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Hypertens Res",
-      "first_author": "Kuwabara",
-      "last_author": "Ae",
-      "date": "2026-08-13",
-      "title": "Losartan, uric acid, and cardiometabolic disease: beyond blood pressure control.",
-      "abstract_sections": [
-        {
-          "label": null,
-          "text": "Losartan has a unique uricosuric property among angiotensin II receptor blockers and may therefore be advantageous in patients with hypertension and hyperuricemia or gout. The study by Xu et al. combined a meta-analysis of placebo-controlled randomized trials with a target trial emulation using UK Biobank data and demonstrated that losartan reduced serum uric acid by approximately 0.3 mg/dL. Although this effect is modest and substantially smaller than that of established uric acid-lowering therapies, it may be clinically relevant when selecting antihypertensive treatment for patients with borderline hyperuricemia, gout risk, or diuretic-associated uric acid elevation. Losartan may partially counterbalance the uric acid-raising effect of thiazide diuretics, but it should not replace appropriate treat-to-target therapy in patients with gout or marked hyperuricemia. The study is limited by the small emulated cohort and the possibility of residual confounding and selection bias. Nevertheless, the consistency of the findings across different analytical approaches supports a genuine uric acid-lowering effect. Future studies should determine whether this biochemical effect translates into fewer gout flares, improved attainment of serum uric acid targets, or reduced cardiovascular and cardiometabolic events. Overall, losartan should be regarded as an effective antihypertensive agent with a modest but favorable uric acid profile. Clinical interpretation of losartan's uric acid-lowering effect in hypertension care. ARB, angiotensin II receptor blocker; RCT, randomized controlled trial; URAT1, urate transporter 1."
-        }
-      ],
-      "keywords": [
-        "Gout",
-        "Hypertension",
-        "Hyperuricemia",
-        "Losartan",
-        "Thiazide diuretics",
-        "Uric acid"
-      ],
-      "time_bucket": "recent",
-      "disease_groups": [
-        "Crystal"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Comment",
-        "Editorial"
-      ]
-    },
-    {
       "pmid": "42592900",
       "evidence_type": "RCT",
       "tier": 3,
@@ -13048,33 +13013,6 @@
       ]
     },
     {
-      "pmid": "42411120",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Int J Hyperthermia",
-      "first_author": "Singh",
-      "last_author": "Khatun",
-      "date": "2026-07-07",
-      "title": "Comment on 'effects of locally applied water-filtered infrared a irradiation adjunctive to iloprost and carbon dioxide hand baths in patients with systemic sclerosis and severe Raynaud's phenomenon - a randomized controlled trial'.",
-      "abstract_sections": [
-        {
-          "label": null,
-          "text": ""
-        }
-      ],
-      "keywords": [],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "SSc"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article"
-      ]
-    },
-    {
       "pmid": "42483467",
       "evidence_type": "Observational",
       "tier": 4,
@@ -18187,33 +18125,6 @@
       ]
     },
     {
-      "pmid": "42170841",
-      "evidence_type": "Guideline/consensus",
-      "tier": 2,
-      "journal": "Arthritis Rheumatol",
-      "first_author": "Sheikh",
-      "last_author": "Caricchio",
-      "date": "2026-05-22",
-      "title": "\"More guidelines than rules\": reconsidering key gaps in the 2025 American College of Rheumatology treatment recommendations for systemic lupus erythematosus: comment on the article by Sammaritano et al.",
-      "abstract_sections": [
-        {
-          "label": null,
-          "text": ""
-        }
-      ],
-      "keywords": [],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "SLE"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Letter"
-      ]
-    },
-    {
       "pmid": "42175562",
       "evidence_type": "RCT",
       "tier": 4,
@@ -19445,62 +19356,6 @@
       ],
       "publication_types": [
         "Journal Article"
-      ]
-    },
-    {
-      "pmid": "42143715",
-      "evidence_type": "Guideline/consensus",
-      "tier": 2,
-      "journal": "Rheumatology (Oxford)",
-      "first_author": "Buttgereit",
-      "last_author": "Dejaco",
-      "date": "2026-05-05",
-      "title": "Comment on: Recommendations of the German, Austrian and Swiss rheumatology and other medical societies for the management of polymyalgia rheumatica: reply.",
-      "abstract_sections": [
-        {
-          "label": null,
-          "text": ""
-        }
-      ],
-      "keywords": [],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "PMR/GCA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Comment",
-        "Editorial"
-      ]
-    },
-    {
-      "pmid": "42143716",
-      "evidence_type": "Guideline/consensus",
-      "tier": 2,
-      "journal": "Rheumatology (Oxford)",
-      "first_author": "Aamar",
-      "last_author": "Aamar",
-      "date": "2026-05-05",
-      "title": "Comment on: Recommendations of the German, Austrian and Swiss rheumatology and other medical societies for the management of polymyalgia rheumatica.",
-      "abstract_sections": [
-        {
-          "label": null,
-          "text": ""
-        }
-      ],
-      "keywords": [],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "PMR/GCA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Comment",
-        "Editorial"
       ]
     },
     {
@@ -23597,33 +23452,6 @@
         "Journal Article",
         "Multicenter Study",
         "Randomized Controlled Trial"
-      ]
-    },
-    {
-      "pmid": "41771617",
-      "evidence_type": "Guideline/consensus",
-      "tier": 2,
-      "journal": "Ann Rheum Dis",
-      "first_author": "Jamilloux",
-      "last_author": "Kone-Paut",
-      "date": "2026-03-01",
-      "title": "Correspondence on 'EULAR/PReS endorsed recommendations for the management of familial Mediterranean fever (FMF): 2024 update' by Ozen et al.",
-      "abstract_sections": [
-        {
-          "label": null,
-          "text": ""
-        }
-      ],
-      "keywords": [],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "Autoinflammatory"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Letter"
       ]
     },
     {
