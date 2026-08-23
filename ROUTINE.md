@@ -106,9 +106,21 @@ found it.
 "randomized controlled trial" in its abstract is returned by the RCT query — and
 `fetch_all_hits` dedups first-wins, so that label would stick. `classify_evidence_type()`
 therefore derives the type from PubMed's own `PublicationType`, most specific first
-(`EVIDENCE_PRECEDENCE`: Guideline → Evidence synthesis → RCT → Observational → Case).
+(`EVIDENCE_PRECEDENCE`: Guideline → Evidence synthesis (Systematic Review/Meta-Analysis)
+→ RCT → Observational → Case → Evidence synthesis again, this time for a bare `Review`).
 The finding query is only the fallback, used when a record carries none of those tags —
-common for ahead-of-print records not yet MeSH-indexed (296 of the current 826).
+common for ahead-of-print records not yet MeSH-indexed.
+
+**A bare `Review` (narrative, not systematic) sits last in `EVIDENCE_PRECEDENCE`, on
+purpose.** PubMed commonly tags a "case report and review of the literature" with both
+`Case Reports` and `Review` — that's a case report, so the more specific tag has to win;
+`Review` only decides when nothing more specific applies. Skipping `Review` entirely
+isn't safe either: it was the gap that let PMID 42598105 (an obesity/diabetes review
+PubMed itself calls a plain `Review`, no other type) fall back to the finding query,
+which had matched it via the RCT filter's `[tiab]` clause — its abstract's one mention
+of "randomized controlled trial" was actually *"no completed RCT... has yet validated
+it"*, the opposite of being one. A phrase search can't tell a claim from its negation.
+
 Each record stores its `publication_types` so this stays auditable without re-fetching.
 
 **Records settle over time.** `update_library.refresh_pending_types()` re-checks

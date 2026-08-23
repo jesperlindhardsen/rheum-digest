@@ -72,12 +72,27 @@ EVIDENCE_FILTERS = {
 # PubMed's own PublicationType is authoritative, so prefer it, most specific
 # first. Falls back to the finding query only when the record carries none of
 # these (common for ahead-of-print records not yet MeSH-indexed).
+#
+# "Review" (a narrative review, not a systematic one) is grouped with Evidence
+# synthesis rather than left undecided: without it, a narrative review with no
+# other PubMed type rested entirely on the finding-query fallback, which is
+# exactly what mistagged PMID 42598105 (an obesity/diabetes review, itself
+# off-topic and since removed -- see the Autoinflammatory query fix above) as
+# an RCT: PubMed called it a plain Review, and its abstract's one mention of
+# "randomized controlled trial" was actually a comment on RCT evidence not
+# existing yet -- a phrase [tiab] search can't tell from the real thing.
 EVIDENCE_PRECEDENCE = [
     ("Guideline/consensus", {"Guideline", "Practice Guideline", "Consensus Development Conference"}),
     ("Evidence synthesis", {"Systematic Review", "Meta-Analysis"}),
     ("RCT", {"Randomized Controlled Trial"}),
     ("Observational", {"Observational Study"}),
     ("Clinical case/survey", {"Case Reports"}),
+    # Bare "Review" (narrative, not systematic) sits last on purpose: PubMed
+    # commonly tags a "case report and review of the literature" with both
+    # Case Reports and Review, and that's a case report, not a synthesis --
+    # the more specific tag above must win. This branch only ever fires when
+    # nothing more specific applies.
+    ("Evidence synthesis", {"Review"}),
 ]
 
 
