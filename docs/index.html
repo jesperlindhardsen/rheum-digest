@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=10">
+<link rel="stylesheet" href="assets/style.css?v=11">
 </head>
 <body class="salix">
 <header class="site-header">
@@ -48,6 +48,11 @@ const EVIDENCE_LABEL = {
   "RCT": "RCT", "Guideline/consensus": "Retningslinje/konsensus",
   "Evidence synthesis": "Meta/reviews", "Observational": "Observationelt",
   "Clinical case/survey": "Klinisk case/opgørelse"
+};
+const EVIDENCE_BADGE = {
+  "RCT": "RCT", "Guideline/consensus": "Retningslinje",
+  "Evidence synthesis": "Meta/review", "Observational": "Observationel",
+  "Clinical case/survey": "Case"
 };
 const MONTHS_DA = ["januar","februar","marts","april","maj","juni",
                    "juli","august","september","oktober","november","december"];
@@ -115,14 +120,15 @@ function renderItem(rec) {
   const sections = rec.abstract_sections.map(s =>
     s.label ? `<p><strong>${s.label}:</strong> ${s.text}</p>` : `<p>${s.text}</p>`
   ).join("");
-  const keywords = (rec.keywords && rec.keywords.length)
-    ? `<div class="keywords">${rec.keywords.map(k => `<span class="keyword-chip">${k}</span>`).join("")}</div>`
-    : "";
+  const chips = `<div class="chip-row">`
+    + `<span class="evidence-chip">${EVIDENCE_BADGE[rec.evidence_type] || rec.evidence_type}</span>`
+    + (rec.keywords || []).map(k => `<span class="keyword-chip">${k}</span>`).join("")
+    + `</div>`;
   return `
     <div class="item">
       <p class="title">${rec.title}<span class="tier-badge t${rec.tier}">${TIER_LABEL[rec.tier]}</span></p>
       <p class="meta">${authorLine(rec)} · <span class="journal">${rec.journal}</span> · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a></p>
-      ${keywords}
+      ${chips}
       <details class="abstract-toggle">
         <summary>Vis abstract</summary>
         <div class="abstract-full">${sections}</div>

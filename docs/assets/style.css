@@ -331,11 +331,24 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 .abstract-full p:last-child { margin-bottom: 0; }
 .abstract-full strong { color: var(--moss-deep); font-weight: var(--w-semi); }
 
-.keywords {
+.chip-row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--s-2);
   margin-top: var(--s-3);
+}
+/* Plum: the one accent the tier badges don't use, so the article type never
+   reads as a tier. */
+.evidence-chip {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--plum-deep);
+  background: var(--plum-wash);
+  border-radius: var(--r-pill);
+  padding: 3px 10px;
 }
 .keyword-chip {
   font-size: var(--fs-micro);
