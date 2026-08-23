@@ -62,6 +62,14 @@ Observational, Clinical case/survey. The viewer relabels these for display
 in `docs/index.html`) — notably Evidence synthesis reads "Meta/reviews". The keys
 are what lives in the data; don't rename them there.
 
+**An article is normally found by several queries.** `fetch_all_hits` searches
+first and fetches second: phase 1 records *every* evidence query that returned each
+PMID, phase 2 fetches each PMID once. So a hit is stored once, and when the queries
+disagree the most specific match wins (`most_specific_type`) rather than whichever
+query the loop reached first. Disease queries overlapping doesn't matter — the
+disease groups are assigned afterwards by reading the article, not by which query
+found it.
+
 **Which query found a hit does not decide its type.** The `[tiab]` clauses in
 `EVIDENCE_FILTERS` are deliberately loose — a systematic review that merely mentions
 "randomized controlled trial" in its abstract is returned by the RCT query — and
@@ -71,6 +79,17 @@ therefore derives the type from PubMed's own `PublicationType`, most specific fi
 The finding query is only the fallback, used when a record carries none of those tags —
 common for ahead-of-print records not yet MeSH-indexed (296 of the current 826).
 Each record stores its `publication_types` so this stays auditable without re-fetching.
+
+**Records settle over time.** `update_library.refresh_pending_types()` re-checks
+PubMed each run for records still carrying no decisive type, and upgrades them once
+they're indexed. Without it nothing would ever revisit them — `update_library` only
+touches new PMIDs. Run it after `update_library()` each week.
+
+Known gap: `EVIDENCE_FILTERS["Evidence synthesis"]` matches on `[pt]` tags only, so
+an ahead-of-print systematic review cannot be found by that query at all, and can't
+fall back to it either. Such records sit under whichever other query caught them
+(often Observational or RCT via their `[tiab]` clauses) until PubMed indexes them and
+`refresh_pending_types` corrects them.
 
 ## STEP 2 — UPDATE LIBRARY (run update_library.py)
 Pass the classified hits into `update_library(new_hits, "docs/data/library.json")`. The script:

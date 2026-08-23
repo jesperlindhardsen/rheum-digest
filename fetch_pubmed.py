@@ -75,6 +75,36 @@ EVIDENCE_PRECEDENCE = [
 ]
 
 
+DECISIVE_TYPES = set().union(*(tags for _, tags in EVIDENCE_PRECEDENCE))
+
+
+def has_decisive_type(publication_types) -> bool:
+    """Whether PubMed has assigned a type we can classify on."""
+    return bool(set(publication_types) & DECISIVE_TYPES)
+
+
+def fetch_publication_types(pmids: list) -> dict:
+    """
+    PMID -> its PublicationType list, for records already in the library.
+    Used to re-check records that reached us before PubMed indexed them.
+    """
+    session = _session()
+    out = {}
+    for i in range(0, len(pmids), 200):
+        root = _efetch(session, pmids[i:i + 200])
+        time.sleep(REQUEST_DELAY)
+        for pubmed_article in root.findall(".//PubmedArticle"):
+            pmid = _text(pubmed_article.find(".//PMID"))
+            if not pmid:
+                continue
+            out[pmid] = sorted({
+                t for t in (_text(x) for x in
+                            pubmed_article.findall(".//PublicationTypeList/PublicationType"))
+                if t
+            })
+    return out
+
+
 def classify_evidence_type(publication_types, fallback: str) -> str:
     types = set(publication_types)
     for name, tags in EVIDENCE_PRECEDENCE:
@@ -301,6 +331,14 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
     }
 
 
+def most_specific_type(evidence_types) -> str:
+    """The most specific of several matching evidence types (EVIDENCE_PRECEDENCE)."""
+    for name, _ in EVIDENCE_PRECEDENCE:
+        if name in evidence_types:
+            return name
+    return sorted(evidence_types)[0]
+
+
 def fetch_all_hits(days: int = 7, evidence_types: list = None) -> list:
     """
     Runs the disease/evidence queries against PubMed for the past `days`
@@ -318,32 +356,33 @@ def fetch_all_hits(days: int = 7, evidence_types: list = None) -> list:
     maxdate = today.strftime("%Y/%m/%d")
 
     session = _session()
-    seen_pmids = set()
-    hits = []
 
-    for disease, disease_term in DISEASE_QUERIES.items():
+    # Phase 1 -- search only, recording every evidence query that returned each
+    # PMID. Articles routinely match several: the RCT filter's [tiab] clause
+    # catches reviews that discuss trials, "survey" catches all sorts. Keeping
+    # the whole set means the fallback below can pick the most specific one
+    # rather than whichever query the loop happened to reach first.
+    matched_types = {}
+    for disease_term in DISEASE_QUERIES.values():
         for evidence_type in evidence_types:
-            evidence_term = EVIDENCE_FILTERS[evidence_type]
-            term = f"{disease_term} AND {evidence_term} AND {LANGUAGE_FILTER}"
-            pmids = _esearch(session, term, mindate, maxdate)
+            term = f"{disease_term} AND {EVIDENCE_FILTERS[evidence_type]} AND {LANGUAGE_FILTER}"
+            for pmid in _esearch(session, term, mindate, maxdate):
+                matched_types.setdefault(pmid, set()).add(evidence_type)
             time.sleep(REQUEST_DELAY)
 
-            new_pmids = [p for p in pmids if p not in seen_pmids]
-            if not new_pmids:
-                continue
-
-            for i in range(0, len(new_pmids), 200):
-                chunk = new_pmids[i:i + 200]
-                root = _efetch(session, chunk)
-                time.sleep(REQUEST_DELAY)
-                for pubmed_article in root.findall(".//PubmedArticle"):
-                    hit = _parse_article(pubmed_article, evidence_type)
-                    if hit is None:
-                        continue
-                    if hit["pmid"] in seen_pmids:
-                        continue
-                    seen_pmids.add(hit["pmid"])
-                    hits.append(hit)
+    # Phase 2 -- fetch each PMID once. _parse_article prefers PubMed's own
+    # PublicationType; the query-derived type is only its fallback.
+    hits = []
+    pmids = list(matched_types)
+    for i in range(0, len(pmids), 200):
+        root = _efetch(session, pmids[i:i + 200])
+        time.sleep(REQUEST_DELAY)
+        for pubmed_article in root.findall(".//PubmedArticle"):
+            pmid = _text(pubmed_article.find(".//PMID"))
+            fallback = most_specific_type(matched_types.get(pmid) or evidence_types)
+            hit = _parse_article(pubmed_article, fallback)
+            if hit is not None:
+                hits.append(hit)
 
     return hits
 

@@ -188,5 +188,54 @@ def update_library(new_hits: list, library_path: str, today: datetime = None) ->
     return {"added": added, "total": len(library), "by_group": by_group}
 
 
+def refresh_pending_types(library_path: str) -> dict:
+    """
+    Re-check PubMed for records that still carry no decisive PublicationType.
+
+    Ahead-of-print records reach us before PubMed has indexed them, so their
+    evidence_type is whatever the finding query guessed. PubMed assigns the real
+    type weeks later, but nothing would revisit it -- update_library only ever
+    touches new PMIDs. Run this each week to let those records settle.
+
+    Returns: {"pending": int, "resolved": int, "retyped": int, "changes": {...}}
+    """
+    from fetch_pubmed import (fetch_publication_types, has_decisive_type,
+                              classify_evidence_type)
+
+    path = Path(library_path)
+    with open(path, "r", encoding="utf-8") as f:
+        payload = json.load(f)
+    records = payload if isinstance(payload, list) else payload.get("records", [])
+
+    pending = [r for r in records
+               if not has_decisive_type(r.get("publication_types", []))]
+    if not pending:
+        return {"pending": 0, "resolved": 0, "retyped": 0, "changes": {}}
+
+    fetched = fetch_publication_types([r["pmid"] for r in pending])
+
+    resolved = 0
+    changes = {}
+    for rec in pending:
+        types = fetched.get(rec["pmid"])
+        if not types or not has_decisive_type(types):
+            continue  # PubMed still hasn't indexed it; try again next week
+        rec["publication_types"] = types
+        resolved += 1
+        new_type = classify_evidence_type(types, rec["evidence_type"])
+        if new_type != rec["evidence_type"]:
+            key = f"{rec['evidence_type']} -> {new_type}"
+            changes[key] = changes.get(key, 0) + 1
+            rec["evidence_type"] = new_type
+
+    if isinstance(payload, list):
+        payload = {"generated_at": datetime.now().strftime("%Y-%m-%d"), "records": records}
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+    return {"pending": len(pending), "resolved": resolved,
+            "retyped": sum(changes.values()), "changes": changes}
+
+
 if __name__ == "__main__":
     print("update_library.py loaded. Import update_library() and call it with your hits.")
