@@ -56,7 +56,10 @@ Vasculitis, since GCA matches both.
 Query strings and evidence-type filters live in `fetch_pubmed.py`
 (`DISEASE_QUERIES`, `EVIDENCE_FILTERS`) — edit there, not here, to keep one source of truth.
 
-Evidence types (5): RCT, Guideline/consensus, Evidence synthesis, Observational, Clinical case/survey
+Evidence types (5), by stored key: RCT, Guideline/consensus, Evidence synthesis,
+Observational, Clinical case/survey. The viewer relabels these for display
+(`EVIDENCE_LABEL` in `docs/index.html`) — notably Evidence synthesis reads
+"Meta/reviews". The keys are what lives in the data; don't rename them there.
 
 ## STEP 2 — UPDATE LIBRARY (run update_library.py)
 Pass the classified hits into `update_library(new_hits, "docs/data/library.json")`. The script:
@@ -88,7 +91,9 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   With every tier unchecked the panel reads "Vælg mindst ét niveau."
 - Within each disease × evidence-type combo: one collapsible section per calendar
   month, newest first, each with a count, at the same font size as the disease tabs.
-  The topmost section is open on load; the rest are collapsed.
+  Every month within the last six of the run month is open on load; older ones are
+  collapsed. A combo whose newest items already predate that window still opens its
+  topmost section, so it never loads looking empty.
   - The section for the run's own month is labelled "Seneste måned"; every other
     section carries month + year ("Juli 2026"). A sparse combo whose newest items
     are months old therefore opens on a dated section, not on "Seneste måned".

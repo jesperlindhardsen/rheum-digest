@@ -46,7 +46,7 @@ const ALL_EVIDENCE = "__all_ev__";
 const EVIDENCE_LABEL = {
   [ALL_EVIDENCE]: "Alt",
   "RCT": "RCT", "Guideline/consensus": "Retningslinje/konsensus",
-  "Evidence synthesis": "Evidensopsummering", "Observational": "Observationelt",
+  "Evidence synthesis": "Meta/reviews", "Observational": "Observationelt",
   "Clinical case/survey": "Klinisk case/opgørelse"
 };
 const MONTHS_DA = ["januar","februar","marts","april","maj","juni",
@@ -70,6 +70,13 @@ function inTier(rec) { return activeTiers.has(rec.tier); }
 function monthKey(date) {
   const key = date.slice(0, 7);
   return (currentMonth && key > currentMonth) ? currentMonth : key;
+}
+
+// Month key n months before `key`, e.g. monthsBack("2026-08", 5) -> "2026-03".
+function monthsBack(key, n) {
+  const [year, month] = key.split("-").map(Number);
+  const d = new Date(year, month - 1 - n, 1);
+  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
 }
 
 function monthLabel(key) {
@@ -141,13 +148,18 @@ function renderPanel() {
     byMonth.get(key).push(rec);
   });
 
+  // Expanded by default: every month within the last six of the run month.
+  // The `i === 0` clause keeps the topmost section open in a sparse combo whose
+  // newest items are already older than that window.
+  const openFrom = currentMonth ? monthsBack(currentMonth, 5) : null;
+
   const months = [...byMonth.keys()].sort().reverse();
   panel.innerHTML = months.map((key, i) => {
     const monthItems = byMonth.get(key);
     // Only the run month earns the generic label -- in a sparse group the top
     // section can be months old, and calling that "Seneste måned" would misread.
     const label = key === currentMonth ? "Seneste måned" : monthLabel(key);
-    const openAttr = i === 0 ? " open" : "";
+    const openAttr = (i === 0 || (openFrom && key >= openFrom)) ? " open" : "";
     return `
       <details${openAttr} class="time-bucket">
         <summary>${label} (${monthItems.length})</summary>
