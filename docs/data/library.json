@@ -422,45 +422,6 @@
       ]
     },
     {
-      "pmid": "42592900",
-      "evidence_type": "RCT",
-      "tier": 3,
-      "journal": "Scand J Rheumatol",
-      "first_author": "Stjärne",
-      "last_author": "Østerås",
-      "date": "2026-08-13",
-      "title": "A self-management app in a digital treat-to-target gout-care approach: the ReMonit Gout feasibility study.",
-      "abstract_sections": [
-        {
-          "label": "OBJECTIVE",
-          "text": "A self-management app, Urika, was developed to remotely monitor and support patients when initiating urate-lowering therapy (ULT). The objective was to test the overall feasibility of a future randomized controlled trial of a digital treat-to-target gout-care approach using Urika in secondary care."
-        },
-        {
-          "label": "METHOD",
-          "text": "Feasibility was tested among patients with gout in specialized healthcare over 3 months. The predefined set of feasibility criteria included aspects of technical, operational, and trial feasibility, as well as the feasibility of collecting clinical outcomes. Overall feasibility would be deemed acceptable if ≥ 70% of the predefined criteria were achieved. Patient participants entered their measured serum urate, ULT medication, start dose, and flare medication into the app. The app provided instructions about dose escalations. Patient characteristics and patient-reported outcome measures were collected by digital questionnaires, and app experiences were collected in semi-structured telephone interviews."
-        },
-        {
-          "label": "RESULTS",
-          "text": "The study included 21 males aged 29-71 years. In total, 27/31 (87%) of the predefined feasibility criteria were achieved, 85% of patients rated their satisfaction with the app ≥ 8 on a 0-10 numeric rating scale, and 90% reported being satisfied/very satisfied with the gout treatment. Ten patients were interviewed, giving mainly positive feedback on the Urika app. No safety issues were identified in this small sample."
-        },
-        {
-          "label": "CONCLUSION",
-          "text": "The overall feasibility of the Urika app and the study logistics were satisfactory. The study results have been used to improve the app functions and decide study logistics in an ongoing randomized controlled trial of a digital treat-to-target gout-care approach.Trial Registration Number: ClinicalTrials.gov: NCT06211322, registered 18 January 2024."
-        }
-      ],
-      "keywords": [],
-      "time_bucket": "recent",
-      "disease_groups": [
-        "Crystal"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article"
-      ]
-    },
-    {
       "pmid": "42593490",
       "evidence_type": "Clinical case/survey",
       "tier": 4,
@@ -6035,41 +5996,6 @@
       ]
     },
     {
-      "pmid": "42536647",
-      "evidence_type": "Observational",
-      "tier": 4,
-      "journal": "PLoS One",
-      "first_author": "Pitua",
-      "last_author": "Okema",
-      "date": "2026-07-31",
-      "title": "Urate dysregulation (hyperuricemia and gout) among people living with HIV: A protocol for a systematic review and meta-analysis.",
-      "abstract_sections": [
-        {
-          "label": "INTRODUCTION",
-          "text": "Approximately 39.9 million people are living with HIV worldwide, most in sub-Saharan Africa. Effective antiretroviral therapy has shifted attention to metabolic comorbidities, and emerging evidence links integrase inhibitors such as dolutegravir to elevated serum uric acid, yet the global burden of hyperuricemia and gout in this population is unquantified."
-        },
-        {
-          "label": "METHODS AND ANALYSIS",
-          "text": "This protocol describes a systematic review and meta-analysis of observational studies (cross-sectional, cohort, and case-control) published from inception to May 2026. We will search PubMed/MEDLINE, EMBASE, Web of Science, and CINAHL. Studies involving adults (≥18 years) living with HIV that report the prevalence or incidence of hyperuricemia or gout will be included. Two independent reviewers will screen studies, extract data, and assess risk of bias using the Joanna Briggs Institute Prevalence Critical Appraisal Checklist and the Newcastle-Ottawa Scale (NOS). Primary outcomes are the pooled prevalence of hyperuricemia and gout in PLHIV. Secondary outcomes include risk factors associated with urate dysregulation (ART regimen, Cluster of Differentiation 4 [CD4] count, viral load, metabolic comorbidities, and HIV duration), and gout as an immune reconstitution inflammatory syndrome (IRIS) manifestation. A random-effects meta-analysis using the DerSimonian-Laird method with Freeman-Tukey double-arcsine transformation for prevalence data will be performed in R software. Heterogeneity will be assessed using the I2 statistic and Cochran's Q test. Subgroup analyses will explore variation by ART class (pre-ART, PI, NNRTI, INSTI/dolutegravir era), geographic region, CD4 category, and study quality."
-        },
-        {
-          "label": "PROSPERO REGISTRATION NUMBER",
-          "text": "CRD420261360734."
-        }
-      ],
-      "keywords": [],
-      "time_bucket": "recent",
-      "disease_groups": [
-        "Crystal"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article"
-      ]
-    },
-    {
       "pmid": "42544152",
       "evidence_type": "Clinical case/survey",
       "tier": 4,
@@ -7573,43 +7499,6 @@
       "publication_types": [
         "Journal Article",
         "Review"
-      ]
-    },
-    {
-      "pmid": "42582081",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Front Med (Lausanne)",
-      "first_author": "Zhou",
-      "last_author": "Zhao",
-      "date": "2026-07-28",
-      "title": "Efficacy and safety of Qing Zhu Granules for acute gouty arthritis with dampness-heat obstruction syndrome: study protocol for a phase 3, multicenter, randomized, double-blind, placebo-controlled trial.",
-      "abstract_sections": [
-        {
-          "label": "UNLABELLED",
-          "text": "Although standard therapies for acute gouty arthritis, such as nonsteroidal anti-inflammatory drugs, colchicine, and glucocorticoids demonstrate efficacy, their clinical application is limited by potential adverse reactions, which remains an unresolved issue. Qing Zhu Granules is a traditional Chinese medicine (TCM) compound preparation used for the treatment of primary acute gouty arthritis with dampness-heat obstruction syndrome. This multicenter, randomized, double-blind, placebo-controlled phase 3 clinical trial conducted in China aimed to evaluate the efficacy and safety of Qing Zhu Granules. Patients who met the Western medical diagnostic criteria for gout, met the TCM syndrome differentiation criteria for dampness-heat obstruction syndrome, had an acute attack duration ≤48 h, and a visual analog scale (VAS) score of joint pain ≥ 40 mm in the current attack were included. Participants were randomly assigned in a 1:1 ratio to the Qing Zhu Granules group or the placebo group, with an oral dose of 6 g, administered 3 times a day, for a treatment course of 3 days. During the treatment period, diclofenac sodium enteric-coated tablets could be used as rescue medication in case of intolerable pain. The primary endpoint was the change in joint pain VAS score (0-100 mm) from baseline at 72 h after treatment. The secondary endpoints included changes in joint pain VAS score from baseline at 24 and 48 h after treatment, changes in the total score and each individual item score of the TCM syndrome rating scale from baseline, changes in C-reactive protein levels from baseline at 72 h after treatment, total dose and frequency of rescue medication within 72 h of treatment, and the interval between the first use of rescue medication and the first use of the study drug after treatment initiation."
-        },
-        {
-          "label": "CLINICAL TRIAL REGISTRATION",
-          "text": "https://clinicaltrials.gov/, identifier NCT06068478."
-        }
-      ],
-      "keywords": [
-        "Qing Zhu Granules",
-        "acute pain",
-        "gouty arthritis",
-        "randomized controlled trial",
-        "traditional Chinese medicine"
-      ],
-      "time_bucket": "recent",
-      "disease_groups": [
-        "Crystal"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article"
       ]
     },
     {
@@ -12296,50 +12185,6 @@
       ]
     },
     {
-      "pmid": "42431665",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "BMJ Open",
-      "first_author": "Cook",
-      "last_author": "Bluett",
-      "date": "2026-07-10",
-      "title": "Clinical and cost-effectiveness of oral versus intramuscular glucocorticoids in rheumatoid arthritis: protocol for a multicentre randomised controlled trial with economic evaluation and qualitative sub-study (LEADER trial).",
-      "abstract_sections": [
-        {
-          "label": "INTRODUCTION",
-          "text": "Glucocorticoid (GC) bridging therapy is recommended in patients with rheumatoid arthritis commencing a disease-modifying anti-rheumatic drug (DMARD). It is not clear whether GC therapy is better administered intramuscularly or orally and at what dose level. The aim of the LEADER trial is to identify the most effective and safest way of using steroids in patients with uncontrolled RA who are starting a DMARD."
-        },
-        {
-          "label": "METHODS AND ANALYSIS",
-          "text": "A multicentre, randomised, open-label, four-arm, parallel-group clinical trial with an internal pilot phase, economic evaluation and qualitative study of acceptability. Participants will be randomised to one of four arms: arm A, 30 mg oral prednisolone tapering over 6 weeks; arm B, 15 mg oral prednisolone tapering over 4 weeks; arm C, Intramuscularly 120 mg methylprednisolone; and arm D, Intramuscularly 80 mg methylprednisolone. Participants will be assessed at baseline (pre-GC intervention), 4, 12 and 24 weeks. The primary outcome measure is the mean DAS(CRP)-28 over 12 weeks. The primary comparison will be according to route of administration (oral vs intramuscular GC treatment) with secondary comparisons within route of administration to provide evidence of dose effectiveness. Toxicity will be measured using the Glucocorticoid Toxicity Index, a clinical outcome assessment and early morning cortisol level. LEADER will be conducted in ~30 sites delivering NHS care, recruiting a sample size of 448. Economic evaluation will compare cost-effectiveness within a trial and over a lifetime horizon from the English National Health Service perspective."
-        },
-        {
-          "label": "ETHICS AND DISSEMINATION",
-          "text": "The LEADER trial received MHRA and Leicester Central Research Ethics Committee ethics approval (REC reference: 24/EM/0277, IRAS 1010280), opened to recruitment on Protocol Version 4.0 and is currently recruiting on Protocol Version 5.0. Participants will provide written informed consent in accordance with the Declaration of Helsinki and applicable regulatory requirements. Trial results will be disseminated via presentations at national and international meetings, published in open-access journals and to patients."
-        },
-        {
-          "label": "TRIAL REGISTRATION NUMBER",
-          "text": "ISRCTN32090559."
-        }
-      ],
-      "keywords": [
-        "RHEUMATOLOGY",
-        "Randomized Controlled Trial",
-        "Treatment Outcome"
-      ],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "RA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
-      ]
-    },
-    {
       "pmid": "42602822",
       "evidence_type": "Clinical case/survey",
       "tier": 4,
@@ -16358,51 +16203,6 @@
       ]
     },
     {
-      "pmid": "42276802",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "BMJ Open",
-      "first_author": "Borresen",
-      "last_author": "Klose",
-      "date": "2026-06-11",
-      "title": "Effect of supplemental hydrocortisone during stress in prednisolone-induced adrenal insufficiency: a study protocol for a multicentre, randomised, double-blinded, placebo-controlled clinical trial on health-related quality of life in patients with polymyalgia rheumatica/giant cell arteritis on low-dose prednisolone treatment (the RESCUE study).",
-      "abstract_sections": [
-        {
-          "label": "INTRODUCTION",
-          "text": "Patients on low-dose prednisolone may develop adrenal insufficiency causing reduced health-related quality of life (HRQoL) and increased risk of adrenal crisis. This study examines whether supplemental hydrocortisone during mild to moderate stress improves HRQoL in patients with polymyalgia rheumatica/giant cell arteritis (PMR/GCA) with adrenal insufficiency on low-dose prednisolone."
-        },
-        {
-          "label": "METHODS AND ANALYSIS",
-          "text": "A multicentre, randomised, double-blinded, placebo-controlled, clinical trial including patients with PMR/GCA receiving ongoing prednisolone ≤5 mg/day. Eligible patients undergo an adrenocorticotropic hormone (ACTH) test, and 250 patients with a stimulated cortisol<420 nmol/L (biochemical adrenal insufficiency) are randomised 1:1 to supplemental hydrocortisone or placebo during mild to moderate stress ('sick-days') for 6 months or until daily prednisolone is stopped. The goal is 200 patients completing ≥3 months intervention period. Patients continue prednisolone tapering according to PMR/GCA guidelines. In the event of severe stress (risk of adrenal crisis), patients receive open-label hydrocortisone treatment. 95 patients with stimulated cortisol ≥420 nmol/L serve as control group. The primary outcome is HRQoL measured as fatigue using ecological momentary assessments (EMA) of the General Fatigue scale from the Multidimensional Fatigue Inventory-20, five times daily in situations of stress ('sick-days'). EMA will be administered via a smartphone application 'EMA live'. Differences in mean fatigue scores during sick-days between hydrocortisone and placebo will be analysed using mixed models for repeated measures. Secondary outcomes include daily smartphone-based symptom reporting, additional HRQoL questionnaires, adrenal crises, adverse effects from glucocorticoid excess, serial ACTH tests and biomarkers of adrenal insufficiency."
-        },
-        {
-          "label": "ETHICS AND DISSEMINATION",
-          "text": "The study is approved by the Ethics Committee of the Capital Region of Denmark and the Danish Medicines Agency. Recruitment began June 2022. The last patient's last visit is expected in 2026. Results will be disseminated via peer-reviewed publication and conference presentations."
-        },
-        {
-          "label": "TRIAL REGISTRATION NUMBERS",
-          "text": "EudraCT:2021-002528-18, CTIS:2024-518272-30-00, NCT05435781."
-        }
-      ],
-      "keywords": [
-        "Adrenal disorders",
-        "Patient Reported Outcome Measures",
-        "RHEUMATOLOGY",
-        "Randomized Controlled Trial"
-      ],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "PMR/GCA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
-      ]
-    },
-    {
       "pmid": "42270533",
       "evidence_type": "Guideline/consensus",
       "tier": 3,
@@ -17086,7 +16886,7 @@
     },
     {
       "pmid": "42228337",
-      "evidence_type": "RCT",
+      "evidence_type": "Evidence synthesis",
       "tier": 4,
       "journal": "Inflammopharmacology",
       "first_author": "Moreira",
@@ -17351,57 +17151,6 @@
       ],
       "publication_types": [
         "Case Reports",
-        "Journal Article"
-      ]
-    },
-    {
-      "pmid": "41912277",
-      "evidence_type": "RCT",
-      "tier": 3,
-      "journal": "Musculoskeletal Care",
-      "first_author": "da Silva Santos",
-      "last_author": "Dantas",
-      "date": "2026-06-01",
-      "title": "Activity-Based Functional Exercise for Disability in Systemic Sclerosis: Protocol for a Feasibility Randomised Controlled Trial.",
-      "abstract_sections": [
-        {
-          "label": "INTRODUCTION",
-          "text": "Systemic Sclerosis (SSc) is associated with substantial disability in affected patients. Although exercise interventions for SSc have been developed, most focus on isolated body segments rather than global disability. Thus, this study aims to assess the feasibility of a functional activity-based exercise programme designed to address disability in individuals with SSc."
-        },
-        {
-          "label": "METHODS",
-          "text": "This feasibility study protocol is designed as a randomised controlled mixed-methods trial. It will include individuals with SSc aged 18-65 years and with a score ≥ 1 on the Scleroderma Health Assessment Questionnaire (SHAQ). Participants will be randomly allocated to either a control group, receiving an educational booklet on the disease, or an intervention group receiving the booklet plus a 10-week supervised functional exercise protocol (twice weekly). Feasibility outcomes include recruitment and retention rates, adherence, safety, and adverse events. Preliminary clinical outcomes will address disability level, physical function, fatigue, resilience, symptoms of anxiety and depression, and perceived change. Quantitative data will be analysed using descriptive and inferential statistics, while qualitative data will undergo thematic content analysis."
-        },
-        {
-          "label": "ETHICAL APPROVAL",
-          "text": "The study was approved by the Institutional Ethics Committee (Approval Number: 6.992.710)."
-        },
-        {
-          "label": "RESULTS",
-          "text": "The study is in its initial phase. The reference clinic has 219 registered patients, of whom 183 (83.6%) are preliminarily eligible. Recruitment and subsequent feasibility results are ongoing."
-        },
-        {
-          "label": "CONCLUSION",
-          "text": "This protocol proposes an innovative and low-cost approach, whose results will support refinements for a more rigorous clinical trial, despite potential logistical and disease-related limitations."
-        }
-      ],
-      "keywords": [
-        "exercise",
-        "feasibility studies",
-        "functional status",
-        "physical therapy",
-        "quality of life",
-        "systemic sclerosis"
-      ],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "SSc"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
         "Journal Article"
       ]
     },
@@ -17934,107 +17683,6 @@
       ]
     },
     {
-      "pmid": "42179340",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Acupunct Med",
-      "first_author": "Lam",
-      "last_author": "Lao",
-      "date": "2026-05-25",
-      "title": "Electroacupuncture for the relief of suboptimally managed pain in ankylosing spondylitis: A single-arm pilot study.",
-      "abstract_sections": [
-        {
-          "label": "OBJECTIVE",
-          "text": "Patients with ankylosing spondylitis (AS), who suffer from inflammatory back pain, spend about two times more on healthcare than the general population. However, current treatments are unsatisfactory. The aim of this single-armed pilot study was to assess the feasibility of using electroacupuncture (EA) to manage AS pain that is not adequately controlled by analgesics. We hypothesized that, after 6 weeks of treatment, at least 10% of the subjects would experience a 30% reduction in their pain severity numerical rating scale (NRS) score when compared to baseline."
-        },
-        {
-          "label": "METHODS",
-          "text": "Twenty AS subjects who were experiencing moderate to severe pain despite usual care were recruited between March 2016 and August 2017 in Hong Kong, with two patients ultimately dropping out. Semi-standardized EA was performed on the 20 subjects twice a week for 6-10 weeks. Outcome measures were mainly examined at baseline and at weeks 6, 10 and 18. These measures included: pain severity NRS, medication use, Bath ankylosing spondylitis functional index, Bath ankylosing spondylitis disease activity index, Bath ankylosing spondylitis global index, short-form 36, Bath ankylosing spondylitis metrology index, chest expansion, swollen and painful joint count, C-reactive protein and erythrocyte sedimentation rate."
-        },
-        {
-          "label": "RESULTS",
-          "text": "A one-sided exact binomial test showed that at least 10% of the subjects achieved a 30% pain reduction at week 6 (p = 0.002)."
-        },
-        {
-          "label": "CONCLUSION",
-          "text": "AS pain was decreased after 6 weeks of EA treatment. However, a randomized controlled trial with an adequate sample size is needed to confirm this finding."
-        },
-        {
-          "label": "TRIAL REGISTRATION NUMBER",
-          "text": "NCT02697968 (ClinicalTrials.gov)."
-        }
-      ],
-      "keywords": [
-        "acupuncture",
-        "ankylosing spondylitis",
-        "electroacupuncture",
-        "pain",
-        "pilot study"
-      ],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "PsA/SpA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article"
-      ]
-    },
-    {
-      "pmid": "42184376",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "JMIR Res Protoc",
-      "first_author": "van Slingerland",
-      "last_author": "de Jong",
-      "date": "2026-05-25",
-      "title": "Effect of an Online, Interactive Lifestyle Intervention Program on 12-Month Disease Management Outcomes: Protocol for The Healthy Living in Inflammatory Arthritis (HELIA) Randomized Controlled Trial.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Innovative disease management strategies have significantly improved clinical outcomes in inflammatory arthritis (IA). Although more than 80% of patients achieve low disease activity (LDA), the disease continues to exert a considerable impact on patients' lives. For these patients with IA, a lifestyle intervention program may add value by reducing inflammatory activity, potentially alleviating the disease burden and the risk of a flare."
-        },
-        {
-          "label": "OBJECTIVE",
-          "text": "This study aimed to compare 12-month disease management outcomes between patients with rheumatoid arthritis (RA) and psoriatic arthritis (PsA) with LDA who follow an online, interactive lifestyle intervention program (Leef! met Reuma) and those who receive general nutrition recommendations offered as part of usual care."
-        },
-        {
-          "label": "METHODS",
-          "text": "The Healthy Living in Inflammatory Arthritis (HELIA) trial is an open-label, randomized controlled clinical trial with the aim of enrolling 200 adult patients diagnosed with RA or PsA according to the American College of Rheumatology or European Alliance of Associations for Rheumatology 2010 criteria, or Classification for Psoriatic Arthritis criteria, respectively. Other inclusion criteria were (1) having LDA defined as Disease Activity Score ≥2.6 and <3.5 or Disease Activity in Psoriatic Arthritis >4 and <16 and (2) stable disease-modifying antirheumatic drug dosages for ≥6 months prior to randomization. Patients are randomized into a lifestyle intervention or general nutrition recommendations using a 1:1 allocation ratio. The lifestyle intervention program consists of a 6-month intensive part, followed by an 18-month aftercare period. During the intensive part, there were 5 online Zoom (Zoom Communications Inc) meetings and 7 coaching sessions. The program focuses on 4 pillars, namely nutrition, exercise, relaxation, and sleep. The prescribed diet resembles the Mediterranean diet, with an emphasis on unprocessed foods. The general nutrition recommendations are based on the Dutch food-based dietary guidelines. The primary objective is the proportional difference in Disease Activity Score and Disease Activity in Psoriatic Arthritis remission and/or successful tapering of disease-modifying antirheumatic drug treatment after 12 months of follow-up. Meeting either criterion is sufficient to qualify for the primary outcome. Additionally, a cost-effectiveness analysis will be conducted using the incremental cost-effectiveness ratio as the outcome. Other secondary objectives include health risk and clinical and patient-reported outcomes over time and at specific time points. Primary and secondary outcomes are analyzed according to an intention-to-treat principle."
-        },
-        {
-          "label": "RESULTS",
-          "text": "The trial was registered in the ISRCTN (International Standard Randomised Controlled Trial Number) registry retrospectively after recruitment had begun, due to administrative issues. The authors acknowledge this deviation."
-        },
-        {
-          "label": "CONCLUSIONS",
-          "text": "A randomized controlled trial is performed to compare the effectiveness of an online, interactive lifestyle intervention program and general nutrition recommendations in patients with IA with LDA from a clinical, patient, and societal point of view. If the intervention is proven effective, it can be applied as a complementary option to current treatment approaches."
-        }
-      ],
-      "keywords": [
-        "cost-effectiveness",
-        "disease activity",
-        "disease burden",
-        "lifestyle intervention",
-        "patient-reported outcomes",
-        "psoriatic arthritis",
-        "rheumatoid arthritis"
-      ],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "RA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
-      ]
-    },
-    {
       "pmid": "42175667",
       "evidence_type": "RCT",
       "tier": 4,
@@ -18351,52 +17999,6 @@
         "Journal Article",
         "Multicenter Study",
         "Randomized Controlled Trial"
-      ]
-    },
-    {
-      "pmid": "42169185",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Trials",
-      "first_author": "Banafshi",
-      "last_author": "Khatony",
-      "date": "2026-05-21",
-      "title": "Design, implementation, and evaluation of a mobile-based self-care application to enhance self-care behaviors in patients with rheumatoid arthritis in Iran: a mixed-methods study protocol with an interventional design.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Rheumatoid arthritis (RA) is a chronic autoimmune disease that requires long-term management and active self-care. In this context, emerging technologies-particularly mobile health applications-have demonstrated considerable potential in facilitating and enhancing self-care among patients with RA. This study aims to design, implement, and evaluate the effectiveness of a mobile-based self-care application to improve self-management in individuals with RA."
-        },
-        {
-          "label": "METHODS",
-          "text": "This study employs a sequential exploratory mixed-methods design with three phases, conducted in Sanandaj, Kurdistan Province, West Iran. In the qualitative phase (4 months), a conventional content analysis approach will be used to explore self-care experiences, needs, barriers, and facilitators among patients with RA. Data will be collected through semi-structured interviews using purposive maximum-variation sampling until saturation is reached. The data will be analyzed using the Graneheim and Lundman method to extract categories. In the development phase (8 months), the Nominal Group Technique (NGT) will be conducted with a multidisciplinary expert panel to refine, enrich, and prioritize the identified needs and define the mobile application's content. Software development will follow the Waterfall Model. Usability and user satisfaction will be evaluated through expert reviews and a pilot study involving 30 patients. In the quantitative phase (4 months), a Randomized Controlled Trial (RCT) will assess the application's effectiveness. Seventy-two RA patients will be randomly assigned to intervention (n = 36) or control (n = 36) groups. Both groups will receive routine care, while the intervention group will additionally use the application for 8 weeks. Outcomes include self-care levels, quality of life, and disability index. Ethical and administrative approvals were obtained prior to study commencement."
-        },
-        {
-          "label": "DISCUSSION",
-          "text": "This study investigates the impact of a mobile-based self-care application on improving self-care behaviors and disease management among patients with RA. The design and implementation of this application are expected to enhance patient experiences, promote self-care, and reduce negative disease outcomes, while also improving quality of life and lowering the disability index."
-        },
-        {
-          "label": "TRIAL REGISTRATION",
-          "text": "IRCT, IRCT20100913004736N30. Registered on 2 October 2025 and approved by the Ethics Committee of Kermanshah University of Medical Sciences ((IR.KUMS.REC.1403.603)). Available at: https://irct.behdasht.gov.ir/search/result?query=IRCT20100913004736N29."
-        }
-      ],
-      "keywords": [
-        "Application",
-        "Behavior",
-        "Mixed-methods design",
-        "Rheumatoid arthritis",
-        "Self-care"
-      ],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "RA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
       ]
     },
     {
@@ -19923,58 +19525,6 @@
       ]
     },
     {
-      "pmid": "42043935",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "JMIR Res Protoc",
-      "first_author": "Lv",
-      "last_author": "Zhou",
-      "date": "2026-04-27",
-      "title": "Tripterygium Glycoside Tablets Combined With Conventional Synthetic Disease-Modifying Antirheumatic Drugs for Treating Rheumatoid Arthritis: Protocol for a Prospective, Multicenter, Open-Label Randomized Controlled Trial.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Tripterygium glycoside tablets (TGTs), a traditional Chinese medicine-based therapy and a type of conventional synthetic disease-modifying antirheumatic drug (csDMARD), have shown promise as a cost-effective alternative for rheumatoid arthritis (RA). However, there is limited evidence regarding the most effective combinations with other csDMARDs, such as methotrexate, leflunomide, and hydroxychloroquine. This study evaluates the 12-week efficacy and safety of TGT-based regimens in patients with moderately active RA."
-        },
-        {
-          "label": "OBJECTIVE",
-          "text": "This study aims to evaluate the clinical efficacy and safety of the csDMARD combination regimens mainly based on TGTs in the treatment of RA, using multicenter clinical data, and to explore the clinical characteristics of TGTs and identify the optimal combination therapy through a randomized controlled trial."
-        },
-        {
-          "label": "METHODS",
-          "text": "This multicenter, open-label randomized controlled trial recruited 188 participants (47 per group) from 3 hospitals. Eligible patients were stratified by study center and randomized in a 1:1:1:1 ratio to receive TGT monotherapy, TGT plus methotrexate, TGT plus leflunomide, or TGT plus hydroxychloroquine. The primary outcome was the American College of Rheumatology 20% improvement response rate. Secondary outcome measures included the Disease Activity Score-28 (DAS28) using erythrocyte sedimentation rate and DAS28 using C-reactive protein response rates, the Clinical Disease Activity Index, the Simplified Disease Activity Index, the pain visual analog scale (0 to 10 points), the patient global assessment, the medical doctor global assessment, quality of life (36-Item Short Form Health Survey), and the Health Assessment Questionnaire Disability Index. All enrolled patients were followed up every 4 weeks for a total of 12 weeks. Adverse events were recorded during the observation period of the study. All patients randomized in this study will be included in the intention-to-treat analysis."
-        },
-        {
-          "label": "RESULTS",
-          "text": "This study was funded in February 2024. Funding was provided by the Beijing Tongzhou District Science and Technology Planning Project. Recruitment of participants commenced on September 1, 2024, and concluded on December 31, 2025. A total of 181 patients were enrolled. Final data collection has been completed, and data cleaning is currently underway. Statistical analyses have not yet been performed. The primary results are expected to be submitted for publication by the end of 2026."
-        },
-        {
-          "label": "CONCLUSIONS",
-          "text": "This trial uses multicenter clinical data to provide robust evidence on the efficacy and safety of TGTs in combination with csDMARDs for the treatment of RA with moderate disease activity."
-        }
-      ],
-      "keywords": [
-        "Tripterygium glycoside tablets",
-        "clinical trials",
-        "complementary medicine",
-        "conventional synthetic disease-modifying antirheumatic drugs",
-        "csDMARDs",
-        "randomized controlled trial",
-        "rheumatoid arthritis"
-      ],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "RA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
-      ]
-    },
-    {
       "pmid": "42085942",
       "evidence_type": "RCT",
       "tier": 4,
@@ -20023,7 +19573,7 @@
     },
     {
       "pmid": "42478015",
-      "evidence_type": "Observational",
+      "evidence_type": "Evidence synthesis",
       "tier": 3,
       "journal": "Arch Rheumatol",
       "first_author": "Liu",
@@ -21315,53 +20865,6 @@
       ],
       "publication_types": [
         "Journal Article"
-      ]
-    },
-    {
-      "pmid": "41936732",
-      "evidence_type": "RCT",
-      "tier": 3,
-      "journal": "Rheumatol Int",
-      "first_author": "Khojakulova",
-      "last_author": "Kocyigit",
-      "date": "2026-04-06",
-      "title": "The effect of structured hand massage on hand function and grip strength in rheumatoid arthritis patients: a randomized controlled pilot study.",
-      "abstract_sections": [
-        {
-          "label": "INTRODUCTION",
-          "text": "This study aimed to assess the impact of a 10-session hand massage protocol on hand function, grip strength, pinch strength, pain threshold, and tactile sensory threshold in patients with early-stage, seropositive rheumatoid arthritis (RA) without radiographic damage or hand deformity."
-        },
-        {
-          "label": "METHODS",
-          "text": "This study was a randomized controlled clinical trial. Thirty female RA patients with a diagnosis time of less than two years, seropositive, with low disease activity/remission, and without active arthritis in their hands were included in the study. Participants were randomized 1:1 to intervention and control groups. The intervention group underwent 10 hand massage sessions over a two-week period, in addition to regular medical care. The control group received only regular medical care. All assessments were performed at baseline (T1) and at week 2 (T2). Outcome measures included hand grip strength, pinch strength, pain threshold (dolorimetry), tactile sensory threshold (Semmes-Weinstein monofilament test), Duruöz Hand Index (DHI), and patient global assessment (PGA)."
-        },
-        {
-          "label": "RESULTS",
-          "text": "A total of 30 RA patients were included in the study (intervention group, n = 15; control group, n = 15). At baseline, no significant differences were observed between the groups in demographic, laboratory, or clinical characteristics (p > 0.05). In the intervention group, significant improvements in hand grip strength and pinch force were observed at T2 compared with baseline (p = 0.008 and p = 0.023, respectively). Median hand grip strength increased from 55 (40-75) to 65 (45-80) kg, and median pinch strength increased from 15 (6-18) to 16 (11-21) kg. No significant alterations were noted in these parameters within the control group (p > 0.05). In the control group, median hand grip strength was 45 (25-80) kg at baseline and 45 (20-80) kg at week 2, while median pinch strength was 14 (6-18) kg at baseline and 14 (5-19) kg at week 2. In the intervention group, significant reductions in DHI and PGA scores were recorded at the end of therapy (p = 0.005 and p = 0.001, respectively). No significant differences were noted in DHI and PGA levels in the control group (p > 0.05). Moreover, median PGA scores were significantly lower in the intervention group than in the control group at T2 (4 [2-5] vs. 5 [3-6]; p < 0.001). No significant changes were found in dolorimeter and touch sensory thresholds in either group (p > 0.05)."
-        },
-        {
-          "label": "CONCLUSION",
-          "text": "Hand massage interventions for patients with RA enhance grip strength, hand function, and overall patient evaluations. No effect on pain or tactile thresholds was observed. Further studies with larger sample sizes and longer follow-up periods are required to corroborate these findings."
-        }
-      ],
-      "keywords": [
-        "Hand",
-        "Hand Grip Strength",
-        "Massage Therapy",
-        "Musculoskeletal Manipulations",
-        "Pinch Strength",
-        "Rheumatoid Arthritis"
-      ],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "RA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial"
       ]
     },
     {
@@ -23131,61 +22634,6 @@
       ]
     },
     {
-      "pmid": "41734287",
-      "evidence_type": "RCT",
-      "tier": 2,
-      "journal": "Rheumatology (Oxford)",
-      "first_author": "Denton",
-      "last_author": "Dehbi",
-      "date": "2026-03-05",
-      "title": "A randomised open-label pilot trial comparing mycophenolate mofetil with no immunosuppression in limited cutaneous systemic sclerosis (MINIMISE-Pilot).",
-      "abstract_sections": [
-        {
-          "label": "OBJECTIVES",
-          "text": "Mycophenolate mofetil (MMF) is routinely used in early diffuse cutaneous systemic sclerosis (dcSSc) but not in limited cutaneous (lc)SSc. This may miss an opportunity to slow disease progression. MINIMISE-Pilot tested the feasibility of an open-label event-driven randomised trial of MMF vs no immunosuppression in lcSSc."
-        },
-        {
-          "label": "METHODS",
-          "text": "We tested the feasibility of a trial evaluating the impact of MMF on a novel event-driven composite endpoint. The MINIMISE endpoint measures time to worsening of lcSSc determined by progressive lung fibrosis, pulmonary hypertension, scleroderma renal crisis, heart failure, severe gut involvement, major digital vascular complications or death. Prespecified 'Stop-Go' criteria were agreed. Subjects were stratified by ACA status."
-        },
-        {
-          "label": "RESULTS",
-          "text": "Recruitment was challenging. A total of 53 subjects were screened and 43 were randomised, 21 to the MMF arm. Since recruitment was <60 participants, MINIMISE-Pilot was terminated based upon the prespecified threshold for continuation. During the treatment period there were no clinical worsening endpoints. Adherence to MMF was generally high, with 19 participants (95%) being 100% adherent at week 1, decreasing to 9 participants (64%) at week 24."
-        },
-        {
-          "label": "CONCLUSION",
-          "text": "MINIMISE-Pilot achieved its goal as a feasibility trial, leading to early termination of the study due to low recruitment. The rationale and concept for this study remain very strong. However, our findings suggest that a randomised prospective trial across 12 sites in the UK with relatively short follow-up duration is not feasible. This will inform the design of future studies testing the benefit of MMF in lcSSc."
-        },
-        {
-          "label": "TRIAL REGISTRATION",
-          "text": "Eudract (https://eudract.ema.europa.eu/) 2019-004139-21."
-        }
-      ],
-      "keywords": [
-        "autoantibody",
-        "centromere",
-        "feasibility pilot",
-        "immunosuppression",
-        "limited cutaneous systemic sclerosis",
-        "mycophenolate mofetil",
-        "outcome measure",
-        "patient reported outcome"
-      ],
-      "time_bucket": "mid",
-      "disease_groups": [
-        "SSc"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Comparative Study",
-        "Journal Article",
-        "Multicenter Study",
-        "Randomized Controlled Trial"
-      ]
-    },
-    {
       "pmid": "41578952",
       "evidence_type": "RCT",
       "tier": 2,
@@ -24086,50 +23534,6 @@
       ]
     },
     {
-      "pmid": "41689135",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Trials",
-      "first_author": "Hoekstra",
-      "last_author": "de Vries-Bouwstra",
-      "date": "2026-02-14",
-      "title": "Exploring the optimal follow-up for systemic sclerosis patients: study protocol for a Dutch multicenter randomized controlled trial.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Currently, evidence-based guidelines for the frequency and intensity of follow-up of systemic sclerosis (SSc) patients are not available. Based on expert opinion, an annual extensive evaluation is recommended. A multidisciplinary Care Pathway that integrates this annual extensive evaluation at the Leiden University Medical Center has shown increased patient satisfaction, decreased healthcare utilization, and improved outcomes in SSc patients (1, 2). However, for a subgroup of SSc patients with relatively mild disease, this annual extensive evaluation might be redundant. Therefore, this study aims to evaluate whether assessment in a regular outpatient clinic setting is an acceptable alternative to extensive annual evaluation in the Care Pathway in SSc patients with a low risk of disease progression."
-        },
-        {
-          "label": "METHODS",
-          "text": "This study is designed as a multicenter (n = 3) non-inferiority randomized controlled trial. SSc patients are categorized into three categories for risk of disease progression (low, intermediate, or high) based on a previously published risk prediction model (3). Patients with a predicted low or intermediate risk of disease progression are randomized between (1) follow-up in the outpatient clinic (intervention) and (2) follow-up via usual care according to the annual Care Pathway (control group). The year after the \"study visit,\" all patients are evaluated in the Care Pathway. In this study, 250 patients will be recruited and randomized. The primary outcome is healthcare utilization, which will be assessed via questionnaires. Secondary outcome measures include disease progression, patients' perception of disease and care, and health-related quality of life. Healthcare utilization is defined as the number of contacts with a healthcare professional and will be analyzed using descriptive statistics and linear regression analysis."
-        },
-        {
-          "label": "DISCUSSION",
-          "text": "There is an unmet need for tailor-made care for SSc patients in accordance with disease activity, and evidence-based guidelines regarding the follow-up of SSc patients are lacking. This is the first randomized controlled trial evaluating the optimal follow-up for SSc patients at low risk of disease progression. Results of this study will show whether routine assessment at the outpatient clinic is an acceptable alternative to assessment in a standardized care setting including an annual 6-min walk test, an ECG, lab, mRSS, and a pulmonary function test."
-        },
-        {
-          "label": "TRIAL REGISTRATION",
-          "text": "ClinicalTrials.gov NCT05103553. Registered on October 11, 2021."
-        }
-      ],
-      "keywords": [
-        "Disease progression",
-        "Healthcare utilization",
-        "Systemic sclerosis"
-      ],
-      "time_bucket": "older",
-      "disease_groups": [
-        "SSc"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
-      ]
-    },
-    {
       "pmid": "41688258",
       "evidence_type": "RCT",
       "tier": 2,
@@ -24455,50 +23859,6 @@
         "eng"
       ],
       "publication_types": [
-        "Journal Article"
-      ]
-    },
-    {
-      "pmid": "41638742",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "BMJ Open",
-      "first_author": "Dreyer",
-      "last_author": "Andersen",
-      "date": "2026-02-04",
-      "title": "Hydrocortisone replacement therapy in patients with glucocorticoid withdrawal syndrome after cessation of glucocorticoid treatment: REPLACE, a multicentre, randomised, double-blinded, placebo-controlled, 16-week study protocol.",
-      "abstract_sections": [
-        {
-          "label": "INTRODUCTION",
-          "text": "Glucocorticoid therapy is prescribed for a variety of inflammatory conditions and is associated with severe adverse effects. A glucocorticoid withdrawal syndrome (GWS) may occur after prolonged glucocorticoid treatment-with or without biochemical glucocorticoid-induced adrenal insufficiency (GIAI). Previously, GWS was not considered an entity, probably due to the overlap between symptoms of GWS and GIAI. The Addison's disease-specific quality of life questionnaire (AddiQoL-30) is a validated tool for quantifying symptoms of adrenal insufficiency resembling GWS. In the present study, we test the hypothesis that patients with a low AddiQoL-30 score and/or low cortisol response to a short Synacthen test (SST), after cessation of prednisolone treatment, may benefit from low-dose hydrocortisone therapy without increasing the risk of metabolic and cardiovascular disease during prolonged cortisol exposure."
-        },
-        {
-          "label": "METHODS AND ANALYSIS",
-          "text": "REPLACE is a multi-centre, double-blinded, placebo-controlled randomised controlled trial in patients with polymyalgia rheumatica or giant cell arteritis after cessation of prednisolone treatment. Criteria for randomisation are an AddiQoL-30 score ≤85 and/or plasma cortisol response to SST, 30-min p-cortisol >100 and <420 nmol/L. Patients will be randomised to oral hydrocortisone (10 mg two times a day) or placebo for 16 weeks. Baseline and follow-up examinations comprise AddiQoL-30 questionnaire, SST, blood samples, standardised blood pressure, physical function tests and assessment of bone quality and body composition. At baseline, two comparator groups include: (1) patients with a SST-stimulated cortisol ≥420 nmol/L and AddiQoL-30 score >85; and (2) patients with a SST-stimulated cortisol ≤100 nmol/L."
-        },
-        {
-          "label": "ETHICS AND DISSEMINATION",
-          "text": "The study is conducted in accordance with the Declaration of Helsinki, registered at the Clinical Trials Information System (CTIS: 2024-513822-53-00) and Clinicaltrials.gov (NCT05193396), and publications will be in accordance with the recommendations of the International Committee of Medical Journal Editors. The trial is monitored by local independent Good Clinical Practice units and overseen by the Danish Data Protection Agency (journal no. 21/27119), the Regional Committees on Health Research Ethics for Southern Denmark (project ID: S-20210076), the Danish Patient Safety Authority and the Danish Medicines Agency."
-        },
-        {
-          "label": "TRIAL REGISTRATION NUMBER",
-          "text": "NCT05193396."
-        }
-      ],
-      "keywords": [
-        "Adrenal disorders",
-        "Patient Reported Outcome Measures",
-        "Randomized Controlled Trial"
-      ],
-      "time_bucket": "older",
-      "disease_groups": [
-        "PMR/GCA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
         "Journal Article"
       ]
     },
@@ -27184,59 +26544,6 @@
       ]
     },
     {
-      "pmid": "41397290",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "JMIR Res Protoc",
-      "first_author": "Yamaguchi",
-      "last_author": "Kurita",
-      "date": "2025-12-15",
-      "title": "Smartphone App-Based Eating Behavior Monitoring and Feedback Intervention for Glucocorticoid-Induced Appetite Increase in Patients With Systemic Lupus Erythematosus: Protocol for a Pilot Randomized Controlled Trial.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Increased appetite and weight gain are common adverse effects of glucocorticoid therapy in patients with systemic lupus erythematosus (SLE). Concerns about appearance-related changes due to weight gain can reduce medication adherence. Moreover, the complex interplay among glucocorticoids, mood changes, sleep disturbances, and appetite can influence eating behaviors. Daily data collection using ecological momentary assessment and analysis of interrelations may help clarify these dynamics. Furthermore, real-time feedback based on daily eating behavior may help patients regulate appetite and eating patterns. Accordingly, we developed Mogu!☆Log, a smartphone-based app that enables daily self-reporting of eating behaviors, appetite, and mood and provides graphical feedback on meal frequency and perceived control over eating."
-        },
-        {
-          "label": "OBJECTIVE",
-          "text": "This paper presents a protocol for a pilot randomized controlled trial designed to evaluate the effects of real-time feedback on eating behaviors using the Mogu!☆Log app among patients with newly diagnosed SLE who had started glucocorticoid therapy."
-        },
-        {
-          "label": "METHODS",
-          "text": "This multicenter study recruited Japanese patients with newly diagnosed SLE who had started glucocorticoid therapy across 15 hospitals with rheumatology services. Participants were randomly assigned in a 1:1 ratio to two groups: (1) the immediate feedback group, which receives graphical feedback on meal frequency and perceived control over eating starting from day 1, and (2) the delayed feedback group, which uses the same app without feedback for the first 14 days and begins receiving identical feedback from day 15. Participants enter data daily from day 1 to day 21 after randomization. The primary outcome is the mean number of meals on day 14 after glucocorticoid initiation. Secondary outcomes include the loss-of-control-over-eating score and a 5-item visual analog scale-based appetite score, both recorded on day 14. Between-group mean differences will be analyzed using 2-tailed t tests. The target sample size is 60. In an embedded observational \"study within a trial,\" linear mixed models will examine whether glucocorticoid dose influences appetite scores through mood and sleep changes."
-        },
-        {
-          "label": "RESULTS",
-          "text": "We hypothesized that participants receiving immediate feedback will have fewer meals on day 14, reduced loss of control over eating, and better appetite scores. The study received funding in April 2019, April 2022, and April 2024. Recruitment began in October 2024, and 17 participants had been enrolled as of May 2025. Data collection is expected to be completed by March 2027; data analysis has yet to begin. Results will be submitted for publication and reported to the University Hospital Medical Information Network (UMIN) registry in the summer of 2027."
-        },
-        {
-          "label": "CONCLUSIONS",
-          "text": "This pilot trial will provide foundational data on the feasibility and efficacy of smartphone-based real-time feedback in managing glucocorticoid-induced appetite increase in patients with SLE. These findings may contribute to the growing body of literature on app-based interventions for medication-related adverse effects."
-        }
-      ],
-      "keywords": [
-        "appetite",
-        "eating behavior",
-        "ecological momentary assessment",
-        "glucocorticoid",
-        "randomized controlled trial",
-        "smartphone app",
-        "systemic lupus erythematosus"
-      ],
-      "time_bucket": "older",
-      "disease_groups": [
-        "SLE"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article",
-        "Research Support, Non-U.S. Gov't"
-      ]
-    },
-    {
       "pmid": "41396391",
       "evidence_type": "RCT",
       "tier": 3,
@@ -27814,46 +27121,6 @@
       "publication_types": [
         "Journal Article",
         "Randomized Controlled Trial"
-      ]
-    },
-    {
-      "pmid": "41343541",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "PLoS One",
-      "first_author": "Daryabari",
-      "last_author": "Rostami",
-      "date": "2025-12-04",
-      "title": "Evaluation of umbilical cord blood serum eye drops for severe dry eye in two distinct populations-Sjögren's syndrome and mustard gas-induced ocular injury: Protocol for a pilot randomized clinical trial.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Human umbilical cord blood (HUCB) serum eye drops contain growth factors, neurotrophic agents, and antimicrobial compounds that may promote ocular surface healing and regeneration. Sjögren's syndrome is a chronic autoimmune condition characterized by reduced tear production and ocular surface damage, often resulting in severe dry eye symptoms. Mustard gas chemical veterans also suffer from similar debilitating ocular complications due to chronic inflammation and meibomian gland dysfunction. While conventional treatments offer symptomatic relief, they lack essential components of natural tears."
-        },
-        {
-          "label": "MATERIALS AND METHODS",
-          "text": "This pilot randomized controlled trial will evaluate the efficacy of HUCB eye drops in three patient groups: (A) Sjögren's patients treated with HUCB drops, (B) Sjögren's patients receiving conventional treatment, and (C) mustard gas veterans receiving conventional treatment in the right eye and HUCB drops in the left eye. Patients will be assessed using subjective and objective tools, including the Ocular Surface Disease Index (OSDI), visual acuity, tear film breakup time (TBUT), SM tube test, and fluorescein staining based on SICCA criteria. Group allocation will follow a blocked randomization sequence for groups A and B; group C will follow a within-subject paired-eye design. Follow-up will occur at 30 and 60 days."
-        },
-        {
-          "label": "DISCUSSION",
-          "text": "This study aims to assess the regenerative potential of HUCB serum in patients with autoimmune and chemically induced dry eye. Its results may support broader clinical use of HUCB drops in treating severe ocular surface disorders, including conditions like Stevens-Johnson syndrome and industrial chemical exposures."
-        },
-        {
-          "label": "TRIAL REGISTRATION",
-          "text": "This trial was registered at the Iranian Registry of Clinical Trials (Registration number: IRCT20230925059512N1, Registration date: 2024-08-11)."
-        }
-      ],
-      "keywords": [],
-      "time_bucket": "older",
-      "disease_groups": [
-        "Sjögren"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
       ]
     },
     {
@@ -28578,59 +27845,6 @@
       ]
     },
     {
-      "pmid": "41310759",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Trials",
-      "first_author": "Lindgren",
-      "last_author": "Esbensen",
-      "date": "2025-11-27",
-      "title": "Effect of a self-management intervention for newly diagnosed inflammatory arthritis: study protocol for a randomized controlled trial.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Patients newly diagnosed with inflammatory arthritis (IA) often face substantial physical, psychological, and social challenges despite advances in pharmacological management."
-        },
-        {
-          "label": "OBJECTIVE",
-          "text": "To investigate the efficacy of the \"Newly diagnosed with Inflammatory arthritis-a Self-MAnagement intervention\" (NISMA) and usual care, compared to usual care alone (control group), in adults with newly diagnosed IA."
-        },
-        {
-          "label": "METHODS",
-          "text": "This pragmatic, multicenter randomized controlled trial (RCT) will enroll 130 adults with rheumatoid arthritis (RA), psoriatic arthritis (PsA), or axial spondyloarthritis (axSpA) recruited consecutively from three Danish hospitals and randomized 1:1 to NISMA plus usual care or usual care alone. The control group receives usual care, which consists of planned consultations with a rheumatologist and access to nurses. NISMA comprises three mandatory individual nurse-led sessions with two optional multidisciplinary group sessions delivered over 12 months. Assessments occur at baseline, 12 months (primary), and 24 months (extension). The primary outcome is the Health Education Impact Questionnaire (heiQ) \"skill and technique acquisition\" domain."
-        },
-        {
-          "label": "STATISTICAL ANALYSIS",
-          "text": "Analyses follow the intention-to-treat principle. For the primary analysis, analysis of covariance (ANCOVA) adjusted for baseline, center, and diagnosis will estimate between-group differences with two-sided 95% CIs. Model assumptions (normality, homoscedasticity) will be checked (Q-Q plots, residual diagnostics). If violated, pre-specified alternatives (e.g., transformation, rank-based ANCOVA, or nonparametric tests) will be used. Missing data will be addressed using multiple imputation. Key secondary endpoints will be assessed in a pre-specified hierarchical (gatekeeping) order; any post hoc analyses will be exploratory. Extension analyses at 24 months will use linear mixed-effects models."
-        },
-        {
-          "label": "DISCUSSION",
-          "text": "This randomized controlled trial will provide essential insights about the efficacy of a targeted self-management intervention for newly diagnosed patients with inflammatory arthritis. If successful, the NISMA intervention could significantly enhance non-pharmacological management, providing a comprehensive approach to addressing both physical and psychological needs in caring for patients newly diagnosed with IA. TRIAL REGISTRATION {2B}: ClinicalTrials.gov, nr.: NCT06533423. Registered on December 19, 2024. PROTOCOL VERSION {3}: 22.09.2025. Version 2."
-        }
-      ],
-      "keywords": [
-        "Axial spondyloarthritis",
-        "Inflammatory arthritis",
-        "Patient-centered care",
-        "Psoriatic arthritis",
-        "Quality of life",
-        "Randomized controlled trial",
-        "Rheumatoid arthritis",
-        "Self-management"
-      ],
-      "time_bucket": "older",
-      "disease_groups": [
-        "RA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
-      ]
-    },
-    {
       "pmid": "41290616",
       "evidence_type": "RCT",
       "tier": 4,
@@ -29088,52 +28302,6 @@
       "publication_types": [
         "Journal Article",
         "Randomized Controlled Trial"
-      ]
-    },
-    {
-      "pmid": "41225532",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Trials",
-      "first_author": "Nassar",
-      "last_author": "Thombs",
-      "date": "2025-11-12",
-      "title": "Protocol for a two-arm parallel randomized controlled trial to evaluate patient and researcher co-presentation of research results: the Scleroderma Patient-centered Intervention Network-Patients Alongside Investigators in Research-Sharing (SPIN-PAIRS) trial.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Researchers are mandated ethically to share study results with participants, and funding agencies emphasize dissemination to others with relevant lived experience. Many researchers, however, find it difficult to communicate study purposes, methods, results, and significance to patients. Our Scleroderma Patient-centered Intervention Network (SPIN) piloted \"co-presentation,\" which involves researchers and patient partners jointly presenting results to other patients. The SPIN Patients Alongside Investigators in Research-Sharing (SPIN-PAIRS) Trial will be conducted as part of a 90-min virtual research event for people with systemic sclerosis (SSc, scleroderma) and will compare patient and researcher partner co-presentation versus researcher-alone presentation. Primary outcomes will be event attendee ratings of presentations on (1) information completeness, (2) understandability, (3) relevance to patients, and (4) trust in findings. Secondary objectives are to (1) conduct subgroup analyses of primary outcomes by participant characteristics (gender, age, race or ethnicity, country, education level, health literacy) and (2) use qualitative interviews to better understand outcome ratings and inform co-presentation."
-        },
-        {
-          "label": "METHODS",
-          "text": "This will be a mixed-method study with (1) a two-arm parallel superiority randomized controlled trial embedded in a patient-oriented research event and (2) interviews with patient and researcher co-presenters, separately, and with trial participants. Pre-event, researchers will be selected to present via an open call for abstracts and a patient-led selection committee. To avoid presentation-related biases, pre-event, researchers will record researcher-alone presentations. They will then receive co-presentation training and develop co-presentations with patient partners, which will also be recorded. Eligible trial participants will be adults aged 18 or older who indicate they have been diagnosed with SSc by a physician. We will recruit participants via social media and email lists from our multinational SPIN Cohort and from patient organization partners to attend the event and rate presentations. Participants will be recruited to register for the event beginning in August 2025. Registered participants will be invited to confirm their registration and enroll in the trial on the day of the event. We will require at least 116 participants for ≥ 80% power but will not restrict the number of enrollees. We will randomly assign event attendees 1:1 to virtual rooms with (1) four pre-recorded patient-researcher co-presentations or (2) four pre-recorded researcher-alone presentations. The same studies will be presented in each arm with live questions and answers after each presentation in each virtual room. Attendees will rate each presentation immediately following the presentation. Participants will not be informed that they are part of a randomized trial, or that two conditions are being compared and will be blind to study comparisons and hypotheses. Presenters will not be blinded during the event. We will compare outcomes, all measured via 0-10 numerical rating scales, using linear mixed models with four observations per participant for each outcome (one observation for each presentation). Interviews will be conducted < 2 weeks post-event, and verbatim transcripts will be analyzed using an inductive-deductive thematic approach."
-        },
-        {
-          "label": "DISCUSSION",
-          "text": "Findings will contribute to the evidence base on effective strategies for sharing results with study participants and others with relevant lived experience. Trial registration ISRCTN12805381 ( https://www.isrctn.com/ISRCTN12805381 )."
-        }
-      ],
-      "keywords": [
-        "Co-presentation",
-        "Knowledge translation",
-        "Patient and public involvement",
-        "Patient engagement",
-        "Patient-oriented research",
-        "Randomized controlled trial",
-        "Research dissemination",
-        "Scleroderma",
-        "Systemic sclerosis"
-      ],
-      "time_bucket": "older",
-      "disease_groups": [
-        "SSc"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
       ]
     },
     {
@@ -31108,52 +30276,6 @@
       ]
     },
     {
-      "pmid": "41013808",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Trials",
-      "first_author": "Huang",
-      "last_author": "Fang",
-      "date": "2025-09-26",
-      "title": "Validation of a long-term and effective physical exercise management for ankylosing spondylitis: study protocol for a decentralized randomized controlled trial.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Ankylosing spondylitis (AS), a chronic inflammatory disease, leads to significant physical and psychosocial burdens due to progressive spinal rigidity and high disability rates. Although exercise is well-established as a key factor in delaying deformity and enhancing function, maintaining long-term adherence poses a significant hurdle. This study aims to validate the effectiveness of an Exercise Management Mode based on the Attitude-Social Influence-Self-Efficacy (ASE) model (EMM-ASE) in enhancing exercise behavior and clinical outcomes among AS patients."
-        },
-        {
-          "label": "METHODS",
-          "text": "This decentralized randomized controlled trial (D-RCT) will enroll 120 AS patients from the Guangdong Rheumatology and Immunology Specialty Alliance. Participants will be randomized 1:1 into an intervention group (EMM-ASE) or a control group (routine management). The intervention group receives personalized, stage-based exercise strategies via the AS Exercise Mobile Intelligent Management Platform, including real-time feedback, social support, and biweekly network-broadcasted exercise sessions. The control group receives standard exercise guidance and access to patient support groups. Primary outcomes are exercise level (measured by the International Physical Activity Questionnaire, IPAQ). Secondary outcomes include functional capacity (Bath Ankylosing Spondylitis Functional Index, BASFI), disease activity (Bath Ankylosing Spondylitis Disease Activity Index, BASDAI), fatigue severity (Fatigue Severity Scale, FSS), quality of life (Ankylosing Spondylitis Quality of Life, ASQoL), and exercise adherence. Data will be collected at baseline, 1, 3, and 6 months. Statistical analyses include intention-to-treat analysis using mixed linear models, trajectory analysis via latent class models, and sensitivity analyses."
-        },
-        {
-          "label": "DISCUSSION",
-          "text": "The intervention group in this D-RCT, which innovatively applies a mobile platform to AS exercise management, is expected to show more significant improvements in primary and secondary outcomes than the control group. Specifically, at follow-up points, it is anticipated that they will have higher IPAQ scores, lower BASFI scores, and better performance in other indicators. This design would prove the superiority of the EMM-ASE strategy, offering a new effective model for AS treatment."
-        },
-        {
-          "label": "TRIAL REGISTRATION",
-          "text": "The study protocol was registered with Chinese Clinical Trial Registry on 12 May 2025, https://www.chictr.org.cn/showproj.html?proj=272057 (registration number: ChiCTR2500102260)."
-        }
-      ],
-      "keywords": [
-        "ASE model",
-        "Ankylosing spondylitis",
-        "Behavioral intervention",
-        "Decentralized trial",
-        "Exercise adherence"
-      ],
-      "time_bucket": "older",
-      "disease_groups": [
-        "PsA/SpA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
-      ]
-    },
-    {
       "pmid": "40998595",
       "evidence_type": "RCT",
       "tier": 4,
@@ -31206,42 +30328,6 @@
         "Comparative Study",
         "Journal Article",
         "Randomized Controlled Trial"
-      ]
-    },
-    {
-      "pmid": "40991063",
-      "evidence_type": "RCT",
-      "tier": 3,
-      "journal": "Rheumatol Int",
-      "first_author": "Sloan",
-      "last_author": "Naughton",
-      "date": "2025-09-24",
-      "title": "A randomised controlled trial to assess the feasibility and acceptability of remote psychosocial and exercise interventions for people with lupus: The ADAPT feasibility trial.",
-      "abstract_sections": [
-        {
-          "label": null,
-          "text": "Limited psychosocial support is available for people with lupus despite the highly reduced quality of life. This study assessed the acceptability, feasibility, and effectiveness estimations, of three (two psychosocial, one exercise) interventions. Lupus patients (N = 124) were randomised to a control arm or one of three interventions delivered remotely over 8-12 weeks: (1) listening support (The Wren project), (2) online Pilates classes, and (3) a text message and video support programme. Online follow up surveys post-intervention and six-months post-baseline included validated instruments for depression (PHQ-8), fatigue (FACIT-F), resilience (CD-RISC), acceptability measures and our co-designed \"ADAPT\" measure. A subsample of participants completed qualitative interviews. Hedge's g and linear regression were used to estimate effectiveness. All interventions were feasible in terms of recruitment, time, and costs, and met the pre-defined acceptability criteria of > 75% rating the intervention as acceptable/highly acceptable. Helpfulness ratings were highest for listening support with 89% rating it as often/always helpful (62% for Pilates and 52% for Text/videos). Proportions of participants reporting that the intervention had made them feel better mentally often/always was 71% for The Wren, 57% for Pilates and 48% for the text/video group. Qualitatively, the listening support participants valued the \"safe space\" to talk, and several of the exercise class participants reported improvements to physical and mental health. Although the text message and video programme was acceptable, feasible, and very low cost, 41% of participants would rather have received a different intervention. Suggested text/video adaptations included greater tailoring, particularly to stage of disease journey. Attendance was low for Pilates (only 55% attended > 50% of classes). Estimates of effectiveness favoured all interventions compared to control, although most improvements reduced with time. The interventions were feasible to deliver and acceptable to patients, with indications of potential effectiveness. Further studies are needed to determine effectiveness.Trial registration: ISRCTN72406488."
-        }
-      ],
-      "keywords": [
-        "Exercise",
-        "Feasibility",
-        "Pilates",
-        "Psychosocial",
-        "Systemic lupus erythematosus",
-        "Trial"
-      ],
-      "time_bucket": "older",
-      "disease_groups": [
-        "SLE"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article",
-        "Randomized Controlled Trial",
-        "Research Support, Non-U.S. Gov't"
       ]
     },
     {
@@ -31580,48 +30666,6 @@
         "early RA",
         "optical spectral transmission",
         "treat-to-target"
-      ],
-      "time_bucket": "older",
-      "disease_groups": [
-        "RA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article"
-      ]
-    },
-    {
-      "pmid": "41020220",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "Front Med (Lausanne)",
-      "first_author": "Gao",
-      "last_author": "Huang",
-      "date": "2025-09-12",
-      "title": "Formulation A in the prevention of rheumatoid arthritis: a study protocol for a multicenter randomized controlled trial.",
-      "abstract_sections": [
-        {
-          "label": "BACKGROUND",
-          "text": "Interventions to delay or prevent the onset of rheumatoid arthritis (RA) have attracted much attention in recent years. Researchers are now exploring various prevention strategies but no unified consensus was reached. A traditional Chinese medicine (TCM) prescription, Formulation A (FA), may be potential to reduce the risk of RA development."
-        },
-        {
-          "label": "METHODS",
-          "text": "This is a multicenter, double-blind, placebo-controlled, randomized clinical trial. We will enroll 72 participants who are positive for anti-cyclic citrullinated peptide (anti-CCP) antibody but without synovitis. Participants will be randomly assigned to either FA or placebo for 52 weeks. All will then undergo 52 weeks of observation. The primary outcome is the time interval between the study entry and RA diagnosis. The secondary outcomes include the proportions of RA diagnosis, anti-CCP antibody, rheumatoid factor (RF), the high-sensitivity C-reactive protein (hs-CRP), the erythrocyte sedimentation rate (ESR), the 28-tender joint count (TJC28), the 28-swollen joint count (SJC28), morning stiffness time, the visual analog scale (VAS), Patient's Global Assessment (PtGA), Physician's Global Assessment (PGA), Health Assessment Questionnaire (HAQ), Generic Quality of Life Inventory-74 (GQOLI-74) scores, and ultrasound images of joints."
-        },
-        {
-          "label": "DISCUSSION",
-          "text": "This study attempts to test the feasibility of a clinical trial using FA in RA prevention. It will lay the foundation for future research and ensure validity."
-        }
-      ],
-      "keywords": [
-        "formulation A",
-        "prevention",
-        "protocol",
-        "randomized controlled trial",
-        "rheumatoid arthritis",
-        "traditional Chinese medicine"
       ],
       "time_bucket": "older",
       "disease_groups": [
@@ -32808,47 +31852,6 @@
       "publication_types": [
         "Journal Article",
         "Randomized Controlled Trial"
-      ]
-    },
-    {
-      "pmid": "40860496",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "J Pain Res",
-      "first_author": "Liu",
-      "last_author": "Xu",
-      "date": "2025-08-21",
-      "title": "Efficacy and Safety of the Bushen Quhan Zhiwang Decoction to Achieve Clinical Deep Remission in Rheumatoid Arthritis: Protocol for a Double-Blind, Randomized, Placebo-Controlled Trial.",
-      "abstract_sections": [
-        {
-          "label": "PURPOSE",
-          "text": "Rheumatoid arthritis (RA) is a chronic autoimmune disease characterized by significant disability, with effective management of disease activity and pain constituting critical clinical objectives. The herbal formulation Bushen Quhan Zhiwang Decoction (BQZD) has demonstrated potential efficacy in symptom alleviation, suggesting a promising role in achieving sustained clinical remission in RA. The present study aims to systematically evaluate the efficacy and safety profile of BQZD for managing RA disease activity and pain relief."
-        },
-        {
-          "label": "PATIENTS AND METHODS",
-          "text": "This randomized, double-blind, placebo-controlled, single-center clinical trial will enroll a total of 72 RA patients, randomly assigning them into either the intervention group (n=36) receiving BQZD or the placebo control group (n=36). Participants will consume either BQZD or placebo (100 mL, twice daily) over a 12-week intervention period. Clinical assessments are scheduled at enrollment and subsequently at 4-week intervals, continuing through the 16-week mark post-intervention initiation. The primary outcome measure is the Disease Activity Score for 28 joints (DAS28). Secondary outcome variables include visual analogue scale (VAS) pain scores, mechanical pain threshold (MPT), central sensitization inventory (CSI), patient-reported outcomes (PROs), Traditional Chinese medicine (TCM) symptom scores, and biomarkers such as C-reactive protein (CRP) and erythrocyte sedimentation rate (ESR). Safety endpoints will encompass monitoring of hematological parameters, urinalysis results, and adverse events."
-        },
-        {
-          "label": "DISCUSSION",
-          "text": "This study seeks to generate robust clinical evidence verifying the therapeutic efficacy and safety of BQZD for alleviating pain and achieving deep remission in RA patients. These findings are anticipated to facilitate broader integration of traditional herbal medicine within clinical practice. Additionally, this research endeavors to provide clinically relevant insights into precision treatments for RA by integrating traditional Chinese medicine and Western medical approaches, and aims to lay foundational evidence for future investigations into underlying regulatory mechanisms and potential therapeutic targets of TCM."
-        }
-      ],
-      "keywords": [
-        "Bushen Quhan Zhiwang Decoction",
-        "clinical deep remission",
-        "pain",
-        "randomized controlled trial",
-        "rheumatoid arthritis"
-      ],
-      "time_bucket": "older",
-      "disease_groups": [
-        "RA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article"
       ]
     },
     {

@@ -126,8 +126,22 @@ def fetch_publication_types(pmids: list) -> dict:
     return out
 
 
-def classify_evidence_type(publication_types, fallback: str) -> str:
+# A title asserting what the article IS ("...a systematic review", "...a
+# meta-analysis") is a stronger signal than a [tiab] phrase match anywhere in
+# the abstract -- e.g. PMID 42228337, "Split vs. single-dose oral methotrexate
+# in rheumatoid arthritis: a meta-analysis", fell back to RCT, from the RCT
+# query's [tiab] clause, despite its own title saying what it is. Checked
+# before PublicationType so it can't be outranked by a stale/absent PubMed
+# tag, but PublicationType still wins if both are present and disagree --
+# this is a fallback signal, not an override.
+TITLE_ASSERTS_SYNTHESIS = re.compile(
+    r":\s*a(n)?\s+(systematic review|meta-analysis)\b", re.IGNORECASE)
+
+
+def classify_evidence_type(publication_types, fallback: str, title: str = "") -> str:
     types = set(publication_types)
+    if not (types & DECISIVE_TYPES) and TITLE_ASSERTS_SYNTHESIS.search(title):
+        return "Evidence synthesis"
     for name, tags in EVIDENCE_PRECEDENCE:
         if types & tags:
             return name
@@ -149,6 +163,21 @@ EXCLUDE_TYPES = {"Preprint", "Published Erratum", "Retraction of Publication",
 # without reading the abstract, and MEDLINE's own convention for a comment
 # letter is to open with one of these phrases.
 COMMENT_TITLE = re.compile(r"^(comment on|correspondence on|reply to|response to)\s*[:\s]", re.IGNORECASE)
+
+# A protocol/feasibility/pilot paper describes a trial that hasn't produced
+# results yet -- a plan to generate evidence, not evidence itself. PubMed
+# rarely tags these with anything beyond "Journal Article", so nothing here
+# stops the RCT query's [tiab] clause (which fires on the mere phrase
+# "randomized controlled trial", future tense included) from mislabelling
+# them as completed RCTs, e.g. PMID 42592900, a gout self-management app
+# whose abstract says it tests "the overall feasibility of a FUTURE
+# randomized controlled trial" -- the opposite of being one. When the actual
+# trial is later published with results, that record arrives on its own
+# merits; this only excludes the preparatory paper.
+PROTOCOL_TITLE = re.compile(
+    r"\bfeasibility (study|trial)\b|\bstudy protocol\b|\bprotocol for\b|"
+    r"^protocol\b|\bpilot (study|trial)\b|\brationale and design\b",
+    re.IGNORECASE)
 
 # Only English- and Danish-language articles. Applied twice: as a PubMed search
 # filter (LANGUAGE_FILTER, so we don't fetch what we'd discard) and again on the
@@ -320,7 +349,7 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
         return None
 
     title = _text(article.find("ArticleTitle"))
-    if title and COMMENT_TITLE.search(title):
+    if title and (COMMENT_TITLE.search(title) or PROTOCOL_TITLE.search(title)):
         return None
 
     # An article can carry several <Language> tags; keep it if any is allowed.
@@ -329,7 +358,7 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
         return None
 
     # The finding query is only a fallback; PubMed's own type wins.
-    evidence_type = classify_evidence_type(pub_types, evidence_type)
+    evidence_type = classify_evidence_type(pub_types, evidence_type, title)
 
     pmid = _text(pubmed_article.find(".//PMID"))
     date = _parse_date(pubmed_article)

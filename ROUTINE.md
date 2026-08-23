@@ -7,7 +7,9 @@ Weekly rheumatology evidence digest. Runs autonomously, no prompts needed once s
 - **fetch_pubmed.py** (deterministic script): runs all 55 PubMed queries, parses XML —
   title/authors/dates/abstracts extracted verbatim, no AI involved
 - **AI**: reads each fetched hit and assigns `disease_groups` — labels only, never touches
-  the fetched content
+  the fetched content. While it's already reading the hit, it also sanity-checks
+  `evidence_type` and flags suspected off-topic hits (see Step 1) — same labels-only
+  discipline, just a second field
 - **update_library.py** (deterministic script): dedups, buckets, writes `docs/data/library.json`
   (falls back to its own regex classifier only if AI didn't label a hit)
 - **docs/index.html** (static page): reads `docs/data/library.json` client-side via JS — no regeneration needed per run
@@ -121,7 +123,47 @@ which had matched it via the RCT filter's `[tiab]` clause — its abstract's one
 of "randomized controlled trial" was actually *"no completed RCT... has yet validated
 it"*, the opposite of being one. A phrase search can't tell a claim from its negation.
 
+**A trial protocol/feasibility/pilot paper describes a trial that hasn't produced
+results yet — a plan to generate evidence, not evidence itself — so it's excluded,
+not classified.** `PROTOCOL_TITLE` in `fetch_pubmed.py` matches titles containing
+"feasibility study/trial", "study protocol", "protocol for", "pilot study/trial", or
+"rationale and design". PubMed rarely tags these with any decisive `PublicationType`,
+so nothing previously stopped the RCT query's `[tiab]` clause — which fires on the
+mere phrase, future tense included — from mislabelling them as completed RCTs, e.g.
+PMID 42592900, a gout self-management app whose abstract says it tests "the overall
+feasibility of a **future** randomized controlled trial." When the actual trial is
+later published with results, that record arrives on its own merits; this only
+excludes the preparatory paper.
+
+**A title asserting what the article is outranks the finding-query fallback.**
+`TITLE_ASSERTS_SYNTHESIS` catches titles ending "...: a systematic review" / "...: a
+meta-analysis" — e.g. PMID 42228337, "Split vs. single-dose oral methotrexate in
+rheumatoid arthritis: a meta-analysis", whose abstract's RCT-flavoured wording had
+outvoted its own title. Only applies when `PublicationType` carries no decisive tag;
+PubMed's own type still wins whenever both exist and disagree.
+
 Each record stores its `publication_types` so this stays auditable without re-fetching.
+
+**AI review of new hits, each run — the second line of defence.** The deterministic
+filters above catch every *known* pattern, but each one was found by hand, after the
+fact, from a record that had already reached the library. New failure modes will keep
+surfacing. So while AI is already reading each new hit's title and abstract to assign
+`disease_groups`, it also:
+- **Sanity-checks `evidence_type`** whenever the hit has no decisive `PublicationType`
+  (i.e. it rests on the finding-query fallback) — does the abstract actually support
+  being an RCT, a synthesis, etc., or does it read like PMID 42592900 or 42228035
+  (a claim about trial evidence, not the trial itself)? If AI disagrees, it overrides
+  `evidence_type` directly — a label correction, same discipline as `disease_groups`:
+  never touching title/authors/abstract. If `PublicationType` *is* decisive, don't
+  second-guess it — PubMed's own tag stays authoritative.
+- **Flags suspected off-topic or non-evidence hits** that slipped past every
+  deterministic filter (an acronym collision nobody's written a regex for yet, a
+  critique with no recognisable title pattern like PMID 42170841) in the run's final
+  report, by PMID, for the user to review — it does not drop them itself.
+
+This only ever runs against **this week's new hits** (dozens, not the full library) —
+the existing 797 records were corrected by hand as each fix above landed, and won't be
+silently re-touched by a routine run.
 
 **Records settle over time.** `update_library.refresh_pending_types()` re-checks
 PubMed each run for records still carrying no decisive type, and upgrades them once
