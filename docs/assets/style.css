@@ -39,9 +39,7 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 .brand {
   display: flex;
   align-items: center;
-  gap: var(--s-3);
 }
-.brand svg { display: block; width: 30px; height: 30px; }
 .brand .wordmark {
   font-family: var(--font-display);
   font-weight: var(--w-semi);
@@ -148,7 +146,65 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   font-weight: var(--w-semi);
 }
 
+/* ---------- Tier filter ---------- */
+.tier-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  margin: calc(-1 * var(--s-4)) 0 var(--s-6);
+}
+.tier-filter-label {
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-right: var(--s-2);
+}
+.tier-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  color: var(--ink-4);
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.tier-chip:hover { border-color: var(--ink-4); color: var(--ink-2); }
+/* Real checkbox kept for keyboard and screen readers; the chip is the visual. */
+.tier-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.tier-chip:focus-within {
+  outline: 2px solid var(--moss);
+  outline-offset: 2px;
+}
+.tier-chip-count {
+  font-size: 10px;
+  opacity: 0.7;
+}
+/* Checked chips reuse the tier badge colours so the filter reads as the badges. */
+.tier-chip.on { border-color: transparent; }
+.tier-chip.on.t1 { background: var(--moss-wash);  color: var(--moss-deep); }
+.tier-chip.on.t2 { background: var(--slate-wash); color: var(--slate-deep); }
+.tier-chip.on.t3 { background: var(--ochre-wash); color: var(--ochre-deep); }
+.tier-chip.on.t4 { background: var(--paper-2);    color: var(--ink-3); }
+
 /* ---------- Time buckets ---------- */
+/* One collapsible section per calendar month; the newest opens by default. */
 .time-bucket {
   border-top: 1px solid var(--line-soft);
 }
@@ -162,19 +218,23 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   padding: var(--s-5) 0;
   font-family: var(--font-body);
   font-weight: var(--w-semi);
-  font-size: var(--fs-h4);
-  color: var(--ink);
+  font-size: var(--fs-sm); /* matches .etab */
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-wide);
+  color: var(--ink-2);
+  transition: color var(--dur-fast) var(--ease-out);
 }
+.time-bucket > summary:hover { color: var(--ink); }
 .time-bucket > summary::-webkit-details-marker { display: none; }
 .time-bucket > summary::before {
   content: "";
-  width: 8px;
-  height: 8px;
+  flex: none;
+  width: 7px;
+  height: 7px;
   border-right: 1.75px solid var(--ink-3);
   border-bottom: 1.75px solid var(--ink-3);
   transform: rotate(-45deg);
   transition: transform var(--dur-base) var(--ease-out);
-  margin-right: 2px;
 }
 .time-bucket[open] > summary::before { transform: rotate(45deg); }
 .bucket-items {
@@ -228,6 +288,7 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   max-width: none;
 }
 .item .meta a { font-family: var(--font-mono); font-size: 0.95em; }
+.item .meta .journal { font-weight: var(--w-semi); color: var(--ink-2); }
 
 /* ---------- Abstract toggle ---------- */
 .abstract-toggle { margin-top: var(--s-4); }
@@ -259,7 +320,10 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 }
 .abstract-full p {
   margin: 0 0 var(--s-3) 0;
-  font-size: var(--fs-sm);
+  /* One notch under the 16px item title. Literal because the shared scale
+     drops straight from --fs-sm (16px) to --fs-cap (13px), which is too
+     small for running prose. */
+  font-size: 15px;
   line-height: var(--lh-relaxed);
   color: var(--ink-2);
   max-width: 68ch;

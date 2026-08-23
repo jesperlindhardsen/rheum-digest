@@ -2,12 +2,14 @@
 update_library.py
 
 Takes raw PubMed search hits (list of dicts, one per article) and:
-- classifies into the right disease group (most specific match wins)
+- classifies into disease groups (most specific match wins; a second group only
+  for a genuine overlap, e.g. large-vessel vasculitis under both Vasculitis
+  and PMR/GCA)
 - dedups against existing data/library.json by PMID
 - prepends new records (newest first)
 - drops records >24 months old
 - recomputes time-bucket for ALL records (buckets shift as weeks pass)
-- writes data/library.json
+- writes data/library.json as {"generated_at": "YYYY-MM-DD", "records": [...]}
 
 Usage: import this module and call update_library(new_hits, library_path)
 new_hits: list of dicts with keys:
@@ -27,12 +29,17 @@ DISEASE_PATTERNS = [
     ("PsA/SpA", r"psoriatic arthritis|spondyloarthritis|ankylosing spondylitis"),
     ("SLE", r"systemic lupus erythematosus|\blupus\b"),
     ("IIM", r"myositis|dermatomyositis|inclusion body myositis|antisynthetase"),
-    ("Vasculitis", r"vasculitis|giant cell arteritis|\bANCA\b|\bGPA\b|\bEGPA\b|"
+    # PMR/GCA is checked before Vasculitis: giant cell arteritis matches both,
+    # and it belongs with polymyalgia rheumatica.
+    ("PMR/GCA", r"polymyalgia rheumatica|giant cell arteritis|temporal arteritis|"
+                r"\bGCA\b|\bPMR\b"),
+    ("Vasculitis", r"vasculitis|\bANCA\b|\bGPA\b|\bEGPA\b|"
                    r"eosinophilic granulomatosis|takayasu|IgA vasculitis|"
                    r"henoch-schonlein|cryoglobulin|small vessel vasculitis"),
     ("Sjögren", r"sj[oö]gren"),
     ("SSc", r"systemic sclerosis|scleroderma"),
-    ("PMR/crystal", r"polymyalgia rheumatica|\bgout\b|calcium pyrophosphate"),
+    ("Crystal", r"\bgout\b|\bgouty\b|calcium pyrophosphate|\bCPPD\b|pseudogout|"
+                r"monosodium urate|crystal arthropathy|crystal arthritis"),
     ("Autoinflammatory", r"VEXAS|autoinflammatory disease|familial mediterranean fever|"
                           r"adult-onset still|\bTRAPS\b|cryopyrin-associated periodic syndrome|"
                           r"\bCAPS\b"),
@@ -42,14 +49,36 @@ DISEASE_PATTERNS = [
 
 TIME_WINDOW_DAYS = 24 * 30  # ~24 months retention
 
+# A record may belong to more than one group, but only where it genuinely
+# covers both. The one case the fallback classifier can recognise on its own:
+# large-vessel vasculitis papers treat GCA and Takayasu together, so they
+# belong under Vasculitis and PMR/GCA alike.
+#
+# Matched against the TITLE only, deliberately. Against the abstract it also
+# fires on Takayasu-only papers and on incidental mentions in unrelated case
+# reports; in the title it means the paper is actually about LVV as a whole.
+LVV_OVERLAP = re.compile(r"large[- ]vessel vasculitis", re.IGNORECASE)
 
-def classify_disease_group(raw_text: str):
-    """Return the most specific matching disease group, or None if no match."""
+
+def classify_disease_groups(raw_text: str, title: str = None) -> list:
+    """
+    Return every disease group the text belongs to, most specific first, or an
+    empty list if none match. Normally one group; two only for a genuine
+    overlap (see LVV_OVERLAP).
+    """
     text = raw_text.lower()
+    groups = []
     for group, pattern in DISEASE_PATTERNS:
         if re.search(pattern, text, re.IGNORECASE):
-            return group
-    return None
+            groups.append(group)
+            break
+
+    if LVV_OVERLAP.search(title if title is not None else raw_text):
+        for group in ("Vasculitis", "PMR/GCA"):
+            if group not in groups:
+                groups.append(group)
+
+    return groups
 
 
 def compute_bucket(pub_date: str, today: datetime) -> str:
@@ -65,10 +94,15 @@ def compute_bucket(pub_date: str, today: datetime) -> str:
 
 
 def load_library(path: Path) -> list:
-    if path.exists():
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return []
+    if not path.exists():
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    # The file was a bare list of records before generated_at was added;
+    # accept either shape so an old library.json still loads.
+    if isinstance(data, list):
+        return data
+    return data.get("records", [])
 
 
 def update_library(new_hits: list, library_path: str, today: datetime = None) -> dict:
@@ -87,15 +121,22 @@ def update_library(new_hits: list, library_path: str, today: datetime = None) ->
         if hit["pmid"] in existing_pmids:
             continue  # dedup
 
-        # Prefer an AI-assigned group (a label, not a content change) if given;
-        # fall back to regex only when the hit wasn't pre-classified.
-        group = hit.get("disease_group") or classify_disease_group(hit.get("raw_text", hit["title"]))
-        if group is None:
+        # Prefer AI-assigned groups (labels, not a content change) if given;
+        # fall back to regex only when the hit wasn't pre-classified. Accepts
+        # either a disease_groups list or a single legacy disease_group.
+        groups = hit.get("disease_groups")
+        if not groups:
+            single = hit.get("disease_group")
+            groups = [single] if single else classify_disease_groups(
+                hit.get("raw_text", hit["title"]), hit["title"]
+            )
+        if not groups:
             continue  # doesn't match any group, skip
 
         record = {
             "pmid": hit["pmid"],
-            "disease_group": group,
+            "languages": hit.get("languages", []),
+            "disease_groups": groups,
             "evidence_type": hit["evidence_type"],
             "tier": hit["tier"],
             "journal": hit["journal"],
@@ -124,13 +165,24 @@ def update_library(new_hits: list, library_path: str, today: datetime = None) ->
     # Sort: newest first overall (view logic re-groups by disease/type/bucket)
     library.sort(key=lambda r: r["date"], reverse=True)
 
+    # generated_at is this run's date -- what the viewer shows as
+    # "Sidst opdateret". Deliberately not the newest record's publication
+    # date: journals post-date issues, so that would sit in the future.
+    payload = {
+        "generated_at": today.strftime("%Y-%m-%d"),
+        "records": library,
+    }
+
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(library, f, ensure_ascii=False, indent=2)
+        json.dump(payload, f, ensure_ascii=False, indent=2)
 
+    # A cross-listed record counts once per group it appears under, so these
+    # sum to more than `total` -- that's the tab counts, not a record count.
     by_group = {}
     for rec in library:
-        by_group[rec["disease_group"]] = by_group.get(rec["disease_group"], 0) + 1
+        for group in rec["disease_groups"]:
+            by_group[group] = by_group.get(group, 0) + 1
 
     return {"added": added, "total": len(library), "by_group": by_group}
 

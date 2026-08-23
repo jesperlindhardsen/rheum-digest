@@ -4,15 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reuma-evidens</title>
-<link rel="stylesheet" href="assets/style.css">
+<!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
+     without it a deploy can leave visitors on the previous CSS. -->
+<link rel="stylesheet" href="assets/style.css?v=7">
 </head>
 <body class="salix">
 <header class="site-header">
   <div class="brand">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4C16 4 8 10 8 18C8 23.5 11.5 28 16 28C20.5 28 24 23.5 24 18C24 10 16 4 16 4Z" stroke="#2E4A33" stroke-width="1.75" stroke-linejoin="round"/>
-      <path d="M16 10V26" stroke="#2E4A33" stroke-width="1.75" stroke-linecap="round"/>
-    </svg>
     <span class="wordmark">Reuma-<em>evidens</em></span>
   </div>
   <span id="updated-date"></span>
@@ -22,6 +20,7 @@
   <div id="evidence-tabs" class="tabs-col"></div>
   <div id="viewer">
     <div id="disease-tabs" class="tabs-row"></div>
+    <div id="tier-filter" class="tier-filter"></div>
     <div id="panel"></div>
   </div>
 </div>
@@ -29,11 +28,17 @@
 <footer class="site-footer">Genereret automatisk fra PubMed. Opdateres ugentligt.</footer>
 
 <script>
-const DISEASE_ORDER = ["RA","PsA/SpA","SLE","IIM","Vasculitis","Sjögren","SSc","PMR/crystal","Autoinflammatory","General"];
+// Display order only. Classification precedence is DISEASE_PATTERNS in
+// update_library.py and is deliberately different — don't sync the two.
+const DISEASE_ORDER = ["RA","PsA/SpA","PMR/GCA","Crystal","General","SLE","IIM","Vasculitis","Sjögren","SSc","Autoinflammatory"];
+// A viewer-only pseudo-group appended after the real ones: never a stored
+// label, so it stays out of DISEASE_ORDER and out of the digests.
+const ALL_GROUP = "__all__";
 const DISEASE_LABEL = {
   "RA": "RA", "PsA/SpA": "PsA/SpA", "SLE": "SLE", "IIM": "IIM",
-  "Vasculitis": "Vaskulitis", "Sjögren": "Sjögren", "SSc": "SSc",
-  "PMR/crystal": "PMR/krystal", "Autoinflammatory": "Autoinflammatorisk", "General": "Generelt"
+  "Vasculitis": "Vaskulitis", "PMR/GCA": "PMR og GCA", "Sjögren": "Sjögren", "SSc": "SSc",
+  "Crystal": "Krystalartrit", "Autoinflammatory": "Autoinflammatorisk", "General": "Generelt",
+  [ALL_GROUP]: "Alle"
 };
 const EVIDENCE_ORDER = ["RCT","Guideline/consensus","Evidence synthesis","Observational","Clinical case/survey"];
 const EVIDENCE_LABEL = {
@@ -41,12 +46,46 @@ const EVIDENCE_LABEL = {
   "Evidence synthesis": "Evidensopsummering", "Observational": "Observationelt",
   "Clinical case/survey": "Klinisk case/opgørelse"
 };
-const BUCKET_LABEL = {recent: "Seneste måned", mid: "1–6 måneder", older: "Ældre"};
-const BUCKET_ORDER = ["recent","mid","older"];
+const MONTHS_DA = ["januar","februar","marts","april","maj","juni",
+                   "juli","august","september","oktober","november","december"];
+
+const TIERS = [1, 2, 3, 4];
 
 let library = [];
 let activeDisease = null;
 let activeEvidence = null;
+let activeTiers = new Set(TIERS);  // all on by default
+let currentMonth = null;  // "YYYY-MM" of the digest run
+
+// The tier filter applies everywhere, not just to the list: tab counts and the
+// set of visible tabs follow it, so a count never promises hidden items.
+function inTier(rec) { return activeTiers.has(rec.tier); }
+
+// Journals post-date issues, so a record can be dated ahead of the run month.
+// Those belong in the current month's section -- they arrived in this digest —
+// rather than in a "future" section sorting above it.
+function monthKey(date) {
+  const key = date.slice(0, 7);
+  return (currentMonth && key > currentMonth) ? currentMonth : key;
+}
+
+function monthLabel(key) {
+  const [year, month] = key.split("-");
+  const name = MONTHS_DA[parseInt(month, 10) - 1];
+  return name.charAt(0).toUpperCase() + name.slice(1) + " " + year;
+}
+
+// A record can be cross-listed under two groups. Older records carry a single
+// disease_group string instead of the disease_groups list.
+function groupsOf(rec) {
+  return rec.disease_groups || (rec.disease_group ? [rec.disease_group] : []);
+}
+
+// "Alle" matches everything; a cross-listed record still appears only once
+// there, since this filters on the record, not on its groups.
+function inDisease(rec) {
+  return activeDisease === ALL_GROUP || groupsOf(rec).includes(activeDisease);
+}
 
 function authorLine(rec) {
   if (rec.first_author === rec.last_author) return rec.first_author;
@@ -63,7 +102,7 @@ function renderItem(rec) {
   return `
     <div class="item">
       <p class="title">${rec.title}<span class="tier-badge t${rec.tier}">T${rec.tier}</span></p>
-      <p class="meta">${authorLine(rec)} · ${rec.journal} · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a></p>
+      <p class="meta">${authorLine(rec)} · <span class="journal">${rec.journal}</span> · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a></p>
       <details class="abstract-toggle">
         <summary>Vis abstract</summary>
         <div class="abstract-full">${sections}${keywords}</div>
@@ -73,47 +112,91 @@ function renderItem(rec) {
 
 function renderPanel() {
   const panel = document.getElementById("panel");
-  const items = library.filter(r => r.disease_group === activeDisease && r.evidence_type === activeEvidence);
+
+  if (activeTiers.size === 0) {
+    panel.innerHTML = `<p class="empty-note">Vælg mindst ét niveau.</p>`;
+    return;
+  }
+
+  const items = library.filter(r => inTier(r) && inDisease(r) && r.evidence_type === activeEvidence);
 
   if (items.length === 0) {
     panel.innerHTML = `<p class="empty-note">Ingen nye.</p>`;
     return;
   }
 
-  let html = "";
-  BUCKET_ORDER.forEach(bucket => {
-    const bucketItems = items.filter(r => r.time_bucket === bucket);
-    if (bucketItems.length === 0) return;
-    const openAttr = bucket === "recent" ? "open" : "";
-    html += `
-      <details ${openAttr} class="time-bucket">
-        <summary>${BUCKET_LABEL[bucket]} (${bucketItems.length})</summary>
-        <div class="bucket-items">${bucketItems.map(renderItem).join("")}</div>
-      </details>`;
+  // One collapsible section per calendar month, newest first. `library` is
+  // already sorted newest-first, so each month keeps that order.
+  const byMonth = new Map();
+  items.forEach(rec => {
+    const key = monthKey(rec.date);
+    if (!byMonth.has(key)) byMonth.set(key, []);
+    byMonth.get(key).push(rec);
   });
-  panel.innerHTML = html;
+
+  const months = [...byMonth.keys()].sort().reverse();
+  panel.innerHTML = months.map((key, i) => {
+    const monthItems = byMonth.get(key);
+    // Only the run month earns the generic label -- in a sparse group the top
+    // section can be months old, and calling that "Seneste måned" would misread.
+    const label = key === currentMonth ? "Seneste måned" : monthLabel(key);
+    const openAttr = i === 0 ? " open" : "";
+    return `
+      <details${openAttr} class="time-bucket">
+        <summary>${label} (${monthItems.length})</summary>
+        <div class="bucket-items">${monthItems.map(renderItem).join("")}</div>
+      </details>`;
+  }).join("");
+}
+
+// Single redraw path: recompute which disease tabs still have hits under the
+// current evidence type and tier selection, keep the active one if it survived,
+// then repaint everything.
+function refresh() {
+  const groups = DISEASE_ORDER.filter(g =>
+    library.some(r => inTier(r) && r.evidence_type === activeEvidence && groupsOf(r).includes(g)));
+  if (groups.length > 0) groups.push(ALL_GROUP);  // always last
+  if (!groups.includes(activeDisease)) {
+    activeDisease = groups[0] || activeDisease;
+  }
+  renderEvidenceTabs();
+  renderDiseaseTabs(groups);
+  renderTierFilter();
+  renderPanel();
 }
 
 function selectEvidence(type) {
   activeEvidence = type;
-  const typeItems = library.filter(r => r.evidence_type === type);
-  const diseaseGroups = DISEASE_ORDER.filter(g => typeItems.some(r => r.disease_group === g));
-  activeDisease = diseaseGroups[0] || DISEASE_ORDER[0];
-  renderEvidenceTabs();
-  renderDiseaseTabs(diseaseGroups);
-  renderPanel();
+  refresh();
 }
 
 function selectDisease(group) {
   activeDisease = group;
-  renderDiseaseTabs(DISEASE_ORDER.filter(g => library.some(r => r.evidence_type === activeEvidence && r.disease_group === g)));
-  renderPanel();
+  refresh();
+}
+
+function toggleTier(tier) {
+  if (activeTiers.has(tier)) activeTiers.delete(tier);
+  else activeTiers.add(tier);
+  refresh();
+}
+
+function renderTierFilter() {
+  const el = document.getElementById("tier-filter");
+  el.innerHTML = `<span class="tier-filter-label">Niveau</span>` + TIERS.map(tier => {
+    const on = activeTiers.has(tier);
+    const count = library.filter(r => r.tier === tier && r.evidence_type === activeEvidence).length;
+    return `<label class="tier-chip t${tier}${on ? " on" : ""}">
+      <input type="checkbox" ${on ? "checked" : ""} onchange="toggleTier(${tier})">T${tier}
+      <span class="tier-chip-count">${count}</span>
+    </label>`;
+  }).join("");
 }
 
 function renderEvidenceTabs() {
   const el = document.getElementById("evidence-tabs");
   el.innerHTML = EVIDENCE_ORDER.map(type => {
-    const count = library.filter(r => r.evidence_type === type).length;
+    const count = library.filter(r => inTier(r) && r.evidence_type === type).length;
     const active = type === activeEvidence ? "active" : "";
     return `<div class="tab-item ${active}" onclick="selectEvidence('${type}')"><span>${EVIDENCE_LABEL[type]}</span><span class="count">${count}</span></div>`;
   }).join("");
@@ -134,11 +217,15 @@ function renderDiseaseTabs(diseaseGroups) {
 fetch("data/library.json?t=" + Date.now(), {cache: "no-store"})
   .then(r => r.json())
   .then(data => {
-    library = data;
-    if (library.length > 0) {
-      const dates = library.map(r => r.date).sort().reverse();
-      document.getElementById("updated-date").textContent = "Sidst opdateret: " + dates[0];
+    // Accepts both the current {generated_at, records} shape and the older
+    // bare-array files.
+    library = Array.isArray(data) ? data : data.records;
+    const generatedAt = Array.isArray(data) ? null : data.generated_at;
+    if (generatedAt) {
+      document.getElementById("updated-date").textContent = "Sidst opdateret: " + generatedAt;
     }
+    // Set before any rendering: monthKey() folds post-dated records into it.
+    currentMonth = (generatedAt || new Date().toISOString()).slice(0, 7);
     selectEvidence(EVIDENCE_ORDER.find(t => library.some(r => r.evidence_type === t)) || EVIDENCE_ORDER[0]);
   })
   .catch(err => {

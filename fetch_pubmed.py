@@ -1,11 +1,12 @@
 """
 fetch_pubmed.py
 
-Deterministic PubMed fetcher. Runs all 50 queries (10 disease groups x 5 evidence
+Deterministic PubMed fetcher. Runs all 55 queries (11 disease groups x 5 evidence
 types) against NCBI E-utilities for the past 7 days (by Entrez date), parses the
 XML, and returns hits as plain dicts. Title, authors, dates, journal, keywords,
 and the structured abstract are extracted verbatim -- nothing here paraphrases
-or edits fetched content. Preprints and errata/retractions are discarded.
+or edits fetched content. Preprints, errata/retractions, and anything not in
+English or Danish are discarded.
 
 disease_group is deliberately NOT set here -- that's the AI labeling step
 (see ROUTINE.md Step 1). update_library.py falls back to its own regex
@@ -39,10 +40,12 @@ DISEASE_QUERIES = {
     "PsA/SpA": '("psoriatic arthritis"[tiab] OR "spondyloarthritis"[tiab] OR "ankylosing spondylitis"[tiab])',
     "SLE": '("systemic lupus erythematosus"[tiab] OR "lupus"[tiab])',
     "IIM": '("myositis"[tiab] OR "dermatomyositis"[tiab] OR "inclusion body myositis"[tiab] OR "antisynthetase syndrome"[tiab])',
-    "Vasculitis": '("vasculitis"[tiab] OR "giant cell arteritis"[tiab] OR "ANCA"[tiab] OR "granulomatosis with polyangiitis"[tiab] OR "eosinophilic granulomatosis"[tiab] OR "takayasu arteritis"[tiab] OR "IgA vasculitis"[tiab] OR "henoch-schonlein"[tiab] OR "cryoglobulinemic vasculitis"[tiab])',
+    # GCA lives with PMR, not here -- the two are one clinical spectrum.
+    "Vasculitis": '("vasculitis"[tiab] OR "ANCA"[tiab] OR "granulomatosis with polyangiitis"[tiab] OR "eosinophilic granulomatosis"[tiab] OR "takayasu arteritis"[tiab] OR "IgA vasculitis"[tiab] OR "henoch-schonlein"[tiab] OR "cryoglobulinemic vasculitis"[tiab])',
+    "PMR/GCA": '("polymyalgia rheumatica"[tiab] OR "giant cell arteritis"[tiab] OR "temporal arteritis"[tiab])',
     "Sjögren": '("sjogren syndrome"[tiab] OR "sjögren"[tiab])',
     "SSc": '("systemic sclerosis"[tiab] OR "scleroderma"[tiab])',
-    "PMR/crystal": '("polymyalgia rheumatica"[tiab] OR "gout"[tiab] OR "calcium pyrophosphate"[tiab])',
+    "Crystal": '("gout"[tiab] OR "gouty arthritis"[tiab] OR "calcium pyrophosphate"[tiab] OR "pseudogout"[tiab] OR "monosodium urate"[tiab])',
     "Autoinflammatory": '("VEXAS syndrome"[tiab] OR "autoinflammatory disease"[tiab] OR "familial mediterranean fever"[tiab] OR "adult-onset Still"[tiab] OR "TRAPS"[tiab] OR "cryopyrin-associated periodic syndrome"[tiab])',
     "General": '("rheumatic disease"[tiab] OR "inflammatory rheumatic disease"[tiab] OR "rheumatology"[ti])',
 }
@@ -56,6 +59,16 @@ EVIDENCE_FILTERS = {
 }
 
 EXCLUDE_TYPES = {"Preprint", "Published Erratum", "Retraction of Publication", "Retracted Publication"}
+
+# Only English- and Danish-language articles. Applied twice: as a PubMed search
+# filter (LANGUAGE_FILTER, so we don't fetch what we'd discard) and again on the
+# parsed <Language> tags (ALLOWED_LANGUAGES), which are authoritative.
+ALLOWED_LANGUAGES = {"eng", "dan"}
+LANGUAGE_FILTER = '(english[la] OR danish[la])'
+
+# How far ahead of today an article date can sit before it's treated as a
+# typo rather than a post-dated issue. See _parse_date.
+FUTURE_DATE_TOLERANCE_DAYS = 120
 
 # Keys are PubMed's ISO abbreviation (MedlineJournalInfo/ISOAbbreviation) --
 # the canonical short form PubMed itself uses, so lookups need no fuzzy matching.
@@ -126,22 +139,51 @@ def _parse_keywords(pubmed_article: ET.Element) -> list:
     return [t for t in (_text(k) for k in pubmed_article.findall(".//KeywordList/Keyword")) if t]
 
 
-def _parse_date(article: ET.Element):
-    for path in (".//ArticleDate", ".//PubDate"):
-        el = article.find(path)
-        if el is None:
+def _date_parts(el) -> datetime:
+    """Build a datetime from an element holding Year/Month/Day children."""
+    if el is None:
+        return None
+    year = _text(el.find("Year"))
+    month = _text(el.find("Month")) or "01"
+    day = _text(el.find("Day")) or "01"
+    if not year:
+        return None
+    try:
+        month_num = int(month) if month.isdigit() else datetime.strptime(month[:3], "%b").month
+        return datetime(int(year), month_num, int(day))
+    except (ValueError, TypeError):
+        return None
+
+
+def _parse_date(pubmed_article: ET.Element):
+    """
+    Publication date, preferring the article's own date. Journals legitimately
+    post-date issues by a month or two (a September issue out in August), but
+    anything past FUTURE_DATE_TOLERANCE_DAYS is a publisher metadata typo --
+    e.g. PMID 42557168, stamped 2028 where every other field says 2026. In that
+    case fall back to PubMed's own indexing date, which is also what the Entrez
+    date window in _esearch already keys on.
+    """
+    cutoff = datetime.now() + timedelta(days=FUTURE_DATE_TOLERANCE_DAYS)
+    candidates = (
+        ".//ArticleDate",
+        ".//PubDate",
+        ".//History/PubMedPubDate[@PubStatus='pubmed']",
+        ".//History/PubMedPubDate[@PubStatus='entrez']",
+    )
+
+    implausible = None
+    for path in candidates:
+        parsed = _date_parts(pubmed_article.find(path))
+        if parsed is None:
             continue
-        year = _text(el.find("Year"))
-        month = _text(el.find("Month")) or "01"
-        day = _text(el.find("Day")) or "01"
-        if not year:
-            continue
-        try:
-            month_num = int(month) if month.isdigit() else datetime.strptime(month[:3], "%b").month
-            return datetime(int(year), month_num, int(day)).strftime("%Y-%m-%d")
-        except (ValueError, TypeError):
-            continue
-    return None
+        if parsed <= cutoff:
+            return parsed.strftime("%Y-%m-%d")
+        if implausible is None:
+            implausible = parsed
+
+    # Every candidate was far-future: keep the first rather than drop the hit.
+    return implausible.strftime("%Y-%m-%d") if implausible else None
 
 
 def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
@@ -151,6 +193,11 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
 
     pub_types = {_text(pt) for pt in article.findall(".//PublicationTypeList/PublicationType")}
     if pub_types & EXCLUDE_TYPES:
+        return None
+
+    # An article can carry several <Language> tags; keep it if any is allowed.
+    languages = [t.lower() for t in (_text(l) for l in article.findall(".//Language")) if t]
+    if not set(languages) & ALLOWED_LANGUAGES:
         return None
 
     pmid = _text(pubmed_article.find(".//PMID"))
@@ -177,6 +224,7 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
 
     return {
         "pmid": pmid,
+        "languages": languages,
         "journal": iso_abbrev,
         "first_author": first_author,
         "last_author": last_author,
@@ -213,7 +261,7 @@ def fetch_all_hits(days: int = 7, evidence_types: list = None) -> list:
     for disease, disease_term in DISEASE_QUERIES.items():
         for evidence_type in evidence_types:
             evidence_term = EVIDENCE_FILTERS[evidence_type]
-            term = f"{disease_term} AND {evidence_term}"
+            term = f"{disease_term} AND {evidence_term} AND {LANGUAGE_FILTER}"
             pmids = _esearch(session, term, mindate, maxdate)
             time.sleep(REQUEST_DELAY)
 
