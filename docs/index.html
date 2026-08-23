@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=13">
+<link rel="stylesheet" href="assets/style.css?v=15">
 </head>
 <body class="salix">
 <header class="site-header">
@@ -14,6 +14,7 @@
     <span class="wordmark">Reuma-<em>evidens</em></span>
   </div>
   <span class="header-right">
+    <span id="star-banner"></span>
     <span id="flag-banner"></span>
     <span id="updated-date"></span>
   </span>
@@ -48,7 +49,7 @@ const EVIDENCE_ORDER = ["RCT","Guideline/consensus","Evidence synthesis","Observ
 const ALL_EVIDENCE = "__all_ev__";
 const EVIDENCE_LABEL = {
   [ALL_EVIDENCE]: "Alt",
-  "RCT": "RCT", "Guideline/consensus": "Retningslinje/konsensus",
+  "RCT": "RCT", "Guideline/consensus": "Retningslinje",
   "Evidence synthesis": "Meta/reviews", "Observational": "Observationelt",
   "Clinical case/survey": "Klinisk case/opgørelse"
 };
@@ -71,6 +72,41 @@ let library = [];
 let activeDisease = null;
 let activeEvidence = null;
 let onlyFlagged = false;
+
+// Personal bookmarks, kept in this browser only -- there's no server to save
+// them to (see the correction-form comment on why the site can't write back
+// to GitHub itself). localStorage.getItem can throw in a locked-down context
+// (private browsing in some browsers); starring is a nice-to-have, so fail
+// quiet and just start empty rather than breaking the page over it.
+const STAR_STORAGE_KEY = "reuma-evidens-starred";
+let starredSet = new Set();
+try {
+  starredSet = new Set(JSON.parse(localStorage.getItem(STAR_STORAGE_KEY) || "[]"));
+} catch (e) { /* starting empty is fine */ }
+let onlyStarred = false;
+
+function isStarred(rec) { return starredSet.has(rec.pmid); }
+
+function toggleStar(pmid) {
+  if (starredSet.has(pmid)) starredSet.delete(pmid);
+  else starredSet.add(pmid);
+  try { localStorage.setItem(STAR_STORAGE_KEY, JSON.stringify([...starredSet])); } catch (e) { /* best effort */ }
+  refresh();
+}
+
+function toggleStarredOnly() {
+  onlyStarred = !onlyStarred;
+  if (onlyStarred) onlyFlagged = false;  // one bypass view at a time
+  refresh();
+}
+
+function renderStarBanner() {
+  const el = document.getElementById("star-banner");
+  const count = starredSet.size;
+  el.innerHTML = `<button class="star-banner-btn${onlyStarred ? " active" : ""}" onclick="toggleStarredOnly()">
+    ${onlyStarred ? "★" : "☆"} Stjernede (${count})${onlyStarred ? " — vis alle" : ""}
+  </button>`;
+}
 let activeTiers = new Set(TIERS);  // all on by default
 let currentMonth = null;  // "YYYY-MM" of the digest run
 
@@ -121,6 +157,7 @@ function passesFlagFilter(rec) {
 
 function toggleFlaggedOnly() {
   onlyFlagged = !onlyFlagged;
+  if (onlyFlagged) onlyStarred = false;  // one bypass view at a time
   activeDisease = ALL_GROUP;
   activeEvidence = ALL_EVIDENCE;
   refresh();
@@ -152,7 +189,7 @@ function authorLine(rec) {
 // Monday run, not instantly.
 const CORRECTION_REPO = "jesperlindhardsen/rheum-digest";
 
-function renderCorrectionForm(rec) {
+function renderCorrectionBody(rec) {
   const currentGroups = groupsOf(rec);
   const groupChecks = DISEASE_ORDER.map(g => `
     <label class="correction-chip">
@@ -164,22 +201,19 @@ function renderCorrectionForm(rec) {
     ? `<label class="correction-check"><input type="checkbox" id="dismiss-${rec.pmid}"> Afvis flag (ingen ændring nødvendig)</label>`
     : "";
   return `
-    <details class="correction-toggle">
-      <summary>Foreslå rettelse</summary>
-      <div class="correction-body">
-        <div class="correction-field">
-          <span class="correction-label">Sygdomsgruppe(r)</span>
-          <div class="correction-checks">${groupChecks}</div>
-        </div>
-        <div class="correction-field">
-          <span class="correction-label">Evidenstype</span>
-          <select id="ev-${rec.pmid}">${evidenceOptions}</select>
-        </div>
-        <label class="correction-check"><input type="checkbox" id="excl-${rec.pmid}"> Ekskludér denne artikel helt</label>
-        ${dismissRow}
-        <button type="button" class="correction-submit" onclick="proposeCorrection('${rec.pmid}')">Opret rettelse på GitHub ↗</button>
+    <div class="correction-body">
+      <div class="correction-field">
+        <span class="correction-label">Sygdomsgruppe(r)</span>
+        <div class="correction-checks">${groupChecks}</div>
       </div>
-    </details>`;
+      <div class="correction-field">
+        <span class="correction-label">Evidenstype</span>
+        <select id="ev-${rec.pmid}">${evidenceOptions}</select>
+      </div>
+      <label class="correction-check"><input type="checkbox" id="excl-${rec.pmid}"> Ekskludér denne artikel helt</label>
+      ${dismissRow}
+      <button type="button" class="correction-submit" onclick="proposeCorrection('${rec.pmid}')">Opret rettelse på GitHub ↗</button>
+    </div>`;
 }
 
 function proposeCorrection(pmid) {
@@ -232,6 +266,7 @@ function renderItem(rec) {
   ).join("");
   const chips = `<div class="chip-row">`
     + `<span class="evidence-chip">${EVIDENCE_BADGE[rec.evidence_type] || rec.evidence_type}</span>`
+    + groupsOf(rec).map(g => `<span class="disease-chip">${DISEASE_LABEL[g]}</span>`).join("")
     + (rec.keywords || []).map(k => `<span class="keyword-chip">${k}</span>`).join("")
     + `</div>`;
   // Set only when AI's weekly read flagged something a deterministic filter
@@ -240,39 +275,39 @@ function renderItem(rec) {
   const flag = rec.flagged
     ? `<p class="flag-note">⚑ ${rec.flagged}</p>`
     : "";
+  const starred = isStarred(rec);
   return `
     <div class="item">
-      <p class="title">${rec.title}<span class="tier-badge t${rec.tier}">${TIER_LABEL[rec.tier]}</span></p>
-      <p class="meta">${authorLine(rec)} · <span class="journal">${rec.journal}</span> · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a></p>
+      <button type="button" class="star-btn${starred ? " starred" : ""}"
+        onclick="toggleStar('${rec.pmid}')" aria-label="${starred ? "Fjern stjerne" : "Stjern artikel"}"
+        aria-pressed="${starred}">${starred ? "★" : "☆"}</button>
+      <p class="title">${rec.title}</p>
+      <p class="meta">${authorLine(rec)} · <span class="journal">${rec.journal}</span> · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a> <span class="tier-badge t${rec.tier}">${TIER_LABEL[rec.tier]}</span></p>
       ${flag}
       ${chips}
-      <details class="abstract-toggle">
-        <summary>Vis abstract</summary>
-        <div class="abstract-full">${sections}</div>
-      </details>
-      ${renderCorrectionForm(rec)}
+      <div class="toggle-row">
+        <details class="abstract-toggle">
+          <summary>Vis abstract</summary>
+          <div class="abstract-full">${sections}</div>
+        </details>
+        <details class="correction-toggle">
+          <summary>Fejlkategoriseret?</summary>
+          ${renderCorrectionBody(rec)}
+        </details>
+      </div>
     </div>`;
 }
 
-function renderPanel() {
+// Shared by the normal filtered view and the "Stjernede" bypass view: one
+// collapsible section per calendar month, newest first (`library` is already
+// sorted newest-first, so each month keeps that order).
+function renderGroupedItems(items, emptyMessage) {
   const panel = document.getElementById("panel");
-
-  if (activeTiers.size === 0) {
-    panel.innerHTML = `<p class="empty-note">Vælg mindst én tidsskrifttype.</p>`;
-    return;
-  }
-
-  const items = library.filter(r => inTier(r) && inDisease(r) && inEvidence(r) && passesFlagFilter(r));
-
   if (items.length === 0) {
-    panel.innerHTML = onlyFlagged
-      ? `<p class="empty-note">Ingen flagede poster her.</p>`
-      : `<p class="empty-note">Ingen nye.</p>`;
+    panel.innerHTML = `<p class="empty-note">${emptyMessage}</p>`;
     return;
   }
 
-  // One collapsible section per calendar month, newest first. `library` is
-  // already sorted newest-first, so each month keeps that order.
   const byMonth = new Map();
   items.forEach(rec => {
     const key = monthKey(rec.date);
@@ -300,10 +335,38 @@ function renderPanel() {
   }).join("");
 }
 
+function renderPanel() {
+  if (onlyStarred) {
+    renderGroupedItems(library.filter(isStarred), "Ingen stjernede artikler endnu.");
+    return;
+  }
+
+  if (activeTiers.size === 0) {
+    document.getElementById("panel").innerHTML = `<p class="empty-note">Vælg mindst én tidsskrifttype.</p>`;
+    return;
+  }
+
+  const items = library.filter(r => inTier(r) && inDisease(r) && inEvidence(r) && passesFlagFilter(r));
+  renderGroupedItems(items, onlyFlagged ? "Ingen flagede poster her." : "Ingen nye.");
+}
+
 // Single redraw path: recompute which disease tabs still have hits under the
 // current evidence type and tier selection, keep the active one if it survived,
-// then repaint everything.
+// then repaint everything. "Stjernede" is a full bypass -- it ignores every
+// other filter by design (the user asked to see starred articles "uden de
+// andre filtre gælder"), so the tab/tier rows that don't apply are hidden
+// rather than shown disabled or stale.
 function refresh() {
+  renderStarBanner();
+  if (onlyStarred) {
+    document.getElementById("evidence-tabs").innerHTML = "";
+    document.getElementById("disease-tabs").innerHTML = "";
+    document.getElementById("tier-filter").innerHTML = "";
+    renderFlagBanner();
+    renderPanel();
+    return;
+  }
+
   const groups = DISEASE_ORDER.filter(g =>
     library.some(r => inTier(r) && inEvidence(r) && passesFlagFilter(r) && groupsOf(r).includes(g)));
   if (groups.length > 0) groups.unshift(ALL_GROUP);  // always first, the default

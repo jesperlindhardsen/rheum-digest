@@ -82,6 +82,24 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 .flag-banner-btn:hover { background: var(--ochre-soft); }
 .flag-banner-btn.active { background: var(--ochre); color: var(--bg-elevated); }
 
+/* Clay: distinct from the flag banner's ochre so the two bypass views (review
+   queue vs. personal bookmarks) never read as the same kind of thing. */
+.star-banner-btn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-cap);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: var(--clay-deep);
+  background: var(--clay-wash);
+  border: none;
+  border-radius: var(--r-pill);
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.star-banner-btn:hover { background: var(--clay-soft); }
+.star-banner-btn.active { background: var(--clay); color: var(--bg-elevated); }
+
 /* ---------- App shell ---------- */
 #app {
   display: flex;
@@ -269,6 +287,7 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 
 /* ---------- Study item ---------- */
 .item {
+  position: relative;
   background: var(--bg-elevated);
   border: 1px solid var(--border-soft);
   border-radius: var(--r-md);
@@ -279,6 +298,7 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 .item:hover { box-shadow: var(--shadow-md); }
 .item .title {
   margin: 0 0 var(--s-2) 0;
+  padding-right: 28px; /* clears .star-btn, absolutely positioned top-right */
   font-family: var(--font-body);
   font-weight: var(--w-semi);
   font-size: var(--fs-sm);
@@ -286,17 +306,31 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   color: var(--ink);
   max-width: none;
 }
+.star-btn {
+  position: absolute;
+  top: var(--s-5);
+  right: var(--s-5);
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink-4);
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+.star-btn:hover { color: var(--clay); transform: scale(1.1); }
+.star-btn.starred { color: var(--clay-deep); }
 .tier-badge {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 10px;
+  margin-left: 4px;
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.02em;
   padding: 2px 8px;
   border-radius: var(--r-pill);
-  transform: translateY(-1px);
 }
 .tier-badge.t1 { background: var(--moss-wash);  color: var(--moss-deep); }
 .tier-badge.t2 { background: var(--slate-wash); color: var(--slate-deep); }
@@ -320,7 +354,17 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 }
 
 /* ---------- Abstract toggle ---------- */
-.abstract-toggle { margin-top: var(--s-4); }
+/* Holds .abstract-toggle and .correction-toggle side by side; each keeps its
+   own margin-top removed since the row itself carries the spacing. */
+.toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-6);
+  margin-top: var(--s-4);
+}
+.abstract-toggle { margin-top: 0; }
 .abstract-toggle > summary {
   list-style: none;
   cursor: pointer;
@@ -379,6 +423,17 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   border-radius: var(--r-pill);
   padding: 3px 10px;
 }
+/* Moss: disease group(s), right after the evidence-type chip. */
+.disease-chip {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--moss-deep);
+  background: var(--moss-wash);
+  border-radius: var(--r-pill);
+  padding: 3px 10px;
+}
 .keyword-chip {
   font-size: var(--fs-micro);
   color: var(--ink-3);
@@ -391,7 +446,7 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 /* ---------- Correction form ---------- */
 /* Same visual language as .abstract-toggle, its own class so opening one
    doesn't imply anything about the other. */
-.correction-toggle { margin-top: var(--s-3); }
+.correction-toggle { margin-top: 0; }
 .correction-toggle > summary {
   list-style: none;
   cursor: pointer;
