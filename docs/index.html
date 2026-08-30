@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=15">
+<link rel="stylesheet" href="assets/style.css?v=16">
 </head>
 <body class="salix">
 <header class="site-header">
@@ -216,6 +216,27 @@ function renderCorrectionBody(rec) {
     </div>`;
 }
 
+// One-click shortcut for the common case: the flag was a false alarm, dismiss
+// it with no other change. Same GitHub-issue mechanism as the "Afvis flag"
+// checkbox below, just without opening the full correction form first --
+// so the flagged-only view (the badge) is somewhere you can actually clear
+// items from, not just look at them.
+function acceptFlag(pmid) {
+  const rec = library.find(r => r.pmid === pmid);
+  const lines = [
+    `PMID: ${pmid}`,
+    `Titel: ${rec.title}`,
+    "",
+    "Afvis eksisterende flag: Ja (ingen indholdsændring, fjern blot flaget)"
+  ];
+  const title = `Rettelse: PMID ${pmid}`;
+  const url = `https://github.com/${CORRECTION_REPO}/issues/new`
+    + `?title=${encodeURIComponent(title)}`
+    + `&body=${encodeURIComponent(lines.join("\n"))}`
+    + `&labels=rettelse`;
+  window.open(url, "_blank");
+}
+
 function proposeCorrection(pmid) {
   const rec = library.find(r => r.pmid === pmid);
   const currentGroups = groupsOf(rec);
@@ -273,7 +294,9 @@ function renderItem(rec) {
   // didn't catch (see ROUTINE.md) -- surfaced right on the card, not buried
   // in a run log only visible during the unattended weekly run.
   const flag = rec.flagged
-    ? `<p class="flag-note">⚑ ${rec.flagged}</p>`
+    ? `<p class="flag-note"><span>⚑ ${rec.flagged}</span>
+        <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">✓ Godkend</button>
+      </p>`
     : "";
   const starred = isStarred(rec);
   return `
