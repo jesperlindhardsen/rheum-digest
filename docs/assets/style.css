@@ -348,10 +348,28 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 .item .meta .journal { font-weight: var(--w-semi); color: var(--ink-2); }
 .flag-note {
   margin: var(--s-2) 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
   font-size: var(--fs-cap);
   font-weight: var(--w-semi);
   color: var(--ochre-deep);
 }
+.accept-flag-btn {
+  flex: none;
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--bg-elevated);
+  background: var(--moss-deep);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.accept-flag-btn:hover { background: var(--moss); }
 
 /* ---------- Abstract toggle ---------- */
 /* Holds .abstract-toggle and .correction-toggle side by side; each keeps its

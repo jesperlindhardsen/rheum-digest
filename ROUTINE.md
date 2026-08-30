@@ -213,16 +213,23 @@ Flagged records are **not excluded** — they're included under AI's best-guess
 classification, same as any other hit, just visibly marked. The flag is a pointer
 for the user to look, not a verdict.
 
-**How a flag actually gets resolved: the user tells whoever is operating the
-digest (normally via a Claude Code chat) the PMID and the decision.** There is
-no button on the site and no automatic resolution — a `flagged` field, once set,
-sits on that record forever; `update_library.py` only ever touches new PMIDs, so
-nothing revisits it. The resolution is always a manual edit to
-`docs/data/library.json`, one of:
+**How a flag actually gets resolved: through the same "Foreslå rettelse"/
+correction form every card has (see Step 0), not a manual edit.** A `flagged`
+field, once set, would otherwise sit on that record forever — `update_library.py`
+only ever touches new PMIDs, so nothing revisits it on its own. Each flagged
+card shows the flag reason plus a one-click "✓ Godkend" button (`acceptFlag()`
+in `docs/index.html`) that opens a pre-filled `rettelse` issue proposing
+"Afvis eksisterende flag: Ja" — the same "Afvis flag" checkbox available in the
+full correction form for when the flag should be cleared alongside a
+reclassification. Either way it's an open GitHub issue that Step 0 applies on
+the next Monday run, one of:
 - **Exclude it** — remove the record entirely (same as any other bad hit in this
   project's history, e.g. PMID 42598105).
 - **Reclassify it** — fix `disease_groups`/`evidence_type` and clear `flagged`.
 - **Dismiss it** — it was a false alarm; just clear `flagged`, record unchanged.
+
+A manual edit to `docs/data/library.json` is still the fallback for anything
+outside that shape, but isn't the normal path anymore.
 
 If the same shape of problem recurs across several flags, that's the signal to
 write a permanent deterministic rule (a new `PROTOCOL_TITLE`-style pattern, a
