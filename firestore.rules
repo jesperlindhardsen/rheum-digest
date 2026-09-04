@@ -1,0 +1,22 @@
+rules_version = '2';
+
+// Paste this into the Firebase console: Firestore Database -> Rules tab ->
+// replace the contents -> Publish. Replace OWNER_UID_PLACEHOLDER below with
+// your own Firebase Auth UID (Authentication -> Users, after signing in once
+// via the "Log ind for direkte rettelser" button on the site).
+//
+// Public read: anyone visiting the site can load the overrides collection
+// (that's how a hide/reclassify/dismissed-flag actually takes effect for
+// every visitor, not just you). Write is restricted to exactly one account
+// -- see docs/index.html's applyOverride(): any other visitor's write is
+// rejected here and the site falls back to the original GitHub-issue flow
+// instead, so nothing is silently lost.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /overrides/{pmid} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == "OWNER_UID_PLACEHOLDER";
+    }
+    // Everything else stays closed by default.
+  }
+}

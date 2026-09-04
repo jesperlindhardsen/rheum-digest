@@ -21,10 +21,22 @@ pure code.
 
 ## STEP 0 — APPLY PENDING CORRECTIONS (GitHub issues, before fetching anything new)
 `docs/index.html` has a "Foreslå rettelse" form on every card (disease group(s),
-evidence type, or "ekskludér helt"; a flagged card also gets "afvis flag"). The site is
-static and can't write to `library.json` itself, so the form instead opens a
-pre-filled **GitHub issue**, labelled `rettelse`, that the user creates deliberately.
-That issue is the only way a correction exists until the routine picks it up here.
+evidence type, or "ekskludér helt"; a flagged card also gets "afvis flag"). This is
+the **fallback** path: the form's `applyOverride()` tries an instant write to a
+Firestore `overrides` collection first (see below), and only falls back to opening
+a pre-filled **GitHub issue**, labelled `rettelse`, when Firestore isn't configured
+yet or the visitor isn't signed in as the site owner. Either way this GitHub-issue
+path stays live as the batch-applied safety net, and this step's job is unchanged:
+that issue is the only way *this kind* of correction reaches `library.json` until
+the routine picks it up here.
+
+**Firestore overrides are not touched by this step and never expire on their own.**
+Once configured (see the `firebaseConfig`/`firestore.rules` comments in
+`docs/index.html`), a Firestore-only correction takes effect on the live site
+immediately and stays there indefinitely as a read-time patch over `library.json`
+— it's never "graduated" into a permanent edit here. That's a known gap, not a bug:
+fine for now since Firestore is small and cheap to keep forever, but worth
+revisiting if the overrides collection ever needs to shrink back to zero.
 
 Each run, before Step 1:
 - Try `gh issue list --repo jesperlindhardsen/rheum-digest --label rettelse --state open --json number,title,body`.
