@@ -115,7 +115,7 @@ const FIREBASE_AVAILABLE = firebaseConfig.apiKey !== "REPLACE_ME"
 // is committed to this repo. They're here so the page knows whose edits skip
 // review and who gets the acknowledge/revert buttons; the rules are what
 // actually enforce any of it.
-const OWNER_EMAIL = "REPLACE_ME";        // lowercase
+const OWNER_EMAIL = "jesper.lindhardsen@regionh.dk";   // lowercase; compared against a lowercased token
 const ALLOWED_DOMAIN = "@regionh.dk";
 function emailOf(user) { return ((user && user.email) || "").toLowerCase(); }
 function isOwner() { return emailOf(currentUser) === OWNER_EMAIL; }

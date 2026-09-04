@@ -34,7 +34,7 @@ service cloud.firestore {
     }
 
     function isOwner() {
-      return verifiedEmail() == "REPLACE_ME";
+      return verifiedEmail() == "jesper.lindhardsen@regionh.dk";
     }
 
     // matches() is a whole-string match, so this is anchored at both ends.
