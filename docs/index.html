@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=17">
+<link rel="stylesheet" href="assets/style.css?v=19">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -113,9 +113,11 @@ if (FIREBASE_AVAILABLE) {
 function renderAuthBanner() {
   const el = document.getElementById("auth-banner");
   if (!el || !FIREBASE_AVAILABLE) return;
+  // .banner-long is dropped on a phone (see style.css) so the header stays
+  // one line instead of wrapping into 130px of sticky chrome.
   el.innerHTML = currentUser
-    ? `<button class="auth-banner-btn" onclick="signOutUser()">Logget ind (${currentUser.displayName || currentUser.email}) · log ud</button>`
-    : `<button class="auth-banner-btn" onclick="signIn()">Log ind for direkte rettelser</button>`;
+    ? `<button class="auth-banner-btn" onclick="signOutUser()"><span class="banner-long">Logget ind (${currentUser.displayName || currentUser.email}) · </span>Log ud</button>`
+    : `<button class="auth-banner-btn" onclick="signIn()">Log ind<span class="banner-long"> for direkte rettelser</span></button>`;
 }
 
 function signIn() {
@@ -187,9 +189,7 @@ function toggleStarredOnly() {
 function renderStarBanner() {
   const el = document.getElementById("star-banner");
   const count = starredSet.size;
-  el.innerHTML = `<button class="star-banner-btn${onlyStarred ? " active" : ""}" onclick="toggleStarredOnly()">
-    ${onlyStarred ? "★" : "☆"} Stjernede (${count})${onlyStarred ? " — vis alle" : ""}
-  </button>`;
+  el.innerHTML = `<button class="star-banner-btn${onlyStarred ? " active" : ""}" onclick="toggleStarredOnly()">${onlyStarred ? "★" : "☆"} <span class="banner-long">Stjernede </span>(${count})<span class="banner-long">${onlyStarred ? " — vis alle" : ""}</span></button>`;
 }
 let activeTiers = new Set(TIERS);  // all on by default
 let currentMonth = null;  // "YYYY-MM" of the digest run
@@ -254,9 +254,7 @@ function renderFlagBanner() {
     el.innerHTML = "";
     return;
   }
-  el.innerHTML = `<button class="flag-banner-btn${onlyFlagged ? " active" : ""}" onclick="toggleFlaggedOnly()">
-    ⚑ ${count} til gennemsyn${onlyFlagged ? " — vis alle" : ""}
-  </button>`;
+  el.innerHTML = `<button class="flag-banner-btn${onlyFlagged ? " active" : ""}" onclick="toggleFlaggedOnly()">⚑ ${count}<span class="banner-long"> til gennemsyn${onlyFlagged ? " — vis alle" : ""}</span></button>`;
 }
 
 function authorLine(rec) {
@@ -342,6 +340,21 @@ function acceptFlag(pmid) {
   applyOverride(pmid, { dismissed_flag: true }, fallbackLines);
 }
 
+// The other half of reviewing a flagged card: the flag was right, this
+// doesn't belong in the library. Confirmed first -- it sits one tap from
+// "Godkend" and does the opposite, so a mis-tap shouldn't quietly drop an
+// article.
+function deleteRecord(pmid) {
+  const rec = library.find(r => r.pmid === pmid);
+  if (!confirm(`Slet denne artikel fra biblioteket?\n\n${rec.title}`)) return;
+  applyOverride(pmid, { hidden: true }, [
+    `PMID: ${pmid}`,
+    `Titel: ${rec.title}`,
+    "",
+    "Ekskludér artiklen: Ja"
+  ]);
+}
+
 function proposeCorrection(pmid) {
   const rec = library.find(r => r.pmid === pmid);
   const currentGroups = groupsOf(rec);
@@ -400,7 +413,10 @@ function renderItem(rec) {
   // in a run log only visible during the unattended weekly run.
   const flag = rec.flagged
     ? `<p class="flag-note"><span>⚑ ${rec.flagged}</span>
-        <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">✓ Godkend</button>
+        <span class="flag-actions">
+          <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">✓ Godkend</button>
+          <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Slet</button>
+        </span>
       </p>`
     : "";
   const starred = isStarred(rec);
@@ -415,11 +431,11 @@ function renderItem(rec) {
       ${chips}
       <div class="toggle-row">
         <details class="abstract-toggle">
-          <summary>Vis abstract</summary>
+          <summary>Abstract</summary>
           <div class="abstract-full">${sections}</div>
         </details>
         <details class="correction-toggle">
-          <summary>Fejlkategoriseret?</summary>
+          <summary>Rettelse</summary>
           ${renderCorrectionBody(rec)}
         </details>
       </div>
@@ -546,19 +562,50 @@ function renderEvidenceTabs() {
   }).join("");
 }
 
+// Rendered twice over, with CSS picking one: as a tab row on a wide screen,
+// and as a dropdown on a narrow one, where the row wraps to three lines and
+// eats 158px of a ~700px viewport. Keeping both in the DOM means a resize
+// (or a phone rotating) needs no re-render.
 function renderDiseaseTabs(diseaseGroups) {
   const el = document.getElementById("disease-tabs");
   if (diseaseGroups.length === 0) {
     el.innerHTML = "";
     return;
   }
-  el.innerHTML = diseaseGroups.map(group => {
+  const options = diseaseGroups.map(group =>
+    `<option value="${group}"${group === activeDisease ? " selected" : ""}>${DISEASE_LABEL[group]}</option>`
+  ).join("");
+  const tabs = diseaseGroups.map(group => {
     const active = group === activeDisease ? "active" : "";
     return `<div class="etab ${active}" onclick="selectDisease('${group}')">${DISEASE_LABEL[group]}</div>`;
   }).join("");
+  el.innerHTML =
+    `<select class="disease-select" aria-label="Sygdomsgruppe" onchange="selectDisease(this.value)">${options}</select>`
+    + tabs;
+}
+
+// The sticky rows below the header need to know how tall it is, and that
+// isn't a constant: it's 65px wide, 90px on a phone, and grows again when
+// the sign-in button swaps its label for an account name. Measuring it beats
+// hardcoding a number that silently goes stale. Same for the evidence rail,
+// which the disease row stacks under once they're side by side no longer.
+function syncStickyOffsets() {
+  const root = document.documentElement;
+  const header = document.querySelector(".site-header");
+  const rail = document.getElementById("evidence-tabs");
+  if (header) root.style.setProperty("--header-h", header.offsetHeight + "px");
+  if (rail) root.style.setProperty("--rail-h", rail.offsetHeight + "px");
 }
 
 renderAuthBanner();
+syncStickyOffsets();
+// Both boxes change height on their own: the header when the sign-in label
+// or the banners change, the rail when the evidence tabs reflow.
+[".site-header", "#evidence-tabs"].forEach(sel => {
+  const el = document.querySelector(sel);
+  if (el && window.ResizeObserver) new ResizeObserver(syncStickyOffsets).observe(el);
+});
+
 Promise.all([
   fetch("data/library.json?t=" + Date.now(), {cache: "no-store"}).then(r => r.json()),
   loadOverrides()

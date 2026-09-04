@@ -33,7 +33,10 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   justify-content: space-between;
   gap: var(--s-6);
   padding: var(--s-4) var(--s-10);
-  background: rgba(246, 241, 232, 0.94);
+  /* Opaque on purpose: there's no backdrop-filter behind it, so the old
+     0.94 alpha didn't frost anything -- it just let article text ghost
+     through the bar as cards scrolled underneath. */
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
 .brand {
@@ -128,12 +131,21 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   align-items: flex-start;
 }
 
+/* Fallbacks only -- syncStickyOffsets() in index.html measures the real
+   heights and overwrites both, since the header grows when the sign-in
+   button carries an account name and on narrow screens where it wraps. */
+:root {
+  --header-h: 65px;
+  --rail-h: 51px;
+}
+
 /* ---------- Evidence-type tabs (left rail) ---------- */
 .tabs-col {
   width: 232px;
   flex-shrink: 0;
   position: sticky;
-  top: 84px;
+  top: calc(var(--header-h) + var(--s-5));
+  z-index: 5;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -180,13 +192,23 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 }
 
 /* ---------- Disease-group tabs (row) ---------- */
+/* Sticky under the header, so the group you're reading stays named while you
+   scroll. Needs an opaque background of its own -- the cards pass underneath
+   it, not behind the page. */
 .tabs-row {
   display: flex;
   flex-wrap: wrap;
   gap: var(--s-6);
   border-bottom: 1px solid var(--line);
   margin-bottom: var(--s-8);
+  position: sticky;
+  top: var(--header-h);
+  z-index: 5;
+  background: var(--paper);
+  padding-top: var(--s-4);
 }
+/* Wide screens get the tab row; .disease-select takes over below 820px. */
+.disease-select { display: none; }
 .etab {
   padding: 0 0 12px 0;
   cursor: pointer;
@@ -323,7 +345,18 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   line-height: var(--lh-snug);
   color: var(--ink);
   max-width: none;
+  /* PubMed titles carry chemical names and gene identifiers long enough to
+     be unbreakable -- one of them was setting a 376px floor on the whole
+     column and scrolling the page sideways on any phone under 402px.
+     Has to be `anywhere`, not `break-word`: only `anywhere` counts toward
+     the element's min-content width, which is what the column is sized on. */
+  overflow-wrap: anywhere;
 }
+/* Same reasoning for the rest of the card's prose: DOIs, long journal names,
+   and abstract terms are all capable of the same thing. */
+.item .meta,
+.abstract-full,
+.flag-note { overflow-wrap: anywhere; }
 .star-btn {
   position: absolute;
   top: var(--s-5);
@@ -367,6 +400,10 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 .flag-note {
   margin: var(--s-2) 0 0 0;
   display: flex;
+  /* The two buttons need ~174px, which a phone-width card can't spare next
+     to the reason text -- so let them drop to their own line rather than
+     push past the card edge and scroll the whole document sideways. */
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--s-4);
@@ -388,6 +425,29 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   transition: background var(--dur-fast) var(--ease-out);
 }
 .accept-flag-btn:hover { background: var(--moss); }
+/* Sits next to accept-flag-btn and does the opposite, so it has to read as
+   a different kind of action at a glance -- clay (the palette's alert
+   signal) against the accept button's moss. */
+.flag-note > span:not(.flag-actions) { flex: 1 1 14ch; min-width: 0; }
+.flag-actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.delete-flag-btn {
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--bg-elevated);
+  background: var(--clay-deep);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.delete-flag-btn:hover { background: var(--clay); }
 
 /* ---------- Abstract toggle ---------- */
 /* Holds .abstract-toggle and .correction-toggle side by side; each keeps its
@@ -538,6 +598,10 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   border-radius: var(--r-sm);
   padding: 6px 10px;
   width: fit-content;
+  /* "Klinisk case/opgørelse" is wider than a phone-width card, and
+     fit-content happily overflows -- which was making the whole document
+     scroll sideways on mobile. */
+  max-width: 100%;
 }
 .correction-check {
   display: flex;
@@ -582,15 +646,63 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 /* ---------- Responsive ---------- */
 @media (max-width: 820px) {
   #app { flex-direction: column; padding: var(--s-6); gap: var(--s-6); }
+  /* Still sticky here, just horizontal and pinned directly under the header
+     rather than beside the content. */
   .tabs-col {
     width: 100%;
-    position: static;
+    top: var(--header-h);
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: var(--s-2);
     padding-bottom: var(--s-2);
+    background: var(--paper);
   }
   .tab-item { flex-shrink: 0; }
-  .site-header { padding: var(--s-4) var(--s-6); }
+  /* The badges were running off the right edge here -- and the review badge
+     being half-clipped matters, since tapping it is how you get to the
+     flagged queue. Let them wrap instead, and drop the run date, which is
+     the one thing in the bar that isn't a control. */
+  .site-header {
+    padding: var(--s-3) var(--s-6);
+    flex-wrap: wrap;
+    gap: var(--s-2) var(--s-4);
+  }
+  .header-right { flex-wrap: wrap; gap: var(--s-2); }
+  #updated-date { display: none; }
+
+  /* The tab row wraps to three lines at this width -- 158px of a ~700px
+     viewport, before anything is even read -- so the groups collapse into a
+     dropdown, and the row stacks under the (now horizontal) evidence rail. */
+  .tabs-row {
+    top: calc(var(--header-h) + var(--rail-h));
+    border-bottom: none;
+    margin-bottom: var(--s-6);
+    padding-bottom: var(--s-3);
+  }
+  .etab { display: none; }
+  .disease-select {
+    display: block;
+    width: 100%;
+    /* Without this a select is at least as wide as its longest option
+       ("Autoinflammatorisk"), which overflows a 360px phone. It ellipsizes
+       the closed label instead, which is fine -- the list still shows in
+       full when tapped. */
+    min-width: 0;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: var(--w-med);
+    color: var(--ink);
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    padding: 10px 12px;
+  }
+}
+
+/* Phone: the badges keep their icon and count and shed their prose, which is
+   what lets the header stay a single line. The wrapping above is still the
+   safety net -- this just means it rarely has to fire. */
+@media (max-width: 620px) {
+  .banner-long { display: none; }
 }
