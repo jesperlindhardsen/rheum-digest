@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=17">
+<link rel="stylesheet" href="assets/style.css?v=18">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -342,6 +342,21 @@ function acceptFlag(pmid) {
   applyOverride(pmid, { dismissed_flag: true }, fallbackLines);
 }
 
+// The other half of reviewing a flagged card: the flag was right, this
+// doesn't belong in the library. Confirmed first -- it sits one tap from
+// "Godkend" and does the opposite, so a mis-tap shouldn't quietly drop an
+// article.
+function deleteRecord(pmid) {
+  const rec = library.find(r => r.pmid === pmid);
+  if (!confirm(`Slet denne artikel fra biblioteket?\n\n${rec.title}`)) return;
+  applyOverride(pmid, { hidden: true }, [
+    `PMID: ${pmid}`,
+    `Titel: ${rec.title}`,
+    "",
+    "Ekskludér artiklen: Ja"
+  ]);
+}
+
 function proposeCorrection(pmid) {
   const rec = library.find(r => r.pmid === pmid);
   const currentGroups = groupsOf(rec);
@@ -400,7 +415,10 @@ function renderItem(rec) {
   // in a run log only visible during the unattended weekly run.
   const flag = rec.flagged
     ? `<p class="flag-note"><span>⚑ ${rec.flagged}</span>
-        <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">✓ Godkend</button>
+        <span class="flag-actions">
+          <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">✓ Godkend</button>
+          <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Slet</button>
+        </span>
       </p>`
     : "";
   const starred = isStarred(rec);

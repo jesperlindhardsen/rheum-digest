@@ -388,6 +388,28 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   transition: background var(--dur-fast) var(--ease-out);
 }
 .accept-flag-btn:hover { background: var(--moss); }
+/* Sits next to accept-flag-btn and does the opposite, so it has to read as
+   a different kind of action at a glance -- clay (the palette's alert
+   signal) against the accept button's moss. */
+.flag-actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.delete-flag-btn {
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--bg-elevated);
+  background: var(--clay-deep);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.delete-flag-btn:hover { background: var(--clay); }
 
 /* ---------- Abstract toggle ---------- */
 /* Holds .abstract-toggle and .correction-toggle side by side; each keeps its
