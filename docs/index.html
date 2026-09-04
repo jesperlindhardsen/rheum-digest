@@ -6,7 +6,12 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=16">
+<link rel="stylesheet" href="assets/style.css?v=17">
+<!-- Optional live-write layer (see the firebaseConfig comment in the script
+     below) -- safe to load even before a real project is configured. -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 </head>
 <body class="salix">
 <header class="site-header">
@@ -14,6 +19,7 @@
     <span class="wordmark">Reuma-<em>evidens</em></span>
   </div>
   <span class="header-right">
+    <span id="auth-banner"></span>
     <span id="star-banner"></span>
     <span id="flag-banner"></span>
     <span id="updated-date"></span>
@@ -68,6 +74,78 @@ const TIER_LABEL = {
   1: "Top medicin", 2: "Top reumatologi", 3: "Reumatologi", 4: "Øvrige"
 };
 
+// ---------- Live-write layer (Firestore) ----------
+// Corrections (hide/reclassify/dismiss-flag) used to only ever reach a
+// GitHub issue for the weekly routine to apply -- see the fallback comment
+// on applyOverride() below. This adds an instant path: signed in as the
+// site owner, a correction writes straight to a small Firestore collection
+// and shows up immediately, for every visitor, without waiting for Monday.
+// Fill in firebaseConfig (Project settings -> General -> "Your apps" in the
+// Firebase console) to turn it on; until then FIREBASE_CONFIGURED stays
+// false and every correction goes through the original GitHub-issue path,
+// same as before this existed.
+const firebaseConfig = {
+  apiKey: "REPLACE_ME",
+  authDomain: "REPLACE_ME.firebaseapp.com",
+  projectId: "REPLACE_ME",
+  storageBucket: "REPLACE_ME.appspot.com",
+  messagingSenderId: "REPLACE_ME",
+  appId: "REPLACE_ME"
+};
+const FIREBASE_CONFIGURED = firebaseConfig.apiKey !== "REPLACE_ME";
+let auth = null, db = null, currentUser = null;
+// pmid -> {hidden?, dismissed_flag?, disease_groups?, evidence_type?}
+let overridesMap = new Map();
+
+if (FIREBASE_CONFIGURED) {
+  firebase.initializeApp(firebaseConfig);
+  auth = firebase.auth();
+  db = firebase.firestore();
+  auth.onAuthStateChanged(user => { currentUser = user; renderAuthBanner(); });
+}
+
+function renderAuthBanner() {
+  const el = document.getElementById("auth-banner");
+  if (!el || !FIREBASE_CONFIGURED) return;
+  el.innerHTML = currentUser
+    ? `<button class="auth-banner-btn" onclick="signOutUser()">Logget ind (${currentUser.displayName || currentUser.email}) · log ud</button>`
+    : `<button class="auth-banner-btn" onclick="signIn()">Log ind for direkte rettelser</button>`;
+}
+
+function signIn() {
+  return auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(err => {
+    console.error(err);
+    alert("Login mislykkedes: " + err.message);
+  });
+}
+
+function signOutUser() { auth.signOut(); }
+
+function loadOverrides() {
+  if (!FIREBASE_CONFIGURED) return Promise.resolve();
+  return db.collection("overrides").get().then(snap => {
+    overridesMap = new Map(snap.docs.map(d => [d.id, d.data()]));
+  }).catch(err => console.error("Kunne ikke hente rettelser fra Firestore", err));
+}
+
+// Applied on top of the fetched records, never in place -- rawLibrary stays
+// the untouched fetch so a new override can be re-applied without refetching.
+function applyOverrides(records) {
+  if (overridesMap.size === 0) return records;
+  return records
+    .filter(r => !(overridesMap.get(r.pmid) || {}).hidden)
+    .map(r => {
+      const o = overridesMap.get(r.pmid);
+      if (!o) return r;
+      const merged = { ...r };
+      if (o.dismissed_flag) delete merged.flagged;
+      if (o.disease_groups) merged.disease_groups = o.disease_groups;
+      if (o.evidence_type) merged.evidence_type = o.evidence_type;
+      return merged;
+    });
+}
+
+let rawLibrary = [];
 let library = [];
 let activeDisease = null;
 let activeEvidence = null;
@@ -180,15 +258,6 @@ function authorLine(rec) {
   return `${rec.first_author}...${rec.last_author}`;
 }
 
-// The site is static (GitHub Pages) and can't write to library.json itself --
-// there's no server to receive the click. This builds a GitHub "new issue"
-// link, pre-filled and labelled "rettelse", so the actual write still goes
-// through a real GitHub action the user takes deliberately. The weekly
-// routine picks up open "rettelse" issues, applies them, and closes them --
-// see ROUTINE.md. A correction submitted this way lands at the *next*
-// Monday run, not instantly.
-const CORRECTION_REPO = "jesperlindhardsen/rheum-digest";
-
 function renderCorrectionBody(rec) {
   const currentGroups = groupsOf(rec);
   const groupChecks = DISEASE_ORDER.map(g => `
@@ -212,29 +281,59 @@ function renderCorrectionBody(rec) {
       </div>
       <label class="correction-check"><input type="checkbox" id="excl-${rec.pmid}"> Ekskludér denne artikel helt</label>
       ${dismissRow}
-      <button type="button" class="correction-submit" onclick="proposeCorrection('${rec.pmid}')">Opret rettelse på GitHub ↗</button>
+      <button type="button" class="correction-submit" onclick="proposeCorrection('${rec.pmid}')">Gem rettelse</button>
     </div>`;
 }
 
-// One-click shortcut for the common case: the flag was a false alarm, dismiss
-// it with no other change. Same GitHub-issue mechanism as the "Afvis flag"
-// checkbox below, just without opening the full correction form first --
-// so the flagged-only view (the badge) is somewhere you can actually clear
-// items from, not just look at them.
-function acceptFlag(pmid) {
-  const rec = library.find(r => r.pmid === pmid);
-  const lines = [
-    `PMID: ${pmid}`,
-    `Titel: ${rec.title}`,
-    "",
-    "Afvis eksisterende flag: Ja (ingen indholdsændring, fjern blot flaget)"
-  ];
+// Fallback path: builds the original pre-filled GitHub "new issue" link
+// (labelled "rettelse") that the weekly routine picks up and applies -- see
+// ROUTINE.md Step 0. Used whenever the instant Firestore write isn't
+// available: firebaseConfig above is still a placeholder, or the visitor
+// clicking isn't signed in as the site owner (Firestore rules only allow
+// that one account to write, so anyone else's write is rejected). Keeps the
+// moderated, batch-applied path alive as a safety net either way.
+const CORRECTION_REPO = "jesperlindhardsen/rheum-digest";
+function openCorrectionIssue(pmid, lines) {
   const title = `Rettelse: PMID ${pmid}`;
   const url = `https://github.com/${CORRECTION_REPO}/issues/new`
     + `?title=${encodeURIComponent(title)}`
     + `&body=${encodeURIComponent(lines.join("\n"))}`
     + `&labels=rettelse`;
   window.open(url, "_blank");
+}
+
+// Tries the instant Firestore write first (prompting sign-in if needed),
+// falls back to the GitHub-issue flow otherwise -- see openCorrectionIssue.
+async function applyOverride(pmid, patch, fallbackLines) {
+  if (!FIREBASE_CONFIGURED) { openCorrectionIssue(pmid, fallbackLines); return; }
+  try {
+    if (!currentUser) await signIn();
+    if (!currentUser) { openCorrectionIssue(pmid, fallbackLines); return; }
+    await db.collection("overrides").doc(pmid).set(
+      { ...patch, updated_at: firebase.firestore.FieldValue.serverTimestamp() },
+      { merge: true }
+    );
+    overridesMap.set(pmid, { ...(overridesMap.get(pmid) || {}), ...patch });
+    library = applyOverrides(rawLibrary);
+    refresh();
+  } catch (err) {
+    console.error("Firestore-skrivning afvist, falder tilbage til GitHub-issue", err);
+    openCorrectionIssue(pmid, fallbackLines);
+  }
+}
+
+// One-click shortcut for the common case: the flag was a false alarm, dismiss
+// it with no other change -- so the flagged-only view (the badge) is
+// somewhere you can actually clear items from, not just look at them.
+function acceptFlag(pmid) {
+  const rec = library.find(r => r.pmid === pmid);
+  const fallbackLines = [
+    `PMID: ${pmid}`,
+    `Titel: ${rec.title}`,
+    "",
+    "Afvis eksisterende flag: Ja (ingen indholdsændring, fjern blot flaget)"
+  ];
+  applyOverride(pmid, { dismissed_flag: true }, fallbackLines);
 }
 
 function proposeCorrection(pmid) {
@@ -254,31 +353,31 @@ function proposeCorrection(pmid) {
     return;
   }
 
-  const lines = [`PMID: ${pmid}`, `Titel: ${rec.title}`, ""];
+  const fallbackLines = [`PMID: ${pmid}`, `Titel: ${rec.title}`, ""];
+  const patch = {};
   if (exclude) {
-    lines.push("Ekskludér artiklen: Ja");
+    patch.hidden = true;
+    fallbackLines.push("Ekskludér artiklen: Ja");
   } else {
     if (groupsChanged) {
-      lines.push(`Nuværende sygdomsgrupper: ${currentGroups.join(", ")}`);
-      lines.push(`Foreslåede sygdomsgrupper: ${selectedGroups.join(", ") || "(ingen)"}`);
-      lines.push("");
+      patch.disease_groups = selectedGroups;
+      fallbackLines.push(`Nuværende sygdomsgrupper: ${currentGroups.join(", ")}`);
+      fallbackLines.push(`Foreslåede sygdomsgrupper: ${selectedGroups.join(", ") || "(ingen)"}`);
+      fallbackLines.push("");
     }
     if (evidenceChanged) {
-      lines.push(`Nuværende evidenstype: ${rec.evidence_type}`);
-      lines.push(`Foreslået evidenstype: ${selectedEvidence}`);
-      lines.push("");
+      patch.evidence_type = selectedEvidence;
+      fallbackLines.push(`Nuværende evidenstype: ${rec.evidence_type}`);
+      fallbackLines.push(`Foreslået evidenstype: ${selectedEvidence}`);
+      fallbackLines.push("");
     }
     if (dismiss) {
-      lines.push("Afvis eksisterende flag: Ja (ingen indholdsændring, fjern blot flaget)");
+      patch.dismissed_flag = true;
+      fallbackLines.push("Afvis eksisterende flag: Ja (ingen indholdsændring, fjern blot flaget)");
     }
   }
 
-  const title = `Rettelse: PMID ${pmid}`;
-  const url = `https://github.com/${CORRECTION_REPO}/issues/new`
-    + `?title=${encodeURIComponent(title)}`
-    + `&body=${encodeURIComponent(lines.join("\n"))}`
-    + `&labels=rettelse`;
-  window.open(url, "_blank");
+  applyOverride(pmid, patch, fallbackLines);
 }
 
 function renderItem(rec) {
@@ -453,12 +552,16 @@ function renderDiseaseTabs(diseaseGroups) {
   }).join("");
 }
 
-fetch("data/library.json?t=" + Date.now(), {cache: "no-store"})
-  .then(r => r.json())
-  .then(data => {
+renderAuthBanner();
+Promise.all([
+  fetch("data/library.json?t=" + Date.now(), {cache: "no-store"}).then(r => r.json()),
+  loadOverrides()
+])
+  .then(([data]) => {
     // Accepts both the current {generated_at, records} shape and the older
     // bare-array files.
-    library = Array.isArray(data) ? data : data.records;
+    rawLibrary = Array.isArray(data) ? data : data.records;
+    library = applyOverrides(rawLibrary);
     const generatedAt = Array.isArray(data) ? null : data.generated_at;
     if (generatedAt) {
       document.getElementById("updated-date").textContent = "Sidst opdateret: " + generatedAt;
