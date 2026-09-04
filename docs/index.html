@@ -354,6 +354,7 @@ function renderFlagBanner() {
 // records, which is the point -- an article a colleague removed is otherwise
 // nowhere to be found.
 function toggleEditedOnly() {
+  if (!isOwner()) return;
   onlyEdited = !onlyEdited;
   if (onlyEdited) { onlyStarred = false; onlyFlagged = false; }
   activeDisease = ALL_GROUP;
@@ -364,6 +365,10 @@ function toggleEditedOnly() {
 function renderEditBanner() {
   const el = document.getElementById("edit-banner");
   if (!el) return;
+  // The review queue is the owner's alone. Everyone else can edit freely --
+  // including acting on flagged articles -- they just don't carry the job of
+  // reviewing what everyone else did.
+  if (!isOwner()) { el.innerHTML = ""; return; }
   const count = editedRecords().length;
   if (count === 0) { el.innerHTML = ""; return; }
   el.innerHTML = `<button class="edit-banner-btn${onlyEdited ? " active" : ""}" onclick="toggleEditedOnly()">✎ ${count}<span class="banner-long"> rettet${onlyEdited ? " — vis alle" : ""}</span></button>`;
@@ -636,6 +641,10 @@ function renderPanel() {
 // andre filtre gælder"), so the tab/tier rows that don't apply are hidden
 // rather than shown disabled or stale.
 function refresh() {
+  // Signing out of the owner account while the review view is open would
+  // otherwise leave someone stuck in a view they can no longer leave --
+  // the badge that toggles it is gone by then.
+  if (onlyEdited && !isOwner()) onlyEdited = false;
   renderStarBanner();
   // Both bypass views ignore every other filter, so the rows that no longer
   // apply come down rather than sitting there stale.

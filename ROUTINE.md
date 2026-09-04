@@ -29,16 +29,18 @@ there is nothing here for a run to pick up. No issues are created any more, and 
 ### How corrections work now
 Every card has a "Rettelse" form (disease group(s), evidence type, "ekskludér helt";
 a flagged card also gets "afvis flag", plus one-click **✓ Godkend** and **🗑 Slet**
-buttons). Anyone signed in can edit, so colleagues can fix a miscategorisation
-without waiting on anyone. **An edit goes live immediately; it doesn't queue for
-approval.** What keeps that safe is that it announces itself instead of quietly
-looking like a normal record:
+buttons). Anyone signed in gets all of it, flagged articles included, so colleagues
+can clear the flagged queue and fix a miscategorisation without waiting on anyone.
+**An edit goes live immediately; it doesn't queue for approval.** What keeps that
+safe is that it announces itself instead of quietly looking like a normal record:
 
 - The edit is written to the Firestore `overrides` collection with `by` (who) and
   `acknowledged: false` (unreviewed).
 - Every unreviewed record renders a slate `✎ rettet <dato> af <navn>` line on its
-  card, and a **`✎ N rettet`** badge appears in the header — the same pattern as
-  `⚑ N til gennemsyn`, filtering the page down to just those records.
+  card, so anyone reading can see the record was touched and by whom.
+- The **`✎ N rettet`** badge that filters the page down to those records is
+  rendered only for the owner — it's a review queue, and reviewing is the
+  owner's job alone. Everyone else edits freely without carrying it.
 - The owner gets two buttons there: **Kvittér** (agree; sets `acknowledged`, the
   record keeps the change and drops off the badge) and **Fortryd** (delete the
   override; the record falls straight back to what `library.json` says).
