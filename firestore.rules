@@ -1,23 +1,54 @@
 rules_version = '2';
 
 // Paste this into the Firebase console: Firestore Database -> Rules tab ->
-// replace the contents -> Publish. The UID below is the project owner's own
-// Firebase Auth UID (Authentication -> Users); it is an identifier, not a
-// secret -- it identifies who may write, and only a real signed-in session
-// for that account can satisfy the check.
+// replace the contents -> Publish.
 //
-// Public read: anyone visiting the site can load the overrides collection
-// (that's how a hide/reclassify/dismissed-flag actually takes effect for
-// every visitor, not just you). Write is restricted to exactly one account
-// -- see docs/index.html's applyOverride(): any other visitor's write is
-// rejected here and the site falls back to the original GitHub-issue flow
-// instead, so nothing is silently lost.
+// The model: a colleague's edit goes live immediately, but lands
+// unacknowledged, which is what puts it on the card and in the "✎ N rettet"
+// badge until the owner has looked at it. Nothing waits on the owner; the
+// review happens after the fact rather than gating the change.
+//
+// Two fields carry that, and both need protecting from the person making
+// the edit:
+//   acknowledged - only the owner may set it, or a colleague could mark
+//                  their own change reviewed and it would never surface.
+//   delete       - only the owner may revert, so an edit can't be erased
+//                  by whoever made it.
+//
+// The UID below is an identifier, not a secret: only a real signed-in
+// session for that account can satisfy the check.
+//
+// Public read is required -- that's how an override reaches every visitor
+// rather than only the person who made it.
+
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    function isOwner() {
+      return request.auth != null
+        && request.auth.uid == "QCjUBL8iihh6ZnbZmFhpiZ6dOwM2";
+    }
+
+    // Rejects anything carrying fields this app doesn't write, so a signed-in
+    // stranger can't use the collection as free storage.
+    function knownFieldsOnly() {
+      return request.resource.data.keys().hasOnly([
+        'hidden', 'dismissed_flag', 'disease_groups', 'evidence_type',
+        'updated_at', 'by', 'acknowledged'
+      ]);
+    }
+
     match /overrides/{pmid} {
       allow read: if true;
-      allow write: if request.auth != null && request.auth.uid == "QCjUBL8iihh6ZnbZmFhpiZ6dOwM2";
+
+      allow create, update: if isOwner()
+        || (request.auth != null
+            && knownFieldsOnly()
+            && request.resource.data.acknowledged == false);
+
+      allow delete: if isOwner();
     }
+
     // Everything else stays closed by default.
   }
 }
