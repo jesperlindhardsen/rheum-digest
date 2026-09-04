@@ -8,29 +8,42 @@ rules_version = '2';
 // badge until the owner has looked at it. Nothing waits on the owner; the
 // review happens after the fact rather than gating the change.
 //
-// Two fields carry that, and both need protecting from the person making
-// the edit:
+// Who counts as a colleague is the email domain, and it's checked here
+// rather than only in the page, so it holds against a direct API call too.
+// Sign-in is by email link, which is what makes email_verified meaningful:
+// the address was proved by receiving the link at it.
+//
+// Two fields need protecting from the person making the edit:
 //   acknowledged - only the owner may set it, or a colleague could mark
 //                  their own change reviewed and it would never surface.
 //   delete       - only the owner may revert, so an edit can't be erased
 //                  by whoever made it.
 //
-// The UID below is an identifier, not a secret: only a real signed-in
-// session for that account can satisfy the check.
-//
-// Public read is required -- that's how an override reaches every visitor
-// rather than only the person who made it.
+// Neither address below is a secret. Public read is required -- that's how
+// an override reaches every visitor rather than only its author.
 
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    function isOwner() {
+    function verifiedEmail() {
       return request.auth != null
-        && request.auth.uid == "QCjUBL8iihh6ZnbZmFhpiZ6dOwM2";
+        && request.auth.token.email_verified == true
+        && request.auth.token.email is string
+        ? request.auth.token.email.lower()
+        : "";
     }
 
-    // Rejects anything carrying fields this app doesn't write, so a signed-in
-    // stranger can't use the collection as free storage.
+    function isOwner() {
+      return verifiedEmail() == "REPLACE_ME";
+    }
+
+    // matches() is a whole-string match, so this is anchored at both ends.
+    function isColleague() {
+      return verifiedEmail().matches('.*@regionh[.]dk');
+    }
+
+    // Rejects anything carrying fields this app doesn't write, so nobody can
+    // use the collection as free storage.
     function knownFieldsOnly() {
       return request.resource.data.keys().hasOnly([
         'hidden', 'dismissed_flag', 'disease_groups', 'evidence_type',
@@ -42,7 +55,7 @@ service cloud.firestore {
       allow read: if true;
 
       allow create, update: if isOwner()
-        || (request.auth != null
+        || (isColleague()
             && knownFieldsOnly()
             && request.resource.data.acknowledged == false);
 
