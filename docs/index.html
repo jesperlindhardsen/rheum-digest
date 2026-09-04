@@ -84,13 +84,13 @@ const TIER_LABEL = {
 // Firebase console) to turn it on; until then FIREBASE_CONFIGURED stays
 // false and every correction goes through the original GitHub-issue path,
 // same as before this existed.
+// storageBucket/appId are deliberately omitted -- neither Auth nor Firestore
+// reads them, and this page uses nothing else from Firebase.
 const firebaseConfig = {
   apiKey: "REPLACE_ME",
-  authDomain: "REPLACE_ME.firebaseapp.com",
-  projectId: "REPLACE_ME",
-  storageBucket: "REPLACE_ME.appspot.com",
-  messagingSenderId: "REPLACE_ME",
-  appId: "REPLACE_ME"
+  authDomain: "rheum-digest.firebaseapp.com",
+  projectId: "rheum-digest",
+  messagingSenderId: "983893773853"
 };
 const FIREBASE_CONFIGURED = firebaseConfig.apiKey !== "REPLACE_ME";
 let auth = null, db = null, currentUser = null;
