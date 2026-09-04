@@ -85,11 +85,10 @@ let hiddenLibrary = [];
 let onlyEdited = false;
 
 // ---------- Live-write layer (Firestore) ----------
-// Corrections (hide/reclassify/dismiss-flag) used to only ever reach a
-// GitHub issue for the weekly routine to apply -- see the fallback comment
-// on applyOverride() below. This adds an instant path: signed in as the
-// site owner, a correction writes straight to a small Firestore collection
-// and shows up immediately, for every visitor, without waiting for Monday.
+// The whole correction mechanism: a signed-in edit (hide, reclassify,
+// dismiss a flag) writes straight to a small Firestore collection and shows
+// up immediately, for every visitor. This is the only way a correction
+// reaches the site -- there is no batch path behind it.
 // Who may write is enforced server-side by firestore.rules, not here --
 // these values are meant to be public (that's how Firebase web configs
 // work), so there's no secret to protect in this file.
@@ -102,11 +101,12 @@ const firebaseConfig = {
   messagingSenderId: "983893773853",
   appId: "1:983893773853:web:1bbe114318ee7c158440f4"
 };
-// Two ways this can be unavailable, with the same correct answer to both
-// (fall back to the GitHub-issue flow): no real project configured yet, or
-// the SDK didn't load at all -- a blocked CDN, an ad-blocker, a flaky
-// network. The second must not take the whole page down with it: without
-// this guard the reference below throws and nothing renders, library and all.
+// Two ways this can be unavailable: no real project configured, or the SDK
+// didn't load at all -- a blocked CDN, an ad-blocker, a flaky network. The
+// second must not take the whole page down with it: without this guard the
+// reference below throws and nothing renders, library and all. Either way
+// the page still reads fine; it just can't be corrected, so the controls
+// that would do so aren't drawn (see renderItem).
 const FIREBASE_AVAILABLE = firebaseConfig.apiKey !== "REPLACE_ME"
   && typeof firebase !== "undefined";
 // Not a secret -- firestore.rules carries the same value and is committed to
@@ -354,33 +354,19 @@ function renderCorrectionBody(rec) {
     </div>`;
 }
 
-// Fallback path: builds the original pre-filled GitHub "new issue" link
-// (labelled "rettelse") that the weekly routine picks up and applies -- see
-// ROUTINE.md Step 0. Used whenever the instant Firestore write isn't
-// available: firebaseConfig above is still a placeholder, the visitor
-// declined to sign in, or their write was rejected. Keeps the moderated,
-// batch-applied path alive as a safety net either way.
-const CORRECTION_REPO = "jesperlindhardsen/rheum-digest";
-function openCorrectionIssue(pmid, lines) {
-  const title = `Rettelse: PMID ${pmid}`;
-  const url = `https://github.com/${CORRECTION_REPO}/issues/new`
-    + `?title=${encodeURIComponent(title)}`
-    + `&body=${encodeURIComponent(lines.join("\n"))}`
-    + `&labels=rettelse`;
-  window.open(url, "_blank");
-}
-
-// Tries the instant Firestore write first (prompting sign-in if needed),
-// falls back to the GitHub-issue flow otherwise -- see openCorrectionIssue.
-// A colleague's edit goes live immediately but lands unacknowledged, so it
+// Writes the edit to Firestore, prompting sign-in first if needed. A
+// colleague's edit goes live immediately but lands unacknowledged, so it
 // shows up on the card and in the "✎ N rettet" badge until the owner has
 // looked at it. The owner's own edits need no such review, so they're
 // acknowledged as they're written.
-async function applyOverride(pmid, patch, fallbackLines) {
-  if (!FIREBASE_AVAILABLE) { openCorrectionIssue(pmid, fallbackLines); return; }
+//
+// There is no second path any more: this is how a correction reaches the
+// site. Declining the sign-in simply cancels the edit.
+async function applyOverride(pmid, patch) {
+  if (!FIREBASE_AVAILABLE) return;
   try {
     if (!currentUser) await signIn();
-    if (!currentUser) { openCorrectionIssue(pmid, fallbackLines); return; }
+    if (!currentUser) return;
     const stamped = {
       ...patch,
       updated_at: firebase.firestore.FieldValue.serverTimestamp(),
@@ -397,8 +383,8 @@ async function applyOverride(pmid, patch, fallbackLines) {
     applyOverrides(rawLibrary);
     refresh();
   } catch (err) {
-    console.error("Firestore-skrivning afvist, falder tilbage til GitHub-issue", err);
-    openCorrectionIssue(pmid, fallbackLines);
+    console.error("Kunne ikke gemme rettelsen", err);
+    alert("Rettelsen kunne ikke gemmes. Du har muligvis ikke adgang til at rette.");
   }
 }
 
@@ -406,14 +392,7 @@ async function applyOverride(pmid, patch, fallbackLines) {
 // it with no other change -- so the flagged-only view (the badge) is
 // somewhere you can actually clear items from, not just look at them.
 function acceptFlag(pmid) {
-  const rec = library.find(r => r.pmid === pmid);
-  const fallbackLines = [
-    `PMID: ${pmid}`,
-    `Titel: ${rec.title}`,
-    "",
-    "Afvis eksisterende flag: Ja (ingen indholdsændring, fjern blot flaget)"
-  ];
-  applyOverride(pmid, { dismissed_flag: true }, fallbackLines);
+  applyOverride(pmid, { dismissed_flag: true });
 }
 
 // Owner-only, both of them: the two ways to close out someone else's edit.
@@ -455,12 +434,7 @@ async function revertEdit(pmid) {
 function deleteRecord(pmid) {
   const rec = library.find(r => r.pmid === pmid);
   if (!confirm(`Slet denne artikel fra biblioteket?\n\n${rec.title}`)) return;
-  applyOverride(pmid, { hidden: true }, [
-    `PMID: ${pmid}`,
-    `Titel: ${rec.title}`,
-    "",
-    "Ekskludér artiklen: Ja"
-  ]);
+  applyOverride(pmid, { hidden: true });
 }
 
 function proposeCorrection(pmid) {
@@ -480,31 +454,16 @@ function proposeCorrection(pmid) {
     return;
   }
 
-  const fallbackLines = [`PMID: ${pmid}`, `Titel: ${rec.title}`, ""];
   const patch = {};
   if (exclude) {
     patch.hidden = true;
-    fallbackLines.push("Ekskludér artiklen: Ja");
   } else {
-    if (groupsChanged) {
-      patch.disease_groups = selectedGroups;
-      fallbackLines.push(`Nuværende sygdomsgrupper: ${currentGroups.join(", ")}`);
-      fallbackLines.push(`Foreslåede sygdomsgrupper: ${selectedGroups.join(", ") || "(ingen)"}`);
-      fallbackLines.push("");
-    }
-    if (evidenceChanged) {
-      patch.evidence_type = selectedEvidence;
-      fallbackLines.push(`Nuværende evidenstype: ${rec.evidence_type}`);
-      fallbackLines.push(`Foreslået evidenstype: ${selectedEvidence}`);
-      fallbackLines.push("");
-    }
-    if (dismiss) {
-      patch.dismissed_flag = true;
-      fallbackLines.push("Afvis eksisterende flag: Ja (ingen indholdsændring, fjern blot flaget)");
-    }
+    if (groupsChanged) patch.disease_groups = selectedGroups;
+    if (evidenceChanged) patch.evidence_type = selectedEvidence;
+    if (dismiss) patch.dismissed_flag = true;
   }
 
-  applyOverride(pmid, patch, fallbackLines);
+  applyOverride(pmid, patch);
 }
 
 function renderItem(rec) {
@@ -519,12 +478,15 @@ function renderItem(rec) {
   // Set only when AI's weekly read flagged something a deterministic filter
   // didn't catch (see ROUTINE.md) -- surfaced right on the card, not buried
   // in a run log only visible during the unattended weekly run.
+  // The actions only exist if there's somewhere for them to write. With no
+  // fallback path behind them any more, drawing them when Firestore is
+  // unreachable would just be buttons that quietly do nothing.
   const flag = rec.flagged
     ? `<p class="flag-note"><span>⚑ ${rec.flagged}</span>
-        <span class="flag-actions">
+        ${FIREBASE_AVAILABLE ? `<span class="flag-actions">
           <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">✓ Godkend</button>
           <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Slet</button>
-        </span>
+        </span>` : ""}
       </p>`
     : "";
   // An edit announces itself rather than sitting there looking normal --
@@ -555,10 +517,10 @@ function renderItem(rec) {
           <summary>Abstract</summary>
           <div class="abstract-full">${sections}</div>
         </details>
-        <details class="correction-toggle">
+        ${FIREBASE_AVAILABLE ? `<details class="correction-toggle">
           <summary>Rettelse</summary>
           ${renderCorrectionBody(rec)}
-        </details>
+        </details>` : ""}
       </div>
     </div>`;
 }
