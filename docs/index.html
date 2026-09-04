@@ -80,24 +80,30 @@ const TIER_LABEL = {
 // on applyOverride() below. This adds an instant path: signed in as the
 // site owner, a correction writes straight to a small Firestore collection
 // and shows up immediately, for every visitor, without waiting for Monday.
-// Fill in firebaseConfig (Project settings -> General -> "Your apps" in the
-// Firebase console) to turn it on; until then FIREBASE_CONFIGURED stays
-// false and every correction goes through the original GitHub-issue path,
-// same as before this existed.
-// storageBucket/appId are deliberately omitted -- neither Auth nor Firestore
-// reads them, and this page uses nothing else from Firebase.
+// Who may write is enforced server-side by firestore.rules, not here --
+// these values are meant to be public (that's how Firebase web configs
+// work), so there's no secret to protect in this file.
+// storageBucket is deliberately omitted -- this page uses only Auth and
+// Firestore, neither of which reads it.
 const firebaseConfig = {
-  apiKey: "REPLACE_ME",
+  apiKey: "AIzaSyBYp1_uLGISdwrDn1KcWyU5hGlzwzfmhn4",
   authDomain: "rheum-digest.firebaseapp.com",
   projectId: "rheum-digest",
-  messagingSenderId: "983893773853"
+  messagingSenderId: "983893773853",
+  appId: "1:983893773853:web:1bbe114318ee7c158440f4"
 };
-const FIREBASE_CONFIGURED = firebaseConfig.apiKey !== "REPLACE_ME";
+// Two ways this can be unavailable, with the same correct answer to both
+// (fall back to the GitHub-issue flow): no real project configured yet, or
+// the SDK didn't load at all -- a blocked CDN, an ad-blocker, a flaky
+// network. The second must not take the whole page down with it: without
+// this guard the reference below throws and nothing renders, library and all.
+const FIREBASE_AVAILABLE = firebaseConfig.apiKey !== "REPLACE_ME"
+  && typeof firebase !== "undefined";
 let auth = null, db = null, currentUser = null;
 // pmid -> {hidden?, dismissed_flag?, disease_groups?, evidence_type?}
 let overridesMap = new Map();
 
-if (FIREBASE_CONFIGURED) {
+if (FIREBASE_AVAILABLE) {
   firebase.initializeApp(firebaseConfig);
   auth = firebase.auth();
   db = firebase.firestore();
@@ -106,7 +112,7 @@ if (FIREBASE_CONFIGURED) {
 
 function renderAuthBanner() {
   const el = document.getElementById("auth-banner");
-  if (!el || !FIREBASE_CONFIGURED) return;
+  if (!el || !FIREBASE_AVAILABLE) return;
   el.innerHTML = currentUser
     ? `<button class="auth-banner-btn" onclick="signOutUser()">Logget ind (${currentUser.displayName || currentUser.email}) · log ud</button>`
     : `<button class="auth-banner-btn" onclick="signIn()">Log ind for direkte rettelser</button>`;
@@ -122,7 +128,7 @@ function signIn() {
 function signOutUser() { auth.signOut(); }
 
 function loadOverrides() {
-  if (!FIREBASE_CONFIGURED) return Promise.resolve();
+  if (!FIREBASE_AVAILABLE) return Promise.resolve();
   return db.collection("overrides").get().then(snap => {
     overridesMap = new Map(snap.docs.map(d => [d.id, d.data()]));
   }).catch(err => console.error("Kunne ikke hente rettelser fra Firestore", err));
@@ -305,7 +311,7 @@ function openCorrectionIssue(pmid, lines) {
 // Tries the instant Firestore write first (prompting sign-in if needed),
 // falls back to the GitHub-issue flow otherwise -- see openCorrectionIssue.
 async function applyOverride(pmid, patch, fallbackLines) {
-  if (!FIREBASE_CONFIGURED) { openCorrectionIssue(pmid, fallbackLines); return; }
+  if (!FIREBASE_AVAILABLE) { openCorrectionIssue(pmid, fallbackLines); return; }
   try {
     if (!currentUser) await signIn();
     if (!currentUser) { openCorrectionIssue(pmid, fallbackLines); return; }
