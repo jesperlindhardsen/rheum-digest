@@ -24,19 +24,42 @@ pure code.
 evidence type, or "ekskludér helt"; a flagged card also gets "afvis flag"). This is
 the **fallback** path: the form's `applyOverride()` tries an instant write to a
 Firestore `overrides` collection first (see below), and only falls back to opening
-a pre-filled **GitHub issue**, labelled `rettelse`, when Firestore isn't configured
-yet or the visitor isn't signed in as the site owner. Either way this GitHub-issue
+a pre-filled **GitHub issue**, labelled `rettelse`, when Firestore isn't configured,
+the SDK didn't load, or the visitor declined to sign in. Either way this GitHub-issue
 path stays live as the batch-applied safety net, and this step's job is unchanged:
 that issue is the only way *this kind* of correction reaches `library.json` until
 the routine picks it up here.
 
+### Who may correct what, and how it surfaces
+Anyone signed in with a Google account can edit — that's deliberate, so colleagues
+can fix a miscategorisation without waiting on anyone. **An edit goes live
+immediately; it doesn't queue for approval.** What keeps that safe is that it
+announces itself instead of quietly looking like a normal record:
+
+- The edit is written with `by` (who) and `acknowledged: false` (unreviewed).
+- Every unreviewed record renders a slate `✎ rettet <dato> af <navn>` line on its
+  card, and a **`✎ N rettet`** badge appears in the header — the same pattern as
+  `⚑ N til gennemsyn`, filtering the page down to just those records.
+- The owner gets two buttons there: **Kvittér** (agree; sets `acknowledged`, the
+  record keeps the change and drops off the badge) and **Fortryd** (delete the
+  override; the record falls straight back to what `library.json` says).
+- That review view is the only place a *hidden* record can still be reached, which
+  is why hidden records are kept in their own list rather than dropped — otherwise
+  a wrongly hidden article would be invisible to the one person who can restore it.
+
+`firestore.rules` enforces the parts that matter: only the owner may set
+`acknowledged` (or a colleague could mark their own edit reviewed and it would
+never surface) and only the owner may delete. The owner's own edits are written
+already-acknowledged, since there's nobody else to review them.
+
 **Firestore overrides are not touched by this step and never expire on their own.**
-Once configured (see the `firebaseConfig`/`firestore.rules` comments in
-`docs/index.html`), a Firestore-only correction takes effect on the live site
-immediately and stays there indefinitely as a read-time patch over `library.json`
-— it's never "graduated" into a permanent edit here. That's a known gap, not a bug:
-fine for now since Firestore is small and cheap to keep forever, but worth
-revisiting if the overrides collection ever needs to shrink back to zero.
+A correction takes effect on the live site immediately and stays there indefinitely
+as a read-time patch over `library.json` — it's never "graduated" into a permanent
+edit here. That's a known gap, not a bug: fine for now since Firestore is small and
+cheap to keep forever, but worth revisiting if the overrides collection ever needs
+to shrink back to zero. Note the consequence for Step 4: the weekly markdown
+archive is generated from `library.json`, so an article recategorised via an
+override still appears under its original group there.
 
 Each run, before Step 1:
 - Try `gh issue list --repo jesperlindhardsen/rheum-digest --label rettelse --state open --json number,title,body`.

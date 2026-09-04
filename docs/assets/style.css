@@ -121,6 +121,24 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 }
 .auth-banner-btn:hover { background: var(--moss-soft); }
 
+/* Slate: the fourth signal colour, so an edited record never reads as either
+   a flagged one (ochre) or a deletion (clay). */
+.edit-banner-btn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-cap);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: var(--slate-deep);
+  background: var(--slate-wash);
+  border: none;
+  border-radius: var(--r-pill);
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.edit-banner-btn:hover { background: var(--slate-soft); }
+.edit-banner-btn.active { background: var(--slate); color: var(--bg-elevated); }
+
 /* ---------- App shell ---------- */
 #app {
   display: flex;
@@ -448,6 +466,44 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   transition: background var(--dur-fast) var(--ease-out);
 }
 .delete-flag-btn:hover { background: var(--clay); }
+
+/* Same shape as .flag-note, one signal colour over: this is what makes an
+   edit that went live without review announce itself instead of just
+   looking like a normal record. */
+.edit-note {
+  margin: var(--s-2) 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--slate-deep);
+  overflow-wrap: anywhere;
+}
+.edit-note > span:not(.edit-actions) { flex: 1 1 14ch; min-width: 0; }
+.edit-actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+.ack-edit-btn,
+.revert-edit-btn {
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.ack-edit-btn { color: var(--bg-elevated); background: var(--moss-deep); }
+.ack-edit-btn:hover { background: var(--moss); }
+.revert-edit-btn { color: var(--slate-deep); background: var(--slate-wash); }
+.revert-edit-btn:hover { background: var(--slate-soft); }
 
 /* ---------- Abstract toggle ---------- */
 /* Holds .abstract-toggle and .correction-toggle side by side; each keeps its

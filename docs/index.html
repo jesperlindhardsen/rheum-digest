@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=19">
+<link rel="stylesheet" href="assets/style.css?v=20">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -22,6 +22,7 @@
     <span id="auth-banner"></span>
     <span id="star-banner"></span>
     <span id="flag-banner"></span>
+    <span id="edit-banner"></span>
     <span id="updated-date"></span>
   </span>
 </header>
@@ -74,6 +75,15 @@ const TIER_LABEL = {
   1: "Top medicin", 2: "Top reumatologi", 3: "Reumatologi", 4: "Øvrige"
 };
 
+// Declared before the live-write layer below on purpose: onAuthStateChanged
+// can fire synchronously while the SDK is still being set up (a restored
+// session does exactly that), and its callback reads rawLibrary. Left further
+// down, that read lands in the temporal dead zone and takes the page with it.
+let rawLibrary = [];
+let library = [];
+let hiddenLibrary = [];
+let onlyEdited = false;
+
 // ---------- Live-write layer (Firestore) ----------
 // Corrections (hide/reclassify/dismiss-flag) used to only ever reach a
 // GitHub issue for the weekly routine to apply -- see the fallback comment
@@ -99,6 +109,12 @@ const firebaseConfig = {
 // this guard the reference below throws and nothing renders, library and all.
 const FIREBASE_AVAILABLE = firebaseConfig.apiKey !== "REPLACE_ME"
   && typeof firebase !== "undefined";
+// Not a secret -- firestore.rules carries the same value and is committed to
+// this repo. It's here so the page knows whose edits skip the review queue
+// and who gets the acknowledge/revert buttons; the rules are what actually
+// enforce any of it.
+const OWNER_UID = "QCjUBL8iihh6ZnbZmFhpiZ6dOwM2";
+function isOwner() { return !!currentUser && currentUser.uid === OWNER_UID; }
 let auth = null, db = null, currentUser = null;
 // pmid -> {hidden?, dismissed_flag?, disease_groups?, evidence_type?}
 let overridesMap = new Map();
@@ -107,7 +123,14 @@ if (FIREBASE_AVAILABLE) {
   firebase.initializeApp(firebaseConfig);
   auth = firebase.auth();
   db = firebase.firestore();
-  auth.onAuthStateChanged(user => { currentUser = user; renderAuthBanner(); });
+  // Signing in or out changes whether a card offers the owner's controls,
+  // so the cards are repainted too -- but only once there's something to
+  // paint, since this fires before the library has loaded.
+  auth.onAuthStateChanged(user => {
+    currentUser = user;
+    renderAuthBanner();
+    if (rawLibrary.length) refresh();
+  });
 }
 
 function renderAuthBanner() {
@@ -138,23 +161,45 @@ function loadOverrides() {
 
 // Applied on top of the fetched records, never in place -- rawLibrary stays
 // the untouched fetch so a new override can be re-applied without refetching.
+// Hidden records go to their own list rather than being dropped: an edit made
+// by a colleague has to stay reachable, or a wrongly hidden article would be
+// invisible to the one person who can bring it back.
 function applyOverrides(records) {
-  if (overridesMap.size === 0) return records;
-  return records
-    .filter(r => !(overridesMap.get(r.pmid) || {}).hidden)
-    .map(r => {
-      const o = overridesMap.get(r.pmid);
-      if (!o) return r;
-      const merged = { ...r };
-      if (o.dismissed_flag) delete merged.flagged;
-      if (o.disease_groups) merged.disease_groups = o.disease_groups;
-      if (o.evidence_type) merged.evidence_type = o.evidence_type;
-      return merged;
-    });
+  library = [];
+  hiddenLibrary = [];
+  records.forEach(r => {
+    const o = overridesMap.get(r.pmid);
+    if (!o) { library.push(r); return; }
+    const merged = { ...r, __ov: o };
+    if (o.dismissed_flag) delete merged.flagged;
+    if (o.disease_groups) merged.disease_groups = o.disease_groups;
+    if (o.evidence_type) merged.evidence_type = o.evidence_type;
+    (o.hidden ? hiddenLibrary : library).push(merged);
+  });
 }
 
-let rawLibrary = [];
-let library = [];
+// An edit is "unreviewed" until the owner acknowledges it -- that's what the
+// "✎ N rettet" badge counts. Hidden ones are included, since those are
+// exactly the edits you can't see any other way.
+function editedRecords() {
+  return [...library, ...hiddenLibrary]
+    .filter(r => r.__ov && !r.__ov.acknowledged)
+    .sort((a, b) => (overrideTime(b.__ov) - overrideTime(a.__ov)));
+}
+
+function overrideTime(o) {
+  const t = o && o.updated_at;
+  if (!t) return 0;
+  const d = t.toDate ? t.toDate() : new Date(t);
+  return isNaN(d) ? 0 : d.getTime();
+}
+
+function overrideDate(o) {
+  const ms = overrideTime(o);
+  if (!ms) return "";
+  return new Date(ms).toLocaleDateString("da-DK", { day: "numeric", month: "short" });
+}
+
 let activeDisease = null;
 let activeEvidence = null;
 let onlyFlagged = false;
@@ -182,7 +227,7 @@ function toggleStar(pmid) {
 
 function toggleStarredOnly() {
   onlyStarred = !onlyStarred;
-  if (onlyStarred) onlyFlagged = false;  // one bypass view at a time
+  if (onlyStarred) { onlyFlagged = false; onlyEdited = false; }  // one bypass view at a time
   refresh();
 }
 
@@ -241,7 +286,7 @@ function passesFlagFilter(rec) {
 
 function toggleFlaggedOnly() {
   onlyFlagged = !onlyFlagged;
-  if (onlyFlagged) onlyStarred = false;  // one bypass view at a time
+  if (onlyFlagged) { onlyStarred = false; onlyEdited = false; }  // one bypass view at a time
   activeDisease = ALL_GROUP;
   activeEvidence = ALL_EVIDENCE;
   refresh();
@@ -255,6 +300,26 @@ function renderFlagBanner() {
     return;
   }
   el.innerHTML = `<button class="flag-banner-btn${onlyFlagged ? " active" : ""}" onclick="toggleFlaggedOnly()">⚑ ${count}<span class="banner-long"> til gennemsyn${onlyFlagged ? " — vis alle" : ""}</span></button>`;
+}
+
+// Third bypass view, alongside "Stjernede" and "til gennemsyn": everything
+// edited since you last looked. Unlike those two it can surface hidden
+// records, which is the point -- an article a colleague removed is otherwise
+// nowhere to be found.
+function toggleEditedOnly() {
+  onlyEdited = !onlyEdited;
+  if (onlyEdited) { onlyStarred = false; onlyFlagged = false; }
+  activeDisease = ALL_GROUP;
+  activeEvidence = ALL_EVIDENCE;
+  refresh();
+}
+
+function renderEditBanner() {
+  const el = document.getElementById("edit-banner");
+  if (!el) return;
+  const count = editedRecords().length;
+  if (count === 0) { el.innerHTML = ""; return; }
+  el.innerHTML = `<button class="edit-banner-btn${onlyEdited ? " active" : ""}" onclick="toggleEditedOnly()">✎ ${count}<span class="banner-long"> rettet${onlyEdited ? " — vis alle" : ""}</span></button>`;
 }
 
 function authorLine(rec) {
@@ -292,10 +357,9 @@ function renderCorrectionBody(rec) {
 // Fallback path: builds the original pre-filled GitHub "new issue" link
 // (labelled "rettelse") that the weekly routine picks up and applies -- see
 // ROUTINE.md Step 0. Used whenever the instant Firestore write isn't
-// available: firebaseConfig above is still a placeholder, or the visitor
-// clicking isn't signed in as the site owner (Firestore rules only allow
-// that one account to write, so anyone else's write is rejected). Keeps the
-// moderated, batch-applied path alive as a safety net either way.
+// available: firebaseConfig above is still a placeholder, the visitor
+// declined to sign in, or their write was rejected. Keeps the moderated,
+// batch-applied path alive as a safety net either way.
 const CORRECTION_REPO = "jesperlindhardsen/rheum-digest";
 function openCorrectionIssue(pmid, lines) {
   const title = `Rettelse: PMID ${pmid}`;
@@ -308,17 +372,29 @@ function openCorrectionIssue(pmid, lines) {
 
 // Tries the instant Firestore write first (prompting sign-in if needed),
 // falls back to the GitHub-issue flow otherwise -- see openCorrectionIssue.
+// A colleague's edit goes live immediately but lands unacknowledged, so it
+// shows up on the card and in the "✎ N rettet" badge until the owner has
+// looked at it. The owner's own edits need no such review, so they're
+// acknowledged as they're written.
 async function applyOverride(pmid, patch, fallbackLines) {
   if (!FIREBASE_AVAILABLE) { openCorrectionIssue(pmid, fallbackLines); return; }
   try {
     if (!currentUser) await signIn();
     if (!currentUser) { openCorrectionIssue(pmid, fallbackLines); return; }
-    await db.collection("overrides").doc(pmid).set(
-      { ...patch, updated_at: firebase.firestore.FieldValue.serverTimestamp() },
-      { merge: true }
-    );
-    overridesMap.set(pmid, { ...(overridesMap.get(pmid) || {}), ...patch });
-    library = applyOverrides(rawLibrary);
+    const stamped = {
+      ...patch,
+      updated_at: firebase.firestore.FieldValue.serverTimestamp(),
+      by: currentUser.displayName || currentUser.email || "",
+      acknowledged: isOwner(),
+    };
+    await db.collection("overrides").doc(pmid).set(stamped, { merge: true });
+    // Mirror it locally so the card updates now rather than on next load.
+    // serverTimestamp() resolves server-side, so stand in with the local
+    // clock for display until the next fetch brings the real value.
+    overridesMap.set(pmid, {
+      ...(overridesMap.get(pmid) || {}), ...stamped, updated_at: new Date().toISOString(),
+    });
+    applyOverrides(rawLibrary);
     refresh();
   } catch (err) {
     console.error("Firestore-skrivning afvist, falder tilbage til GitHub-issue", err);
@@ -338,6 +414,38 @@ function acceptFlag(pmid) {
     "Afvis eksisterende flag: Ja (ingen indholdsændring, fjern blot flaget)"
   ];
   applyOverride(pmid, { dismissed_flag: true }, fallbackLines);
+}
+
+// Owner-only, both of them: the two ways to close out someone else's edit.
+// "Kvittér" says you've seen it and agree -- the record keeps the change and
+// drops off the badge. "Fortryd" deletes the override outright, at which
+// point the record falls back to whatever library.json says, which is
+// untouched by any of this and versioned in git.
+async function acknowledgeEdit(pmid) {
+  if (!FIREBASE_AVAILABLE || !isOwner()) return;
+  try {
+    await db.collection("overrides").doc(pmid).set({ acknowledged: true }, { merge: true });
+    overridesMap.set(pmid, { ...(overridesMap.get(pmid) || {}), acknowledged: true });
+    applyOverrides(rawLibrary);
+    refresh();
+  } catch (err) {
+    console.error("Kunne ikke kvittere for rettelsen", err);
+    alert("Kunne ikke kvittere for rettelsen.");
+  }
+}
+
+async function revertEdit(pmid) {
+  if (!FIREBASE_AVAILABLE || !isOwner()) return;
+  if (!confirm("Fortryd denne rettelse? Artiklen vender tilbage til sin oprindelige klassifikation.")) return;
+  try {
+    await db.collection("overrides").doc(pmid).delete();
+    overridesMap.delete(pmid);
+    applyOverrides(rawLibrary);
+    refresh();
+  } catch (err) {
+    console.error("Kunne ikke fortryde rettelsen", err);
+    alert("Kunne ikke fortryde rettelsen.");
+  }
 }
 
 // The other half of reviewing a flagged card: the flag was right, this
@@ -419,6 +527,18 @@ function renderItem(rec) {
         </span>
       </p>`
     : "";
+  // An edit announces itself rather than sitting there looking normal --
+  // that's what makes going live without review safe enough. Only the owner
+  // gets the two closing actions; for everyone else it's just a note.
+  const ov = rec.__ov;
+  const edit = (ov && !ov.acknowledged)
+    ? `<p class="edit-note"><span>✎ ${ov.hidden ? "skjult" : "rettet"}${overrideDate(ov) ? " " + overrideDate(ov) : ""}${ov.by ? " af " + ov.by : ""}</span>
+        ${isOwner() ? `<span class="edit-actions">
+          <button type="button" class="ack-edit-btn" onclick="acknowledgeEdit('${rec.pmid}')">✓ Kvittér</button>
+          <button type="button" class="revert-edit-btn" onclick="revertEdit('${rec.pmid}')">↩ Fortryd</button>
+        </span>` : ""}
+      </p>`
+    : "";
   const starred = isStarred(rec);
   return `
     <div class="item">
@@ -427,6 +547,7 @@ function renderItem(rec) {
         aria-pressed="${starred}">${starred ? "★" : "☆"}</button>
       <p class="title">${rec.title}</p>
       <p class="meta">${authorLine(rec)} · <span class="journal">${rec.journal}</span> · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a> <span class="tier-badge t${rec.tier}">${TIER_LABEL[rec.tier]}</span></p>
+      ${edit}
       ${flag}
       ${chips}
       <div class="toggle-row">
@@ -480,6 +601,11 @@ function renderGroupedItems(items, emptyMessage) {
 }
 
 function renderPanel() {
+  if (onlyEdited) {
+    renderGroupedItems(editedRecords(), "Ingen rettelser at se på.");
+    return;
+  }
+
   if (onlyStarred) {
     renderGroupedItems(library.filter(isStarred), "Ingen stjernede artikler endnu.");
     return;
@@ -502,11 +628,14 @@ function renderPanel() {
 // rather than shown disabled or stale.
 function refresh() {
   renderStarBanner();
-  if (onlyStarred) {
+  // Both bypass views ignore every other filter, so the rows that no longer
+  // apply come down rather than sitting there stale.
+  if (onlyStarred || onlyEdited) {
     document.getElementById("evidence-tabs").innerHTML = "";
     document.getElementById("disease-tabs").innerHTML = "";
     document.getElementById("tier-filter").innerHTML = "";
     renderFlagBanner();
+    renderEditBanner();
     renderPanel();
     return;
   }
@@ -521,6 +650,7 @@ function refresh() {
   renderDiseaseTabs(groups);
   renderTierFilter();
   renderFlagBanner();
+  renderEditBanner();
   renderPanel();
 }
 
@@ -614,7 +744,7 @@ Promise.all([
     // Accepts both the current {generated_at, records} shape and the older
     // bare-array files.
     rawLibrary = Array.isArray(data) ? data : data.records;
-    library = applyOverrides(rawLibrary);
+    applyOverrides(rawLibrary);
     const generatedAt = Array.isArray(data) ? null : data.generated_at;
     if (generatedAt) {
       document.getElementById("updated-date").textContent = "Sidst opdateret: " + generatedAt;
