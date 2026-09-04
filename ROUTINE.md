@@ -19,24 +19,23 @@ This split matters: AI's only touch on the data is assigning a category label �
 generates, paraphrases, or edits a title, author, date, or abstract. Everything else is
 pure code.
 
-## STEP 0 — APPLY PENDING CORRECTIONS (GitHub issues, before fetching anything new)
-`docs/index.html` has a "Foreslå rettelse" form on every card (disease group(s),
-evidence type, or "ekskludér helt"; a flagged card also gets "afvis flag"). This is
-the **fallback** path: the form's `applyOverride()` tries an instant write to a
-Firestore `overrides` collection first (see below), and only falls back to opening
-a pre-filled **GitHub issue**, labelled `rettelse`, when Firestore isn't configured,
-the SDK didn't load, or the visitor declined to sign in. Either way this GitHub-issue
-path stays live as the batch-applied safety net, and this step's job is unchanged:
-that issue is the only way *this kind* of correction reaches `library.json` until
-the routine picks it up here.
+## STEP 0 — NOTHING TO DO (corrections no longer pass through this routine)
+Corrections used to arrive as GitHub issues labelled `rettelse` that this step
+applied to `library.json` before fetching. **That path is gone** — the site writes
+corrections straight to Firestore instead, where they take effect immediately, so
+there is nothing here for a run to pick up. No issues are created any more, and the
+`rettelse` label is dead.
 
-### Who may correct what, and how it surfaces
-Anyone signed in with a Google account can edit — that's deliberate, so colleagues
-can fix a miscategorisation without waiting on anyone. **An edit goes live
-immediately; it doesn't queue for approval.** What keeps that safe is that it
-announces itself instead of quietly looking like a normal record:
+### How corrections work now
+Every card has a "Rettelse" form (disease group(s), evidence type, "ekskludér helt";
+a flagged card also gets "afvis flag", plus one-click **✓ Godkend** and **🗑 Slet**
+buttons). Anyone signed in can edit, so colleagues can fix a miscategorisation
+without waiting on anyone. **An edit goes live immediately; it doesn't queue for
+approval.** What keeps that safe is that it announces itself instead of quietly
+looking like a normal record:
 
-- The edit is written with `by` (who) and `acknowledged: false` (unreviewed).
+- The edit is written to the Firestore `overrides` collection with `by` (who) and
+  `acknowledged: false` (unreviewed).
 - Every unreviewed record renders a slate `✎ rettet <dato> af <navn>` line on its
   card, and a **`✎ N rettet`** badge appears in the header — the same pattern as
   `⚑ N til gennemsyn`, filtering the page down to just those records.
@@ -52,41 +51,17 @@ announces itself instead of quietly looking like a normal record:
 never surface) and only the owner may delete. The owner's own edits are written
 already-acknowledged, since there's nobody else to review them.
 
-**Firestore overrides are not touched by this step and never expire on their own.**
-A correction takes effect on the live site immediately and stays there indefinitely
-as a read-time patch over `library.json` — it's never "graduated" into a permanent
-edit here. That's a known gap, not a bug: fine for now since Firestore is small and
-cheap to keep forever, but worth revisiting if the overrides collection ever needs
-to shrink back to zero. Note the consequence for Step 4: the weekly markdown
-archive is generated from `library.json`, so an article recategorised via an
-override still appears under its original group there.
+**Overrides are a read-time patch, and this routine never touches them.** A
+correction takes effect on the live site immediately and stays in Firestore
+indefinitely; it is never written back into `library.json`. Two consequences worth
+knowing:
 
-Each run, before Step 1:
-- Try `gh issue list --repo jesperlindhardsen/rheum-digest --label rettelse --state open --json number,title,body`.
-  If `gh` isn't available/authenticated for the Issues API in this environment, say so
-  in the final report and skip this step entirely — don't fail the run over it.
-- For each open issue, the body is a short key/value list, e.g.:
-  ```
-  PMID: 42601766
-  Nuværende evidenstype: Clinical case/survey
-  Foreslået evidenstype: RCT
-  ```
-  or `Ekskludér artiklen: Ja`, or `Afvis eksisterende flag: Ja`. Find the record by
-  PMID in `docs/data/library.json` and apply exactly what's asked:
-  - **Ekskludér**: remove the record.
-  - **Sygdomsgrupper/evidenstype**: overwrite `disease_groups`/`evidence_type` with
-    the proposed value(s).
-  - **Afvis flag**: delete the `flagged` field, change nothing else.
-  - If the PMID isn't found (already removed, typo'd), don't guess — leave the issue
-    open and note it in the report instead of closing it silently.
-- Close each applied issue with `gh issue close --repo jesperlindhardsen/rheum-digest
-  <number> --comment "<what was changed>"`.
-- If any records were touched, that's part of the same commit this run makes in Step
-  2/6 (don't create a separate commit) — but do it *before* the new fetch, so this
-  week's dedup and bucket recompute already reflect the correction.
-- **This is batch, not instant.** A correction submitted any day of the week sits as
-  an open issue until the *next* Monday run. There's no other automation that checks
-  it sooner — say so if the user asks why nothing happened yet.
+- `library.json` still holds the *original* classification for every corrected
+  record. That's what makes **Fortryd** work at all, and it means nothing here is
+  destructive — but it also means the underlying file drifts from what the site
+  shows.
+- Step 4's weekly markdown archive is generated from `library.json`, so an article
+  recategorised via an override still appears under its original group there.
 
 ## STEP 1 — SEARCH (PubMed)
 - Date window: past 7 days (Entrez EDAT)
@@ -248,23 +223,20 @@ Flagged records are **not excluded** — they're included under AI's best-guess
 classification, same as any other hit, just visibly marked. The flag is a pointer
 for the user to look, not a verdict.
 
-**How a flag actually gets resolved: through the same "Foreslå rettelse"/
-correction form every card has (see Step 0), not a manual edit.** A `flagged`
-field, once set, would otherwise sit on that record forever — `update_library.py`
-only ever touches new PMIDs, so nothing revisits it on its own. Each flagged
-card shows the flag reason plus a one-click "✓ Godkend" button (`acceptFlag()`
-in `docs/index.html`) that opens a pre-filled `rettelse` issue proposing
-"Afvis eksisterende flag: Ja" — the same "Afvis flag" checkbox available in the
-full correction form for when the flag should be cleared alongside a
-reclassification. Either way it's an open GitHub issue that Step 0 applies on
-the next Monday run, one of:
-- **Exclude it** — remove the record entirely (same as any other bad hit in this
-  project's history, e.g. PMID 42598105).
-- **Reclassify it** — fix `disease_groups`/`evidence_type` and clear `flagged`.
-- **Dismiss it** — it was a false alarm; just clear `flagged`, record unchanged.
+**How a flag actually gets resolved: on the site, in one click, immediately.** A
+`flagged` field, once set, would otherwise sit on that record forever —
+`update_library.py` only ever touches new PMIDs, so nothing revisits it on its
+own. Each flagged card shows the flag reason plus two buttons: **✓ Godkend**
+(`acceptFlag()` in `docs/index.html`, writes `dismissed_flag`) and **🗑 Slet**
+(`deleteRecord()`, writes `hidden`). The full correction form behind "Rettelse"
+covers the third case, where the flag should be cleared alongside a
+reclassification. All three write to Firestore and take effect at once:
+- **Exclude it** — `hidden`, so it drops out of the library everywhere.
+- **Reclassify it** — new `disease_groups`/`evidence_type`, flag cleared.
+- **Dismiss it** — false alarm; `dismissed_flag`, record otherwise unchanged.
 
-A manual edit to `docs/data/library.json` is still the fallback for anything
-outside that shape, but isn't the normal path anymore.
+None of this edits `docs/data/library.json`. A manual edit there is still
+possible for anything outside that shape, but it isn't the normal path.
 
 If the same shape of problem recurs across several flags, that's the signal to
 write a permanent deterministic rule (a new `PROTOCOL_TITLE`-style pattern, a
