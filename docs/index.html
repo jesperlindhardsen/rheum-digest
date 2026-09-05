@@ -477,11 +477,11 @@ async function revertEdit(pmid) {
 
 // The other half of reviewing a flagged card: the flag was right, this
 // doesn't belong in the library. Confirmed first -- it sits one tap from
-// "Godkend" and does the opposite, so a mis-tap shouldn't quietly drop an
+// "Ryd flag" and does the opposite, so a mis-tap shouldn't quietly drop an
 // article.
 function deleteRecord(pmid) {
   const rec = library.find(r => r.pmid === pmid);
-  if (!confirm(`Slet denne artikel fra biblioteket?\n\n${rec.title}`)) return;
+  if (!confirm(`Fjern denne artikel fra biblioteket?\n\n${rec.title}`)) return;
   applyOverride(pmid, { hidden: true });
 }
 
@@ -539,8 +539,8 @@ function renderItem(rec) {
   const flag = rec.flagged
     ? `<p class="flag-note"><span>⚑ ${rec.flagged}</span>
         ${FIREBASE_AVAILABLE && !isHidden ? `<span class="flag-actions">
-          <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">✓ Godkend</button>
-          <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Slet</button>
+          <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">Ryd flag</button>
+          <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Fjern artikel</button>
         </span>` : ""}
       </p>`
     : "";
@@ -551,8 +551,8 @@ function renderItem(rec) {
   const edit = (ov && !ov.acknowledged)
     ? `<p class="edit-note"><span>✎ ${ov.hidden ? "skjult" : "rettet"}${overrideDate(ov) ? " " + overrideDate(ov) : ""}${ov.by ? " af " + ov.by : ""}</span>
         ${isOwner() ? `<span class="edit-actions">
-          <button type="button" class="ack-edit-btn" onclick="acknowledgeEdit('${rec.pmid}')">✓ Kvittér</button>
-          <button type="button" class="revert-edit-btn" onclick="revertEdit('${rec.pmid}')">↩ Fortryd</button>
+          <button type="button" class="ack-edit-btn" onclick="acknowledgeEdit('${rec.pmid}')">Behold ændring</button>
+          <button type="button" class="revert-edit-btn" onclick="revertEdit('${rec.pmid}')">↩ Fortryd ændring</button>
         </span>` : ""}
       </p>`
     : "";
