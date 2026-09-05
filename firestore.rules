@@ -28,16 +28,14 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // The owner's account is created by hand in the console and is the only
-    // one that can hold this address -- Firebase won't let a second account
-    // claim an address already in use, and client-side sign-up is off, so
-    // nothing can create one at all. email_verified is deliberately not
-    // required: a console-created account has never been through a
-    // verification mail, and no mail is ever sent here.
+    // The owner's account is created by hand in the console; client-side
+    // sign-up is off, so nothing else can create one. Matched on UID rather
+    // than address, so this file -- which is public -- says nothing about
+    // who the owner is. The UID grants nothing by itself; only the account's
+    // password produces a token carrying it.
     function isOwner() {
       return request.auth != null
-        && request.auth.token.email is string
-        && request.auth.token.email.lower() == "jesper.lindhardsen@regionh.dk";
+        && request.auth.uid == "4tbILIBH3ObTU29jy8QJQXqFLW52";
     }
 
     // Rejects anything carrying fields this app doesn't write, so the

@@ -111,14 +111,13 @@ const firebaseConfig = {
 const FIREBASE_AVAILABLE = firebaseConfig.apiKey !== "REPLACE_ME"
   && typeof firebase !== "undefined";
 // Only one person signs in at all: the owner, to review what everyone else
-// changed. Identified by address rather than UID, because the account is one
-// created by hand in the Firebase console -- and this way the address can be
-// fixed here in advance, rather than waiting to read a generated UID back
-// out. Not a secret; the rules enforce it, and the address is a work one
-// that already appears in this repo's history.
-const OWNER_EMAIL = "jesper.lindhardsen@regionh.dk";
+// changed. Identified by the account's UID rather than its address, so that
+// this file -- which is public, and served as the page's own source -- says
+// nothing about who the owner is. The UID is an opaque handle: it grants
+// nothing on its own, and the rules are what enforce it.
+const OWNER_UID = "4tbILIBH3ObTU29jy8QJQXqFLW52";
 function emailOf(user) { return ((user && user.email) || "").toLowerCase(); }
-function isOwner() { return emailOf(currentUser) === OWNER_EMAIL; }
+function isOwner() { return !!currentUser && currentUser.uid === OWNER_UID; }
 
 // Bot protection stands in for the login colleagues no longer have: App Check
 // attests that a request came from this page rather than a script hitting the
@@ -409,16 +408,17 @@ function renderCorrectionBody(rec) {
 // "✎ N rettet" queue until reviewed. The owner's own edits need no such
 // review, so they're acknowledged as they're written.
 //
-// `by` is empty for everyone but the owner -- without an account there is no
-// identity to record. The queue shows that something changed and when, not
-// who did it.
+// Nothing records who made an edit. Guests have no account to identify them,
+// and the owner's own edits never reach the queue where a name would show,
+// so writing one would only have published the owner's address into a
+// collection anyone can read. The queue shows that something changed and
+// when, not who did it.
 async function applyOverride(pmid, patch) {
   if (!FIREBASE_AVAILABLE) return;
   try {
     const stamped = {
       ...patch,
       updated_at: firebase.firestore.FieldValue.serverTimestamp(),
-      by: emailOf(currentUser),
       acknowledged: isOwner(),
     };
     await db.collection("overrides").doc(pmid).set(stamped, { merge: true });
