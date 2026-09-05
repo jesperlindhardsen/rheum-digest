@@ -111,13 +111,14 @@ const firebaseConfig = {
 const FIREBASE_AVAILABLE = firebaseConfig.apiKey !== "REPLACE_ME"
   && typeof firebase !== "undefined";
 // Only one person signs in at all: the owner, to review what everyone else
-// changed. Identified by Firebase UID rather than address, deliberately --
-// this file and firestore.rules are both public, and a UID is opaque where a
-// personal address wouldn't be. Not a secret either way; the rules are what
-// actually enforce it.
-const OWNER_UID = "QCjUBL8iihh6ZnbZmFhpiZ6dOwM2";
+// changed. Identified by address rather than UID, because the account is one
+// created by hand in the Firebase console -- and this way the address can be
+// fixed here in advance, rather than waiting to read a generated UID back
+// out. Not a secret; the rules enforce it, and the address is a work one
+// that already appears in this repo's history.
+const OWNER_EMAIL = "jesper.lindhardsen@regionh.dk";
 function emailOf(user) { return ((user && user.email) || "").toLowerCase(); }
-function isOwner() { return !!currentUser && currentUser.uid === OWNER_UID; }
+function isOwner() { return emailOf(currentUser) === OWNER_EMAIL; }
 
 // Bot protection stands in for the login colleagues no longer have: App Check
 // attests that a request came from this page rather than a script hitting the
@@ -155,15 +156,6 @@ if (FIREBASE_AVAILABLE) {
     renderAuthBanner();
     if (rawLibrary.length) refresh();
   });
-  // A redirect sign-in reports its outcome here, on the way back in -- the
-  // popup's catch is long gone by then, so without this a failure would be
-  // silent.
-  if (auth.getRedirectResult) {
-    auth.getRedirectResult().catch(err => {
-      console.error(err);
-      alert("Login mislykkedes: " + err.message);
-    });
-  }
 }
 
 function renderAuthBanner() {
@@ -177,28 +169,28 @@ function renderAuthBanner() {
 }
 
 // Only the owner ever signs in, and only to review. Everyone else edits
-// without an account at all -- see applyOverride. Google rather than an
-// email link because hospital mail silently swallowed the links: Firebase
-// sends from a firebaseapp.com address with no SPF or DKIM alignment, which
-// is exactly what a hospital filter quarantines, and the quarantine isn't
-// reachable from the account either.
+// without an account at all -- see applyOverride.
+//
+// Address and password, after Google's two flows both failed on the phone
+// this is actually used from: the popup is blocked outright, and the
+// redirect never reaches Google, because the auth domain
+// (rheum-digest.firebaseapp.com) isn't the site's domain and Safari
+// partitions the storage the round trip depends on. An email link died the
+// same way earlier, quarantined by hospital mail. This is a plain API call:
+// no popup, no redirect, no third-party storage, no mail. The account is
+// created by hand in the Firebase console; nothing here can create one.
 function signIn() {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  return auth.signInWithPopup(provider).catch(err => {
-    const code = err && err.code;
-    // Phones block popups as a matter of course, gesture or no gesture. The
-    // redirect flow navigates out to Google and back instead, which they
-    // don't block -- slower, and it costs the page's scroll position, but
-    // it's the one that works.
-    if (code === "auth/popup-blocked"
-        || code === "auth/operation-not-supported-in-this-environment"
-        || code === "auth/cancelled-popup-request") {
-      return auth.signInWithRedirect(provider);
-    }
-    // Closing the popup yourself isn't a failure worth an alert.
-    if (code === "auth/popup-closed-by-user") return;
+  const email = (prompt("E-mail:") || "").trim().toLowerCase();
+  if (!email) return Promise.resolve();
+  const password = prompt("Adgangskode:") || "";
+  if (!password) return Promise.resolve();
+  return auth.signInWithEmailAndPassword(email, password).catch(err => {
     console.error(err);
-    alert("Login mislykkedes: " + err.message);
+    const wrong = err && (err.code === "auth/wrong-password"
+                       || err.code === "auth/invalid-credential"
+                       || err.code === "auth/user-not-found"
+                       || err.code === "auth/invalid-email");
+    alert(wrong ? "Forkert e-mail eller adgangskode." : "Login mislykkedes: " + err.message);
   });
 }
 
