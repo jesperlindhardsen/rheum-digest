@@ -121,9 +121,15 @@ function isOwner() { return !!currentUser && currentUser.uid === OWNER_UID; }
 
 // Bot protection stands in for the login colleagues no longer have: App Check
 // attests that a request came from this page rather than a script hitting the
-// API directly. Get the key from the reCAPTCHA console, register it under App
-// Check in the Firebase console, then enforce it there. Left unset the page
-// works exactly as it does now -- App Check simply isn't attached.
+// API directly. Left unset the page works exactly as it does now -- App Check
+// simply isn't attached.
+//
+// Enterprise rather than classic v3, because that's the only provider this
+// project's console offers. The difference is not cosmetic: v3 takes the key
+// as a bare string, Enterprise takes a provider instance, and passing the
+// wrong shape fails at runtime. Enterprise also has no paired secret -- the
+// key is registered by id in the Firebase console, and this is the whole of
+// it.
 const RECAPTCHA_SITE_KEY = "6LeFhqotAAAAAFl8MrbUCX1h7KnLXaYDkLX5QjbE";
 let auth = null, db = null, currentUser = null;
 // pmid -> {hidden?, dismissed_flag?, disease_groups?, evidence_type?}
@@ -131,9 +137,13 @@ let overridesMap = new Map();
 
 if (FIREBASE_AVAILABLE) {
   firebase.initializeApp(firebaseConfig);
-  if (RECAPTCHA_SITE_KEY !== "REPLACE_ME" && firebase.appCheck) {
+  if (RECAPTCHA_SITE_KEY !== "REPLACE_ME" && firebase.appCheck
+      && firebase.appCheck.ReCaptchaEnterpriseProvider) {
     // Second argument keeps the token refreshed for the life of the page.
-    firebase.appCheck().activate(RECAPTCHA_SITE_KEY, true);
+    firebase.appCheck().activate(
+      new firebase.appCheck.ReCaptchaEnterpriseProvider(RECAPTCHA_SITE_KEY),
+      true
+    );
   }
   auth = firebase.auth();
   db = firebase.firestore();
