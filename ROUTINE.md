@@ -28,8 +28,8 @@ there is nothing here for a run to pick up. No issues are created any more, and 
 
 ### How corrections work now
 Every card has a "Rettelse" form (disease group(s), evidence type, "ekskludér helt";
-a flagged card also gets "afvis flag", plus one-click **✓ Godkend** and **🗑 Slet**
-buttons). **No account is needed for any of it** — anyone reading the site can
+a flagged card also gets "afvis flag", plus one-click **Ryd flag** and
+**🗑 Fjern artikel** buttons). **No account is needed for any of it** — anyone reading the site can
 correct it, flagged articles included. **An edit goes live immediately; it doesn't
 queue for approval.** What keeps that safe is that it announces itself instead of
 quietly looking like a normal record:
@@ -44,9 +44,11 @@ quietly looking like a normal record:
 - The **`✎ N rettet`** badge that filters the page down to those records is
   rendered only for the owner — it's a review queue, and reviewing is the
   owner's job alone. Everyone else edits freely without carrying it.
-- The owner gets two buttons there: **Kvittér** (agree; sets `acknowledged`, the
-  record keeps the change and drops off the badge) and **Fortryd** (delete the
-  override; the record falls straight back to what `library.json` says).
+- The owner gets two buttons there: **Behold ændring** (agree; sets
+  `acknowledged`, the record keeps the change and drops off the badge) and
+  **Fortryd ændring** (delete the override; the record falls straight back to
+  what `library.json` says). A hidden card shows only these two -- the flag
+  actions and the correction form are meaningless on something already gone.
 - That review view is the only place a *hidden* record can still be reached, which
   is why hidden records are kept in their own list rather than dropped — otherwise
   a wrongly hidden article would be invisible to the one person who can restore it.
@@ -240,9 +242,9 @@ for the user to look, not a verdict.
 **How a flag actually gets resolved: on the site, in one click, immediately.** A
 `flagged` field, once set, would otherwise sit on that record forever —
 `update_library.py` only ever touches new PMIDs, so nothing revisits it on its
-own. Each flagged card shows the flag reason plus two buttons: **✓ Godkend**
-(`acceptFlag()` in `docs/index.html`, writes `dismissed_flag`) and **🗑 Slet**
-(`deleteRecord()`, writes `hidden`). The full correction form behind "Rettelse"
+own. Each flagged card shows the flag reason plus two buttons: **Ryd flag**
+(`acceptFlag()` in `docs/index.html`, writes `dismissed_flag`) and
+**🗑 Fjern artikel** (`deleteRecord()`, writes `hidden`). The full correction form behind "Rettelse"
 covers the third case, where the flag should be cleared alongside a
 reclassification. All three write to Firestore and take effect at once:
 - **Exclude it** — `hidden`, so it drops out of the library everywhere.

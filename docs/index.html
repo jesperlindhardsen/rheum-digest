@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=20">
+<link rel="stylesheet" href="assets/style.css?v=21">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -214,9 +214,30 @@ function applyOverrides(records) {
     const o = overridesMap.get(r.pmid);
     if (!o) { library.push(r); return; }
     const merged = { ...r, __ov: o };
+    // What the record said before the edit. Only computable here, with the
+    // untouched fetch and the override side by side -- once merged, the old
+    // value is gone. Reviewing an edit means knowing what it replaced; the
+    // new value is on the card already.
+    const was = [];
+    if (o.dismissed_flag && r.flagged) was.push(`flag ryddet: ${r.flagged}`);
     if (o.dismissed_flag) delete merged.flagged;
-    if (o.disease_groups) merged.disease_groups = o.disease_groups;
-    if (o.evidence_type) merged.evidence_type = o.evidence_type;
+    if (o.disease_groups) {
+      const before = groupsOf(r);
+      if (JSON.stringify([...before].sort()) !== JSON.stringify([...o.disease_groups].sort())) {
+        was.push(`${before.length > 1 ? "grupper" : "gruppe"} var `
+          + (before.map(g => DISEASE_LABEL[g] || g).join(", ") || "ingen"));
+      }
+      merged.disease_groups = o.disease_groups;
+    }
+    if (o.evidence_type) {
+      if (o.evidence_type !== r.evidence_type) {
+        // EVIDENCE_BADGE, not EVIDENCE_LABEL: the chip on the card uses the
+        // short form, and the note is read against it.
+        was.push("evidenstype var " + (EVIDENCE_BADGE[r.evidence_type] || r.evidence_type));
+      }
+      merged.evidence_type = o.evidence_type;
+    }
+    if (was.length) merged.__was = was;
     (o.hidden ? hiddenLibrary : library).push(merged);
   });
 }
@@ -477,11 +498,11 @@ async function revertEdit(pmid) {
 
 // The other half of reviewing a flagged card: the flag was right, this
 // doesn't belong in the library. Confirmed first -- it sits one tap from
-// "Godkend" and does the opposite, so a mis-tap shouldn't quietly drop an
+// "Ryd flag" and does the opposite, so a mis-tap shouldn't quietly drop an
 // article.
 function deleteRecord(pmid) {
   const rec = library.find(r => r.pmid === pmid);
-  if (!confirm(`Slet denne artikel fra biblioteket?\n\n${rec.title}`)) return;
+  if (!confirm(`Fjern denne artikel fra biblioteket?\n\n${rec.title}`)) return;
   applyOverride(pmid, { hidden: true });
 }
 
@@ -523,6 +544,13 @@ function renderItem(rec) {
     + groupsOf(rec).map(g => `<span class="disease-chip">${DISEASE_LABEL[g]}</span>`).join("")
     + (rec.keywords || []).map(k => `<span class="keyword-chip">${k}</span>`).join("")
     + `</div>`;
+  // A hidden record is only ever seen from the review queue, where the one
+  // question is whether to keep it hidden or bring it back. Everything that
+  // acts on the article itself is meaningless there -- "Slet" would hide
+  // what is already hidden, and clearing a flag would clear it on something
+  // nobody can see -- so those controls are left off entirely rather than
+  // sitting next to Kvittér/Fortryd looking like alternatives to them.
+  const isHidden = !!(rec.__ov && rec.__ov.hidden);
   // Set only when AI's weekly read flagged something a deterministic filter
   // didn't catch (see ROUTINE.md) -- surfaced right on the card, not buried
   // in a run log only visible during the unattended weekly run.
@@ -531,9 +559,9 @@ function renderItem(rec) {
   // unreachable would just be buttons that quietly do nothing.
   const flag = rec.flagged
     ? `<p class="flag-note"><span>⚑ ${rec.flagged}</span>
-        ${FIREBASE_AVAILABLE ? `<span class="flag-actions">
-          <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">✓ Godkend</button>
-          <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Slet</button>
+        ${FIREBASE_AVAILABLE && !isHidden ? `<span class="flag-actions">
+          <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">Ryd flag</button>
+          <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Fjern artikel</button>
         </span>` : ""}
       </p>`
     : "";
@@ -542,10 +570,10 @@ function renderItem(rec) {
   // gets the two closing actions; for everyone else it's just a note.
   const ov = rec.__ov;
   const edit = (ov && !ov.acknowledged)
-    ? `<p class="edit-note"><span>✎ ${ov.hidden ? "skjult" : "rettet"}${overrideDate(ov) ? " " + overrideDate(ov) : ""}${ov.by ? " af " + ov.by : ""}</span>
+    ? `<p class="edit-note"><span>✎ ${ov.hidden ? "skjult" : "rettet"}${overrideDate(ov) ? " " + overrideDate(ov) : ""}${ov.by ? " af " + ov.by : ""}${rec.__was ? `<span class="edit-was"> · ${rec.__was.join(" · ")}</span>` : ""}</span>
         ${isOwner() ? `<span class="edit-actions">
-          <button type="button" class="ack-edit-btn" onclick="acknowledgeEdit('${rec.pmid}')">✓ Kvittér</button>
-          <button type="button" class="revert-edit-btn" onclick="revertEdit('${rec.pmid}')">↩ Fortryd</button>
+          <button type="button" class="ack-edit-btn" onclick="acknowledgeEdit('${rec.pmid}')">Behold ændring</button>
+          <button type="button" class="revert-edit-btn" onclick="revertEdit('${rec.pmid}')">↩ Fortryd ændring</button>
         </span>` : ""}
       </p>`
     : "";
@@ -565,7 +593,7 @@ function renderItem(rec) {
           <summary>Abstract</summary>
           <div class="abstract-full">${sections}</div>
         </details>
-        ${FIREBASE_AVAILABLE ? `<details class="correction-toggle">
+        ${FIREBASE_AVAILABLE && !isHidden ? `<details class="correction-toggle">
           <summary>Rettelse</summary>
           ${renderCorrectionBody(rec)}
         </details>` : ""}
