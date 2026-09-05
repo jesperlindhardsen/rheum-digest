@@ -35,7 +35,7 @@ service cloud.firestore {
     // password produces a token carrying it.
     function isOwner() {
       return request.auth != null
-        && request.auth.uid == "4tbILIBH3ObTU29jy8QJQXqFLW52";
+        && request.auth.uid == "XxGpRNqrdoXHcQ3zVMhFZtVLxkC3";
     }
 
     // Rejects anything carrying fields this app doesn't write, so the
