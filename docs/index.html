@@ -155,6 +155,15 @@ if (FIREBASE_AVAILABLE) {
     renderAuthBanner();
     if (rawLibrary.length) refresh();
   });
+  // A redirect sign-in reports its outcome here, on the way back in -- the
+  // popup's catch is long gone by then, so without this a failure would be
+  // silent.
+  if (auth.getRedirectResult) {
+    auth.getRedirectResult().catch(err => {
+      console.error(err);
+      alert("Login mislykkedes: " + err.message);
+    });
+  }
 }
 
 function renderAuthBanner() {
@@ -174,7 +183,20 @@ function renderAuthBanner() {
 // is exactly what a hospital filter quarantines, and the quarantine isn't
 // reachable from the account either.
 function signIn() {
-  return auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(err => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  return auth.signInWithPopup(provider).catch(err => {
+    const code = err && err.code;
+    // Phones block popups as a matter of course, gesture or no gesture. The
+    // redirect flow navigates out to Google and back instead, which they
+    // don't block -- slower, and it costs the page's scroll position, but
+    // it's the one that works.
+    if (code === "auth/popup-blocked"
+        || code === "auth/operation-not-supported-in-this-environment"
+        || code === "auth/cancelled-popup-request") {
+      return auth.signInWithRedirect(provider);
+    }
+    // Closing the popup yourself isn't a failure worth an alert.
+    if (code === "auth/popup-closed-by-user") return;
     console.error(err);
     alert("Login mislykkedes: " + err.message);
   });
