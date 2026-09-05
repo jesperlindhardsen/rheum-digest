@@ -523,6 +523,13 @@ function renderItem(rec) {
     + groupsOf(rec).map(g => `<span class="disease-chip">${DISEASE_LABEL[g]}</span>`).join("")
     + (rec.keywords || []).map(k => `<span class="keyword-chip">${k}</span>`).join("")
     + `</div>`;
+  // A hidden record is only ever seen from the review queue, where the one
+  // question is whether to keep it hidden or bring it back. Everything that
+  // acts on the article itself is meaningless there -- "Slet" would hide
+  // what is already hidden, and clearing a flag would clear it on something
+  // nobody can see -- so those controls are left off entirely rather than
+  // sitting next to Kvittér/Fortryd looking like alternatives to them.
+  const isHidden = !!(rec.__ov && rec.__ov.hidden);
   // Set only when AI's weekly read flagged something a deterministic filter
   // didn't catch (see ROUTINE.md) -- surfaced right on the card, not buried
   // in a run log only visible during the unattended weekly run.
@@ -531,7 +538,7 @@ function renderItem(rec) {
   // unreachable would just be buttons that quietly do nothing.
   const flag = rec.flagged
     ? `<p class="flag-note"><span>⚑ ${rec.flagged}</span>
-        ${FIREBASE_AVAILABLE ? `<span class="flag-actions">
+        ${FIREBASE_AVAILABLE && !isHidden ? `<span class="flag-actions">
           <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">✓ Godkend</button>
           <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Slet</button>
         </span>` : ""}
@@ -565,7 +572,7 @@ function renderItem(rec) {
           <summary>Abstract</summary>
           <div class="abstract-full">${sections}</div>
         </details>
-        ${FIREBASE_AVAILABLE ? `<details class="correction-toggle">
+        ${FIREBASE_AVAILABLE && !isHidden ? `<details class="correction-toggle">
           <summary>Rettelse</summary>
           ${renderCorrectionBody(rec)}
         </details>` : ""}
