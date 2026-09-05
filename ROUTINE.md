@@ -29,15 +29,18 @@ there is nothing here for a run to pick up. No issues are created any more, and 
 ### How corrections work now
 Every card has a "Rettelse" form (disease group(s), evidence type, "ekskludér helt";
 a flagged card also gets "afvis flag", plus one-click **✓ Godkend** and **🗑 Slet**
-buttons). Anyone signed in gets all of it, flagged articles included, so colleagues
-can clear the flagged queue and fix a miscategorisation without waiting on anyone.
-**An edit goes live immediately; it doesn't queue for approval.** What keeps that
-safe is that it announces itself instead of quietly looking like a normal record:
+buttons). **No account is needed for any of it** — anyone reading the site can
+correct it, flagged articles included. **An edit goes live immediately; it doesn't
+queue for approval.** What keeps that safe is that it announces itself instead of
+quietly looking like a normal record:
 
-- The edit is written to the Firestore `overrides` collection with `by` (who) and
-  `acknowledged: false` (unreviewed).
-- Every unreviewed record renders a slate `✎ rettet <dato> af <navn>` line on its
-  card, so anyone reading can see the record was touched and by whom.
+- The edit is written to the Firestore `overrides` collection with
+  `acknowledged: false` (unreviewed). `by` is empty for everyone but the owner:
+  without an account there is no identity to record, so the queue shows *that*
+  something changed and when, not who did it.
+- Every unreviewed record renders a slate `✎ rettet <dato>` line on its card, so
+  anyone reading can see the record was touched (`af <navn>` only appears on the
+  owner's own edits, which are the only ones carrying a name).
 - The **`✎ N rettet`** badge that filters the page down to those records is
   rendered only for the owner — it's a review queue, and reviewing is the
   owner's job alone. Everyone else edits freely without carrying it.
@@ -49,9 +52,18 @@ safe is that it announces itself instead of quietly looking like a normal record
   a wrongly hidden article would be invisible to the one person who can restore it.
 
 `firestore.rules` enforces the parts that matter: only the owner may set
-`acknowledged` (or a colleague could mark their own edit reviewed and it would
-never surface) and only the owner may delete. The owner's own edits are written
-already-acknowledged, since there's nobody else to review them.
+`acknowledged` (or an edit could mark itself reviewed and never surface) and only
+the owner may delete. The owner's own edits are written already-acknowledged,
+since there's nobody else to review them. The owner signs in with Google; nobody
+else signs in at all.
+
+**What stops a script rather than a person is App Check**, enforced in the Firebase
+console rather than in the rules — it runs before them and rejects anything without
+a token from the real page. That is a weaker guarantee than a login, and it is a
+deliberate trade: hospital mail quarantines Firebase's sign-in links and the
+quarantine isn't reachable from the account, so the alternative was no colleague
+edits at all. Every edit is marked and revertible, which is what makes the weaker
+gate tolerable here.
 
 **Overrides are a read-time patch, and this routine never touches them.** A
 correction takes effect on the live site immediately and stays in Firestore

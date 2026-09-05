@@ -12,6 +12,7 @@
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-check-compat.js"></script>
 </head>
 <body class="salix">
 <header class="site-header">
@@ -109,22 +110,31 @@ const firebaseConfig = {
 // that would do so aren't drawn (see renderItem).
 const FIREBASE_AVAILABLE = firebaseConfig.apiKey !== "REPLACE_ME"
   && typeof firebase !== "undefined";
-// Identity is the work email, not a UID: sign-in is by email link, so there
-// is no stable provider account behind it, and an address survives changes a
-// UID wouldn't. Neither value is a secret -- firestore.rules carries both and
-// is committed to this repo. They're here so the page knows whose edits skip
-// review and who gets the acknowledge/revert buttons; the rules are what
-// actually enforce any of it.
-const OWNER_EMAIL = "jesper.lindhardsen@regionh.dk";   // lowercase; compared against a lowercased token
-const ALLOWED_DOMAIN = "@regionh.dk";
+// Only one person signs in at all: the owner, to review what everyone else
+// changed. Identified by Firebase UID rather than address, deliberately --
+// this file and firestore.rules are both public, and a UID is opaque where a
+// personal address wouldn't be. Not a secret either way; the rules are what
+// actually enforce it.
+const OWNER_UID = "QCjUBL8iihh6ZnbZmFhpiZ6dOwM2";
 function emailOf(user) { return ((user && user.email) || "").toLowerCase(); }
-function isOwner() { return emailOf(currentUser) === OWNER_EMAIL; }
+function isOwner() { return !!currentUser && currentUser.uid === OWNER_UID; }
+
+// Bot protection stands in for the login colleagues no longer have: App Check
+// attests that a request came from this page rather than a script hitting the
+// API directly. Get the key from the reCAPTCHA console, register it under App
+// Check in the Firebase console, then enforce it there. Left unset the page
+// works exactly as it does now -- App Check simply isn't attached.
+const RECAPTCHA_SITE_KEY = "REPLACE_ME";
 let auth = null, db = null, currentUser = null;
 // pmid -> {hidden?, dismissed_flag?, disease_groups?, evidence_type?}
 let overridesMap = new Map();
 
 if (FIREBASE_AVAILABLE) {
   firebase.initializeApp(firebaseConfig);
+  if (RECAPTCHA_SITE_KEY !== "REPLACE_ME" && firebase.appCheck) {
+    // Second argument keeps the token refreshed for the life of the page.
+    firebase.appCheck().activate(RECAPTCHA_SITE_KEY, true);
+  }
   auth = firebase.auth();
   db = firebase.firestore();
   // Signing in or out changes whether a card offers the owner's controls,
@@ -144,57 +154,20 @@ function renderAuthBanner() {
   // one line instead of wrapping into 130px of sticky chrome.
   el.innerHTML = currentUser
     ? `<button class="auth-banner-btn" onclick="signOutUser()"><span class="banner-long">${emailOf(currentUser)} · </span>Log ud</button>`
-    : `<button class="auth-banner-btn" onclick="signIn()">Log ind<span class="banner-long"> for at rette</span></button>`;
+    : `<button class="auth-banner-btn" onclick="signIn()">Log ind</button>`;
 }
 
-// Sign-in is a link mailed to a work address -- no Google account, no
-// password, and nothing for hospital IT to approve. The address is also the
-// identity that ends up on every edit as `by`.
-const EMAIL_KEY = "reuma-evidens-signin-email";
-
+// Only the owner ever signs in, and only to review. Everyone else edits
+// without an account at all -- see applyOverride. Google rather than an
+// email link because hospital mail silently swallowed the links: Firebase
+// sends from a firebaseapp.com address with no SPF or DKIM alignment, which
+// is exactly what a hospital filter quarantines, and the quarantine isn't
+// reachable from the account either.
 function signIn() {
-  const email = (prompt(`Din ${ALLOWED_DOMAIN}-adresse — du får et login-link tilsendt:`) || "")
-    .trim().toLowerCase();
-  if (!email) return Promise.resolve();
-  // Checked again in firestore.rules; this is only so the mistake is caught
-  // here rather than after a round trip through the inbox.
-  if (!email.endsWith(ALLOWED_DOMAIN)) {
-    alert(`Kun ${ALLOWED_DOMAIN}-adresser kan rette.`);
-    return Promise.resolve();
-  }
-  // Return to the bare page URL: the link carries its own parameters, and
-  // keeping any old ones would make a reload replay a spent link.
-  const url = location.origin + location.pathname;
-  return auth.sendSignInLinkToEmail(email, { url, handleCodeInApp: true })
-    .then(() => {
-      try { localStorage.setItem(EMAIL_KEY, email); } catch (e) { /* prompted for instead */ }
-      alert(`Login-link sendt til ${email}.\n\nÅbn det på denne enhed. Tjek også spamfilteret.`);
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Kunne ikke sende login-link: " + err.message);
-    });
-}
-
-// Runs on load: the link lands back here carrying its sign-in parameters.
-function completeEmailLinkSignIn() {
-  if (!FIREBASE_AVAILABLE || !auth.isSignInWithEmailLink(location.href)) return Promise.resolve();
-  let email = "";
-  try { email = localStorage.getItem(EMAIL_KEY) || ""; } catch (e) { /* ask instead */ }
-  // Opening the link on a different device than it was requested from means
-  // the address was never stored here, so confirm it -- Firebase requires it
-  // to match, which is what stops a forwarded link signing someone else in.
-  if (!email) email = (prompt("Bekræft mailadressen linket blev sendt til:") || "").trim().toLowerCase();
-  if (!email) return Promise.resolve();
-  return auth.signInWithEmailLink(email, location.href)
-    .then(() => {
-      try { localStorage.removeItem(EMAIL_KEY); } catch (e) { /* nothing to clean */ }
-      history.replaceState(null, "", location.origin + location.pathname);
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Login-linket kunne ikke bruges: " + err.message + "\n\nBed om et nyt.");
-    });
+  return auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(err => {
+    console.error(err);
+    alert("Login mislykkedes: " + err.message);
+  });
 }
 
 function signOutUser() { auth.signOut(); }
@@ -406,19 +379,18 @@ function renderCorrectionBody(rec) {
     </div>`;
 }
 
-// Writes the edit to Firestore, prompting sign-in first if needed. A
-// colleague's edit goes live immediately but lands unacknowledged, so it
-// shows up on the card and in the "✎ N rettet" badge until the owner has
-// looked at it. The owner's own edits need no such review, so they're
-// acknowledged as they're written.
+// Writes the edit to Firestore. No sign-in involved: anyone reading the site
+// can correct it, which is the point. The edit goes live immediately but
+// lands unacknowledged, so it shows up on the card and in the owner's
+// "✎ N rettet" queue until reviewed. The owner's own edits need no such
+// review, so they're acknowledged as they're written.
 //
-// There is no second path any more: this is how a correction reaches the
-// site. Declining the sign-in simply cancels the edit.
+// `by` is empty for everyone but the owner -- without an account there is no
+// identity to record. The queue shows that something changed and when, not
+// who did it.
 async function applyOverride(pmid, patch) {
   if (!FIREBASE_AVAILABLE) return;
   try {
-    if (!currentUser) await signIn();
-    if (!currentUser) return;
     const stamped = {
       ...patch,
       updated_at: firebase.firestore.FieldValue.serverTimestamp(),
@@ -746,7 +718,6 @@ function syncStickyOffsets() {
 }
 
 renderAuthBanner();
-completeEmailLinkSignIn();
 syncStickyOffsets();
 // Both boxes change height on their own: the header when the sign-in label
 // or the banners change, the rail when the evidence tabs reflow.
