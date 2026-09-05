@@ -447,6 +447,9 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
    a different kind of action at a glance -- clay (the palette's alert
    signal) against the accept button's moss. */
 .flag-note > span:not(.flag-actions) { flex: 1 1 14ch; min-width: 0; }
+/* The "was" trail on an edit note: same line, lighter, so the date stays the
+   thing you read first and the detail is there when you look for it. */
+.edit-was { font-weight: var(--w-reg); color: var(--ink-3); }
 .flag-actions {
   flex: none;
   display: flex;
