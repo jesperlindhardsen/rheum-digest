@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=22">
+<link rel="stylesheet" href="assets/style.css?v=23">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -21,6 +21,7 @@
   </div>
   <span class="header-right">
     <span id="auth-banner"></span>
+    <span id="new-banner"></span>
     <span id="star-banner"></span>
     <span id="flag-banner"></span>
     <span id="edit-banner"></span>
@@ -32,7 +33,15 @@
 <div id="app">
   <div id="evidence-tabs" class="tabs-col"></div>
   <div id="viewer">
-    <div id="disease-tabs" class="tabs-row"></div>
+    <!-- The input lives outside #disease-tabs on purpose: refresh() rewrites
+         that element's innerHTML on every keystroke, which would take the
+         focus and the caret with it. -->
+    <div class="filter-row">
+      <div id="disease-tabs" class="tabs-row"></div>
+      <input id="search" class="search-input" type="search" autocomplete="off"
+             placeholder="Søg i titel, nøgleord, tidsskrift, forfatter…"
+             aria-label="Søg" oninput="setQuery(this.value)">
+    </div>
     <div id="tier-filter" class="tier-filter"></div>
     <div id="panel"></div>
   </div>
@@ -56,7 +65,21 @@ const DISEASE_LABEL = {
 const EVIDENCE_ORDER = ["RCT","Guideline/consensus","Evidence synthesis","Observational","Clinical case/survey"];
 // Viewer-only, like ALL_GROUP: never a stored evidence_type.
 const ALL_EVIDENCE = "__all_ev__";
+// The other viewer-only value, and the one the page opens on. A month's
+// digest is ~315 records of which ~13 are trials or guidelines; opening on
+// "Alt" buries what most readers came for under case reports. "Alt" sits
+// directly beneath it with its own count, so the whole library is one tap
+// away rather than hidden.
+const TOP_EVIDENCE = "__top_ev__";
+const TOP_EVIDENCE_TYPES = ["RCT", "Guideline/consensus"];
+// A phone turns the evidence rail into a horizontally scrolling row, where
+// 19 characters at the head of it push every other type off the screen. Same
+// trick as .banner-long in the header: the long form is there when there's
+// room for it. Only the rail reads these -- the correction form's <option>
+// list uses EVIDENCE_LABEL and never sees TOP_EVIDENCE.
+const EVIDENCE_LABEL_SHORT = { [TOP_EVIDENCE]: "RCT + retn." };
 const EVIDENCE_LABEL = {
+  [TOP_EVIDENCE]: "RCT + retningslinjer",
   [ALL_EVIDENCE]: "Alt",
   "RCT": "RCT", "Guideline/consensus": "Retningslinje",
   "Evidence synthesis": "Meta/reviews", "Observational": "Observationelt",
@@ -82,6 +105,7 @@ const TIER_LABEL = {
 // session does exactly that), and its callback reads rawLibrary. Left further
 // down, that read lands in the temporal dead zone and takes the page with it.
 let rawLibrary = [];
+let libraryGeneratedAt = null;
 let library = [];
 let hiddenLibrary = [];
 let onlyEdited = false;
@@ -331,6 +355,71 @@ function overrideDate(o) {
 let activeDisease = null;
 let activeEvidence = null;
 let onlyFlagged = false;
+let onlyNew = false;
+
+// ---------- What arrived since you last looked ----------
+// The digest runs weekly but the library is grouped by calendar month, and a
+// publication date can't answer this anyway: one sweep returns articles
+// dated weeks apart. first_seen (written by update_library.py when a record
+// enters the library) can.
+//
+// Two keys, because a badge that clears the moment you open it is no use:
+// SEEN is the basis this session compares against, PENDING is the run the
+// reader has now looked at. Opening the view writes PENDING; the next load
+// promotes it to SEEN. So the badge stays put for the whole visit and is
+// gone the next time -- unless a new run has landed in between.
+const SEEN_RUN_KEY = "reuma-evidens-seen-run";
+const PENDING_RUN_KEY = "reuma-evidens-pending-run";
+let lastSeenRun = null;
+
+function initSeenRun(generatedAt) {
+  let seen = null, pending = null;
+  try {
+    seen = localStorage.getItem(SEEN_RUN_KEY);
+    pending = localStorage.getItem(PENDING_RUN_KEY);
+  } catch (e) { /* best effort */ }
+  if (pending) {
+    seen = pending;
+    try {
+      localStorage.setItem(SEEN_RUN_KEY, pending);
+      localStorage.removeItem(PENDING_RUN_KEY);
+    } catch (e) { /* best effort */ }
+  }
+  // First ever visit: everything would count as new, which says nothing.
+  // Start from this run instead, so the badge means something from the next
+  // one onwards.
+  lastSeenRun = seen || generatedAt;
+  if (!seen) { try { localStorage.setItem(SEEN_RUN_KEY, generatedAt); } catch (e) {} }
+}
+
+function isNewRecord(rec) {
+  return !!(lastSeenRun && rec.first_seen && rec.first_seen > lastSeenRun);
+}
+
+function newRecords() { return library.filter(isNewRecord); }
+
+function toggleNewOnly() {
+  onlyNew = !onlyNew;
+  if (onlyNew) {
+    onlyStarred = false; onlyFlagged = false; onlyEdited = false;
+    resetFilters();
+    // Marks this run as looked at -- committed on the next load, so the
+    // badge doesn't vanish out from under the view it just opened.
+    try {
+      if (libraryGeneratedAt) localStorage.setItem(PENDING_RUN_KEY, libraryGeneratedAt);
+    } catch (e) { /* best effort */ }
+  }
+  refresh();
+}
+
+function renderNewBanner() {
+  const el = document.getElementById("new-banner");
+  if (!el) return;
+  const count = newRecords().length;
+  if (count === 0) { el.innerHTML = ""; return; }
+  el.innerHTML = `<button class="new-banner-btn${onlyNew ? " active" : ""}" onclick="toggleNewOnly()">\u2726 ${count}<span class="banner-long"> nye${onlyNew ? " \u2014 vis alle" : ""}</span></button>`;
+}
+
 
 // Personal bookmarks, kept in this browser only -- there's no server to save
 // them to (see the correction-form comment on why the site can't write back
@@ -344,6 +433,100 @@ try {
 } catch (e) { /* starting empty is fine */ }
 let onlyStarred = false;
 
+// ---------- Free-text search ----------
+// The disease groups are eleven broad buckets; they can't answer "what have
+// we got on bimekizumab". This can, because it reads the abstract too.
+let searchQuery = "";
+// Keyed by pmid rather than stored on the record: applyOverrides() rebuilds
+// the record objects every time an override lands, which would throw away a
+// field cached on them.
+const haystacks = new Map();
+
+function haystackFor(rec) {
+  let h = haystacks.get(rec.pmid);
+  if (h === undefined) {
+    h = [
+      rec.title,
+      rec.journal,
+      rec.first_author,
+      rec.last_author,
+      (rec.keywords || []).join(" "),
+      (rec.abstract_sections || []).map(x => (x.label || "") + " " + (x.text || "")).join(" "),
+    ].join(" ").toLowerCase();
+    haystacks.set(rec.pmid, h);
+  }
+  return h;
+}
+
+// Every term has to appear, so adding a word narrows rather than widens --
+// what typing more words is expected to do.
+function matchesQuery(rec) {
+  if (!searchQuery) return true;
+  const hay = haystackFor(rec);
+  return searchQuery.split(/\s+/).every(term => hay.includes(term));
+}
+
+function setQuery(value) {
+  searchQuery = value.trim().toLowerCase();
+  refresh();
+}
+
+// Used by the note above the results: a search that composes with the
+// filters is predictable, but it can silently miss most of the library,
+// since the page opens with two of them narrowed. So the count that the
+// filters are holding back is shown, with one tap to release them.
+function queryHitsOutsideFilters() {
+  if (!searchQuery) return 0;
+  return library.filter(r => matchesQuery(r)
+    && !(inTier(r) && inDisease(r) && inEvidence(r))).length;
+}
+
+function clearFilters() {
+  activeDisease = ALL_GROUP;
+  activeEvidence = ALL_EVIDENCE;
+  activeTiers = new Set(TIERS);
+  saveFilters();
+  refresh();
+}
+
+// What the bypass views need: their badge counts every matching record, so
+// the view behind it must not be narrowed by anything. Deliberately not
+// saved -- this is a temporary widening, not a choice about how to browse.
+function resetFilters() {
+  activeDisease = ALL_GROUP;
+  activeEvidence = ALL_EVIDENCE;
+  activeTiers = new Set(TIERS);
+  searchQuery = "";
+  const box = document.getElementById("search");
+  if (box) box.value = "";
+}
+
+// ---------- Filter memory ----------
+// Same reasoning as the stars below: a returning reader shouldn't have to
+// rebuild the view they were using. Storage can throw in a locked-down
+// context, so every access is best-effort and a failure just means defaults.
+const FILTER_STORAGE_KEY = "reuma-evidens-filters";
+
+function saveFilters() {
+  try {
+    localStorage.setItem(FILTER_STORAGE_KEY, JSON.stringify({
+      evidence: activeEvidence, disease: activeDisease, tiers: [...activeTiers],
+    }));
+  } catch (e) { /* best effort */ }
+}
+
+function restoreFilters() {
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(FILTER_STORAGE_KEY) || "null"); }
+  catch (e) { /* fall through to defaults */ }
+  if (!saved) return;
+  if (saved.evidence) activeEvidence = saved.evidence;
+  if (saved.disease) activeDisease = saved.disease;
+  // An empty set would render an empty page with no obvious way out, so a
+  // stored one is ignored. refresh() drops a group that no longer has hits.
+  if (Array.isArray(saved.tiers) && saved.tiers.length) activeTiers = new Set(saved.tiers);
+}
+
 function isStarred(rec) { return starredSet.has(rec.pmid); }
 
 function toggleStar(pmid) {
@@ -355,7 +538,7 @@ function toggleStar(pmid) {
 
 function toggleStarredOnly() {
   onlyStarred = !onlyStarred;
-  if (onlyStarred) { onlyFlagged = false; onlyEdited = false; }  // one bypass view at a time
+  if (onlyStarred) { onlyFlagged = false; onlyEdited = false; onlyNew = false; }  // one bypass view at a time
   refresh();
 }
 
@@ -364,7 +547,11 @@ function renderStarBanner() {
   const count = starredSet.size;
   el.innerHTML = `<button class="star-banner-btn${onlyStarred ? " active" : ""}" onclick="toggleStarredOnly()">${onlyStarred ? "★" : "☆"} <span class="banner-long">Stjernede </span>(${count})<span class="banner-long">${onlyStarred ? " — vis alle" : ""}</span></button>`;
 }
-let activeTiers = new Set(TIERS);  // all on by default
+// Tier 4 ("Øvrige") is 633 of 1020 records -- more than the other three
+// combined -- and it is the tier a reader is least likely to want first. It
+// starts off; the chip row shows it with its count, so turning it on is one
+// tap and the number is never a promise about hidden items.
+let activeTiers = new Set([1, 2, 3]);
 let currentMonth = null;  // "YYYY-MM" of the digest run
 
 // The tier filter applies everywhere, not just to the list: tab counts and the
@@ -377,13 +564,6 @@ function inTier(rec) { return activeTiers.has(rec.tier); }
 function monthKey(date) {
   const key = date.slice(0, 7);
   return (currentMonth && key > currentMonth) ? currentMonth : key;
-}
-
-// Month key n months before `key`, e.g. monthsBack("2026-08", 5) -> "2026-03".
-function monthsBack(key, n) {
-  const [year, month] = key.split("-").map(Number);
-  const d = new Date(year, month - 1 - n, 1);
-  return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
 }
 
 function monthLabel(key) {
@@ -404,9 +584,13 @@ function inDisease(rec) {
   return activeDisease === ALL_GROUP || groupsOf(rec).includes(activeDisease);
 }
 
-function inEvidence(rec) {
-  return activeEvidence === ALL_EVIDENCE || rec.evidence_type === activeEvidence;
+function matchesEvidence(rec, type) {
+  if (type === ALL_EVIDENCE) return true;
+  if (type === TOP_EVIDENCE) return TOP_EVIDENCE_TYPES.includes(rec.evidence_type);
+  return rec.evidence_type === type;
 }
+
+function inEvidence(rec) { return matchesEvidence(rec, activeEvidence); }
 
 function passesFlagFilter(rec) {
   return !onlyFlagged || !!rec.flagged;
@@ -414,9 +598,8 @@ function passesFlagFilter(rec) {
 
 function toggleFlaggedOnly() {
   onlyFlagged = !onlyFlagged;
-  if (onlyFlagged) { onlyStarred = false; onlyEdited = false; }  // one bypass view at a time
-  activeDisease = ALL_GROUP;
-  activeEvidence = ALL_EVIDENCE;
+  if (onlyFlagged) { onlyStarred = false; onlyEdited = false; onlyNew = false; }  // one bypass view at a time
+  resetFilters();
   refresh();
 }
 
@@ -437,9 +620,8 @@ function renderFlagBanner() {
 function toggleEditedOnly() {
   if (!isOwner()) return;
   onlyEdited = !onlyEdited;
-  if (onlyEdited) { onlyStarred = false; onlyFlagged = false; }
-  activeDisease = ALL_GROUP;
-  activeEvidence = ALL_EVIDENCE;
+  if (onlyEdited) { onlyStarred = false; onlyFlagged = false; onlyNew = false; }
+  resetFilters();
   refresh();
 }
 
@@ -685,18 +867,15 @@ function renderGroupedItems(items, emptyMessage) {
     byMonth.get(key).push(rec);
   });
 
-  // Expanded by default: every month within the last six of the run month.
-  // The `i === 0` clause keeps the topmost section open in a sparse combo whose
-  // newest items are already older than that window.
-  const openFrom = currentMonth ? monthsBack(currentMonth, 5) : null;
-
   const months = [...byMonth.keys()].sort().reverse();
   panel.innerHTML = months.map((key, i) => {
     const monthItems = byMonth.get(key);
     // Only the run month earns the generic label -- in a sparse group the top
     // section can be months old, and calling that "Seneste måned" would misread.
     const label = key === currentMonth ? "Seneste måned" : monthLabel(key);
-    const openAttr = (i === 0 || (openFrom && key >= openFrom)) ? " open" : "";
+    // Only the top section. Six were expanded before, which on a phone made
+    // the page 361 screens tall before a single filter had been touched.
+    const openAttr = i === 0 ? " open" : "";
     return `
       <details${openAttr} class="time-bucket">
         <summary>${label} (${monthItems.length})</summary>
@@ -711,6 +890,11 @@ function renderPanel() {
     return;
   }
 
+  if (onlyNew) {
+    renderGroupedItems(newRecords(), "Intet nyt siden sidst.");
+    return;
+  }
+
   if (onlyStarred) {
     renderGroupedItems(library.filter(isStarred), "Ingen stjernede artikler endnu.");
     return;
@@ -721,8 +905,17 @@ function renderPanel() {
     return;
   }
 
-  const items = library.filter(r => inTier(r) && inDisease(r) && inEvidence(r) && passesFlagFilter(r));
-  renderGroupedItems(items, onlyFlagged ? "Ingen flagede poster her." : "Ingen nye.");
+  const items = library.filter(r =>
+    inTier(r) && inDisease(r) && inEvidence(r) && passesFlagFilter(r) && matchesQuery(r));
+  const empty = onlyFlagged ? "Ingen flagede poster her."
+    : searchQuery ? "Ingen træffere." : "Ingen nye.";
+  renderGroupedItems(items, empty);
+  const hidden = queryHitsOutsideFilters();
+  if (hidden > 0) {
+    document.getElementById("panel").insertAdjacentHTML("afterbegin",
+      `<p class="search-note">${hidden} ${hidden === 1 ? "træffer er" : "træffere er"} skjult af filtrene.
+        <button type="button" class="search-note-btn" onclick="clearFilters()">Vis alle træffere</button></p>`);
+  }
 }
 
 // Single redraw path: recompute which disease tabs still have hits under the
@@ -737,9 +930,14 @@ function refresh() {
   // the badge that toggles it is gone by then.
   if (onlyEdited && !isOwner()) onlyEdited = false;
   renderStarBanner();
+  renderNewBanner();
+  // The search box is part of the filter row the bypass views take down, so
+  // it goes with them rather than sitting there looking like it still applies.
+  const searchBox = document.getElementById("search");
+  if (searchBox) searchBox.hidden = onlyStarred || onlyEdited || onlyNew;
   // Both bypass views ignore every other filter, so the rows that no longer
   // apply come down rather than sitting there stale.
-  if (onlyStarred || onlyEdited) {
+  if (onlyStarred || onlyEdited || onlyNew) {
     document.getElementById("evidence-tabs").innerHTML = "";
     document.getElementById("disease-tabs").innerHTML = "";
     document.getElementById("tier-filter").innerHTML = "";
@@ -750,7 +948,8 @@ function refresh() {
   }
 
   const groups = DISEASE_ORDER.filter(g =>
-    library.some(r => inTier(r) && inEvidence(r) && passesFlagFilter(r) && groupsOf(r).includes(g)));
+    library.some(r => inTier(r) && inEvidence(r) && passesFlagFilter(r) && matchesQuery(r)
+      && groupsOf(r).includes(g)));
   if (groups.length > 0) groups.unshift(ALL_GROUP);  // always first, the default
   if (!groups.includes(activeDisease)) {
     activeDisease = groups[0] || activeDisease;
@@ -765,17 +964,20 @@ function refresh() {
 
 function selectEvidence(type) {
   activeEvidence = type;
+  saveFilters();
   refresh();
 }
 
 function selectDisease(group) {
   activeDisease = group;
+  saveFilters();
   refresh();
 }
 
 function toggleTier(tier) {
   if (activeTiers.has(tier)) activeTiers.delete(tier);
   else activeTiers.add(tier);
+  saveFilters();
   refresh();
 }
 
@@ -783,7 +985,7 @@ function renderTierFilter() {
   const el = document.getElementById("tier-filter");
   el.innerHTML = `<span class="tier-filter-label">Tidsskrifttype</span>` + TIERS.map(tier => {
     const on = activeTiers.has(tier);
-    const count = library.filter(r => r.tier === tier && inEvidence(r)).length;
+    const count = library.filter(r => r.tier === tier && inEvidence(r) && matchesQuery(r)).length;
     return `<label class="tier-chip t${tier}${on ? " on" : ""}">
       <input type="checkbox" ${on ? "checked" : ""} onchange="toggleTier(${tier})">${TIER_LABEL[tier]}
       <span class="tier-chip-count">${count}</span>
@@ -793,11 +995,15 @@ function renderTierFilter() {
 
 function renderEvidenceTabs() {
   const el = document.getElementById("evidence-tabs");
-  el.innerHTML = [ALL_EVIDENCE, ...EVIDENCE_ORDER].map(type => {
+  el.innerHTML = [TOP_EVIDENCE, ALL_EVIDENCE, ...EVIDENCE_ORDER].map(type => {
     const count = library.filter(r =>
-      inTier(r) && passesFlagFilter(r) && (type === ALL_EVIDENCE || r.evidence_type === type)).length;
+      inTier(r) && passesFlagFilter(r) && matchesQuery(r) && matchesEvidence(r, type)).length;
     const active = type === activeEvidence ? "active" : "";
-    return `<div class="tab-item ${active}" onclick="selectEvidence('${type}')"><span>${EVIDENCE_LABEL[type]}</span><span class="count">${count}</span></div>`;
+    const short = EVIDENCE_LABEL_SHORT[type];
+    const label = short
+      ? `<span class="tab-long">${EVIDENCE_LABEL[type]}</span><span class="tab-short">${short}</span>`
+      : EVIDENCE_LABEL[type];
+    return `<div class="tab-item ${active}" onclick="selectEvidence('${type}')"><span>${label}</span><span class="count">${count}</span></div>`;
   }).join("");
 }
 
@@ -855,13 +1061,18 @@ Promise.all([
     rawLibrary = Array.isArray(data) ? data : data.records;
     applyOverrides(rawLibrary);
     const generatedAt = Array.isArray(data) ? null : data.generated_at;
+    libraryGeneratedAt = generatedAt;
     if (generatedAt) {
       document.getElementById("updated-date").textContent = "Sidst opdateret: " + generatedAt;
     }
     // Set before any rendering: monthKey() folds post-dated records into it.
     currentMonth = (generatedAt || new Date().toISOString()).slice(0, 7);
+    initSeenRun(generatedAt);
+    // Defaults first, then whatever this reader last chose on this device.
     activeDisease = ALL_GROUP;
-    selectEvidence(ALL_EVIDENCE);
+    activeEvidence = TOP_EVIDENCE;
+    restoreFilters();
+    refresh();
   })
   .catch(err => {
     document.getElementById("panel").innerHTML = `<p class="empty-note">Kunne ikke indlæse data.</p>`;

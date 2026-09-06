@@ -291,9 +291,14 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
 - Dedups by PMID against existing records
 - Prepends new records (newest first)
 - Drops records >24 months old
-- Recomputes `time_bucket` (`recent` ≤1mo / `mid` 1–6mo / `older` 6–24mo) for **all**
-  records every run. Retained as metadata — the viewer groups by calendar month
-  instead (see Step 3), so nothing on the page depends on it.
+- Stamps `first_seen` (the run date) on every new record, and backfills it on any
+  older record that predates the field, using `min(date, run date)`. This is the
+  field behind "nyt siden sidst" in the viewer, and a publication date cannot
+  stand in for it: one weekly sweep returns articles dated weeks apart. The clamp
+  matters because journals post-date issues — an unclamped record would sit
+  permanently ahead of every "seen" marker and read as new for ever.
+- Drops `time_bucket` from any record still carrying it. It was recomputed every
+  run and read by nothing.
 - Writes `docs/data/library.json` as `{"generated_at": "YYYY-MM-DD", "records": [...]}`.
   `generated_at` is the run date — that's what the viewer shows as "Sidst opdateret",
   deliberately *not* the newest record's publication date (journals post-date issues,
@@ -302,23 +307,44 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
 ## STEP 3 — VIEWER (static, no regeneration)
 `docs/index.html` + `docs/assets/style.css` read `docs/data/library.json` at load time via fetch
 (cache-busted). Layout:
-- Left sidebar: evidence-type tabs, led by an **"Alt"** tab (all types), each with a
-  live count
-- Disease-group tabs across the top, led by an **"Alle"** tab (all groups)
-- Default view is **Alt × Alle** — the whole library — and both pseudo-tabs come
-  first in their row. They are viewer-only (`ALL_EVIDENCE` / `ALL_GROUP` in
-  `docs/index.html`), never stored values, so they stay out of `DISEASE_ORDER`,
-  out of `disease_groups`, and out of the digests. A cross-listed article appears
-  once under "Alle", not twice.
-- Tier filter: T1–T4 checkboxes, all on by default, each showing its count within
-  the active evidence type. Applies to everything — tab counts and which disease
-  tabs appear follow it, so a count never promises items the filter is hiding.
-  With every tier unchecked the panel reads "Vælg mindst ét niveau."
+- Left sidebar: evidence-type tabs, led by **"RCT + retningslinjer"** and then
+  **"Alt"**, each with a live count. Abbreviated to "RCT + retn." below 820px,
+  where the sidebar becomes a horizontally scrolling row and the long label would
+  push every other type off screen.
+- Disease-group tabs across the top, led by an **"Alle"** tab (all groups), with a
+  search field at the end of the same row
+- Default view is **RCT + retningslinjer × Alle, tiers 1–3**. The reasoning, from
+  the numbers: a run month holds ~315 records of which ~13 are trials or
+  guidelines, and tier 4 alone is 633 of 1020 records. Opening on the whole
+  library buried what most readers came for and made the page 361 phone screens
+  tall. "Alt" and the "Øvrige" chip sit right there with their counts, so the
+  full library is one tap away.
+- All three pseudo-values are viewer-only (`TOP_EVIDENCE` / `ALL_EVIDENCE` /
+  `ALL_GROUP` in `docs/index.html`), never stored, so they stay out of
+  `DISEASE_ORDER`, out of `disease_groups`, and out of the digests. A cross-listed
+  article appears once under "Alle", not twice.
+- Tier filter: T1–T4 checkboxes, T4 off by default, each showing its count within
+  the active evidence type and search. Applies to everything — tab counts and which
+  disease tabs appear follow it, so a count never promises items the filter is
+  hiding. With every tier unchecked the panel reads "Vælg mindst én tidsskrifttype."
+- **Search** over title, journal, authors, keywords and abstract text; every term
+  must match, so more words narrow. It composes with the filters rather than
+  overriding them, but because the page opens narrowed, any hits the filters are
+  holding back are counted above the results with a button that releases them.
+  The input sits outside `#disease-tabs`, which `refresh()` rewrites on every
+  keystroke — inside it, the field would lose focus as you typed.
+- **"✦ N nye"** in the header: records whose `first_seen` is later than the last
+  run this reader has looked at. Two localStorage keys, because a badge that
+  clears the moment you open it is no use — opening the view records the run as
+  pending, and the next load promotes it. So the badge holds for the whole visit
+  and is gone the next time, unless a new run has landed.
+- The three filter selections are remembered in localStorage (as the stars are),
+  so a returning reader lands where they left. The search box is not — it is a
+  question you asked once, not a way of browsing.
 - Within each disease × evidence-type combo: one collapsible section per calendar
   month, newest first, each with a count, at the same font size as the disease tabs.
-  Every month within the last six of the run month is open on load; older ones are
-  collapsed. A combo whose newest items already predate that window still opens its
-  topmost section, so it never loads looking empty.
+  Only the topmost section is open on load — six were, which is what made the
+  default view 361 screens tall.
   - The section for the run's own month is labelled "Seneste måned"; every other
     section carries month + year ("Juli 2026"). A sparse combo whose newest items
     are months old therefore opens on a dated section, not on "Seneste måned".
