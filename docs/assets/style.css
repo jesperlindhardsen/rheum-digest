@@ -38,7 +38,30 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
      through the bar as cards scrolled underneath. */
   background: var(--paper);
   border-bottom: 1px solid var(--line);
+  /* So .offline-banner can claim a full-width row of its own beneath the
+     brand and the badges, instead of being squeezed in beside them. */
+  flex-wrap: wrap;
 }
+/* Sits inside the sticky header on purpose: the height it adds is picked up
+   by the ResizeObserver that maintains --header-h, so the tab rail and the
+   group row below stay lined up, and the warning can't be scrolled away
+   from while the controls it explains are missing. */
+.site-header .offline-banner {
+  flex: 1 1 100%;
+  /* .salix p caps every paragraph at 65ch for reading measure, which left
+     this one a 537px box floating in the header instead of a bar across it.
+     A status line isn't running prose. */
+  max-width: none;
+  margin: var(--s-2) 0 0 0;
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--clay-soft);
+  border-radius: var(--r-sm);
+  background: var(--clay-wash);
+  color: var(--clay-deep);
+  font-size: var(--fs-cap);
+  line-height: 1.45;
+}
+.site-header .offline-banner[hidden] { display: none; }
 .brand {
   display: flex;
   align-items: center;

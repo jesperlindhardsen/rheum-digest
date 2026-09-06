@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=21">
+<link rel="stylesheet" href="assets/style.css?v=22">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -26,6 +26,7 @@
     <span id="edit-banner"></span>
     <span id="updated-date"></span>
   </span>
+  <p id="offline-banner" class="offline-banner" hidden></p>
 </header>
 
 <div id="app">
@@ -135,6 +136,57 @@ let auth = null, db = null, currentUser = null;
 // pmid -> {hidden?, dismissed_flag?, disease_groups?, evidence_type?}
 let overridesMap = new Map();
 
+// Null while the correction layer works. Otherwise {scope, detail}, and the
+// page says so in a bar under the header. Without it the two failures look
+// identical to a reader: an article whose correction never loaded is
+// indistinguishable from one nobody has corrected, and the site quietly
+// shows stale classifications as if they were current. Two scopes, because
+// they are genuinely different situations:
+//   "all"    -- the startup read failed, so no correction is on screen at
+//               all and there is nothing to write against either.
+//   "writes" -- corrections loaded and are displayed, but saving just
+//               failed. What's shown is still right; new edits are lost.
+let overridesOffline = null;
+
+// The edit controls are drawn only when there is something behind them. A
+// failed write may well be a passing blip, so those buttons stay (retrying
+// is the useful thing to do); a failed read leaves nothing to act on.
+function editsEnabled() {
+  return FIREBASE_AVAILABLE && !(overridesOffline && overridesOffline.scope === "all");
+}
+
+// Firestore reports a rejected App Check token and a rules denial the same
+// way, and from the browser they call for the same thing anyway.
+function offlineDetail(err) {
+  return (err && err.code) === "permission-denied"
+    ? "Databasen afviste sidens anmodning."
+    : "Der er ikke forbindelse til databasen.";
+}
+
+function setOverridesOffline(state) {
+  const before = overridesOffline && overridesOffline.scope;
+  overridesOffline = state;
+  renderOfflineBanner();
+  // A change of scope can add or remove the edit controls, so the cards are
+  // repainted -- but only once there are cards, since the startup read
+  // resolves before the library does.
+  if (rawLibrary.length && before !== (state && state.scope)) refresh();
+}
+
+function renderOfflineBanner() {
+  const el = document.getElementById("offline-banner");
+  if (!el) return;
+  el.hidden = !overridesOffline;
+  if (!overridesOffline) return;
+  // Kept short on purpose: this sits in the sticky header, so every line it
+  // wraps to is a line of the screen permanently spent on it.
+  const all = overridesOffline.scope === "all";
+  const lead = all ? "Rettelser er ikke aktive." : "Rettelsen blev ikke gemt.";
+  const body = all ? "Siden viser den ugentlige udgave uden rettelser. " : "";
+  const next = all ? "Pr\u00f8v at genindl\u00e6se siden." : "Pr\u00f8v igen, eller genindl\u00e6s siden.";
+  el.innerHTML = `\u26a0 <strong>${lead}</strong> ${body}${overridesOffline.detail} ${next}`;
+}
+
 if (FIREBASE_AVAILABLE) {
   firebase.initializeApp(firebaseConfig);
   if (RECAPTCHA_SITE_KEY !== "REPLACE_ME" && firebase.appCheck
@@ -196,10 +248,22 @@ function signIn() {
 function signOutUser() { auth.signOut(); }
 
 function loadOverrides() {
-  if (!FIREBASE_AVAILABLE) return Promise.resolve();
+  // The SDK never loaded, or no project is configured. Corrections are just
+  // as absent as if the read had failed, so it is announced the same way.
+  if (!FIREBASE_AVAILABLE) {
+    setOverridesOffline({
+      scope: "all",
+      detail: "Rettelseslaget kunne ikke indl\u00e6ses \u2014 m\u00e5ske blokeret af browseren.",
+    });
+    return Promise.resolve();
+  }
   return db.collection("overrides").get().then(snap => {
     overridesMap = new Map(snap.docs.map(d => [d.id, d.data()]));
-  }).catch(err => console.error("Kunne ikke hente rettelser fra Firestore", err));
+    setOverridesOffline(null);
+  }).catch(err => {
+    console.error("Kunne ikke hente rettelser fra Firestore", err);
+    setOverridesOffline({ scope: "all", detail: offlineDetail(err) });
+  });
 }
 
 // Applied on top of the fetched records, never in place -- rawLibrary stays
@@ -450,10 +514,11 @@ async function applyOverride(pmid, patch) {
       ...(overridesMap.get(pmid) || {}), ...stamped, updated_at: new Date().toISOString(),
     });
     applyOverrides(rawLibrary);
+    setOverridesOffline(null);
     refresh();
   } catch (err) {
     console.error("Kunne ikke gemme rettelsen", err);
-    alert("Rettelsen kunne ikke gemmes. Du har muligvis ikke adgang til at rette.");
+    setOverridesOffline({ scope: "writes", detail: offlineDetail(err) });
   }
 }
 
@@ -475,10 +540,11 @@ async function acknowledgeEdit(pmid) {
     await db.collection("overrides").doc(pmid).set({ acknowledged: true }, { merge: true });
     overridesMap.set(pmid, { ...(overridesMap.get(pmid) || {}), acknowledged: true });
     applyOverrides(rawLibrary);
+    setOverridesOffline(null);
     refresh();
   } catch (err) {
     console.error("Kunne ikke kvittere for rettelsen", err);
-    alert("Kunne ikke kvittere for rettelsen.");
+    setOverridesOffline({ scope: "writes", detail: offlineDetail(err) });
   }
 }
 
@@ -489,10 +555,11 @@ async function revertEdit(pmid) {
     await db.collection("overrides").doc(pmid).delete();
     overridesMap.delete(pmid);
     applyOverrides(rawLibrary);
+    setOverridesOffline(null);
     refresh();
   } catch (err) {
     console.error("Kunne ikke fortryde rettelsen", err);
-    alert("Kunne ikke fortryde rettelsen.");
+    setOverridesOffline({ scope: "writes", detail: offlineDetail(err) });
   }
 }
 
@@ -559,7 +626,7 @@ function renderItem(rec) {
   // unreachable would just be buttons that quietly do nothing.
   const flag = rec.flagged
     ? `<p class="flag-note"><span>⚑ ${rec.flagged}</span>
-        ${FIREBASE_AVAILABLE && !isHidden ? `<span class="flag-actions">
+        ${editsEnabled() && !isHidden ? `<span class="flag-actions">
           <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">Ryd flag</button>
           <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Fjern artikel</button>
         </span>` : ""}
@@ -593,7 +660,7 @@ function renderItem(rec) {
           <summary>Abstract</summary>
           <div class="abstract-full">${sections}</div>
         </details>
-        ${FIREBASE_AVAILABLE && !isHidden ? `<details class="correction-toggle">
+        ${editsEnabled() && !isHidden ? `<details class="correction-toggle">
           <summary>Rettelse</summary>
           ${renderCorrectionBody(rec)}
         </details>` : ""}

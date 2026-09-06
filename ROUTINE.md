@@ -56,8 +56,8 @@ quietly looking like a normal record:
 `firestore.rules` enforces the parts that matter: only the owner may set
 `acknowledged` (or an edit could mark itself reviewed and never surface) and only
 the owner may delete. The owner's own edits are written already-acknowledged,
-since there's nobody else to review them. The owner signs in with Google; nobody
-else signs in at all.
+since there's nobody else to review them. The owner signs in with an address and password created by hand in the
+Firebase console; nobody else signs in at all.
 
 **What stops a script rather than a person is App Check**, enforced in the Firebase
 console rather than in the rules — it runs before them and rejects anything without
@@ -66,6 +66,17 @@ deliberate trade: hospital mail quarantines Firebase's sign-in links and the
 quarantine isn't reachable from the account, so the alternative was no colleague
 edits at all. Every edit is marked and revertible, which is what makes the weaker
 gate tolerable here.
+
+**When the correction layer is down, the page says so** — a bar under the header,
+in two versions. If the startup read fails, corrections are neither shown nor
+possible, and the edit controls come off the cards; the bar says the site is
+showing the weekly edition without corrections. If a save fails, what's on screen
+still holds and the buttons stay so a retry is possible. Without this a reader
+can't distinguish an article whose correction never loaded from one nobody has
+corrected, and the site would quietly present stale classifications as current.
+Turning on App Check *enforcement* is the most likely way to trigger the first
+version: enforcement applies to reads too, so a bad token takes the overrides with
+it.
 
 **Overrides are a read-time patch, and this routine never touches them.** A
 correction takes effect on the live site immediately and stays in Firestore
