@@ -95,18 +95,6 @@ def classify_disease_groups(raw_text: str, title: str = None) -> list:
     return groups
 
 
-def compute_bucket(pub_date: str, today: datetime) -> str:
-    """Return 'recent' (<=1mo), 'mid' (1-6mo), or 'older' (6-24mo)."""
-    d = datetime.strptime(pub_date, "%Y-%m-%d")
-    age_days = (today - d).days
-    if age_days <= 30:
-        return "recent"
-    elif age_days <= 182:
-        return "mid"
-    else:
-        return "older"
-
-
 def load_library(path: Path) -> list:
     if not path.exists():
         return []
@@ -161,6 +149,7 @@ def update_library(new_hits: list, library_path: str, today: datetime = None) ->
             "title": hit["title"],
             "abstract_sections": hit["abstract_sections"],
             "keywords": hit.get("keywords", []),
+            "first_seen": today.strftime("%Y-%m-%d"),
         }
         # Set only when AI's weekly read flags something a deterministic
         # filter didn't catch (see ROUTINE.md) -- a short reason, shown on
@@ -179,9 +168,22 @@ def update_library(new_hits: list, library_path: str, today: datetime = None) ->
         if datetime.strptime(rec["date"], "%Y-%m-%d") >= cutoff
     ]
 
-    # Recompute time bucket for every record (ages shift each run)
+    # first_seen is when a record entered this library, which is not its
+    # publication date: one weekly sweep returns articles dated weeks apart,
+    # so a date range can't answer "what is new since I last looked". Records
+    # from before the field existed are backfilled with their publication
+    # date -- the closest honest guess -- and keep it from then on.
+    # time_bucket used to be recomputed here and was read by nothing; it is
+    # dropped from any record still carrying it.
+    run_date = today.strftime("%Y-%m-%d")
     for rec in library:
-        rec["time_bucket"] = compute_bucket(rec["date"], today)
+        # Clamped to the run date for the same reason monthKey() clamps in the
+        # viewer: journals post-date issues, so a record can carry a date
+        # weeks ahead of the run that fetched it. Unclamped, those records
+        # would sit permanently ahead of every "seen" marker and read as new
+        # for ever.
+        rec.setdefault("first_seen", min(rec["date"], run_date))
+        rec.pop("time_bucket", None)
 
     # Sort: newest first overall (view logic re-groups by disease/type/bucket)
     library.sort(key=lambda r: r["date"], reverse=True)

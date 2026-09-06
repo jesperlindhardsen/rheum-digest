@@ -126,6 +126,24 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 .star-banner-btn:hover { background: var(--clay-soft); }
 .star-banner-btn.active { background: var(--clay); color: var(--bg-elevated); }
 
+/* Moss, the palette's primary: this is the badge most readers want first,
+   and it should read as the way in rather than as another warning. */
+.new-banner-btn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-cap);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: var(--moss-deep);
+  background: var(--moss-wash);
+  border: none;
+  border-radius: var(--r-pill);
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.new-banner-btn:hover { background: var(--moss-soft); }
+.new-banner-btn.active { background: var(--moss-deep); color: var(--bg-elevated); }
+
 /* Only rendered once firebaseConfig is filled in (see docs/index.html) --
    moss, same accent as the other live-write actions (accept-flag-btn,
    correction-submit). */
@@ -225,6 +243,7 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   color: var(--moss-deep);
   background: var(--bg-elevated);
 }
+.tab-short { display: none; }
 
 /* ---------- Viewer ---------- */
 #viewer {
@@ -236,10 +255,11 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 /* Sticky under the header, so the group you're reading stays named while you
    scroll. Needs an opaque background of its own -- the cards pass underneath
    it, not behind the page. */
-.tabs-row {
+.filter-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-6);
+  align-items: flex-end;
+  gap: var(--s-4) var(--s-6);
   border-bottom: 1px solid var(--line);
   margin-bottom: var(--s-8);
   position: sticky;
@@ -248,6 +268,54 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   background: var(--paper);
   padding-top: var(--s-4);
 }
+.tabs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-6);
+  /* No bottom spacing of its own: .etab.active hangs its underline 1px over
+     the parent's border, which only lines up if nothing sits between them. */
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.search-input {
+  flex: 0 1 240px;
+  align-self: center;
+  margin-bottom: var(--s-3);
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  color: var(--ink);
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: 6px 14px;
+  min-width: 0;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.search-input:focus { outline: none; border-color: var(--moss); }
+.search-input::placeholder { color: var(--ink-4); }
+.search-input[hidden] { display: none; }
+/* Says what the filters are holding back from a search, and releases them.
+   Sits at the top of the results rather than in the filter row: it is about
+   this result set, and it is only ever there while something is typed. */
+.search-note {
+  margin: 0 0 var(--s-6) 0;
+  max-width: none;
+  font-size: var(--fs-cap);
+  color: var(--ink-3);
+}
+.search-note-btn {
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--moss-deep);
+  background: var(--moss-wash);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 3px 10px;
+  margin-left: var(--s-2);
+  cursor: pointer;
+}
+.search-note-btn:hover { background: var(--moss-soft); }
 /* Wide screens get the tab row; .disease-select takes over below 820px. */
 .disease-select { display: none; }
 .etab {
@@ -741,6 +809,10 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
     background: var(--paper);
   }
   .tab-item { flex-shrink: 0; }
+  /* See EVIDENCE_LABEL_SHORT in index.html: the rail scrolls sideways from
+     here down, so the widest label decides how many types you can see. */
+  .tab-long { display: none; }
+  .tab-short { display: inline; }
   /* The badges were running off the right edge here -- and the review badge
      being half-clipped matters, since tapping it is how you get to the
      flagged queue. Let them wrap instead, and drop the run date, which is
@@ -756,12 +828,15 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   /* The tab row wraps to three lines at this width -- 158px of a ~700px
      viewport, before anything is even read -- so the groups collapse into a
      dropdown, and the row stacks under the (now horizontal) evidence rail. */
-  .tabs-row {
+  .filter-row {
     top: calc(var(--header-h) + var(--rail-h));
     border-bottom: none;
     margin-bottom: var(--s-6);
     padding-bottom: var(--s-3);
   }
+  /* The group dropdown and the search field are the two ways to narrow on a
+     phone, and neither is readable at half width -- so they stack. */
+  .search-input { flex: 1 1 100%; margin-bottom: 0; }
   .etab { display: none; }
   .disease-select {
     display: block;
