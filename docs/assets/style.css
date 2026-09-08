@@ -504,7 +504,18 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   letter-spacing: var(--tracking-wide);
   max-width: none;
 }
-.item .meta a { font-family: var(--font-mono); font-size: 0.95em; }
+.item .meta a { font-family: var(--font-mono); font-size: 0.95em; white-space: nowrap; }
+/* The PMID is the one thing on a card that leaves the site, and in mono at
+   0.95em the moss link colour alone wasn't reading as clickable. An ::after
+   rather than markup: it stays out of the copied text, so the PMID still
+   pastes clean, and out of textContent, which the tests read. */
+.item .meta a::after {
+  content: "\2197";
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  margin-left: 3px;
+  vertical-align: 1px;
+}
 .item .meta .journal { font-weight: var(--w-semi); color: var(--ink-2); }
 .flag-note {
   margin: var(--s-2) 0 0 0;
