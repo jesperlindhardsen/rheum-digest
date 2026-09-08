@@ -345,6 +345,13 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   clears the moment you open it is no use — opening the view records the run as
   pending, and the next load promotes it. So the badge holds for the whole visit
   and is gone the next time, unless a new run has landed.
+  - On a first visit there is nothing stored to compare against. Comparing
+    against this run leaves the badge silent until you have been here twice,
+    which is close to not shipping it; comparing against nothing calls all
+    1100-odd records new. So the opening basis is the run *before* this one —
+    what's new is the latest weekly batch. `previousRun()` takes the largest
+    `first_seen` strictly below the run date, which lands exactly on that batch
+    because nothing can be stamped later than the run that fetched it.
 - The three filter selections are remembered in localStorage (as the stars are),
   so a returning reader lands where they left. The search box is not — it is a
   question you asked once, not a way of browsing.

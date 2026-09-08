@@ -389,11 +389,27 @@ function initSeenRun(generatedAt) {
       localStorage.removeItem(PENDING_RUN_KEY);
     } catch (e) { /* best effort */ }
   }
-  // First ever visit: everything would count as new, which says nothing.
-  // Start from this run instead, so the badge means something from the next
-  // one onwards.
-  lastSeenRun = seen || generatedAt;
-  if (!seen) { try { localStorage.setItem(SEEN_RUN_KEY, generatedAt); } catch (e) {} }
+  // First ever visit. Comparing against nothing would call all 1100-odd
+  // records new, which says nothing -- but comparing against this run, as
+  // this did at first, leaves the badge silent until you have been here
+  // twice. A feature nobody sees on their first visit is close to not
+  // shipping it, so the opening basis is the run before this one: what's
+  // new is the latest weekly batch. Taking the largest first_seen strictly
+  // below the run date lands exactly on that batch, since nothing can be
+  // stamped later than the run that fetched it.
+  if (!seen) {
+    seen = previousRun(generatedAt);
+    try { localStorage.setItem(SEEN_RUN_KEY, seen); } catch (e) { /* best effort */ }
+  }
+  lastSeenRun = seen;
+}
+
+function previousRun(generatedAt) {
+  let prev = "";
+  rawLibrary.forEach(r => {
+    if (r.first_seen && r.first_seen < generatedAt && r.first_seen > prev) prev = r.first_seen;
+  });
+  return prev;
 }
 
 function isNewRecord(rec) {
