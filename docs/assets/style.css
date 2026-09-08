@@ -80,10 +80,19 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 }
 #updated-date {
   font-family: var(--font-mono);
-  font-size: var(--fs-cap);
-  color: var(--ink-3);
+  font-size: var(--fs-micro);
+  color: var(--ink-4);
   letter-spacing: var(--tracking-wide);
+  max-width: none;
+  margin: var(--s-5) 0 0 0;
+  padding: var(--s-3) 0 0 var(--s-4);
+  border-top: 1px solid var(--line-soft);
 }
+/* The search field took the corner these sit next to, and without this they
+   answer the squeeze by wrapping their own labels onto two lines. They are
+   fixed-size controls; the input is the thing that should give. */
+.auth-banner-btn, .new-banner-btn, .star-banner-btn,
+.flag-banner-btn, .edit-banner-btn { white-space: nowrap; }
 .header-right {
   display: flex;
   align-items: center;
@@ -199,12 +208,16 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 }
 
 /* ---------- Evidence-type tabs (left rail) ---------- */
-.tabs-col {
+/* The sticky box is the whole left column now, so the run date at its foot
+   travels with the tabs instead of scrolling away on its own. */
+.rail {
   width: 232px;
   flex-shrink: 0;
   position: sticky;
   top: calc(var(--header-h) + var(--s-5));
   z-index: 5;
+}
+.tabs-col {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -258,29 +271,27 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 .filter-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  gap: var(--s-4) var(--s-6);
-  border-bottom: 1px solid var(--line);
   margin-bottom: var(--s-8);
   position: sticky;
   top: var(--header-h);
   z-index: 5;
   background: var(--paper);
-  padding-top: var(--s-4);
+  padding: var(--s-4) 0 var(--s-4);
 }
 .tabs-row {
   display: flex;
   flex-wrap: wrap;
   gap: var(--s-6);
-  /* No bottom spacing of its own: .etab.active hangs its underline 1px over
-     the parent's border, which only lines up if nothing sits between them. */
-  flex: 1 1 auto;
+  /* The border belongs to this row, not to .filter-row: .etab.active hangs
+     its underline 1px over it, and the tier chips now sit between the tabs
+     and the bottom of the sticky box. */
+  border-bottom: 1px solid var(--line);
+  flex: 1 1 100%;
   min-width: 0;
 }
 .search-input {
-  flex: 0 1 240px;
-  align-self: center;
-  margin-bottom: var(--s-3);
+  flex: 0 1 230px;
+  min-width: 0;
   font-family: var(--font-body);
   font-size: var(--fs-cap);
   color: var(--ink);
@@ -342,7 +353,8 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   flex-wrap: wrap;
   align-items: center;
   gap: var(--s-2);
-  margin: calc(-1 * var(--s-4)) 0 var(--s-6);
+  flex: 1 1 100%;
+  margin: var(--s-4) 0 0;
 }
 .tier-filter-label {
   font-size: var(--fs-cap);
@@ -504,7 +516,18 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   letter-spacing: var(--tracking-wide);
   max-width: none;
 }
-.item .meta a { font-family: var(--font-mono); font-size: 0.95em; }
+.item .meta a { font-family: var(--font-mono); font-size: 0.95em; white-space: nowrap; }
+/* The PMID is the one thing on a card that leaves the site, and in mono at
+   0.95em the moss link colour alone wasn't reading as clickable. An ::after
+   rather than markup: it stays out of the copied text, so the PMID still
+   pastes clean, and out of textContent, which the tests read. */
+.item .meta a::after {
+  content: "\2197";
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  margin-left: 3px;
+  vertical-align: 1px;
+}
 .item .meta .journal { font-weight: var(--w-semi); color: var(--ink-2); }
 .flag-note {
   margin: var(--s-2) 0 0 0;
@@ -798,15 +821,23 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   #app { flex-direction: column; padding: var(--s-6); gap: var(--s-6); }
   /* Still sticky here, just horizontal and pinned directly under the header
      rather than beside the content. */
-  .tabs-col {
+  /* #app keeps align-items: flex-start, so a column item is sized to its
+     content unless told otherwise -- which is why the rail has always
+     needed this, and why #viewer needs it too now that the tier chips
+     scroll instead of wrapping and so contribute their full width. */
+  .rail, #viewer {
     width: 100%;
+  }
+  .rail {
     top: var(--header-h);
+    background: var(--paper);
+  }
+  .tabs-col {
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: var(--s-2);
     padding-bottom: var(--s-2);
-    background: var(--paper);
   }
   .tab-item { flex-shrink: 0; }
   /* See EVIDENCE_LABEL_SHORT in index.html: the rail scrolls sideways from
@@ -830,13 +861,27 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
      dropdown, and the row stacks under the (now horizontal) evidence rail. */
   .filter-row {
     top: calc(var(--header-h) + var(--rail-h));
-    border-bottom: none;
     margin-bottom: var(--s-6);
     padding-bottom: var(--s-3);
   }
-  /* The group dropdown and the search field are the two ways to narrow on a
-     phone, and neither is readable at half width -- so they stack. */
-  .search-input { flex: 1 1 100%; margin-bottom: 0; }
+  /* No tab underline to sit on here -- .etab gives way to .disease-select. */
+  .tabs-row { border-bottom: none; }
+  /* Pinned, these chips wrapped to three lines and took 43% of the screen
+     before a word was read. One scrolling line instead, like the evidence
+     rail above it -- and the label goes, since the chips name themselves. */
+  .tier-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /* Without this the chips' intrinsic width wins over the scroller and
+       pushes the whole document sideways instead of scrolling inside it. */
+    min-width: 0;
+    margin-top: var(--s-3);
+  }
+  .tier-chip { flex-shrink: 0; }
+  .tier-filter-label { display: none; }
+  /* Full width of its own row in the header: at 390px there is nothing left
+     of the bar to put it beside. */
+  .search-input { flex: 1 1 100%; }
   .etab { display: none; }
   .disease-select {
     display: block;
