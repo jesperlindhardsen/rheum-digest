@@ -311,8 +311,14 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   **"Alt"**, each with a live count. Abbreviated to "RCT + retn." below 820px,
   where the sidebar becomes a horizontally scrolling row and the long label would
   push every other type off screen.
-- Disease-group tabs across the top, led by an **"Alle"** tab (all groups), with a
-  search field at the end of the same row
+- Disease-group tabs across the top, led by an **"Alle"** tab (all groups), with
+  the tier chips as a second row beneath them. Both rows are in one sticky box,
+  so the tier filter stays reachable while you scroll instead of leaving as soon
+  as you start reading.
+- The run date sits at the foot of the left rail rather than in the header: it is
+  the one thing in the top bar that isn't a control, and the corner it occupied
+  is worth more to the search field. The rail as a whole is the sticky element
+  now, so the date travels with the tabs.
 - Default view is **RCT + retningslinjer × Alle, tiers 1–3**. The reasoning, from
   the numbers: a run month holds ~315 records of which ~13 are trials or
   guidelines, and tier 4 alone is 633 of 1020 records. Opening on the whole
@@ -331,8 +337,9 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   must match, so more words narrow. It composes with the filters rather than
   overriding them, but because the page opens narrowed, any hits the filters are
   holding back are counted above the results with a button that releases them.
-  The input sits outside `#disease-tabs`, which `refresh()` rewrites on every
-  keystroke — inside it, the field would lose focus as you typed.
+  The input sits in the header — top-right on a wide screen, a full-width row of
+  its own on a phone — and outside anything `refresh()` rewrites, since that
+  happens on every keystroke and would take the focus with it.
 - **"✦ N nye"** in the header: records whose `first_seen` is later than the last
   run this reader has looked at. Two localStorage keys, because a badge that
   clears the moment you open it is no use — opening the view records the run as
