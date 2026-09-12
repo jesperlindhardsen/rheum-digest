@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=25">
+<link rel="stylesheet" href="assets/style.css?v=26">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -63,7 +63,7 @@ const ALL_GROUP = "__all__";
 const DISEASE_LABEL = {
   "RA": "RA", "PsA/SpA": "PsA/SpA", "SLE": "SLE", "IIM": "IIM",
   "Vasculitis": "Vaskulitis", "PMR/GCA": "PMR og GCA", "Sjögren": "Sjögren", "SSc": "SSc",
-  "Crystal": "Krystalartrit", "Autoinflammatory": "Autoinflammatorisk", "General": "Generelt",
+  "Crystal": "Krystalartrit", "Autoinflammatory": "Auto inflammation", "General": "Generelt",
   [ALL_GROUP]: "Alle"
 };
 const EVIDENCE_ORDER = ["RCT","Guideline/consensus","Evidence synthesis","Observational","Clinical case/survey"];
@@ -356,7 +356,11 @@ function overrideDate(o) {
   return new Date(ms).toLocaleDateString("da-DK", { day: "numeric", month: "short" });
 }
 
-let activeDisease = null;
+// A set, not a single value: the groups are independent facets, and a reader
+// following two of them had to keep switching back and forth. "Alle" is the
+// all-on state rather than a twelfth group, so a cross-listed record still
+// appears once.
+let activeGroups = new Set(DISEASE_ORDER);
 let activeEvidence = null;
 let onlyFlagged = false;
 let onlyNew = false;
@@ -502,7 +506,7 @@ function queryHitsOutsideFilters() {
 }
 
 function clearFilters() {
-  activeDisease = ALL_GROUP;
+  activeGroups = new Set(DISEASE_ORDER);
   activeEvidence = ALL_EVIDENCE;
   activeTiers = new Set(TIERS);
   saveFilters();
@@ -513,7 +517,7 @@ function clearFilters() {
 // the view behind it must not be narrowed by anything. Deliberately not
 // saved -- this is a temporary widening, not a choice about how to browse.
 function resetFilters() {
-  activeDisease = ALL_GROUP;
+  activeGroups = new Set(DISEASE_ORDER);
   activeEvidence = ALL_EVIDENCE;
   activeTiers = new Set(TIERS);
   searchQuery = "";
@@ -530,7 +534,7 @@ const FILTER_STORAGE_KEY = "reuma-evidens-filters";
 function saveFilters() {
   try {
     localStorage.setItem(FILTER_STORAGE_KEY, JSON.stringify({
-      evidence: activeEvidence, disease: activeDisease, tiers: [...activeTiers],
+      evidence: activeEvidence, groups: [...activeGroups], tiers: [...activeTiers],
     }));
   } catch (e) { /* best effort */ }
 }
@@ -541,9 +545,17 @@ function restoreFilters() {
   catch (e) { /* fall through to defaults */ }
   if (!saved) return;
   if (saved.evidence) activeEvidence = saved.evidence;
-  if (saved.disease) activeDisease = saved.disease;
-  // An empty set would render an empty page with no obvious way out, so a
-  // stored one is ignored. refresh() drops a group that no longer has hits.
+  // An empty set would render an empty page, so a stored one is ignored --
+  // for the groups as for the tiers.
+  if (Array.isArray(saved.groups)) {
+    const kept = saved.groups.filter(g => DISEASE_ORDER.includes(g));
+    if (kept.length) activeGroups = new Set(kept);
+  } else if (saved.disease) {
+    // Written by the single-select version of this row. Carried over rather
+    // than dropped, so the one group someone was reading survives the change.
+    activeGroups = saved.disease === ALL_GROUP
+      ? new Set(DISEASE_ORDER) : new Set([saved.disease]);
+  }
   if (Array.isArray(saved.tiers) && saved.tiers.length) activeTiers = new Set(saved.tiers);
 }
 
@@ -598,10 +610,29 @@ function groupsOf(rec) {
   return rec.disease_groups || (rec.disease_group ? [rec.disease_group] : []);
 }
 
-// "Alle" matches everything; a cross-listed record still appears only once
-// there, since this filters on the record, not on its groups.
+function allGroupsOn() { return activeGroups.size === DISEASE_ORDER.length; }
+
+// The all-on shortcut isn't just an optimisation: update_library.py skips
+// anything it can't classify, but a legacy record with no groups at all would
+// otherwise be filtered out by a state the reader reads as "everything".
 function inDisease(rec) {
-  return activeDisease === ALL_GROUP || groupsOf(rec).includes(activeDisease);
+  if (allGroupsOn()) return true;
+  return groupsOf(rec).some(g => activeGroups.has(g));
+}
+
+function toggleGroup(group) {
+  if (activeGroups.has(group)) activeGroups.delete(group);
+  else activeGroups.add(group);
+  saveFilters();
+  refresh();
+}
+
+// One control for the two things you actually want from a row of twelve:
+// everything, or a clean slate to pick from.
+function toggleAllGroups() {
+  activeGroups = allGroupsOn() ? new Set() : new Set(DISEASE_ORDER);
+  saveFilters();
+  refresh();
 }
 
 function matchesEvidence(rec, type) {
@@ -920,6 +951,11 @@ function renderPanel() {
     return;
   }
 
+  if (activeGroups.size === 0) {
+    document.getElementById("panel").innerHTML = `<p class="empty-note">Vælg mindst én sygdomsgruppe.</p>`;
+    return;
+  }
+
   if (activeTiers.size === 0) {
     document.getElementById("panel").innerHTML = `<p class="empty-note">Vælg mindst én tidsskrifttype.</p>`;
     return;
@@ -967,15 +1003,8 @@ function refresh() {
     return;
   }
 
-  const groups = DISEASE_ORDER.filter(g =>
-    library.some(r => inTier(r) && inEvidence(r) && passesFlagFilter(r) && matchesQuery(r)
-      && groupsOf(r).includes(g)));
-  if (groups.length > 0) groups.unshift(ALL_GROUP);  // always first, the default
-  if (!groups.includes(activeDisease)) {
-    activeDisease = groups[0] || activeDisease;
-  }
   renderEvidenceTabs();
-  renderDiseaseTabs(groups);
+  renderDiseaseTabs();
   renderTierFilter();
   renderFlagBanner();
   renderEditBanner();
@@ -984,12 +1013,6 @@ function refresh() {
 
 function selectEvidence(type) {
   activeEvidence = type;
-  saveFilters();
-  refresh();
-}
-
-function selectDisease(group) {
-  activeDisease = group;
   saveFilters();
   refresh();
 }
@@ -1027,26 +1050,20 @@ function renderEvidenceTabs() {
   }).join("");
 }
 
-// Rendered twice over, with CSS picking one: as a tab row on a wide screen,
-// and as a dropdown on a narrow one, where the row wraps to three lines and
-// eats 158px of a ~700px viewport. Keeping both in the DOM means a resize
-// (or a phone rotating) needs no re-render.
-function renderDiseaseTabs(diseaseGroups) {
-  const el = document.getElementById("disease-tabs");
-  if (diseaseGroups.length === 0) {
-    el.innerHTML = "";
-    return;
-  }
-  const options = diseaseGroups.map(group =>
-    `<option value="${group}"${group === activeDisease ? " selected" : ""}>${DISEASE_LABEL[group]}</option>`
-  ).join("");
-  const tabs = diseaseGroups.map(group => {
-    const active = group === activeDisease ? "active" : "";
-    return `<div class="etab ${active}" onclick="selectDisease('${group}')">${DISEASE_LABEL[group]}</div>`;
-  }).join("");
-  el.innerHTML =
-    `<select class="disease-select" aria-label="Sygdomsgruppe" onchange="selectDisease(this.value)">${options}</select>`
-    + tabs;
+// Checkboxes rather than tabs, and every group is always drawn: a chip that
+// disappeared when its count hit zero would be one you had ticked and could
+// no longer untick. The count is left off deliberately -- twelve chips with
+// numbers wrap to another line of pinned chrome, and the tier row below
+// already carries the counts.
+function renderDiseaseTabs() {
+  const chip = (group, label, on, handler) => `
+    <label class="group-chip${on ? " on" : ""}" data-group="${group}">
+      <input type="checkbox" ${on ? "checked" : ""} onchange="${handler}">${label}
+    </label>`;
+  document.getElementById("disease-tabs").innerHTML =
+    chip(ALL_GROUP, DISEASE_LABEL[ALL_GROUP], allGroupsOn(), "toggleAllGroups()")
+    + DISEASE_ORDER.map(g =>
+        chip(g, DISEASE_LABEL[g], activeGroups.has(g), `toggleGroup('${g}')`)).join("");
 }
 
 // The sticky rows below the header need to know how tall it is, and that
@@ -1089,7 +1106,7 @@ Promise.all([
     currentMonth = (generatedAt || new Date().toISOString()).slice(0, 7);
     initSeenRun(generatedAt);
     // Defaults first, then whatever this reader last chose on this device.
-    activeDisease = ALL_GROUP;
+    activeGroups = new Set(DISEASE_ORDER);
     activeEvidence = TOP_EVIDENCE;
     restoreFilters();
     refresh();

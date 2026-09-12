@@ -281,14 +281,45 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 .tabs-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-6);
-  /* The border belongs to this row, not to .filter-row: .etab.active hangs
-     its underline 1px over it, and the tier chips now sit between the tabs
-     and the bottom of the sticky box. */
+  gap: var(--s-2);
+  /* Divides the two chip rows. The tier row carries no border of its own --
+     the bottom of the sticky box is edge enough. */
   border-bottom: 1px solid var(--line);
+  padding-bottom: var(--s-3);
   flex: 1 1 100%;
   min-width: 0;
 }
+/* Same control as a tier chip, in the palette the cards use for a group. */
+.group-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  color: var(--ink-4);
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.group-chip:hover { border-color: var(--ink-4); color: var(--ink-2); }
+.group-chip input { position: absolute; opacity: 0; width: 0; height: 0; }
+.group-chip:focus-within { outline: 2px solid var(--moss); outline-offset: 2px; }
+.group-chip.on {
+  border-color: transparent;
+  background: var(--moss-wash);
+  color: var(--moss-deep);
+}
+/* "Alle" is a state of the other eleven, not a group beside them, so it is
+   set apart rather than sitting in the run of chips looking like one more. */
+.group-chip:first-child { font-weight: 700; }
+.group-chip:first-child.on { background: var(--moss-soft); }
 .search-input {
   flex: 0 1 230px;
   min-width: 0;
@@ -327,25 +358,6 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   cursor: pointer;
 }
 .search-note-btn:hover { background: var(--moss-soft); }
-/* Wide screens get the tab row; .disease-select takes over below 820px. */
-.disease-select { display: none; }
-.etab {
-  padding: 0 0 12px 0;
-  cursor: pointer;
-  color: var(--ink-3);
-  font-weight: var(--w-med);
-  font-size: var(--fs-sm);
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-  transition: color var(--dur-fast) var(--ease-out),
-              border-color var(--dur-fast) var(--ease-out);
-}
-.etab:hover { color: var(--ink); }
-.etab.active {
-  color: var(--moss-deep);
-  border-bottom-color: var(--moss);
-  font-weight: var(--w-semi);
-}
 
 /* ---------- Tier filter ---------- */
 .tier-filter {
@@ -383,6 +395,29 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
               border-color var(--dur-fast) var(--ease-out);
 }
 .tier-chip:hover { border-color: var(--ink-4); color: var(--ink-2); }
+/* Colour alone was carrying "is this one on", and the tier chips each have a
+   different one, so there was nothing to compare against. A box that is
+   either empty or ticked says it outright, and doesn't change width when it
+   flips. font-family: the tick isn't in the mono face the chips use. */
+.tier-chip::before, .group-chip::before {
+  content: "";
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid;
+  border-radius: 3px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  line-height: 1;
+  opacity: 0.45;
+}
+.tier-chip.on::before, .group-chip.on::before {
+  content: "✓";
+  opacity: 1;
+}
 /* Real checkbox kept for keyboard and screen readers; the chip is the visual. */
 .tier-chip input {
   position: absolute;
@@ -420,7 +455,7 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   padding: var(--s-5) 0;
   font-family: var(--font-body);
   font-weight: var(--w-semi);
-  font-size: var(--fs-sm); /* matches .etab */
+  font-size: var(--fs-sm);
   line-height: var(--lh-snug);
   letter-spacing: var(--tracking-wide);
   color: var(--ink-2);
@@ -856,50 +891,30 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   .header-right { flex-wrap: wrap; gap: var(--s-2); }
   #updated-date { display: none; }
 
-  /* The tab row wraps to three lines at this width -- 158px of a ~700px
-     viewport, before anything is even read -- so the groups collapse into a
-     dropdown, and the row stacks under the (now horizontal) evidence rail. */
+  /* The group row stacks under the (now horizontal) evidence rail here. */
   .filter-row {
     top: calc(var(--header-h) + var(--rail-h));
     margin-bottom: var(--s-6);
     padding-bottom: var(--s-3);
   }
-  /* No tab underline to sit on here -- .etab gives way to .disease-select. */
-  .tabs-row { border-bottom: none; }
-  /* Pinned, these chips wrapped to three lines and took 43% of the screen
-     before a word was read. One scrolling line instead, like the evidence
-     rail above it -- and the label goes, since the chips name themselves. */
-  .tier-filter {
+  /* Pinned and wrapping, these chips took 43% of the screen before a word
+     was read -- and the twelve group chips would take as much again. One
+     scrolling line each instead, like the evidence rail above them. The
+     tier label goes with it; the chips name themselves. */
+  .tabs-row, .tier-filter {
     flex-wrap: nowrap;
     overflow-x: auto;
     /* Without this the chips' intrinsic width wins over the scroller and
        pushes the whole document sideways instead of scrolling inside it. */
     min-width: 0;
-    margin-top: var(--s-3);
   }
-  .tier-chip { flex-shrink: 0; }
+  .tabs-row { border-bottom: none; padding-bottom: var(--s-2); }
+  .tier-filter { margin-top: var(--s-3); }
+  .tier-chip, .group-chip { flex-shrink: 0; }
   .tier-filter-label { display: none; }
   /* Full width of its own row in the header: at 390px there is nothing left
      of the bar to put it beside. */
   .search-input { flex: 1 1 100%; }
-  .etab { display: none; }
-  .disease-select {
-    display: block;
-    width: 100%;
-    /* Without this a select is at least as wide as its longest option
-       ("Autoinflammatorisk"), which overflows a 360px phone. It ellipsizes
-       the closed label instead, which is fine -- the list still shows in
-       full when tapped. */
-    min-width: 0;
-    font-family: var(--font-body);
-    font-size: var(--fs-sm);
-    font-weight: var(--w-med);
-    color: var(--ink);
-    background: var(--bg-elevated);
-    border: 1px solid var(--line);
-    border-radius: var(--r-sm);
-    padding: 10px 12px;
-  }
 }
 
 /* Phone: the badges keep their icon and count and shed their prose, which is
