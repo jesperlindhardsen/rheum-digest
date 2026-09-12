@@ -340,12 +340,18 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   Only one person ever signs in — it is how the owner reaches the review queue,
   and nobody else has a reason to — so it does not belong among four badges
   everyone uses. On a phone the date is dropped but sign-in is not (it is the
-  owner's only way in, and the phone is where they read); it moves to the end of
-  the evidence-rail row rather than taking a pinned line of its own, where it
-  would split the two filter rows with a control nobody else uses.
-- The starred-articles badge reads **"Mine valgte"**. The ★ glyph, the card
-  button and `STAR_STORAGE_KEY` are unchanged — renaming the storage key would
-  orphan every star already set.
+  owner's only way in, and the phone is where they read), and there is no left
+  column there to sit at the foot of, so it swaps to a second slot in the header
+  beside the "Mine valgte" badge. Two `.auth-slot` elements, one control:
+  `renderAuthBanner()` fills both and CSS shows exactly one per width. Anything
+  selecting the button has to allow for the hidden twin.
+- The starred-articles badge reads **"Mine valgte"**, and keeps that label on a
+  phone where the other badges shed their prose: "☆ (0)" alone doesn't say what
+  it opens, and unlike ✦ and ⚑ the star badge has no count to carry the meaning.
+  Its label is `.banner-label` rather than `.banner-long` for that reason; the
+  "— vis alle" suffix is still `.banner-long` and still goes. The ★ glyph, the
+  card button and `STAR_STORAGE_KEY` are unchanged — renaming the storage key
+  would orphan every star already set.
 - Default view is **RCT + retningslinjer × Alle, tiers 1–3**. The reasoning, from
   the numbers: a run month holds ~315 records of which ~13 are trials or
   guidelines, and tier 4 alone is 633 of 1020 records. Opening on the whole

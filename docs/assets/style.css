@@ -173,12 +173,13 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 /* In the rail it is a footnote, not a badge: one person ever uses it, and it
    sits under the run date, which is set in the same muted micro type. The
    pill treatment above is what it wore in the header. */
+#auth-banner-top { display: none; }
 #auth-banner {
   display: block;
   margin-top: var(--s-3);
   padding-left: var(--s-4);
 }
-#auth-banner .auth-banner-btn {
+.auth-slot .auth-banner-btn {
   padding: 0;
   font-size: var(--fs-micro);
   color: var(--ink-4);
@@ -187,7 +188,7 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   text-underline-offset: 2px;
   transition: color var(--dur-fast) var(--ease-out);
 }
-#auth-banner .auth-banner-btn:hover { color: var(--moss-deep); background: none; }
+.auth-slot .auth-banner-btn:hover { color: var(--moss-deep); background: none; }
 
 /* Slate: the fourth signal colour, so an edited record never reads as either
    a flagged one (ochre) or a deletion (clay). */
@@ -907,16 +908,13 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
     gap: var(--s-2) var(--s-4);
   }
   .header-right { flex-wrap: wrap; gap: var(--s-2); }
-  #updated-date { display: none; }
   /* The date is just information, so it goes. Sign-in stays -- it is the
      owner's only way into the review queue, and the phone is where they
-     read -- but on its own line it landed between the evidence rail and the
-     group chips, splitting the filter stack with a control nobody else uses.
-     At the end of the rail row instead: no extra pinned line, and out of the
-     way of everything people actually browse with. */
-  .rail { display: flex; align-items: center; gap: var(--s-3); }
-  .tabs-col { flex: 1 1 auto; min-width: 0; }
-  #auth-banner { flex: none; margin-top: 0; padding-left: 0; }
+     read -- but there is no left column here to sit at the foot of, so it
+     swaps to the header slot, beside the badge it belongs with. */
+  #updated-date { display: none; }
+  #auth-banner { display: none; }
+  #auth-banner-top { display: inline-flex; align-items: center; }
 
   /* The group row stacks under the (now horizontal) evidence rail here. */
   .filter-row {
@@ -949,4 +947,6 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
    safety net -- this just means it rarely has to fire. */
 @media (max-width: 620px) {
   .banner-long { display: none; }
+  /* .banner-label is exempt: "☆ (0)" alone doesn't say what it opens, and
+     unlike ✦ and ⚑ the star badge has no number to carry the meaning. */
 }
