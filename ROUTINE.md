@@ -311,14 +311,31 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   **"Alt"**, each with a live count. Abbreviated to "RCT + retn." below 820px,
   where the sidebar becomes a horizontally scrolling row and the long label would
   push every other type off screen.
-- Disease-group tabs across the top, led by an **"Alle"** tab (all groups), with
-  the tier chips as a second row beneath them. Both rows are in one sticky box,
-  so the tier filter stays reachable while you scroll instead of leaving as soon
-  as you start reading.
+- Disease-group **checkbox chips** across the top, led by **"Alle"**, with the
+  tier chips as a second row beneath them. Both rows are in one sticky box, so
+  the tier filter stays reachable while you scroll instead of leaving as soon as
+  you start reading.
+  - The groups are independent, not a tab strip: any combination can be on, and
+    a record cross-listed under two selected groups still appears once. "Alle"
+    is the all-on state rather than a twelfth group — it ticks every chip, or
+    clears them all when they are already ticked. With none selected the panel
+    reads "Vælg mindst én sygdomsgruppe."
+  - Every chip is always drawn, even at a count of zero: one that disappeared
+    when its count ran out would be one you had ticked and could no longer
+    untick. They carry no counts — twelve numbered chips wrap to another line of
+    pinned chrome, and the tier row below already has them.
+  - Both rows mark selection with a **checkbox, ticked or empty**, not colour
+    alone. The four tier chips each carry a different colour, so there was
+    nothing to compare one against; the box says it outright and doesn't change
+    width when it flips. A real `<input type="checkbox">` sits behind each chip
+    for keyboard and screen readers.
+  - On a phone each row is a single horizontally scrolling line, like the
+    evidence rail above them. Wrapping all three would put 43% of the screen
+    under pinned chrome before a word was read.
 - The run date sits at the foot of the left rail rather than in the header: it is
   the one thing in the top bar that isn't a control, and the corner it occupied
   is worth more to the search field. The rail as a whole is the sticky element
-  now, so the date travels with the tabs.
+  now, so the date travels with the evidence tabs.
 - Default view is **RCT + retningslinjer × Alle, tiers 1–3**. The reasoning, from
   the numbers: a run month holds ~315 records of which ~13 are trials or
   guidelines, and tier 4 alone is 633 of 1020 records. Opening on the whole
@@ -327,8 +344,10 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   full library is one tap away.
 - All three pseudo-values are viewer-only (`TOP_EVIDENCE` / `ALL_EVIDENCE` /
   `ALL_GROUP` in `docs/index.html`), never stored, so they stay out of
-  `DISEASE_ORDER`, out of `disease_groups`, and out of the digests. A cross-listed
-  article appears once under "Alle", not twice.
+  `DISEASE_ORDER`, out of `disease_groups`, and out of the digests.
+- `DISEASE_LABEL` is display only — `Autoinflammatory` reads as "Auto
+  inflammation" on the page while the stored key, the regexes in
+  `update_library.py`, and the digests keep the original spelling.
 - Tier filter: T1–T4 checkboxes, T4 off by default, each showing its count within
   the active evidence type and search. Applies to everything — tab counts and which
   disease tabs appear follow it, so a count never promises items the filter is
@@ -345,6 +364,13 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   clears the moment you open it is no use — opening the view records the run as
   pending, and the next load promotes it. So the badge holds for the whole visit
   and is gone the next time, unless a new run has landed.
+  - On a first visit there is nothing stored to compare against. Comparing
+    against this run leaves the badge silent until you have been here twice,
+    which is close to not shipping it; comparing against nothing calls all
+    1100-odd records new. So the opening basis is the run *before* this one —
+    what's new is the latest weekly batch. `previousRun()` takes the largest
+    `first_seen` strictly below the run date, which lands exactly on that batch
+    because nothing can be stamped later than the run that fetched it.
 - The three filter selections are remembered in localStorage (as the stars are),
   so a returning reader lands where they left. The search box is not — it is a
   question you asked once, not a way of browsing.
