@@ -170,6 +170,24 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   transition: background var(--dur-fast) var(--ease-out);
 }
 .auth-banner-btn:hover { background: var(--moss-soft); }
+/* In the rail it is a footnote, not a badge: one person ever uses it, and it
+   sits under the run date, which is set in the same muted micro type. The
+   pill treatment above is what it wore in the header. */
+#auth-banner {
+  display: block;
+  margin-top: var(--s-3);
+  padding-left: var(--s-4);
+}
+#auth-banner .auth-banner-btn {
+  padding: 0;
+  font-size: var(--fs-micro);
+  color: var(--ink-4);
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+#auth-banner .auth-banner-btn:hover { color: var(--moss-deep); background: none; }
 
 /* Slate: the fourth signal colour, so an edited record never reads as either
    a flagged one (ochre) or a deletion (clay). */
@@ -890,6 +908,15 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   }
   .header-right { flex-wrap: wrap; gap: var(--s-2); }
   #updated-date { display: none; }
+  /* The date is just information, so it goes. Sign-in stays -- it is the
+     owner's only way into the review queue, and the phone is where they
+     read -- but on its own line it landed between the evidence rail and the
+     group chips, splitting the filter stack with a control nobody else uses.
+     At the end of the rail row instead: no extra pinned line, and out of the
+     way of everything people actually browse with. */
+  .rail { display: flex; align-items: center; gap: var(--s-3); }
+  .tabs-col { flex: 1 1 auto; min-width: 0; }
+  #auth-banner { flex: none; margin-top: 0; padding-left: 0; }
 
   /* The group row stacks under the (now horizontal) evidence rail here. */
   .filter-row {
