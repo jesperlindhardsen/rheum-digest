@@ -342,9 +342,16 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   everyone uses. On a phone the date is dropped but sign-in is not (it is the
   owner's only way in, and the phone is where they read), and there is no left
   column there to sit at the foot of, so it swaps to a second slot in the header
-  beside the "Mine valgte" badge. Two `.auth-slot` elements, one control:
-  `renderAuthBanner()` fills both and CSS shows exactly one per width. Anything
-  selecting the button has to allow for the hidden twin.
+  — right-aligned on the wordmark's own line, above the badges. Two
+  `.auth-slot` elements, one control: `renderAuthBanner()` fills both and CSS
+  shows exactly one per width. Anything selecting the button has to allow for
+  the hidden twin.
+- **The "✦ N nye" badge is desktop-only.** Three badges plus sign-in needed
+  362px of a 342px line. It is the one that gives: the flag badge is work
+  waiting and "Mine valgte" is what someone put there on purpose, where a
+  backlog of new records is a nice-to-have — and it is read on a desktop anyway.
+  Note that `⚑ N til gennemsyn` is *not* owner-only; every reader sees it. Only
+  `✎ N rettet` is gated on `isOwner()`.
 - The starred-articles badge reads **"Mine valgte"**, and keeps that label on a
   phone where the other badges shed their prose: "☆ (0)" alone doesn't say what
   it opens, and unlike ✦ and ⚑ the star badge has no count to carry the meaning.

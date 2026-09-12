@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=28">
+<link rel="stylesheet" href="assets/style.css?v=29">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -19,13 +19,16 @@
   <div class="brand">
     <span class="wordmark">Reuma-<em>evidens</em></span>
   </div>
+  <!-- Two slots, one control: the rail one below, and this. A phone has no
+       left column to sit at the foot of, so sign-in rides up here on the
+       wordmark's line instead, right-aligned. Direct child of the header
+       rather than of .header-right, so it shares row one with the brand and
+       lets the badges wrap beneath. CSS shows exactly one of the two slots;
+       renderAuthBanner() fills both. -->
+  <span id="auth-banner-top" class="auth-slot"></span>
   <span class="header-right">
     <span id="new-banner"></span>
     <span id="star-banner"></span>
-    <!-- Two slots, one control. On a phone there is no left column to sit at
-         the foot of, so sign-in rides here next to the badge instead; CSS
-         shows exactly one of the two. renderAuthBanner() fills both. -->
-    <span id="auth-banner-top" class="auth-slot"></span>
     <span id="flag-banner"></span>
     <span id="edit-banner"></span>
     <input id="search" class="search-input" type="search" autocomplete="off"

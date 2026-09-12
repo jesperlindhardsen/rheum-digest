@@ -914,7 +914,19 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
      swaps to the header slot, beside the badge it belongs with. */
   #updated-date { display: none; }
   #auth-banner { display: none; }
-  #auth-banner-top { display: inline-flex; align-items: center; }
+  /* margin-left: auto rather than relying on the header's space-between:
+     that only separates the two once they are the only things on the line,
+     and the offline banner joins them when it fires. */
+  #auth-banner-top {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  /* Three badges plus sign-in need 362px of a 342px line. This is the one to
+     go: the queue it opens is a nice-to-have, where the flag badge is work
+     waiting and "Mine valgte" is what someone put there on purpose. It is
+     still on the desktop, which is where a backlog gets read anyway. */
+  #new-banner { display: none; }
 
   /* The group row stacks under the (now horizontal) evidence rail here. */
   .filter-row {
