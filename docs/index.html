@@ -67,14 +67,17 @@
 <script>
 // Display order only. Classification precedence is DISEASE_PATTERNS in
 // update_library.py and is deliberately different — don't sync the two.
-const DISEASE_ORDER = ["RA","PsA/SpA","PMR/GCA","Crystal","General","SLE","IIM","Vasculitis","Sjögren","SSc","Autoinflammatory"];
+// "General" sits last: it is the catch-all the classifier falls back to when
+// nothing more specific fits, so it reads as the end of the list rather than
+// as a peer wedged between Crystal and SLE.
+const DISEASE_ORDER = ["RA","PsA/SpA","PMR/GCA","Crystal","SLE","IIM","Vasculitis","Sjögren","SSc","Autoinflammatory","General"];
 // A viewer-only pseudo-group shown first and selected by default: never a
 // stored label, so it stays out of DISEASE_ORDER and out of the digests.
 const ALL_GROUP = "__all__";
 const DISEASE_LABEL = {
   "RA": "RA", "PsA/SpA": "PsA/SpA", "SLE": "SLE", "IIM": "IIM",
   "Vasculitis": "Vaskulitis", "PMR/GCA": "PMR og GCA", "Sjögren": "Sjögren", "SSc": "SSc",
-  "Crystal": "Krystalartrit", "Autoinflammatory": "Auto inflammation", "General": "Generelt",
+  "Crystal": "Krystalartrit", "Autoinflammatory": "Autoinflammation", "General": "Generelt",
   [ALL_GROUP]: "Alle"
 };
 const EVIDENCE_ORDER = ["RCT","Guideline/consensus","Evidence synthesis","Observational","Clinical case/survey"];

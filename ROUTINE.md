@@ -368,9 +368,14 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
 - All three pseudo-values are viewer-only (`TOP_EVIDENCE` / `ALL_EVIDENCE` /
   `ALL_GROUP` in `docs/index.html`), never stored, so they stay out of
   `DISEASE_ORDER`, out of `disease_groups`, and out of the digests.
-- `DISEASE_LABEL` is display only — `Autoinflammatory` reads as "Auto
-  inflammation" on the page while the stored key, the regexes in
+- `DISEASE_LABEL` is display only — `Autoinflammatory` reads as
+  "Autoinflammation" on the page while the stored key, the regexes in
   `update_library.py`, and the digests keep the original spelling.
+- `DISEASE_ORDER` puts **General last**: it is the catch-all the classifier
+  falls back to when nothing more specific fits, so it belongs at the end of
+  the list rather than wedged between Crystal and SLE. The order drives the
+  group chips, the correction form's checkboxes, and the weekly digest's
+  section order — all three move together.
 - Tier filter: T1–T4 checkboxes, T4 off by default, each showing its count within
   the active evidence type and search. Applies to everything — tab counts and which
   disease tabs appear follow it, so a count never promises items the filter is
