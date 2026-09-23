@@ -213,6 +213,26 @@ rheumatoid arthritis: a meta-analysis", whose abstract's RCT-flavoured wording h
 outvoted its own title. Only applies when `PublicationType` carries no decisive tag;
 PubMed's own type still wins whenever both exist and disagree.
 
+**A finding query that names only one phrasing finds only one phrasing.** The RCT
+filter used to read `("Randomized Controlled Trial"[pt] OR "randomized controlled
+trial"[tiab])`, and during the week an article actually appears that `[pt]` arm is
+dead: MeSH indexing lands weeks after the Entrez date, so every ahead-of-print trial
+rests on the `[tiab]` phrase alone. JAMA house style is "a randomized **clinical**
+trial", which never contains that string, so PMID 42734930 — an IVIG-in-myositis
+trial in JAMA Neurology — was never fetched at all, along with ~a dozen other real
+trials over six months (two in Ann Rheum Dis / Lancet Rheumatology) and everything
+written with British "-ised". The clause now spells out the four phrasings. This is
+the mirror image of the PMID 42598105 problem above — there a loose phrase let a
+non-trial in, here a tight one kept real trials out — and the asymmetry is the
+point: a mistyped record is corrected downstream by `classify_evidence_type`, the
+AI sanity-check and `refresh_pending_types`, but a record that was never fetched is
+invisible to all three. Prefer recall in the finding query, precision afterwards.
+
+Known gap, same shape: phrasings like "randomised, double-blind, placebo-controlled
+trial" still match none of the four, so such a trial is found only once PubMed
+assigns its `[pt]` tag — which `refresh_pending_types` cannot help with either,
+since that only revisits records already in the library.
+
 Each record stores its `publication_types` so this stays auditable without re-fetching.
 
 **AI review of new hits, each run — the second line of defence.** The deterministic
@@ -452,8 +472,14 @@ disease group.
   them (`TIER_LABEL` in `docs/index.html`):
   - **1 · Top medicin** — `TIER1_JOURNALS`: NEJM, Lancet, JAMA, BMJ, Ann Intern Med,
     Nature Medicine, NEJM Evidence, JAMA Intern Med, JAMA Netw Open, EClinicalMedicine.
-    Plus `TIER1_PREFIXES` for the Lancet's regional titles, which only ever appear with
-    a suffix (Lancet Reg Health Eur / Am / …) and so can't be matched exactly.
+    Plus `TIER1_PREFIXES` for the two families whose titles only ever appear with a
+    suffix and so can't be matched exactly: the Lancet's regional titles (Lancet Reg
+    Health Eur / Am / …) and the JAMA specialty titles. The latter were the same
+    oversight twice over — JAMA Intern Med and JAMA Netw Open were listed by hand, so
+    JAMA Neurol, JAMA Dermatol, JAMA Cardiol and the rest landed in tier 4, *below* a
+    minor rheumatology journal, where the default T1–T3 view hid them outright. Tier
+    is a judgment about the journal, not about how close its subject sits to
+    rheumatology; the disease queries already decide the latter.
   - **2 · Top reumatologi** — `TIER2_JOURNALS`: Ann Rheum Dis, Arthritis & Rheumatology,
     Lancet Rheumatology, Nat Rev Rheumatol, Rheumatology (Oxford), RMD Open,
     Semin Arthritis Rheum, J Rheumatol, Arthritis Care Res, Arthritis Res Ther.

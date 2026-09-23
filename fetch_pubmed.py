@@ -57,8 +57,24 @@ DISEASE_QUERIES = {
     "General": '("rheumatic disease"[tiab] OR "inflammatory rheumatic disease"[tiab] OR "rheumatology"[ti])',
 }
 
+# The RCT clause spells out the phrasings journals actually use, not just the
+# one PubMed's PublicationType is named after. A trial whose [pt] tag hasn't
+# been assigned yet (every ahead-of-print record) rests entirely on the [tiab]
+# arm, and JAMA house style is "a randomized CLINICAL trial" -- the string
+# "randomized controlled trial" never appears in it. That silently lost
+# PMID 42734930, an IVIG-in-myositis trial in JAMA Neurology, and ~a dozen
+# other real trials over six months, two of them in Ann Rheum Dis / Lancet
+# Rheumatol. British "-ised" spelling was missed the same way. This is the
+# mirror of the PMID 42598105 problem below: there a loose phrase let a
+# non-trial in, here a too-tight one kept real trials out. Widening [tiab]
+# costs nothing in precision, since PROTOCOL_TITLE still drops the protocol
+# and feasibility papers it newly returns, COMMENT_TITLE still drops the
+# correspondence, and classify_evidence_type still lets PubMed's own tag win
+# once indexing catches up.
 EVIDENCE_FILTERS = {
-    "RCT": '("Randomized Controlled Trial"[pt] OR "randomized controlled trial"[tiab])',
+    "RCT": ('("Randomized Controlled Trial"[pt] OR "randomized controlled trial"[tiab]'
+            ' OR "randomized clinical trial"[tiab] OR "randomised controlled trial"[tiab]'
+            ' OR "randomised clinical trial"[tiab])'),
     "Guideline/consensus": '("Guideline"[pt] OR "Practice Guideline"[pt] OR "Consensus Development Conference"[pt] OR "recommendations"[ti])',
     "Evidence synthesis": '("Systematic Review"[pt] OR "Meta-Analysis"[pt])',
     "Observational": '("Observational Study"[pt] OR "cohort study"[tiab] OR "case-control"[tiab] OR registry[tiab])',
@@ -205,7 +221,16 @@ TIER2_JOURNALS = {
 
 # The Lancet's regional titles only ever appear with a suffix -- Lancet Reg
 # Health Eur, ... Am, ... West Pac -- so an exact key would never match.
-TIER1_PREFIXES = ("Lancet Reg Health",)
+#
+# The JAMA specialty titles are the same shape and were the same oversight:
+# JAMA Intern Med and JAMA Netw Open were listed by hand above, so JAMA Neurol,
+# JAMA Dermatol, JAMA Cardiol and the rest fell to tier 4 -- below a minor
+# rheumatology journal -- and the default T1-T3 view hid them outright. That
+# buried PMID 42734930, the JAMA Neurology IVIG-in-myositis trial. The prefix
+# covers the whole family the way "Lancet Reg Health" covers the regionals;
+# tier is a judgment about the journal, not about how close its subject sits
+# to rheumatology, and the disease queries already decide the latter.
+TIER1_PREFIXES = ("Lancet Reg Health", "JAMA ")
 
 # Tier 3 is open-ended by design: new rheumatology journals appear constantly,
 # and an explicit list would always lag behind them. Matching the name keeps it
