@@ -1151,6 +1151,45 @@
       "first_seen": "2026-09-21"
     },
     {
+      "pmid": "42744394",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "J Rheumatol",
+      "first_author": "Ward",
+      "last_author": "Constantinescu",
+      "date": "2026-09-15",
+      "title": "Patient-Reported Outcomes Following Discontinuation Of Tumor Necrosis Factor Inhibitors In Rheumatoid Arthritis Remission/Low Disease Activity: A Randomized Placebo-Controlled Trial.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To compare changes in patient-reported outcomes (PROs) over 48 weeks between patients with rheumatoid arthritis (RA) in remission/low disease activity who discontinued treatment with tumor necrosis factor inhibitors (TNFi) and those who continued TNFi treatment."
+        },
+        {
+          "label": "METHODS",
+          "text": "In this double-blind placebo-controlled randomized trial, patients with RA in sustained remission/low disease activity treated with TNFi were randomly assigned to placebo (i.e discontinuation of TNFi) or continuation of TNFi. Patients completed PROs, including the patient global assessment (PGA), pain scale, Health Assessment Questionnaire (HAQ), Fatigue Severity Scale, and Short Form-36 (SF36), at randomization and every 12 weeks for 48 weeks. We compared PROs over time between treatment groups using generalized estimating equations. We also compared mean changes from baseline at each time point, and separately among patients who relapsed."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Sixty-nine patients were randomized to placebo and 33 patients were randomized to the TNFi group. Over the trial, group mean scores on the PGA, pain score, and HAQ were significantly higher in the placebo group than in the TNFi group. Effect sizes were small or moderate for all PROs. Compared to Week 0, all measures were significantly higher in the placebo group at Week 12, but not at later times, in paired analyses, corresponding to the timing of most relapses. Pain and social function were the domains most affected. PROs returned to baseline values by trial end, after resumption of TNFi treatment."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "PROs generally worsened shortly after TNFi discontinuation in patients with RA, but recovered promptly when reinstituted. Trial registration NCT01793519."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42742152",
       "languages": [
         "eng"
@@ -1625,6 +1664,45 @@
       ],
       "keywords": [],
       "first_seen": "2026-09-21"
+    },
+    {
+      "pmid": "42740449",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "Arthritis Rheumatol",
+      "first_author": "Maksymowych",
+      "last_author": "Østergaard",
+      "date": "2026-09-14",
+      "title": "Impact of Dual Interleukin-17A and Interleukin-17F Inhibition with Bimekizumab on Inflammatory and Structural Lesions in Axial Spondyloarthritis: MRI and Radiographic Outcomes from the Phase 3 BE MOBILE 1 and 2 Studies and their Open-Label Extension.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "To evaluate the impact of bimekizumab, a dual IL-17A and IL-17F inhibitor, on sacroiliac joint (SIJ) and spine inflammation/structural damage in axSpA using MRIs/radiographs from the phase 3 studies BE MOBILE 1 (nr-axSpA) and 2 (r-axSpA) and their open-label extension (OLE)."
+        },
+        {
+          "label": "METHODS",
+          "text": "BE MOBILE 1 and 2 comprised 16-week double-blind placebo-controlled and 36-week maintenance periods. From Week 16, all received subcutaneous bimekizumab 160mg every 4 weeks. At Week 52, patients could enter the OLE to continue bimekizumab. MRIs were evaluated by treatment arm at baseline and Weeks 16/52 in BE MOBILE 1 and 2 MRI sub-studies using SPARCC SIJ and Berlin spine inflammation scores, and SPARCC SIJ Structural Score (SSS; erosion, backfill, fat lesions, ankylosis). In patients with baseline and Week 104 radiographs, structural damage was assessed in the SIJ (mNY; nr-axSpA) and spine (mSASSS; r-axSpA). Observed case data are reported."
+        },
+        {
+          "label": "RESULTS",
+          "text": "At Week 52, bimekizumab-randomised patients had substantially reduced inflammation (mean change from baseline [CfB]: SPARCC SIJ, nr-axSpA: -7.6; r-axSpA: -5.1; Berlin spine, nr-axSpA: -0.5; r-axSpA: -2.5), decreased erosion scores (nr-axSpA; -1.8; r-axSpA: -1.8), increased backfill (nr-axSpA: 0.9; r-axSpA: 0.6) and fat lesion scores (nr-axSpA: 0.7; r-axSpA: 0.5), and minimal changes in ankylosis (nr-axSpA: 0.0; r-axSpA: 0.2). With bimekizumab treatment to Week 104, radiographs showed mean CfB: 0.03 in mNY (nr-axSpA) and mSASSS: 0.3 (r-axSpA)."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Dual inhibition of IL-17A and IL-17F with bimekizumab led to substantial reductions in MRI SIJ/spine inflammation, gradual decreases in SIJ erosion, and minimal radiographic progression in the SIJ/spine in patients with axSpA."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42734930",
@@ -5755,6 +5833,34 @@
         "Sweden"
       ],
       "first_seen": "2026-09-07"
+    },
+    {
+      "pmid": "42717788",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Gen Physiol Biophys",
+      "first_author": "Chen",
+      "last_author": "Dong",
+      "date": "2026-09-01",
+      "title": "Electroacupuncture alleviates synovial inflammation in rheumatoid arthritis rats by suppressing caspase-1-mediated pyroptosis.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Rheumatoid arthritis (RA) causes inflammatory bone and cartilage damage. While electroacupuncture (EA) alleviates joint inflammation, its anti-inflammatory mechanisms remain unclear. Sprague-Dawley rats were randomly assigned to control, collagen-induced arthritis (CIA), EA (EA+CIA), and sham-EA (sham-EA+CIA) groups. Rats in the EA group received EA at unilateral ST36 (Zusanli) every other day from day 1. Paw swelling and paw withdrawal latency (PWL) were measured during the treatment. The levels of caspase-1, GSDMD, IL-1β, and IL-18 in the synovium were assessed after 28 days of EA treatment. Our findings demonstrated that inflammatory responses, such as the arthritis index, toe volume, PWL, and inflammatory cell infiltration, were significantly improved in the EA group compared with the CIA and sham-EA groups. Significant decreases in the levels of caspase-1, GSDMD, IL-1β, and IL-18 were observed in the synovium of RA rats that received EA. Furthermore, peripheral blood levels of the inflammatory cytokines IL-1β and IL-18 were significantly reduced in rats in the EA group. Electroacupuncture as implemented at ST36 was associated with reduced caspase-1-mediated pyroptosis-related markers in the joint synovium and decreased IL-1β and IL-18 levels in both synovium and serum in rats with CIA. Acupoint-specificity requires further validation using active-sham or componentresolved control designs."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (rotter); præklinisk, ikke klinisk evidens"
     },
     {
       "pmid": "42764158",
@@ -11799,6 +11905,45 @@
       "first_seen": "2026-08-22"
     },
     {
+      "pmid": "42629232",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SLE"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "Ann Rheum Dis",
+      "first_author": "Rhoads",
+      "last_author": "Crofford",
+      "date": "2026-08-21",
+      "title": "Improvement in neuropsychological function with memantine treatment among patients with systemic lupus erythematosus: a phase 2 randomised placebo-controlled clinical trial.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "Neuropsychological symptoms are common, disabling manifestations of systemic lupus erythematosus (SLE) that can persist despite immunomodulatory treatment. We evaluated whether the N-methyl-D-aspartate receptor (NMDAR) antagonist, memantine, improves cognitive function in individuals with SLE and neuropsychological dysfunction."
+        },
+        {
+          "label": "METHODS",
+          "text": "ClearMEMory (NCT03527472) was a multisite, randomised, placebo-controlled 12-week clinical trial of memantine titrated to 40 mg/d among adults with SLE with objective neuropsychological dysfunction. The primary outcome was change in the Repeatable Battery for the Assessment of Neuropsychological Status (RBANS) total score from baseline to week 12. Additional outcomes included change in RBANS total score above a threshold considered clinically important (score increase ≥8) and patient global impression of change (PGI-C)."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Of 131 patients screened, 56 were randomised, and 43 completed primary outcome assessment and were analysed, including 18 in the memantine group and 25 in the placebo group. Improvement in RBANS total score between baseline and week 12 was greater in the memantine group (median change: +8) than the placebo group (median change: +5) (P = .032); 12 (66.7%) participants in the memantine group and 9 (36.0%) participants in the placebo group had an increase in total RBANS score ≥8 (P = .047) (number-needed-to-treat = 3.3). Using the PGI-C, 61% of participants in the memantine group and 36% of participants in the placebo group self-reported improvement (P = .19). Discontinuation due to adverse events occurred in 5 (19%) participants in the memantine group and 5 (17%) participants in the placebo group."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Among patients with SLE-associated neuropsychological dysfunction, treatment with memantine for 12 weeks improved objective neuropsychological function."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42693728",
       "languages": [
         "eng"
@@ -15748,6 +15893,45 @@
       "first_seen": "2026-08-16"
     },
     {
+      "pmid": "42542380",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IIM"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "J Rheumatol",
+      "first_author": "Vleugels",
+      "last_author": "Fiorentino",
+      "date": "2026-08-15",
+      "title": "Long-Term Safety and Efficacy of Dazukibart in Dermatomyositis: Combined Phase II Results From Double-Blind and Open-Label Extension Studies.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To evaluate the long-term safety and efficacy of dazukibart, a novel antiinterferon β monoclonal antibody, in adults with moderate-to-severe dermatomyositis (DM)."
+        },
+        {
+          "label": "METHODS",
+          "text": "Participants from 2 cohorts of DM (skin-predominant [SP] and muscle-predominant [MP]) completing a 24-week phase II, double-blind study, were enrolled into a 52-week phase IIb, open-label extension (OLE) study, with a 16-week follow-up post treatment (combined study duration: 92 weeks). The pooled skin analysis set included all SP and MP DM participants with baseline Cutaneous Dermatomyositis Disease Area and Severity Index-Activity (CDASI-A) scores ≥ 14. The primary endpoint was incidence of treatment-emergent adverse events (TEAEs) from week 24 through week 92. Key secondary endpoints were change in CDASI-A and Total Improvement Score (TIS) from week 0 through week 92."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Participants who received ≥ 1 dose of dazukibart (600 mg) during the OLE study (comprising 9, 15, and 16 participants from the SP cohort, MP cohort, and pooled skin analysis set, respectively) were analyzed (median age 49.5 years, 83% female, 96% White). TEAEs were mild (55%), moderate (38%), or severe (7%), with no treatment-related serious AEs or treatment discontinuations. At week 76, CDASI-A scores improved, with a median change from baseline of -24.0 (range -33 to -12), -9.0 (range -32 to 1), and -23.5 (range -33 to -12) for participants from the SP cohort, MP cohort, and pooled skin analysis set, respectively. In the MP cohort, TIS (median 65.0, range 2.5-95.0) and associated core set measures, including patient-reported outcomes, improved at week 76. Overall, the observed improvements in outcomes, as indicated by the slight reduction in outcome measures, persisted during the 16-week posttreatment follow-up."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "The safety and efficacy profiles of dazukibart observed at 24 weeks were sustained through 92 weeks. (ClinicalTrials.gov: NCT03181893, NCT05192200)."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42741367",
       "languages": [
         "eng"
@@ -16844,6 +17028,45 @@
         "Journal Article"
       ],
       "first_seen": "2026-08-13"
+    },
+    {
+      "pmid": "42586909",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "Ann Rheum Dis",
+      "first_author": "Baraliakos",
+      "last_author": "Van den Bosch",
+      "date": "2026-08-12",
+      "title": "Efficacy and safety of filgotinib in patients with active radiographic and nonradiographic axial spondyloarthritis: results from OLINGUITO, a phase 3 trial consisting of 2 randomised, placebo-controlled, double-blind, parallel-group studies.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "This study aimed to investigate the efficacy and safety of filgotinib, a JAK1 preferential inhibitor, in patients with axial spondyloarthritis (axSpA)."
+        },
+        {
+          "label": "METHODS",
+          "text": "The phase 3 OLINGUITO trial comprises 2 international, randomised, double-blind, placebo (PBO)-controlled studies. Patients with an established diagnosis of radiographic (r) or nonradiographic (nr) axSpA and an inadequate response/intolerance to ≥2 nonsteroidal anti-inflammatory drugs were randomised 1:1 to filgotinib 200 mg or PBO once daily through week (W) 16 (double-blind period; stratified by high-sensitivity C-reactive protein [hs-CRP] level and prior biologic disease-modifying antirheumatic drug [bDMARD] use). After W16, patients received open-label filgotinib 200 mg through W52; patients ≥65 years and/or with prespecified risk factors received response-based dosing (100 or 200 mg). The primary (Assessment of SpondyloArthritis international Society ≥40% response [ASAS40 response]) and secondary efficacy endpoints were assessed at W16. Efficacy and safety were assessed through W52."
+        },
+        {
+          "label": "RESULTS",
+          "text": "At W16, the primary endpoint was met in both studies (ASAS40 response rates: r = axSpA [n = 258], 39.5% filgotinib vs 20.9% PBO [P = .001]; nr-axSpA [n = 237], 34.5% vs 17.8% [P = .003], respectively). ASAS40 improvements, irrespective of hs-CRP level/prior bDMARD use, were observed as early as W1. For secondary endpoints, significant improvements were seen in Axial Spondyloarthritis Disease Activity Score and Spondyloarthritis Research Consortium of Canada magnetic resonance imaging sacroiliac joint inflammation in both studies, and in Bath Ankylosing Spondylitis Functional Index and Ankylosing Spondylitis Quality of Life Questionnaire in patients with r-axSpA. Improvements with filgotinib were maintained/increased further through W52. Overall, 2 cases of myocardial infarction (PBO: n = 1; PBO-filgotinib: n = 1), 3 of herpes zoster (PBO-filgotinib), and 4 of malignancies (excluding nonmelanoma skin cancer; filgotinib: n = 3; PBO-filgotinib: n = 1) occurred."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Across the whole spectrum of axSpA, filgotinib provided rapid and significant patient-relevant improvements in axSpA signs and symptoms and was well tolerated."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42733890",
@@ -21626,6 +21849,41 @@
         "Journal Article"
       ],
       "first_seen": "2026-08-05"
+    },
+    {
+      "pmid": "42741484",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Anim Nutr",
+      "first_author": "Li",
+      "last_author": "Cao",
+      "date": "2026-08-04",
+      "title": "Integrated transcriptomics and metabolomics reveal suppression of the PPAR α/γ pathway linking purine metabolism disorder to high-protein diet-induced hyperuricemia in goslings.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Hyperuricemia (HUA) and gout in goslings are increasingly recognized in intensive production systems, yet liver involvement in HUA remains poorly understood. This study examines how a high-protein diet influences gosling HUA through liver transcriptional and metabolic alterations. In Exp. Ⅰ, a total of 80 one-d-old male goslings (93.13 ± 0.96 g) were randomly assigned to four dietary treatments containing 18% (control group), 21% (P21 group), 24% (P24 group), and 27% (P27 group) crude protein (CP), with four replicates of five birds per treatment, for an 18-d experimental period to establish a HUA model. Goslings fed the 24% CP diet exhibited joint swelling, sparse plumage, and white feces, accompanied by reduced average daily gain (ADG; P = 0.011) and average daily feed intake (ADFI; P < 0.001). Serum uric acid (P = 0.005), xanthine oxidase (XOD; P = 0.009), xanthine dehydrogenase (XDH; P = 0.018), aspartate aminotransferase (AST; P < 0.001), urea (P < 0.001), interleukin-1β (IL-1β; P = 0.010), and tumor necrosis factor-α (TNF-α; P < 0.001) levels were significantly elevated in the P24 group, consistent with HUA-associated metabolic and inflammatory alterations. In Exp. Ⅱ, a total of 40 one-d-old goslings (93.88 + 0.92 g) were randomly assigned to two groups (n = 20 per group) and fed an 18% CP basal diet (CON group) or a 24% CP diet (HUA group) for 18 d. The HUA group showed increased liver index (P = 0.001), hydropic and partial lipid degeneration, hepatocyte swelling, and marked mitochondrial swelling observed by transmission electron microscopy (TEM). Integrated transcriptomics and metabolomics of the liver revealed that decreased levels of 9-hydroxyoctadecadienoic acid (9-HODE) and 8(S)-hydroxyeicosatetraenoic acid [8(S)-HETE] were associated with suppression of the peroxisome proliferator-activated receptor α/γ (PPARα/γ) signaling pathway. Meanwhile, the upregulation of ACSL6 and ACSBG2 was linked to a 2.61-fold increase in adenosine monophosphate (AMP) accumulation. Elevated AMPD3 and NT5C1B expression enhanced AMP-to-inosine conversion (1.69-fold), and coordinated up-regulation of NT5C1B, PNP, and XDH further accelerated UA formation in purine metabolism, collectively contributing to HUA and associated inflammatory responses. Although graded increases in dietary CP induced proportional shifts in digestible amino acid concentrations, these results reveal a strong correlation between high-protein diets and HUA, as well as subsequent liver and renal injuries in goslings."
+        }
+      ],
+      "keywords": [
+        "Gosling",
+        "High-protein diet",
+        "Hyperuricemia",
+        "Integrated omics analyse",
+        "PPAR signaling pathway",
+        "Purine metabolism"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Fjerkræernæringsstudie (gæslinger); ikke humanmedicin"
     },
     {
       "pmid": "42695104",
@@ -28841,6 +29099,51 @@
       "first_seen": "2026-07-25"
     },
     {
+      "pmid": "42492835",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 3,
+      "journal": "Joint Bone Spine",
+      "first_author": "Benavent",
+      "last_author": "Ramiro",
+      "date": "2026-07-24",
+      "title": "The influence of symptom duration on flare risk after biologic DMARD withdrawal in axial spondyloarthritis: A meta-analysis of randomized withdrawal trials.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "To assess whether symptom duration modifies flare risk after biologic/targeted synthetic DMARD (b/ts DMARDs) withdrawal in axial spondyloarthritis (axSpA) following remission/inactive disease."
+        },
+        {
+          "label": "METHODS",
+          "text": "We systematically identified randomized placebo-controlled trials evaluating withdrawal or tapering of b/tsDMARDs in axSpA through a previous systematic literature review. Eligible studies included adults with axSpA who achieved inactive disease or remission by ASDAS and were randomized to continuation or withdrawal/tapering, with available flare data. Patient-level data were obtained from Vivli and stratified by symptom duration thresholds of≤2, 3, 4, or 5years. Relative risks (RRs) of flare for continuation versus withdrawal were calculated within each subgroup, and relative risk ratios (RRRs) were estimated. Random-effects meta-analysis was performed. A subgroup analysis included only patients with nr-axSpA."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Three RCTs involving 773 patients were included, evaluating adalimumab, certolizumab pegol, and ixekizumab versus placebo; no tsDMARD or tapering studies were eligible. Continuation of bDMARDs was consistently associated with fewer flares than withdrawal. Symptom duration did not significantly modify flare risk overall. In the overall axSpA population, pooled RRRs showed no statistically significant effect modification: 0.61 (95% CI: 0.29-1.28) for≤2years, 0.77 (0.54-1.12) for≤3years, 0.83 (0.45-1.54) for≤4years and 0.82 (0.49-1.37) for≤5years. In nr-axSpA (n=508), pooled RRRs favoured shorter symptom duration at≤4years (0.25 [0.07-0.96]) but not at≤2,≤3 or≤5years."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Symptom duration did not consistently modify flare risk after bDMARD withdrawal in axSpA overall, although exploratory findings suggest a potential effect in early nr-axSpA."
+        }
+      ],
+      "keywords": [
+        "Axial spondyloarthritis",
+        "Biologic DMARD withdrawal",
+        "Flare",
+        "Meta-analysis",
+        "Symptom duration"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42634715",
       "languages": [
         "eng"
@@ -31057,6 +31360,45 @@
       "first_seen": "2026-07-21"
     },
     {
+      "pmid": "42473780",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "Arthritis Rheumatol",
+      "first_author": "Mease",
+      "last_author": "Deodhar",
+      "date": "2026-07-20",
+      "title": "Deucravacitinib in Active Psoriatic Arthritis: Efficacy and Safety up to 52 Weeks From the Randomized, Double-Blind, Phase 3 POETYK PsA-2 Trial.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To assess the efficacy and safety of deucravacitinib, an oral, selective tyrosine kinase 2 inhibitor, in patients with psoriatic arthritis (PsA) who were naive to biologic disease-modifying antirheumatic drugs or received tumor necrosis factor inhibitors."
+        },
+        {
+          "label": "METHODS",
+          "text": "In the 52-week (W), double-blind, placebo-controlled, phase 3 POETYK PsA-2 study (NCT04908189), patients were randomized 3:3:1 to deucravacitinib 6 mg daily, placebo, or apremilast 30 mg twice daily (safety reference arm) through W16. From W16 to W52, patients continued receiving deucravacitinib or apremilast or switched from placebo to deucravacitinib. The primary endpoint was American College of Rheumatology 20% improvement in response (ACR20) at W16. Secondary endpoints were analyzed per prespecified order to control for multiplicity."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Overall, 729 patients were randomized (312 deucravacitinib, 312 placebo, 105 apremilast). Significantly more patients achieved ACR20 at W16 with deucravacitinib versus placebo (54.2% vs 39.4%; P=0.0002); responses improved beyond W16 and were maintained through W52 (deucravacitinib-deucravacitinib, 62.2%; placebo-deucravacitinib, 67.3%). At W16, significant differences with deucravacitinib versus placebo were observed in hierarchal secondary endpoints of HAQ-DI, PASI-75, SF-36 PCS, and achievement of MDA. At W16, serious adverse events occurred in 1.0%, 1.9%, and 3.8% of patients with placebo, deucravacitinib, and apremilast, respectively. No new safety signals, deaths, or imbalances in cardiovascular events, malignancies, or opportunistic infections occurred through W52."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Deucravacitinib was well-tolerated in patients with PsA and demonstrated superior efficacy versus placebo across multiple clinical endpoints and patient-reported outcomes, including functional ability and quality of life. Clinical responses and patient-reported outcomes were maintained through week 52."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42683038",
       "languages": [
         "eng"
@@ -31622,6 +31964,40 @@
       "first_seen": "2026-07-19"
     },
     {
+      "pmid": "42610014",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "disease_groups": [
+        "SSc"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 4,
+      "journal": "Cureus",
+      "first_author": "Patel",
+      "last_author": "Kesselman",
+      "date": "2026-07-18",
+      "title": "Pulmonary Function and Radiographic Outcomes in Systemic Sclerosis-Associated Interstitial Lung Disease: A Systematic Review of Rituximab, Interleukin-6 Inhibitors, and Janus Kinase Inhibitors.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Systemic sclerosis-associated interstitial lung disease (SSc-ILD) is a major cause of morbidity and mortality in systemic sclerosis patients. Although management typically includes conventional immunosuppression, increasing attention has been given to targeted immunomodulatory therapies including rituximab (RTX), IL-6 inhibitors (IL-6i), and JAK inhibitors (JAKi). This systematic review aimed to synthesize the available evidence on target immunomodulation as a management strategy for SSc-ILD, with a focus on post-exposure pulmonary function testing and radiographic progression. A systematic literature review was conducted utilizing EMBASE, Ovid MEDLINE, PubMed, and Web of Science in accordance with Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) 2020 guidelines. The targeted population included adult patients with either SSc-ILD or extractable pulmonary outcomes. Outcomes of interest included forced vital capacity (FVC), diffusing capacity for carbon monoxide (DLCO), total lung capacity (TLC), and high-resolution computed tomography (HRCT) progressive outcomes. Twenty-three studies met the inclusion criteria. FVC was the most consistently reported pulmonary outcome, while DLCO, TLC, and serial HRCT outcomes were less uniformly assessed. Due to substantial heterogeneity within the selected studies, a meta-analysis was not performed; findings were synthesized narratively. Targeted immunomodulatory therapy was more commonly associated with stabilization of pulmonary function rather than with substantial improvement. Tocilizumab demonstrated the strongest evidence for relative FVC preservation in placebo-controlled studies while RTX showed recurrent stabilization signals across comparative and observational studies. Evidence for JAKi remained premature, with limited pulmonary function data and inconsistent outcome reporting. Substantial heterogeneity in study design, patient populations, concomitant immunosuppression, comparators, and outcome reporting limited direct comparison across the therapies evaluated. Future research should account for inconsistencies amongst studies, namely population sizes, concurrent therapies, study types, and comparison groups. Future prospective studies using standardized criteria, outcome definitions, and comparator groups are needed to improve the causal interpretation."
+        }
+      ],
+      "keywords": [
+        "interleukin-6 inhibitors",
+        "janus kinase inhibitor",
+        "pulmonary fibrosis",
+        "rituximab (rtx)",
+        "systemic sclerosis interstitial lung disease (ssc-ild)"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42610158",
       "languages": [
         "eng"
@@ -31732,6 +32108,52 @@
       ],
       "flagged": "off-topic: Martorell hypertensive ischemic ulcer case; vasculitis explicitly excluded by histopathology, only a differential mentioned",
       "first_seen": "2026-07-18"
+    },
+    {
+      "pmid": "42724357",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "J Thorac Dis",
+      "first_author": "Wang",
+      "last_author": "Tang",
+      "date": "2026-07-17",
+      "title": "Nerandomilast (BI 1015550) attenuating pulmonary fibrosis in a mouse model of rheumatoid arthritis-associated interstitial lung disease by modulating the TGF-β1/PI3K/Akt signaling pathway.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Rheumatoid arthritis-associated interstitial lung disease (RA-ILD) is a severe extra-articular manifestation of rheumatoid arthritis, leading to increased mortality and impaired quality of life. However, effective therapeutic strategies remain limited, highlighting the need to explore novel treatments for RA-ILD. This study aimed to evaluate the ability of nerandomilast (BI 1015550) to attenuate joint inflammation and pulmonary fibrosis in a murine model of RA-ILD, with particular emphasis on the potential involvement of the transforming growth factor-β1 (TGF-β1)/phosphoinositide 3-kinase (PI3K)/protein kinase B (Akt) signaling pathway in mediating its antifibrotic effects."
+        },
+        {
+          "label": "METHODS",
+          "text": "A total of 20 male DBA/1 mice (a classic collagen-induced arthritis-susceptible strain) aged 8 weeks were randomly assigned to four groups: control (n=3), RA-ILD (n=5), nerandomilast (BI 1015550) (n=6), and nintedanib (n=6). RA-ILD was induced in all mice except those in the control group using bovine type II collagen (bCII). Nerandomilast and nintedanib were orally administered to the respective treatment groups on alternate days for 12 weeks. Serum tumor necrosis factor-alpha (TNF-α) levels were measured using enzyme-linked immunosorbent assay (ELISA), while immunohistochemistry was performed to evaluate TNF-α and matrix metalloproteinase-3 (MMP3) expression in knee joint tissues. In addition, the expression levels of Col-IV, fibronectin, MMP3, TNF-α, TGF-β1, total and phosphorylated PI3K, and total and phosphorylated Akt in lung tissues were quantified by Western blot analysis."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Nerandomilast significantly reduced serum TNF-α levels in RA-ILD mice (P<0.05). Treatment with nerandomilast alleviated pulmonary inflammatory cell infiltration and collagen deposition, while significantly reducing alveolar inflammation and Ashcroft scores (P<0.05). Compared with the RA-ILD group, the nerandomilast-treated group exhibited markedly lower protein expression levels of Col-IV, fibronectin, MMP3, TGF-β1, and TNF-α in lung tissues (P<0.05). Furthermore, the nerandomilast group showed significantly decreased p-PI3K/PI3K and p-Akt/Akt expression ratios compared with the RA-ILD group (P<0.05)."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Nerandomilast exerts significant protective effects against pulmonary inflammation and fibrosis in RA-ILD mice, potentially through the downregulation of TNF-α expression and modulation of the TGF-β1/PI3K/Akt signaling pathway."
+        }
+      ],
+      "keywords": [
+        "Nerandomilast (BI 1015550)",
+        "interstitial lung disease (ILD)",
+        "phosphoinositide 3-kinase/protein kinase B (PI3K/Akt)",
+        "rheumatoid arthritis (RA)",
+        "transforming growth factor-β1 (TGF-β1)"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (musemodel); præklinisk, ikke klinisk evidens"
     },
     {
       "pmid": "42631051",
@@ -32143,6 +32565,52 @@
       "first_seen": "2026-07-16"
     },
     {
+      "pmid": "42458252",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "BMC Immunol",
+      "first_author": "Chen",
+      "last_author": "Hu",
+      "date": "2026-07-15",
+      "title": "Evaluation of the efficacy and safety of Iguratimod combined with traditional anti-rheumatic drugs in treating rheumatoid arthritis: a retrospective study.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Rheumatoid arthritis (RA) is a chronic autoimmune disease that may lead to progressive joint damage and disability. Although methotrexate is a first-line treatment, some patients have inadequate responses or adverse reactions. This study aimed to evaluate the efficacy and safety of methotrexate combined with iguratimod versus methotrexate monotherapy in patients with RA."
+        },
+        {
+          "label": "METHODS",
+          "text": "Based on existing medical records, the clinical data of 80 patients with rheumatoid arthritis treated at our hospital between October 2021 and October 2023 were retrospectively analyzed. This was a single-center, retrospective, non-randomized controlled study, and the investigators were not involved in treatment allocation. According to the actual treatment regimens documented in the medical records, patients were divided into a conventional treatment group, which received methotrexate, and a combination treatment group, which received methotrexate plus iguratimod. Treatment efficacy, bone metabolism, CRP, RF, ESR, immune function, and adverse reactions were compared between the two groups. As the treatment regimens were not randomly assigned, the findings were mainly used to evaluate the associations between different treatment regimens and clinical outcomes."
+        },
+        {
+          "label": "RESULTS",
+          "text": "The combination therapy group demonstrated significantly higher response rates for ACR20, ACR50, ACR70 and considerably higher levels of N-MID and T-PINP than the conventional treatment group following treatment. This group demonstrated significantly decreased levels of β-CTX, CRP, RF, and ESR compared to the conventional treatment group (p < 0.05). After treatment, except for the similar changes in CD4 + and CD8 + levels, the levels of IgG, IgA, and IgM in the combination treatment group were significantly lower than the conventional treatment group (p < 0.05). The combination therapy group showed a more significant drop in DAS28 values than conventional treatment group (p < 0.05). However, there was no significant difference in adverse effects (p > 0.05)."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "In this single-center retrospective study, compared with methotrexate monotherapy, methotrexate combined with iguratimod was associated with higher ACR20, ACR50, and ACR70 response rates, as well as greater improvements in inflammatory markers, bone metabolism indicators, and DAS28 scores, without a significant increase in the incidence of adverse reactions. However, because this study used a non-randomized design and did not include propensity score matching, the findings should be further validated in prospective randomized controlled trials."
+        }
+      ],
+      "keywords": [
+        "A dverse effects",
+        "Bone metabolism related index",
+        "Iguratimod",
+        "Immune function",
+        "Methotrexate",
+        "Treatment effect"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42583652",
       "evidence_type": "Observational",
       "tier": 4,
@@ -32501,6 +32969,79 @@
         "Systematic Review"
       ],
       "first_seen": "2026-07-14"
+    },
+    {
+      "pmid": "42440279",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Network Meta-Analysis",
+        "Systematic Review"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 4,
+      "journal": "Cochrane Database Syst Rev",
+      "first_author": "Thomas",
+      "last_author": "Hazlewood",
+      "date": "2026-07-13",
+      "title": "Disease-modifying antirheumatic drugs (DMARDs) for rheumatoid arthritis after failure of biologic or targeted synthetic therapy: a systematic review and network meta-analysis.",
+      "abstract_sections": [
+        {
+          "label": "RATIONALE",
+          "text": "After inadequate response to first-line biologic or targeted synthetic (b/ts) disease-modifying antirheumatic drug (DMARD) therapy in adults with rheumatoid arthritis, there are numerous alternative DMARD options, and current understanding of their comparative benefits and harms is limited."
+        },
+        {
+          "label": "OBJECTIVES",
+          "text": "The aim of this living systematic review and network meta-analysis was to compare the benefits and harms of DMARDs after failure of biologic or targeted synthetic DMARDs in adults with rheumatoid arthritis."
+        },
+        {
+          "label": "SEARCH METHODS",
+          "text": "We searched CENTRAL, MEDLINE, Embase, and two trial registries (ClinicalTrials.gov and the WHO ICTRP) from inception until 28 November 2025, with no restrictions on language or date of publication."
+        },
+        {
+          "label": "ELIGIBILITY CRITERIA",
+          "text": "We included randomised controlled trials (RCTs) of adults aged 18 years or older diagnosed with rheumatoid arthritis according to 1958, 1987, or 2010 classification criteria who previously demonstrated inadequate response to a b/ts DMARD. Eligible interventions included conventional synthetic DMARDs (methotrexate, antimalarials, sulfasalazine, leflunomide, ciclosporin, and azathioprine), biologic DMARDs (adalimumab, certolizumab, etanercept, golimumab, infliximab, abatacept, rituximab, tocilizumab, sarilumab, and anakinra), and targeted synthetic DMARDs (tofacitinib, baricitinib, and upadacitinib)."
+        },
+        {
+          "label": "OUTCOMES",
+          "text": "Our critical outcomes were American College of Rheumatology 50% (ACR50) response, withdrawals due to adverse events, radiographic progression, Disease Activity Score 28 (DAS28) remission, pain as measured by visual analogue scale, function as measured by the Health Assessment Questionnaire (HAQ), and serious adverse events. Important outcomes included ACR20, ACR70, serious infections, fatigue, and quality of life."
+        },
+        {
+          "label": "RISK OF BIAS",
+          "text": "We used Cochrane's RoB 1 tool to assess risk of bias in the included studies."
+        },
+        {
+          "label": "SYNTHESIS METHODS",
+          "text": "We first screened the records using an approach that combined machine learning and crowdsourcing to identify probable RCTs. We then reviewed the records identified as RCTs for eligibility and simultaneously classified them to the appropriate Population, Intervention, Comparator, and Outcome (PICO) question(s). Two review authors then extracted relevant data from the included studies in duplicate and independently, with any disagreements resolved by a third review author. A Bayesian random-effects network meta-analysis was conducted using a semi-informative prior probability distribution. We assessed the certainty of evidence for each outcome using the GRADE approach."
+        },
+        {
+          "label": "INCLUDED STUDIES",
+          "text": "We included 19 unique studies (4779 participants) in the review, all of which were parallel-design RCTs. Eleven trials were placebo controlled; two trials had an inactive comparator arm; and six trials had an active comparator arm. The trials were performed in a well-established rheumatoid arthritis population, with the median baseline disease duration ranging from 6.4 to 14 years, median age of participants ranging from 49 to 58 years, and median baseline disease activity (DAS28) ranging from 4.87 to 6.79."
+        },
+        {
+          "label": "SYNTHESIS OF RESULTS",
+          "text": "ACR50 response We found moderate-/high-certainty evidence that using a tumour necrosis factor (TNF) inhibitor not previously tried, interleukin-6 (IL-6) inhibitors, abatacept, rituximab, and Janus kinase (JAK) inhibitors was more effective than placebo: TNF inhibitor not previously tried (odds ratio (OR) 6.04, 95% credible interval (CrI) 2.49 to 16.3; high-certainty evidence), sarilumab (OR 3.11, 95% CrI 1.25 to 7.76; high-certainty evidence), tocilizumab 4 mg/kg intravenous (OR 5.31, 95% CrI 2.09 to 12.09; high-certainty evidence), tocilizumab 8 mg/kg intravenous (OR 10.03, 95% CrI 3.65 to 31.27; high-certainty evidence), subcutaneous abatacept (OR 4.31, 95% CrI 0.97 to 18.28; moderate-certainty evidence), intravenous abatacept (OR 4.57, 95% CrI 2.21 to 10.18; high-certainty evidence), rituximab (OR 5.50, 95% CrI 2.31 to 13.12; high-certainty evidence), upadacitinib (OR 3.93, 95% CrI 1.53 to 10.32; high-certainty evidence), tofacitinib (OR 3.93, 95% CrI 1.53 to 10.32; high-certainty evidence), baricitinib 2 mg (OR 2.00, 95% CrI 0.77 to 5.23; moderate-certainty evidence), baricitinib 4 mg (OR 2.79, 95% CrI 1.10 to 7.22; high-certainty evidence). With an assumed risk for placebo of 78 out of 1000 patients, the expected effects for the active drugs ranged from 143 (baricitinib 2 mg) to 455 (tocilizumab 8 mg/kg). Withdrawals due to adverse events For most interventions, there were sparse data with low-certainty evidence, except for TNF inhibitor not previously tried (risk ratio (RR) 0.32, 95% CrI 0.07 to 1.1; moderate-certainty evidence), which is probably less harmful than placebo, and sarilumab (RR 1.98, 95% CrI 0.57 to 7.19; moderate-certainty evidence), which is probably more harmful than placebo. Low-certainty evidence suggests that intravenous abatacept (RR 0.92, 95% CrI 0.34 to 2.79), upadacitinib (RR 0.41, 95% CrI 0.08 to 1.83), and baricitinib 2 mg (RR 0.93, 95% CrI 0.22 to 4.01) may be less harmful than placebo. Low-certainty evidence suggests that tocilizumab 4 mg/kg (RR 1.39, 95% CrI 0.39 to 5.28), tocilizumab 8 mg/kg (RR 1.49, 95% CrI 0.51 to 4.81), subcutaneous abatacept (RR 3.11, 95% CrI 0.05 to 249.6), rituximab (RR 2.38, 95% CrI 0.44 to 23.31), tofacitinib (RR 1.37, 95% CrI 0.35 to 5.58), and baricitinib 4 mg (RR 1.43, 95% CrI 0.38 to 5.81) may be more harmful than placebo. Data were insufficient to perform a network meta-analysis for radiographic progression. For DAS28 and the HAQ, there was mostly moderate-/high-certainty evidence of a benefit, with some exceptions for comparisons with indirect evidence only that was of low or very low certainty. For the other efficacy outcomes, data were sparse with wide credible intervals, and the certainty of evidence was typically low."
+        },
+        {
+          "label": "AUTHORS' CONCLUSIONS",
+          "text": "We found high-certainty evidence that nine therapies and moderate-certainty evidence that two therapies provide a clinically important benefit in improving disease activity compared to placebo for people with rheumatoid arthritis after failure of b/ts DMARD therapy. There was significant uncertainty surrounding treatment-related harms, with the evidence having been downgraded for serious or extremely serious imprecision. Pair-wise comparisons showed no significant differences among therapies, although the certainty of evidence was low. The lack of clarity regarding safety and comparative efficacy suggests that treatment decisions should be guided by individual patient characteristics and preferences."
+        },
+        {
+          "label": "FUNDING",
+          "text": "This work was supported by grants from the Canadian Institutes for Health Research (CIHR) [Funding Reference Numbers (FRN) 178375 and 180324] and the National Health and Medical Research Council (NHMRC) Cochrane Collaboration. This research was supported by Arthritis Society Canada (Doctoral Studentship TGP-23-0211)."
+        },
+        {
+          "label": "REGISTRATION",
+          "text": "This study was outlined in a Cochrane protocol (CD013562; DOI 10.1002/14651858.CD013562)."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42443669",
@@ -34204,6 +34745,55 @@
       "first_seen": "2026-07-05"
     },
     {
+      "pmid": "42399917",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Vasculitis"
+      ],
+      "evidence_type": "RCT",
+      "tier": 4,
+      "journal": "BMC Med",
+      "first_author": "Sun",
+      "last_author": "Jiang",
+      "date": "2026-07-03",
+      "title": "Efficacy of leflunomide in active Takayasu arteritis: a randomized double-blind placebo-controlled trial subtitle: Takayasu arteritis clinical trial in China (TACTIC).",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Leflunomide (LEF) shows promising effect in Takayasu arteritis (TAK), but evidence from randomized controlled trials is lacking. This study aims to investigate the efficacy and safety of LEF versus placebo combined with prednisone for the treatment of TAK."
+        },
+        {
+          "label": "METHODS",
+          "text": "This is a multicenter, randomized, double-blind, placebo-controlled trial at six sites across China, conducting from December 22, 2016, to November 4, 2022. A total of 116 eligible patients were recruited and randomized 1:1 to receive LEF (20 mg/d, p.o.) or matched placebo for 24 weeks, with all patients having initial prednisone of 0.6 mg/kg/d and following a taper starting at week 4. By week 24, patients in the LEF group who did not achieve clinical remission discontinued the study; all other patients (both LEF and placebo groups) received LEF (20 mg/d) from week 25 to week 52. The primary outcome was clinical remission at week 24. Secondary outcomes were time-to-clinical remission, mean prednisone dose at week 24, clinical remission in those who switched to LEF from week 25, disease recurrence and time-to-recurrence, imaging changes, and safety."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Fifty-four and 57, 45 and 48 patients were included in LEF and placebo group of modified intention-to-treat (mITT) and per-protocol set (PPS). In mITT set, clinical remission was achieved in 44/54 (81.5%) LEF- and 45/57 (78.9%) placebo-treated patients (risk difference: 2.6, 95%CI: -12.5, 17.2) at week 24. The same trend was observed in the sensitivity analyses. Post hoc analyses indicated greater risk differences (LEF minus placebo) in the female subgroup, ≤ 40 years subgroup, refractory subgroup, systemic symptoms subgroup, imaging type II subgroup and in those achieving the composite endpoint of both clinical remission and stable/improved imaging. At week 24, LEF group had a lower mean prednisone dose (mean difference: -2.1, [-4.3, 0.1] mg/d). Adverse events were observed in 13 (24.5%) LEF- and 22 (39.3%) placebo-treated patients. Serious adverse events were reported in six LEF- and four placebo-treated patients. One death was reported in placebo group."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Although the primary endpoint was not met, our results still provide evidence supporting LEF as a potential alternative treatment option for TAK."
+        },
+        {
+          "label": "TRIAL REGISTRATION",
+          "text": "ClinicalTrials.gov identifier NCT02981979."
+        }
+      ],
+      "keywords": [
+        "Double-blind",
+        "Leflunomide",
+        "Placebo",
+        "Randomized",
+        "Takayasu arteritis"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42544157",
       "evidence_type": "Clinical case/survey",
       "tier": 4,
@@ -35606,6 +36196,106 @@
       "first_seen": "2026-07-01"
     },
     {
+      "pmid": "42453965",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Clinical Trial",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "RCT",
+      "tier": 4,
+      "journal": "Front Vet Sci",
+      "first_author": "Bufalari",
+      "last_author": "Moretti",
+      "date": "2026-06-30",
+      "title": "Clinical efficacy of intra-articular lidocaine with or without adrenaline during shoulder arthroscopy in dogs.",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "Intra-articular (IA) administration of local anaesthetic drugs has been widely reported in shoulder, elbow, ankle and knee arthroscopy in human medicine. The use of IA adrenaline to control bleeding in arthroscopy is relatively common, but its combined effect with local anaesthetics on perioperative pain has not been studied in dogs. This study aims at evaluating the efficacy of IA shoulder administration of lidocaine or lidocaine plus adrenaline in dogs (Canis lupus familiaris) as pre-emptive analgesia during arthroscopic surgery under general anaesthesia."
+        },
+        {
+          "label": "METHODS",
+          "text": "Twenty-four dogs were randomly assigned to receive a bolus of lidocaine 2% (group L), a mixture of lidocaine and adrenaline (group LA) or saline solution (NaCl 0.9%) (Control group-group C), injected into a shoulder joint before arthroscopic surgery. Haemodynamic and respiratory parameters were recorded at scheduled times: Baseline (B) at stable anaesthesia and before the painful stimuli; joint injection (J) and 5, 10, 15 minutes post J; trocar insertion (T) and 5, 10, 20, 30, 45, 60 minutes post T. If at least one of the baseline parameters among heart rate, respiratory rate and indirect systolic blood pressure increased by more than 20%, a bolus of 0.2 μg/kg of sufentanil was administered intravenously as rescue analgesia."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Results of this study show that the total dose of sufentanil and the number of boluses required during surgery were significantly lower in group L [odds ratio 6.28 (95% CI: 2-07-18.98)] and LA [odds ratio 8.45 (95% CI: 2.44-29.27)] compared to group C. In group LA, the time of first sufentanil bolus administration was significantly delayed compared to the other two groups. Significant differences in the variability of haemodynamic parameters were observed for HR (p = < 0.001), DAP (p = 0.041), RR (p = 0.013) at T0 (Baseline, before treatment). These findings indicate greater parameter variability in dogs of Group C (control group) compared with the other groups."
+        },
+        {
+          "label": "DISCUSSION/CONCLUSION",
+          "text": "Compared with placebo, intra articular administration of lidocaine or lidocaine combined with adrenaline just before shoulder arthroscopic surgery in dogs reduces the intraoperative requirement for sufentanil, indicating that this local analgesic approach contributes effectively to a multimodal analgesic protocol."
+        }
+      ],
+      "keywords": [
+        "adrenaline",
+        "anesthesia",
+        "arthroscopy",
+        "dog",
+        "lidocaine",
+        "pain",
+        "shoulder"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Veterinær studie (hunde); ikke humanmedicin"
+    },
+    {
+      "pmid": "42360790",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 2,
+      "journal": "Rheumatology (Oxford)",
+      "first_author": "Konzett",
+      "last_author": "Aletaha",
+      "date": "2026-06-30",
+      "title": "Detectable safety gestalt of rheumatoid arthritis treatments from pivotal clinical drug trials.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To provide a meta-level comparison of standardized safety profiles ('gestalt') of currently licensed biologic and targeted synthetic disease-modifying anti-rheumatic drugs (bDMARDs and tsDMARDs) in rheumatoid arthritis (RA) from pivotal clinical trials."
+        },
+        {
+          "label": "METHODS",
+          "text": "We systematically searched EMBASE, Medline and the Cochrane Library for randomized controlled RA drug approval trials of bDMARDs and tsDMARDs. The Medical Dictionary for Regulatory Activities (MedDRA) hierarchy system was applied to account for the heterogeneous safety reporting across trials, and random-effects meta-analyses of adverse events (AE) were performed at lower MedDRA levels as well as for major system organ classes. Serious AEs (SAE) and AEs of special interest (AESI) were studied descriptively. Forest plots and radar charts were used for visualization, to generate distinct safety profiles, referred to as 'safety gestalt', for each compound."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Sixty-four randomized, placebo-controlled drug approval trials were considered, of which 25 studied TNF-α inhibitors, 10 studied IL-6 receptor inhibitors, 5 studied rituximab, 7 studied abatacept and 18 studied Janus kinase inhibitors. Meta-level comparisons of the total number of AEs and SAEs showed comparable overall safety and tolerability, while a more granular insight into distinct organ classes and AESIs disentailed differences between compounds and drug classes."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Standardized safety reporting and profiling of bDMARDs and tsDMARDs from pivotal clinical drug trials provides an overview of safety outcomes of commonly used RA therapies, supports safety-oriented treatment selection in individual patients, and provides essential context for safety evaluation of novel therapies during periods before long-term safety data become available."
+        }
+      ],
+      "keywords": [
+        "DMARDs",
+        "biomarker",
+        "clinical trials",
+        "meta-analysis",
+        "outcome measures",
+        "rheumatoid arthritis",
+        "safety",
+        "treatment selection"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42569396",
       "evidence_type": "Clinical case/survey",
       "tier": 4,
@@ -36571,6 +37261,45 @@
       "first_seen": "2026-06-26"
     },
     {
+      "pmid": "42351343",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Crystal"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "Arthritis Rheumatol",
+      "first_author": "Baraf",
+      "last_author": "Kivitz",
+      "date": "2026-06-25",
+      "title": "Efficacy and Safety of Nanoencapsulated Sirolimus Plus Pegadricase: Results From the Randomized, Placebo-Controlled Phase 3 Trials.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "DISSOLVE I and II examined the efficacy and safety of nanoencapsulated sirolimus (NAS) plus pegadricase (NASP) in patients with uncontrolled gout (UG)."
+        },
+        {
+          "label": "METHODS",
+          "text": "In these double-blind, placebo-controlled Phase 3 trials of NASP, patients were randomized 1:1:1 to infusions of high-dose (HD) or low-dose (LD) NAS plus pegadricase (HD NASP, LD NASP, respectively) or placebo, given every 4 weeks for 6 doses. The primary endpoint was proportion of patients with serum urate (SU) < 6 mg/dL for ≥ 80% of the time during Weeks 21-24. Secondary endpoints included health-related quality of life, tophus resolution, tender joints, and gout flares. Safety was also assessed."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Overall, 265 patients received HD NASP, LD NASP, or placebo. SU response during weeks 21 to 24 was significantly higher with NASP than with placebo (HD NASP: 51%; LD NASP: 43%; placebo: 8%; P < 0.0001 for both doses vs placebo). Common adverse events included gout flares (HD NASP: 42.5%; LD NASP: 44.3%; placebo: 43.3%), infections (HD NASP: 23.0%; LD NASP: 18.2%; placebo: 16.7%), and stomatitis (HD NASP: 9.2%; LD NASP: 3.4%; placebo: 0%). Infusion reactions within 1 hour were infrequent (4%) in NASP-treated patients. During weeks 1 to 12, the proportion of patients with flares was similar between NASP- and placebo-treated patients; thereafter, it decreased in NASP-treated patients but remained unchanged with those receiving the placebo."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "NASP treatment resulted in a significantly higher proportion of patients with complete SU response during weeks 21 to 24 compared with placebo and was generally well tolerated. NASP, an every-4-week treatment, can markedly alleviate disease burden in patients with UG."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42350183",
       "languages": [
         "eng"
@@ -36919,6 +37648,45 @@
         "Randomized Controlled Trial"
       ],
       "first_seen": "2026-06-24"
+    },
+    {
+      "pmid": "42334234",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 2,
+      "journal": "Arthritis Rheumatol",
+      "first_author": "Van Hooste",
+      "last_author": "Carron",
+      "date": "2026-06-23",
+      "title": "Diagnostic Value and Treatment Responsiveness of Ultrasonography Features in Correlation With Clinical Findings in Early Peripheral Spondyloarthritis.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To investigate the diagnostic performance of ultrasonography features in the evaluation of enthesitis and arthritis in very early peripheral spondyloarthritis (pSpA)."
+        },
+        {
+          "label": "METHODS",
+          "text": "The Clinical Remission in Peripheral Spondyloarthritis (CRESPA) trial was a double-blinded, placebo-controlled trial investigating induction of clinical remission in very early pSpA (symptom duration < 12 weeks) using tumor necrosis factor α (TNFα)-inhibition. Standardized clinical and ultrasonography evaluation of four pairs of entheses and eight pairs of lower limb joints were performed repeatedly in 54 patients. Analyses focused on the prevalence of ultrasonography features of joints and entheses, their correlation with clinical findings, and their response to treatment."
+        },
+        {
+          "label": "RESULTS",
+          "text": "At baseline, synovial hypertrophy was uncommon in this early pSpA cohort and showed no independent predictive value for clinical evaluation. In contrast, Power Doppler (PD) ≥1 (odds ratio [OR] 9.5) and ultrasonography joint effusion (OR 8.3) were strong predictors of a swollen joint. Golimumab treatment significantly predicted resolution of PD signal, synovial hypertrophy, and joint effusion on ultrasonography evaluation compared to placebo. Among entheses, 45% (21 of 46) of clinical tender sites displayed no ultrasonography abnormality, whereas 19% (72 of 386) of nontender entheses did. Across all 432 entheses at baseline, only entheseal thickening (OR 10.89) and PD ≥1 (OR 5.94) predicted tenderness. Treatment with golimumab was also associated with disappearance of entheseal thickening, hypoechogenicity, and PD signal."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Ultrasonography in enthesitis and arthritis demonstrates high responsiveness to TNFα inhibition in early pSpA but is limited by nonspecific findings and clinical overestimation of enthesitis. Development of standardized scoring systems and validated thresholds is essential to improve diagnostic accuracy and treatment monitoring."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42451054",
@@ -37519,6 +38287,48 @@
       "first_seen": "2026-06-18"
     },
     {
+      "pmid": "42266045",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 3,
+      "journal": "Curr Opin Rheumatol",
+      "first_author": "Bloom",
+      "last_author": "Sriram",
+      "date": "2026-06-17",
+      "title": "Immune dysregulation in children with Down syndrome: clinical implications and emerging therapies.",
+      "abstract_sections": [
+        {
+          "label": "PURPOSE OF REVIEW",
+          "text": "People with Down syndrome experience significant immune dysregulation, conferring elevated risk of autoimmune and inflammatory conditions. Despite the growing prevalence of adults living with Down syndrome, significant gaps remain in understanding and treating immune-mediated disease in this population. This review synthesizes current knowledge of immune dysregulation in Down syndrome, with focus on rheumatic manifestations and emerging therapeutic approaches."
+        },
+        {
+          "label": "RECENT FINDINGS",
+          "text": "Trisomy 21 drives constitutive, global immune remodeling characterized by mixed interferon hyperactivation, hypercytokinemia, and myeloid and lymphoid subset remodeling toward an autoimmunity-prone, pro-inflammatory state. Down syndrome associated arthritis is a distinct and aggressive entity warranting recognition separate from juvenile idiopathic and rheumatoid arthritis. People with Down syndrome face elevated risk of SJIA-associated lung disease and diffuse alveolar hemorrhage. Medication tolerance is a significant consideration, including intolerance to methotrexate and diminished response to TNF inhibitors. Early clinical trials of JAK inhibitors demonstrate promising results across multiple immune-mediated manifestations, including skin disease, arthritis, and Down syndrome regression disorder."
+        },
+        {
+          "label": "SUMMARY",
+          "text": "Immune dysregulation in Down syndrome is pervasive and mechanistically distinct, with interferon signaling as a central therapeutic target. Clinicians should be aware of Down syndrome specific diagnostic and management considerations, and future research should prioritize rigorous placebo-controlled trials and Down syndrome informed outcome measures."
+        }
+      ],
+      "keywords": [
+        "Down syndrome",
+        "JAK inhibitors",
+        "autoimmunity",
+        "interferon",
+        "trisomy 21"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42524558",
       "evidence_type": "Observational",
       "tier": 4,
@@ -37624,6 +38434,55 @@
         "Journal Article"
       ],
       "first_seen": "2026-06-17"
+    },
+    {
+      "pmid": "42312506",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 3,
+      "journal": "Curr Rheumatol Rev",
+      "first_author": "Theeb Mustafa",
+      "last_author": "Alsheyyab",
+      "date": "2026-06-16",
+      "title": "Efficacy and Safety of Tocilizumab Biosimilars Compared to Reference Tocilizumab in the Treatment of Rheumatoid Arthritis: A Systematic Review and Meta-analysis of Randomized Controlled Trials.",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "Tocilizumab biosimilars offer an innovative therapeutic option for pa-tients with rheumatoid arthritis (RA); however, their safety and efficacy compared with the refer-ence product remain undefined. This systematic review and meta-analysis aim to synthesize data from all randomized clinical trials (RCTs) comparing the efficacy and safety of tocilizumab bio-similars with reference tocilizumab for RA treatment."
+        },
+        {
+          "label": "METHODS",
+          "text": "Following PRISMA guidelines, we searched PubMed, the Cochrane Library, and Web of Science up to March 2026. We included RCTs comparing biosimilars of tocilizumab to refer-ence tocilizumab in adult RA patients. Primary efficacy outcomes included ACR20 response and DAS28-ESR; secondary outcomes were ACR50/70, DAS28-CRP, and safety outcomes."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Four Phase 3 double-blind RCTs enrolling 2160 patients were included in the analysis. No statistically significant differences were found between biosimilars and reference tocilizumab for ACR20, ACR50, or ACR70 DAS28-CRP responses at 12, 24 weeks, and approximately 1 year. Similarly, no difference was observed in DAS28-ESR change from baseline at 12 (MD, -0.07; P = 0.26) or 24 weeks (MD, -0.04; P = 0.60). However, at approximately 1 year (48-52 weeks), biosimilars showed a statistically significantly greater reduction in DAS28-ESR (MD -0.24, 95% CI: -0.44 to -0.05; P = 0.01) but did not reach the minimal clinically important differ-ence (MCID). Safety profiles were comparable, with no significant differences in safety out-comes."
+        },
+        {
+          "label": "DISCUSSION",
+          "text": "Our results indicate that tocilizumab biosimilars are therapeutically equivalent to the reference product in terms of clinical response and safety. However, a primary limitation of this meta-analysis is the small number of included RCTs. Future research should prioritize long-term surveillance and cost-effectiveness analysis in diverse settings to facilitate widespread clinical adoption and ensure sustained patient safety."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Our meta-analysis shows that tocilizumab biosimilars have efficacy and safety pro-files equivalent to those of reference tocilizumab for the treatment of RA. These findings support the use of biosimilars as an effective therapeutic alternative."
+        }
+      ],
+      "keywords": [
+        "Biosimilars",
+        "IL-6 Inhibitor",
+        "Meta-Analysis",
+        "Rheumatoid Arthritis",
+        "Tocilizumab"
+      ],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42303371",
@@ -37801,6 +38660,45 @@
       "first_seen": "2026-06-16"
     },
     {
+      "pmid": "42294825",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IIM"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "Arthritis Care Res (Hoboken)",
+      "first_author": "Pasoto",
+      "last_author": "Silva",
+      "date": "2026-06-15",
+      "title": "Immunogenicity, Safety, and Determinants of Recombinant Zoster Vaccine Response in Idiopathic Inflammatory Myopathies: A Phase 4 Randomized Trial.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To evaluate the immunogenicity and safety of the recombinant zoster vaccine (RZV) in immunosuppressed patients with idiopathic inflammatory myopathies (IIM), with particular focus on its impact on disease activity."
+        },
+        {
+          "label": "METHODS",
+          "text": "This subanalysis of a randomized, double-blind, placebo-controlled study included 70 immunocompromised adult patients with IIM (2017 ACR/EULAR criteria) and 280 healthy controls (control group [CG]), who received two RZV doses. Seroconversion was defined as a ≥4-fold increase in anti-gE antibodies. Geometric mean titers (GMT) and factor increase (FI) were assessed, and multivariable regression analyses were performed to identify factors associated with seroconversion. Patients were randomized 1:1 to receive RZV or placebo during the blinded phase, and disease activity was evaluated using validated instruments (visual analog scale, the Myositis Disease Activity Assessment Visual Analog Scale, Manual Muscle Test-8 (MMT-8), Health Assessment Questionnaire, and the modified Medical Research Council dyspnea scale and serum muscle enzymes."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Patients with IIM were younger (53 vs 55 years, P = 0.005) and had a higher prevalence of previous herpes zoster (36.7% vs 13.3%, P < 0.001) than CG. Seroconversion rates were lower in IIM compared with CG (83.3% vs 99.3%, P < 0.001), with reduced post-vaccination GMT (6.4 vs 11.8 mIU/mL, P = 0.001) and FI-GMT (21.8 vs 53.0, P = 0.001). Mycophenolate mofetil use, higher baseline cutaneous activity, and higher baseline GMT were independently associated with reduced seroconversion (P < 0.05). Adverse events, mostly mild, were reported by 35 of 70 (50.0%) patients with IIM and by 204 of 280 (72.8%) CG (P < 0.001). No differences in activity scores were observed between vaccine and placebo groups (P > 0.05)."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "RZV was safe and induced seroconversion in most immunosuppressed patients with IIM, without evidence of vaccine-related disease activation. Attenuated antibody responses, particularly in patients receiving mycophenolate mofetil or with active cutaneous disease, support individualized vaccination strategies to optimize protection in this high-risk population (ClinicalTrials.gov NCT05879419)."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "41985922",
       "evidence_type": "Evidence synthesis",
       "tier": 2,
@@ -37920,6 +38818,60 @@
         "Journal Article"
       ],
       "first_seen": "2026-06-15"
+    },
+    {
+      "pmid": "42330661",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 2,
+      "journal": "Semin Arthritis Rheum",
+      "first_author": "Lage-Hansen",
+      "last_author": "Christensen",
+      "date": "2026-06-14",
+      "title": "Understanding patient and physician global assessments in rheumatoid arthritis: A meta-epidemiological study of core outcome set performance.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To assess agreement between physician and patient global assessment improvements in randomised controlled trials (RCT) of targeted therapies for rheumatoid arthritis and to identify which core outcome domains best explain changes in each assessment and their discrepancies."
+        },
+        {
+          "label": "METHODS",
+          "text": "We conducted a systematic review and meta-epidemiological analysis of RCTs comparing targeted therapies with placebo. Standardised mean differences (SMDs) were calculated for all eight RA-COS domains: Physician global assessment, Patient global assessment, Disability, Tender joint count (TJC), Swollen joint count (SJC), Pain, Acute phase reactants, and Fatigue. Agreement between physician and patient assessments was assessed as ΔSMD Global (i.e., SMD Physician global assessment - SMD Patient global assessment). Multivariate meta-analyses were performed to calculate SMD for the remaining domains. Multiple imputation followed by meta-regression analyses identified domain-level predictors of global assessment changes."
+        },
+        {
+          "label": "RESULTS",
+          "text": "We identified 73 double-blind RCTs (165 randomised comparisons) involving 33,956 RA patients. Physician assessments demonstrated slightly greater treatment effects (SMD -0.60; 95% CI -0.65 to -0.55) compared with patient assessments (SMD -0.50; 95% CI -0.54 to -0.46): ΔSMDGlobal = -0.09 (95% CI -0.12 to -0.05). Univariable meta-regression identified disability, TJC and SJC as the strongest associations of both assessments, yet SJC was the only domain significantly associated with the contrast between these (ΔSMDGlobal). Pain was independently associated only with patient global assessment."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Targeted therapies show larger improvements in physician-assessed outcomes than on patient-reported outcomes, largely driven by SJC. Pain remains a distinct determinant of patient assessments, underscoring the need to better integrate patient-reported outcomes into RA trial design."
+        },
+        {
+          "label": "REGISTRATION",
+          "text": "The protocol was registered on PROSPERO (2025-02-14)."
+        },
+        {
+          "label": "REGISTRATION NUMBER",
+          "text": "CRD420250652342."
+        }
+      ],
+      "keywords": [
+        "Core outcome set",
+        "Meta-analysis",
+        "Patient perspective",
+        "Physician perspective"
+      ],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42285573",
@@ -38195,6 +39147,44 @@
         "Practice Guideline"
       ],
       "first_seen": "2026-06-10"
+    },
+    {
+      "pmid": "42352921",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 4,
+      "journal": "Int J Mol Sci",
+      "first_author": "Masoud",
+      "last_author": "Yaqinuddin",
+      "date": "2026-06-09",
+      "title": "Antibody-Drug Conjugates in Solid Tumor Oncology and the Frontier of Precision Immunosuppression: A Mechanistic, Translational, and Clinical Review.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Antibody-drug conjugates (ADCs) have transitioned from clinically marginal agents into a defining therapeutic class for solid tumor oncology. In DESTINY-Breast03, trastuzumab deruxtecan achieved a four-fold progression-free survival advantage over trastuzumab emtansine, attributable not to antibody engineering but to the linker-payload axis: a cleavable peptide linker and a topoisomerase I payload with bystander activity. Sacituzumab govitecan extends the same logic to Trop-2-positive disease via extracellular payload release, and the framework now spans breast, urothelial, gynecologic, lung, gastric, and colorectal cancers, with enfortumab vedotin plus pembrolizumab displacing platinum chemotherapy as first-line therapy for urothelial cancer in EV-302 (median overall survival 31.5 versus 16.1 months). This review synthesizes ADC biology along three analytical axes. The mechanistic axis links each linker-payload-DAR configuration to a specific tumor-biology barrier: vascular limitation, which delivers approximately 0.1% of the administered dose to tumor tissue; the binding-site barrier, which concentrates exposure at the perivascular margin; and antigen mosaicism, which defeats internalization-dependent killing. The translational axis examines resistance as a coordinated failure across antigen modulation, trafficking, efflux, apoptotic execution, and lysosomal processing. The clinical axis traces the platform's migration toward earlier-line and curative-intent settings. We close by examining whether the ADC delivery architecture translates to precision immunosuppression in autoimmune disease, where the glucocorticoid receptor modulator ADC ABBV-154 met placebo-controlled efficacy endpoints in rheumatoid arthritis but was discontinued because its benefit-risk profile did not differentiate it from existing biologic therapies."
+        }
+      ],
+      "keywords": [
+        "antibody-drug conjugate",
+        "bystander effect",
+        "enfortumab vedotin",
+        "linker-payload axis",
+        "precision immunosuppression",
+        "solid tumor",
+        "trastuzumab deruxtecan",
+        "tumor heterogeneity"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Onkologisk ADC-oversigt; intet reumatologisk indhold"
     },
     {
       "pmid": "42756545",
@@ -38754,6 +39744,103 @@
       "first_seen": "2026-06-05"
     },
     {
+      "pmid": "42273013",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IIM"
+      ],
+      "evidence_type": "RCT",
+      "tier": 4,
+      "journal": "Clin Cosmet Investig Dermatol",
+      "first_author": "Aggarwal",
+      "last_author": "Chu",
+      "date": "2026-06-04",
+      "title": "Rapid Onset of Response in Adults with Dermatomyositis Receiving Dazukibart: A Phase 2, Double-Blind, Randomized, Placebo-Controlled Study.",
+      "abstract_sections": [
+        {
+          "label": "PURPOSE",
+          "text": "Interferon-β (IFNβ) dysregulation contributes to dermatomyositis (DM) pathogenesis. In a previously published phase 2 study, 12-week treatment with dazukibart, an anti-IFNβ monoclonal antibody, reduced disease activity in moderate-to-severe DM. This prespecified secondary analysis evaluated the rapidity of onset of efficacy of dazukibart in DM at time points before Week 12, which may inform treatment decisions."
+        },
+        {
+          "label": "PATIENTS AND METHODS",
+          "text": "This is a secondary analysis of a double-blind, randomized, placebo-controlled phase 2 study (NCT03181893). Adults with skin-predominant (SP) or muscle-predominant (MP) DM received placebo or dazukibart (150 mg/600 mg) at baseline and every 4 weeks. Efficacy outcomes assessed at Weeks 1, 4, and 8 included: SP cohort-change from baseline (CFB) in Cutaneous Dermatomyositis Disease Area and Severity Index activity (CDASI-A), 5D-itch, and Dermatology Quality of Life Index (DLQI) and proportion of patients achieving ≥40% decrease in CDASI-A; MP cohort-Mean Total Improvement Score (TIS), CFB in myositis core set measures, and TIS response."
+        },
+        {
+          "label": "RESULTS",
+          "text": "In SP cohort (n=57), statistically significant improvement was observed with dazukibart in mean CFB (placebo-adjusted difference) CDASI-A (Week 4; 150 mg: -10.5 [p=0.0006]; 600 mg: -9.7 [p=0.0004]), 5D-itch (Week 1; 600 mg: -2.0 [p=0.0359]), and DLQI (Week 4; 150 mg: -2.8 [p=0.0249]; 600 mg: -2.7 [p=0.0160]). CDASI-A score decreased by ≥40% in 53.3% (dazukibart 150 mg), 42.9% (dazukibart 600 mg), and 7.7% (placebo) patients at Week 4. In MP cohort (n=18), numerical improvements (sample size not powered to detect statistical significance) with dazukibart 600 mg vs placebo in mean TIS (Week 4) and statistically significant improvements in mean CFB creatine kinase levels (Week 4; p=0.0445) and Patient Global Assessment (Week 8; p=0.0470) were observed. At Week 4, 77.8% and 22.2% (dazukibart 600 mg) vs 66.7% and 0 (placebo) patients achieved minimal and major improvement, respectively."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Dazukibart induced rapid improvement in key skin- and muscle-related efficacy outcomes of disease activity in patients with DM. The small sample size of the MP cohort warrants a well-powered Phase 3 study to confirm these Phase 2 proof-of-concept results."
+        },
+        {
+          "label": "TRIAL REGISTRATION",
+          "text": "NCT03181893."
+        }
+      ],
+      "keywords": [
+        "CDASI-A",
+        "efficacy",
+        "idiopathic inflammatory myopathies",
+        "interferon β",
+        "muscle-predominant",
+        "skin-predominant",
+        "type 1 interferon"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
+      "pmid": "42241644",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SLE"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 3,
+      "journal": "J Clin Rheumatol",
+      "first_author": "Lee",
+      "last_author": "Song",
+      "date": "2026-06-04",
+      "title": "Efficacy and Safety of Janus Kinase Inhibitors in Systemic Lupus Erythematosus: A Systematic Review and Meta-analysis of Randomized Controlled Trials.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To assess the efficacy and safety of Janus kinase inhibitors (JAKi) in patients with active systemic lupus erythematosus (SLE)."
+        },
+        {
+          "label": "METHODS",
+          "text": "We conducted a systematic review of randomized, double-blind, placebo-controlled phase 2 and 3 trials involving JAKi in adults with active SLE. Five trials (n=1802) were included, evaluating baricitinib 4 mg (n=3), deucravacitinib 3 mg twice daily (n=1), and upadacitinib 30 mg (n=1). The primary outcome was the SLE Responder Index-4 (SRI-4) response at weeks 24 to 52. Secondary outcomes included the BICLA response, Lupus Low Disease Activity State (LLDAS), and safety endpoints such as serious adverse events, serious infections, herpes zoster, and venous thromboembolism. Pooled odds ratios (ORs) were calculated using random-effects Mantel-Haenszel models."
+        },
+        {
+          "label": "RESULTS",
+          "text": "JAKi significantly improved the SRI-4 response compared with placebo (54.4% vs. 43.8%; OR: 1.78, 95% CI: 1.41-2.25; p<0.001; I²=32%). Improvements were also observed in BICLA (OR: 1.92, 95% CI: 1.53-2.41) and LLDAS (OR: 2.01, 95% CI: 1.58-2.56). However, serious adverse events (OR: 1.48, 95% CI: 1.03-2.13) and serious infections (OR: 2.10, 95% CI: 1.21-3.65) occurred more frequently with JAKi, primarily driven by herpes zoster (OR: 3.24, 95% CI: 1.92-5.46). The rates of venous thromboembolism were comparable (OR: 1.13, 95% CI: 0.44-2.94)."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "JAKi significantly improved disease activity across various composite endpoints in active SLE, demonstrating an acceptable safety profile characterized by an increased risk of herpes zoster but no evident signal for venous thromboembolism."
+        }
+      ],
+      "keywords": [
+        "Janus kinase inhibitor",
+        "baricitinib",
+        "deucravacitinib",
+        "meta-analysis",
+        "systemic lupus erythematosus",
+        "upadacitinib"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42577094",
       "evidence_type": "Clinical case/survey",
       "tier": 4,
@@ -39006,6 +40093,89 @@
         "Journal Article"
       ],
       "first_seen": "2026-06-02"
+    },
+    {
+      "pmid": "42281265",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "disease_groups": [
+        "SLE"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Mol Nutr Food Res",
+      "first_author": "Ribeiro",
+      "last_author": "Nicoletti",
+      "date": "2026-06-01",
+      "title": "Genome-Wide DNA Methylation Changes Induced by High-Fat Diet and Methyl Donor Supplementation in Female Lupus Models: An Exploratory Study.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "This exploratory study investigated the interactive effects of dietary fat content and methyl-donor supplementation on genome-wide DNA methylation in adipose tissue of female lupus-prone NZBWF1/J mice. Thirty mice were randomly assigned to four groups for 12 weeks in a 2 × 2 factorial design: standard diet (SD, n = 7), high-fat diet (HFD, n = 7), standard diet supplemented (SDS, n = 8), and high-fat diet supplemented (HFDS, n = 8). The standard diet provided 4.2 kcal/g and the high-fat diet 6.6 kcal/g. Supplemented diets contained 8 mg/kg folic acid and 50 µg/kg vitamin B12. After a 10-h fast, subcutaneous adipose tissue was collected for genome-wide DNA methylation analysis using the Infinium Mouse Methylation BeadChip, followed by differential methylation and pathway enrichment analyses. The high-fat diet induced a distinct methylation profile with 90 differentially methylated CpGs (p < 0.05, Δβ ≥ 0.05). Enrichment analyses did not identify significantly overrepresented pathways. Diet × supplementation interaction analysis identified 31 CpGs with significant interaction effects (p < 0.01). Pathway enrichment analysis revealed overrepresentation of the IL-17 signaling pathway. Only one CpG overlapped between HFD-associated and interaction-associated loci, indicating largely distinct epigenetic responses to diet and supplementation. A high-fat diet induces widespread epigenetic remodeling in adipose tissue, while folic acid and vitamin B12 supplementation modulates inflammatory epigenetic pathways in a diet-dependent manner."
+        }
+      ],
+      "keywords": [
+        "DNA methylation",
+        "epigenetic",
+        "folic acid",
+        "lupus",
+        "obesity",
+        "vitamin B12"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (mus); præklinisk, ikke klinisk evidens"
+    },
+    {
+      "pmid": "42229607",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Meta-Analysis",
+        "Review"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 4,
+      "journal": "Autoimmun Rev",
+      "first_author": "Dong",
+      "last_author": "Guan",
+      "date": "2026-06-01",
+      "title": "Comparison of treatment effects between ACR response criteria and target-based outcomes for contemporary rheumatoid arthritis drug approval trials: A meta-epidemiological study.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "Regulatory priorities diverge between agencies - the FDA maintained ACR20 response as primary endpoint in rheumatoid arthritis (RA) trials, whereas the EMA emphasized target-based outcomes. We aim to systematically compare treatment effect estimates between American College of Rheumatology (ACR) response criteria (ACR20/50/70) and target-based outcomes in placebo-controlled trials of approved RA therapies."
+        },
+        {
+          "label": "METHODS",
+          "text": "A meta-epidemiological study was performed on randomized placebo-controlled trials investigating approved biological and targeted DMARDs (bioDMARDs and tsDMARDs) in patients with RA. Trials reporting at least one ACR response criterion and one target-based outcome were included. Odds ratios (ORs) for each outcome were computed, followed by calculation of a risk of odds ratio (ROR) to quantify differences in treatment effects between ACR and target-based outcomes. The primary outcome was the treatment effect differences between ACR20 and target-based efficacy estimates, and the second outcome was to explore which alternative ACR response criteria were concordant with target-based outcomes."
+        },
+        {
+          "label": "RESULTS",
+          "text": "A total of 53 RCTs (392 study arms) involving 30,778 RA patients were analyzed. Trials using ACR20 demonstrated significantly greater treatment effect estimates compared to those using remission outcomes (ROR = 0.65, 95% CI 0.52-0.81) and LDA outcomes (ROR = 0.78, 95% CI 0.69-0.89). Higher ACR thresholds (ACR50 and ACR70) showed better consistency with target-based outcomes, with ACR70 aligning with remission (ROR = 0.88, 95% CI 0.76-1.01) and ACR50 aligning with LDA (ROR = 0.95, 95% CI 0.81-1.11). Subgroup analyses indicated that the discordance between ACR20 and target-based outcomes persisted across different intervention drugs, comparison types, and previous treatments."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "ACR20 overestimates treatment effects relative to target-based outcomes, while ACR50/70 demonstrate better concordance. Harmonizing endpoints by integrating more stringent ACR response or co-primary endpoints (ACR response criteria + target-based outcomes) could bridge regulatory discrepancies and enhance clinical relevance in RA drug development."
+        }
+      ],
+      "keywords": [
+        "ACR response",
+        "Clinical trials",
+        "Rheumatoid arthritis",
+        "Treat-to-target"
+      ],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42363348",
@@ -39715,6 +40885,49 @@
       "first_seen": "2026-05-28"
     },
     {
+      "pmid": "42256627",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SSc"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "J Scleroderma Relat Disord",
+      "first_author": "Zhu",
+      "last_author": "Qi",
+      "date": "2026-05-26",
+      "title": "AhR agonist Ficz modulates T follicular helper cells and ameliorates skin fibrosis in a bleomycin-induced SSc mouse model.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "T follicular helper (Tfh) cells are involved in the pathogenesis of systemic sclerosis (SSc). Recent investigations have revealed aryl hydrocarbon receptor (AhR) regulated skin fibrosis in SSc. This study aims to explore the effect of AhR agonist Ficz on Tfh in a bleomycin (BLM)-induced SSc mouse model."
+        },
+        {
+          "label": "METHODS",
+          "text": "BALB/c mice were randomly assigned to the control group (Ctrl), BLM-induced SSc mouse group (BLM) and the Ficz treatment group (BLM+Ficz). BLM (1 mg/kg/day) and Ficz (1 µg/mouse/48 hours) were injected subcutaneously for 4 weeks. Skin lesions were harvested for HE staining, Masson's trichrome (Masson) staining, double immunofluorescence as well as real-time quantitative PCR. Flow cytometry analysis was carried out to determine the proportion of peripheral Tfh cells."
+        },
+        {
+          "label": "RESULTS",
+          "text": "We found that Ficz treatment effectively attenuated dermal thickness, collagen content and the expression of fibrosis-related genes, including Col1a1, Col3a1, Fn1 and Tgfβ1 compared with the BLM-induced mice. Moreover, the percentage of peripheral Tfh cells (CD4+CXCR5+PD-1+) was significantly elevated in BLM-induced mice and Ficz appeared to reduce the percentage of peripheral Tfh cells. Double immunofluorescence staining verified the presence of Tfh-like cells (CXCR5+PD-1+) in skin lesions of BLM-induced mice. In addition, the messenger RNA level of a key Tfh cytokine, Il21 was decreased in skin of Ficz treated BLM-induced mice, with elevated expression of Cyp1a1, a marker of AhR signalling."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Ficz, an AhR agonist, can alleviate skin fibrosis in BLM-induced SSc mice, which may relate to the reduction of Tfh cells and its downstream cytokine interleukin-21 expression through the activation of AhR pathway."
+        }
+      ],
+      "keywords": [
+        "Aryl Hydrocarbon Receptor",
+        "Scleroderma, Systemic"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (mus); præklinisk, ikke klinisk evidens"
+    },
+    {
       "pmid": "42540042",
       "evidence_type": "Evidence synthesis",
       "tier": 4,
@@ -39916,6 +41129,52 @@
       "first_seen": "2026-05-23"
     },
     {
+      "pmid": "42211851",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "J Pain Res",
+      "first_author": "Li",
+      "last_author": "Wang",
+      "date": "2026-05-22",
+      "title": "Effect of Pulsed Radiofrequency with Various Time-Course on Rheumatoid Arthritis Joint Pain in Rats.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "This study aimed to evaluate the effect of pulsed radiofrequency (PRF) treatment with various time courses on rheumatoid arthritis (RA)-caused joint pain and pathological damage in rats."
+        },
+        {
+          "label": "METHODS",
+          "text": "SD rats were randomly assigned to five groups: a sham group, an RA group, a PRF/1min group, a PRF/2min group, and a PRF/3min group. RA model rats were established by injecting a mixture of type II collagen and Freund's adjuvant. Four times after 8 weeks, the dorsal root ganglia (DRG) of L4-6 segments were stimulated with PRF for 1, 2, and 3 minutes, respectively. Joint diameters were measured weekly before and after modelling. After 14 days of PRF treatment, morphological changes in cartilage were scored using pathological staining. ELISA determined TNF-α, IL-6, and IL-1β in peripheral blood. Ki67 expression in synovial tissues was detected using immunohistochemistry. Finally, the expression of transient receptor potential ankyrin 1 (TRPA1) and transient receptor potential vanilloid 1 (TRPV1) in synovial tissues were examined by Western blotting, qRT-PCR, and immunofluorescence."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Among the RA rats, PRF treatments of 2 minutes and 3 minutes ameliorated joint damage, and both were superior to the 1-minute treatment. Compared to the RA group, the PRF-treated groups showed significantly lower Mankin and OARSI scores, and reduced levels of TNF-α, IL-1β, and IL-6 in peripheral blood. Additionally, there was a decrease in Ki67 expression and levels of TRPA1 and TRPV1 in synovial tissues."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "RA rats treated with PRF experienced reduced cartilage damage, which appears to be associated with inhibition of joint inflammation."
+        }
+      ],
+      "keywords": [
+        "TRPA1",
+        "TRPV1",
+        "joint damage",
+        "pulsed radiofrequency",
+        "rheumatoid arthritis"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (rotter); præklinisk, ikke klinisk evidens"
+    },
+    {
       "pmid": "42175562",
       "evidence_type": "RCT",
       "tier": 4,
@@ -40036,6 +41295,50 @@
         "Randomized Controlled Trial"
       ],
       "first_seen": "2026-05-22"
+    },
+    {
+      "pmid": "42232530",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Crystal"
+      ],
+      "evidence_type": "RCT",
+      "tier": 4,
+      "journal": "J Endocr Soc",
+      "first_author": "Costa",
+      "last_author": "Elias",
+      "date": "2026-05-21",
+      "title": "Allopurinol has no effect on calcitriol or other CKD-MBD biomarkers: a randomized double-blind study.",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "New evidence has emerged linking uric acid levels to Chronic Kidney Disease and Mineral and Bone Disorder (CKD-MBD). However, interventional studies remain scarce. We evaluated the effect of allopurinol on CKD-MBD biomarkers."
+        },
+        {
+          "label": "METHODS",
+          "text": "This is a randomized, double-blind clinical trial involving adult patients with stage 3-5 CKD under conservative management. Participants received either allopurinol 300 mg or a placebo for at least 90 days. Clinical data and blood samples were collected at baseline and at the end of the follow-up period to assess changes in calcium, phosphate, 25-hydroxyvitamin-D, parathyroid hormone (PTH), 1,25-hydroxyvitamin D, fibroblast growth factor 23 (FGF23), α Klotho, and bone alkaline phosphatase."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Forty-nine patients completed the study (25 in the allopurinol group and 24 in the placebo group). Most participants were women (53.1%), with a mean age of 71 ± 11 years and an average eGFR of 27.8 ± 11.0 mL/min/1.73 m2. Uric acid levels were significantly decreased in the allopurinol group (7.49 mg/dL initial vs 3.96 mg/dL final, 43%, P < .001). FGF23 levels increased over time (P = .037), with no difference between groups. 25-hydroxyvitamin-D levels increased in the allopurinol group and decreased in the placebo group, a result that lost significance after adjusting for cholecalciferol supplementation and race. No other CKD-MBD biomarkers were significantly affected by allopurinol treatment."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Despite its urate-lowering effect, allopurinol did not produce meaningful changes in the major CKD-MBD biomarkers over the study period. Our results strengthen existing recommendations to restrict uric acid-lowering treatment to symptomatic gout, as we did not identify any associated improvements in mineral metabolism."
+        }
+      ],
+      "keywords": [
+        "calcitriol",
+        "chronic kidney disease",
+        "mineral and bone metabolism",
+        "uric acid"
+      ],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42167880",
@@ -40516,6 +41819,57 @@
       "first_seen": "2026-05-18"
     },
     {
+      "pmid": "42142212",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 3,
+      "journal": "Rheumatol Ther",
+      "first_author": "Fleischmann",
+      "last_author": "Smolen",
+      "date": "2026-05-16",
+      "title": "Olokizumab Improves Patient-Reported Outcomes in Patients with Active Rheumatoid Arthritis up to 106 Weeks (Results from the Open-Label Extension of Phase III Randomized Clinical Trials).",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "This analysis evaluated the effects of olokizumab (OKZ) on patient-reported outcomes (PROs) after up to 106 weeks of treatment in patients with active rheumatoid arthritis (RA) refractory to methotrexate (MTX; MTX-inadequate response [MTX-IR]) or refractory to tumor necrosis factor inhibitor (TNFi; TNFi-inadequate response [TNFi-IR])."
+        },
+        {
+          "label": "METHODS",
+          "text": "Post-hoc analysis was performed of pooled PROs from phase III, double-blind, placebo-controlled trials (CREDO1/2 MTX-IR; CREDO3 TNFi-IR; NCT02760368/ NCT02760407/NCT03225932) and their open-label extension (OLE; up to 106 weeks) in adults with active RA despite treatment with MTX or TNFi. Patients were treated with OKZ 64 mg every 2 weeks (q2w) or every 4 weeks (q4w) + MTX versus MTX + placebo (weeks 0-24) or active comparator (CREDO2), followed by an OLE (all OKZ). The PROs analyzed were patient global assessment; pain (visual analog scale); Health Assessment Questionnaire Disability Index (HAQ-DI); 36-Item Short Form Health Survey (SF-36); Functional Assessment of Chronic Illness Therapy (FACIT)-Fatigue (FACIT-F); Work Productivity Survey Rheumatoid Arthritis (WPS-RA) and the European Quality of Life-Five-Dimension Questionnaire (EQ-5D). Changes from baseline at weeks 12, 24 and 106 were analyzed using a mixed model for repeated measures; analyses included percentages of patients reporting improvements ≥ minimal clinically important difference (MCID)."
+        },
+        {
+          "label": "RESULTS",
+          "text": "By week 12, treatment with OKZ compared to placebo (PBO) resulted in greater numerical and clinically meaningfully changes from baseline in all PROs for patients refractory to MTX: the HAQ-DI was - 0.60 for OKZ q2w, - 0.58 for OKZ q4w and - 0.34 for PBO; pain VAS was - 33.26, - 32.51, - 18.39, respectively; and the FACIT-F was 8.47, 8.42 and 4.69, respectively (p < 0.0001). Similar but less prominent improvements were noted in the patients with TNFi-IR. Post hoc analyses demonstrated a higher proportion of patients receiving OKZ reported improvements ≥ MCID versus those receiving PBO (p < 0.05) in all PROs in both groups at week 12. For patients treated with OKZ, the observed improvements from baseline were maintained and increased in magnitude through week 106."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Treatment with OKZ over 106 weeks resulted in sustained numerically greater and clinically meaningful improvements in PROs compared to baseline in both RA patients with MTX-IR and those with TNFi-IR. These findings support the long-term benefit of OKZ on PROs."
+        },
+        {
+          "label": "TRIAL REGISTRATION",
+          "text": "ClinicalTrials.gov identifiers NCT02760368, NCT02760407, NCT02760433, NCT03120949."
+        }
+      ],
+      "keywords": [
+        "Biological therapy",
+        "Interleukin-6-inhibitor",
+        "Methotrexate",
+        "Olokizumab",
+        "Patient reported outcome measures",
+        "Rheumatoid arthritis",
+        "TNF inhibitor"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42140793",
       "languages": [
         "eng"
@@ -40725,6 +42079,60 @@
       "first_seen": "2026-05-14"
     },
     {
+      "pmid": "42130150",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 4,
+      "journal": "Ann Pharmacother",
+      "first_author": "Khan",
+      "last_author": "Khan",
+      "date": "2026-05-13",
+      "title": "Efficacy, Safety, and Tolerability of Secukinumab in Psoriatic Arthritis: A Systematic Review and Meta-Analysis.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To evaluate the efficacy and safety of secukinumab in patients with active psoriatic arthritis (PsA) through a systematic review and meta-analysis of randomized controlled trials (RCTs)."
+        },
+        {
+          "label": "DATA SOURCES",
+          "text": "A comprehensive literature search of PubMed, Embase, Cochrane Library, and ClinicalTrials.gov was conducted from inception until February 2026 to identify relevant RCTs."
+        },
+        {
+          "label": "STUDY SELECTION AND DATA EXTRACTION",
+          "text": "Eligible studies included randomized, placebo-controlled trials assessing secukinumab in adults with active PsA. Two independent reviewers screened studies, extracted data on clinical efficacy (American College of Rheumatology [ACR] 20/50 responses, Health Assessment Questionnaire-Disability Index [HAQ-DI]) and safety outcomes (overall adverse events [AEs], infections, and treatment discontinuation) and assessed the risk of bias."
+        },
+        {
+          "label": "DATA SYNTHESIS",
+          "text": "Pooled analyses demonstrated that secukinumab significantly improved ACR20 and ACR50 response rates and reduced HAQ-DI scores compared with placebo. Dose-related trends suggested greater efficacy with the 300 mg regimen for selected outcomes. Safety analysis showed no significant increase in overall AEs, upper respiratory tract infections, or discontinuations compared with placebo."
+        },
+        {
+          "label": "RELEVANCE TO PATIENT CARE AND CLINICAL PRACTICE",
+          "text": "These findings support secukinumab as an effective and well-tolerated biologic therapy, particularly for patients with an inadequate response to conventional disease-modifying antirheumatic drugs or tumor necrosis factor inhibitors, thereby facilitating individualized treatment strategies."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Secukinumab is associated with significant clinical and functional benefits and demonstrates a favorable safety profile, reinforcing its role in optimizing long-term disease control in active PsA."
+        }
+      ],
+      "keywords": [
+        "efficacy",
+        "interleukin-17 inhibitors",
+        "meta-analysis",
+        "psoriatic arthritis",
+        "secukinumab"
+      ],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42128531",
       "evidence_type": "RCT",
       "tier": 2,
@@ -40913,6 +42321,49 @@
         "Journal Article"
       ],
       "first_seen": "2026-05-13"
+    },
+    {
+      "pmid": "42115014",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 3,
+      "journal": "Best Pract Res Clin Rheumatol",
+      "first_author": "Patel",
+      "last_author": "Deodhar",
+      "date": "2026-05-12",
+      "title": "Axial spondyloarthritis: Moving beyond cytokine based therapies to cellular targets and advanced therapeutics.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Rheumatology as a specialty is moving past cytokine inhibitors which have dominated the therapeutic landscape since the turn of the century, with novel cell-targeting therapies emerging to treat immune-mediated multisystem inflammatory diseases such as systemic lupus, systemic sclerosis, small vessel vasculitides, and inflammatory myositis. Like many inflammatory arthritides, axial spondyloarthritis (axSpA) therapeutics has been limited to either inhibitors of TNF and IL-17, or blocking intracellular signaling of cytokines through Janus Kinase inhibitors. This systematic review chronicles the clinical progress made in the field of selective T cell depleting agents, the potential for novel cellular targeting therapies using Chimeric Antigen Receptor - T (CAR-T) therapy, as well the challenges posed by this approach for treatment of axSpA. A review of the MEDLINE, OVID and clinicaltrials.gov databases was performed which revealed no ongoing or completed open label or completed registered clinical trials. However recent data have highlighted potential for selective CD8+ T cell targets with proof of concept using a monoclonal antibody against TRBV9+ CD8+ T cells from a published case study and one randomized placebo-controlled trial, as well as other emerging therapeutics that are shifting focus from cytokine-based therapeutics to T cell targeting agents. In this review, we identified emerging therapeutic platforms of cellular immunotherapy, potential therapeutic targets, and discuss potential adverse effects related to cell-targeting therapies. While at present there is a dearth of clinical data on cellular targeting treatment options in axSpA, ongoing investigations into the pathogenesis of axSpA and identification of new molecular targets may help facilitate opportunities to develop CAR-T and other cell-based therapies for treatment of axSpA."
+        }
+      ],
+      "keywords": [
+        "Advanced therapeutics",
+        "Axial spondyloarthritis",
+        "BiTEs",
+        "CAR-T",
+        "Cellular targets",
+        "Chimeric antigen receptor T-cell therapy",
+        "Cytokine based therapies",
+        "Cytokine-based therapies",
+        "Fusion protein",
+        "T cell depleting agents",
+        "T cell engaging bispecific antibody",
+        "TRBV9+",
+        "TRBV9+ CD8(+) T-cells",
+        "axSpA"
+      ],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42540097",
@@ -41254,6 +42705,45 @@
       "first_seen": "2026-05-08"
     },
     {
+      "pmid": "42540054",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 3,
+      "journal": "EULAR Rheumatol Open",
+      "first_author": "Chan",
+      "last_author": "Gaffney",
+      "date": "2026-05-07",
+      "title": "Maintained improvement in patient-reported outcomes in early axial spondyloarthritis following certolizumab pegol dose reduction: findings from the randomised period of a phase 3b trial.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "In the phase 3b C-OPTIMISE study (ClinicalTrials.gov, NCT02505542), approximately 80% of patients with early active axial spondyloarthritis (axSpA) remained flare-free from week (W)48 to W96 with full-dose and reduced-dose certolizumab pegol (CZP) after gaining sustained remission (Axial Spondyloarthritis Disease Activity Score <1.3 at W32/36, and W48; if <1.3 at W32, <2.1 was required at W36, or vice versa). Patient-reported outcomes (PROs) are presented throughout the maintenance period for patients in sustained remission at W48."
+        },
+        {
+          "label": "METHODS",
+          "text": "After open-label CZP through W48, patients were double-blind randomised 1:1:1 to full-dose CZP (200 mg every 2 weeks [Q2W]), reduced-dose CZP (Q4W), or placebo. Prespecified PROs: Bath Ankylosing Spondylitis Disease Activity Index (BASDAI), Bath Ankylosing Spondylitis Functional Index (BASFI). Post hoc: Patient's Global Assessment of Disease Activity (PtGADA), nocturnal spinal pain (NSP), and Ankylosing Spondylitis Quality of Life (ASQoL)."
+        },
+        {
+          "label": "RESULTS",
+          "text": "At W48, 43.9% of patients (323/736) achieved sustained remission. At timepoints from W48 through W96, PRO scores were maintained with full-dose and reduced-dose CZP, vs rapid increases (worsening) with placebo. At W96, least squares mean score change from W48 with full-dose and reduced-dose CZP vs placebo (P < .001) was: BASDAI total 0.56 and 0.78 vs 3.02; BASDAI morning stiffness 0.58 and 0.73 vs 3.56; BASDAI fatigue 0.52 and 0.70 vs 2.12; BASFI 0.32 and 0.46 vs 1.90; PtGADA 0.67 and 0.98 vs 3.65; NSP 0.62 and 0.80 vs 2.60; and ASQoL 0.54 and 0.86 vs 4.28."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "In patients who achieved remission at W48, reduced-dose and full-dose CZP maintained axSpA in remission without impacting PROs through W96."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "42107375",
       "evidence_type": "RCT",
       "tier": 2,
@@ -41337,6 +42827,55 @@
         "Journal Article"
       ],
       "first_seen": "2026-05-06"
+    },
+    {
+      "pmid": "42092476",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Sjögren"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "J Ethnopharmacol",
+      "first_author": "Liu",
+      "last_author": "Wang",
+      "date": "2026-05-05",
+      "title": "Mechanism exploration of Jiajian Yiguan decoction in treating Sjögren's syndrome.",
+      "abstract_sections": [
+        {
+          "label": "ETHNOPHARMACOLOGICAL RELEVANCE",
+          "text": "Sjögren's syndrome (SS) is a chronic systemic autoimmune disorder characterized by lymphocytic infiltration of exocrine glands and a lack of effective therapeutic options. Jiajian Yiguan Decoction (JYD) has demonstrated promising clinical efficacy in SS patients, yet its underlying mechanism remains unclear."
+        },
+        {
+          "label": "AIM OF THE STUDY",
+          "text": "This study aimed to evaluate the therapeutic effect of JYD in a murine model of SS and to explore its potential mechanism involving the nuclear factor kappa B (NF-κB)-aquaporin 5 (AQP5) signaling pathway."
+        },
+        {
+          "label": "MATERIALS AND METHODS",
+          "text": "The chemical constituents of JYD granules were analyzed using UPLC-ESI-MS/MS. Female ICR mice served as normal controls, while female non-obese diabetic (NOD)/ShiLtJ mice, a well-established SS model, were randomly assigned to five groups: SS, SS + hydroxychloroquine (HCQ), and SS + high-, moderate-, and low-dose JYD. The following parameters were assessed: histopathological changes in submandibular gland tissue (hematoxylin-eosin staining), CD4+/CD8+ T lymphocyte ratios (immunofluorescence), AQP5 expression (immunohistochemistry), serum levels of tumor necrosis factor-alpha (TNF-α), interleukin-1β (IL-1β), interleukin-6 (IL-6), and anti-AQP5 autoantibodies (enzyme-linked immunosorbent assay); protein expression of Toll-like receptor 4 (TLR4), myeloid differentiation factor 88 (MyD88), AQP5, and inhibitory kappa B-alpha (IκB-α) (Western blot); NF-κB DNA-binding activity (electrophoretic mobility shift assay, EMSA); and NF-κB subunit composition (supershift EMSA)."
+        },
+        {
+          "label": "RESULTS",
+          "text": "UPLC-ESI-MS/MS identified a total of 95 chemical components in JYD. Compared with the SS group, JYD-treated mice exhibited significantly reduced water intake, diminished lymphocytic infiltration, and less acinar cell destruction in the submandibular glands. Serum concentrations of TNF-α, IL-1β, IL-6, and anti-AQP5 antibodies were also markedly lower. High- and moderate-dose JYD groups showed significantly decreased TLR4 and MyD88 protein expression relative to the SS group. Concurrently, JYD treatment significantly upregulated AQP5 and IκB-α expression and substantially suppressed NF-κB DNA-binding activity."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "JYD exerts therapeutic effects in SS model mice, likely by inhibiting the NF-κB signaling pathway, enhancing AQP5 protein expression, and thereby attenuating the production of proinflammatory cytokines."
+        }
+      ],
+      "keywords": [
+        "Aquaporin 5",
+        "Jiajian Yiguan decoction",
+        "Nuclear factor kappa B",
+        "Sjögren's syndrome"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (mus); præklinisk, ikke klinisk evidens"
     },
     {
       "pmid": "42097215",
@@ -41559,6 +43098,84 @@
         "Journal Article"
       ],
       "first_seen": "2026-05-04"
+    },
+    {
+      "pmid": "42152504",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 3,
+      "journal": "ACR Open Rheumatol",
+      "first_author": "Gossec",
+      "last_author": "Husni",
+      "date": "2026-05-01",
+      "title": "Control of Inflammation and Sustained Improvements in Patient-Reported Outcomes in Patients With Psoriatic Arthritis: Bimekizumab Two-Year Results From Two Phase 3 Studies.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To assess two-year impact of bimekizumab on patient-reported outcomes (PROs), and their association with objective measures of inflammation, in patients with psoriatic arthritis (PsA) who were biologic disease-modifying antirheumatic drug (bDMARD)-naïve or had tumor necrosis factor inhibitor inadequate response or intolerance (TNFi-IR)."
+        },
+        {
+          "label": "METHODS",
+          "text": "BE OPTIMAL (NCT03895203; bDMARD-naïve) and BE COMPLETE (NCT03896581; TNFi-IR) were phase 3 studies that assessed subcutaneous bimekizumab 160 mg every four weeks. Both were double-blind, placebo-controlled to week16, then placebo patients switched to bimekizumab. BE OPTIMAL week52 or BE COMPLETE week16 completers could enter BE VITAL (NCT04009499; open-label extension), where all patients received bimekizumab. PROs, disease impact (Psoriatic Arthritis Impact of Disease-12 questionnaire [PsAID-12]), and their association with inflammation (assessed using swollen joint count [SJC]) are reported to year 2."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Among 712 bDMARD-naïve and 400 TNFi-IR patients, bimekizumab resulted in long-term sustained improvements in PROs for pain, fatigue, and function (Health Assessment Questionnaire-Disability Index) to year 2. Mean change from baseline (year 2) in bimekizumab-randomized patients for pain and disease impact (PsAID-12) was -33.9 to -29.2 and -2.5 to -2.2, respectively. An achievement of SJC = 0 was associated with the greatest reduction in pain. Decreased SJC was associated with improved pain, fatigue, function, and reduced disease impact to year 2. By year 2, 44.4% to 54.3% of patients originally randomized to placebo or bimekizumab reported no or low disease impact (PsAID-12 ≤1.95), and 88.0% to 92.0% of bimekizumab-randomized patients achieved a patient acceptable symptom state for disease impact (PsAID-12 ≤4), associated with concurrent improvement in SJC and skin involvement."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Bimekizumab treatment resulted in sustained clinically meaningful improvements in PROs and reduced disease impact to two years in bDMARD-naïve and TNFi-IR patients with PsA. Stringent inflammation control was associated with symptom relief and reduced disease impact."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
+      "pmid": "42157681",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 3,
+      "journal": "ACR Open Rheumatol",
+      "first_author": "Klinke",
+      "last_author": "Lampa",
+      "date": "2026-05-01",
+      "title": "Cerebral Pain Processing Following TNFα Inhibitor Treatment in Rheumatoid Arthritis: A Randomized Double-Blind Placebo-Controlled fMRI Study.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "This study investigated the effects of tumor necrosis factor α (TNFα) blockade treatment, adalimumab (ADA), on cerebral pain processing in relevant brain regions in patients with rheumatoid arthritis (RA). Its secondary aim was to identify pretreatment markers in cerebral pain processing that might predict treatment response."
+        },
+        {
+          "label": "METHODS",
+          "text": "A total of 25 patients with RA were randomly allocated treatment with 40 mg ADA (n = 14) or placebo (PBO) (n = 11) injected subcutaneously. During functional magnetic resonance imaging (fMRI), patients underwent individually calibrated pressure-pain stimulation on the most inflamed interphalangeal joint and on an unaffected control site before and after four weeks of treatment."
+        },
+        {
+          "label": "RESULTS",
+          "text": "The ADA but not the PBO group showed significant changes in subjective, clinician-rated, and objective measures. Both groups exhibited significant activations in pain-relevant brain regions during the fMRI task. Cerebral activations did not change following treatment nor did they correlate pre- or post-treatment with changes in systemic inflammation (measured as the change in erythrocyte sedimentation rate [ΔESR]). Baseline cerebral activations did not correlate with treatment response in terms of ΔESR nor with pain or fatigue outcomes. However, in an exploratory analysis, five baseline activation clusters in the ADA group, and one in the PBO group, correlated positively with changes in swollen joint count (P < 0.001)."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Our study did not observe any associations between treatment with TNFα inhibitors and changes in cerebral pain processing, indicating that this treatment may not have a clear central effect."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42525975",
@@ -41932,6 +43549,33 @@
         "Randomized Controlled Trial"
       ],
       "first_seen": "2026-04-28"
+    },
+    {
+      "pmid": "42111381",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SSc"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "ERJ Open Res",
+      "first_author": "Vicenzi",
+      "last_author": "Dias Rodrigues",
+      "date": "2026-04-27",
+      "title": "Inspiratory muscle training improves exercise performance and breathing pattern during 6-min walking test in systemic sclerosis-associated interstitial lung disease.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Systemic sclerosis-associated interstitial lung disease (SSc-ILD) significantly impacts exercise capacity and contributes to morbidity and mortality in affected individuals. Inspiratory muscle training (IMT) has demonstrated benefits in improving inspiratory muscle strength and respiratory efficiency in various cardiopulmonary conditions, including interstitial lung disease. This case-control study hypothesises that IMT can enhance inspiratory muscle strength and exercise capacity in patients with SSc-ILD, likely through improved ventilatory patterns during exercise. In this randomised, placebo-controlled trial, 24 patients with SSc-ILD (4 males, 20 females) were randomly assigned to the IMT (n=12) or sham (n=12) groups. The IMT group performed training at 60% of maximal inspiratory pressure (MIP) for 5 weeks, while the sham group received a placebo intervention at 5% MIP. Baseline and post-intervention assessments included pulmonary function tests, 6-min walk test (6MWT) with combined wearable metabolic system to measure minute ventilation (V'E), respiratory frequency (f R), tidal volume (V T) and ventilatory equivalent for CO2 (V'E/V'CO2 ). At rest, IMT increased MIP and prolonged expiratory time. The IMT group showed significant improvements in 6-min walking distance and oxygen uptake during the 6MWT. An increase in V'E was observed primarily through an enhanced V T. These improvements are likely mediated by optimised breathing patterns, potentially reducing physiological dead space thanks to increased V T during exercise. Further studies are needed to evaluate the long-term effects of IMT on functional outcomes."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "42055319",
@@ -42450,6 +44094,41 @@
         "Observational Study"
       ],
       "first_seen": "2026-04-20"
+    },
+    {
+      "pmid": "42075886",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IIM"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Pharmaceuticals (Basel)",
+      "first_author": "Hao",
+      "last_author": "Zuo",
+      "date": "2026-04-17",
+      "title": "(5R)-5-Hydroxytriptolide (LLDT-8) Ameliorates Experimental Autoimmune Myositis via Suppression of the NLRC5/MHC-I Signaling Pathway.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Background: Idiopathic inflammatory myopathies (IIMs), characterized by muscle weakness and chronic inflammation, currently lack highly effective therapies. This study investigated the therapeutic potential and underlying mechanism of (5R)-5-hydroxytriptolide (LLDT-8), a triptolide derivative with reduced toxicity, using an experimental autoimmune myositis (EAM) mouse model and in vitro assays. Methods: Forty female BALB/c mice were randomly assigned to five groups: normal, vehicle, methylprednisolone (MP), LLDT-8 (0.0625 mg/kg), and LLDT-8 (0.125 mg/kg). EAM mice were treated with LLDT-8 (0.0625 or 0.125 mg/kg) or methylprednisolone as a positive control. Cellular experiments and molecular docking were performed to investigate potential mechanisms of LLDT-8. Results: LLDT-8 significantly attenuated clinicopathological features, including muscle weakness and pain sensitivity, while reducing serum levels of aspartate aminotransferase and lactate dehydrogenase. Histological analysis revealed that LLDT-8 reduced inflammatory cell infiltration and the presence of CD4+ and CD8+ T cells in muscle tissues. Mechanistically, LLDT-8 inhibited the expression of nucleotide-binding oligomerization domain receptor caspase recruitment domain 5 (NLRC5), a key transcriptional regulator of major histocompatibility complex-I (MHC-I). This suppression extended to downstream antigen presentation-related molecules, including the transporter associated with antigen processing and proteasome 20S subunit beta. Molecular docking further confirmed the high binding affinity of LLDT-8 to both NLRC5 and MHC-I. Conclusions: LLDT-8 alleviates inflammatory muscle injury by targeting the NLRC5/MHC-I signaling axis, suggesting it may be a promising therapeutic candidate for IIMs."
+        }
+      ],
+      "keywords": [
+        "C2C12 myoblasts",
+        "antigen presentation",
+        "experimental autoimmune myositis",
+        "molecular docking",
+        "muscle weakness",
+        "triptolide derivative"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (mus); præklinisk, ikke klinisk evidens"
     },
     {
       "pmid": "41997805",
@@ -43506,6 +45185,53 @@
       "first_seen": "2026-04-06"
     },
     {
+      "pmid": "41948088",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Stem Cells Int",
+      "first_author": "Moftah",
+      "last_author": "Ahmed",
+      "date": "2026-04-03",
+      "title": "MSC Exosomes and Rutin-Chitosan-Pectin Nanoparticles Synergize to Ameliorate Adjuvant Arthritis via Th1/Th2 Modulation, MMP Suppression, Nrf2 Upregulation, and Antioxidant Boost.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Due to toxicity, high costs, and potential side effects of standard treatments of rheumatoid arthritis (RA) including nonsteroidal anti-inflammatory drugs (NSAIDs), corticosteroids, and disease-modifying antirheumatic drugs (DMARDs), natural products and advanced drug delivery systems, such as nanoparticles and mesenchymal stem cell (MSC)-derived exosomes (EXO), have garnered interest due to their ability to target inflammation and oxidative damage, with enhanced precision and reduced side effects, offering a promising approach for RA management."
+        },
+        {
+          "label": "METHODS",
+          "text": "EXO were isolated from the conditioned medium of bone marrow-derived MSCs (BM-MSCs). Rutin (RT)-loaded chitosan (Cs)/pectin nanoparticles were prepared using a modified ionic gelation technique to enhance stability and bioavailability. Sixty male Wistar rats were utilized in the in vivo experiment and randomly assigned to six groups, each comprising 10 animals. These groups were (1) normal control, (2) complete Freund's adjuvant (CFA)-induced arthritic control, (3) CFA-induced arthritis treated with free RT (20 mg/kg), (4) CFA-induced arthritis treated with EXO (100 µg protein per rat, intravenous injection, once weekly), (5) CFA-induced arthritis treated with RT-Cs-pectin nanocomposite (RT-CPN) (20 mg/kg), and (6) CFA-induced arthritis treated with a combination of RT-CPN and EXO. Treatments were administered for 28 days, after which the rats were euthanized for further analysis. For molecular evaluations, blood was collected for serum isolation, and the right ankle joint was carefully dissected."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Treatment with RT, EXO, RT-CPN, and especially, EXO + RT-CPN combination significantly reduced serum levels of anticitrullinated protein antibodies (ACPAs), interleukin-1β (IL-1β), interleukin-6 (IL-6), and the marker of oxidative stress malondialdehyde (MDA). These treatments also decreased inducible nitric oxide synthase (iNOS) mRNA expression, a key regulator of oxidative and inflammatory processes. Conversely, antioxidant defenses improved, as indicated by increased serum glutathione (GSH), interleukin-10 (IL-10), and interleukin-13 (IL-13) levels, along with upregulation of antioxidant enzymes such glutathione peroxidase (GPx), glutathione S-transferase (GST), glutathione reductase (GR), and superoxide dismutase (SOD). Joint degradation was notably reduced by suppressing the protein levels of MMP-1, MMP-3, MMP-9, and MMP-13, while nuclear factor erythroid 2-related factor 2 (Nrf2) expression, a critical regulator of cellular protection, was elevated. Along with improvements in functional and molecular markers, the right hind leg's swelling and redness decreased, and the histological alterations including pannus development, inflammatory cell infiltrations, synovial membrane hyperplasia, and degradation of articular cartilage were substantially suppressed after treatments."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "The combination of EXO + RT-CPN demonstrated the strongest antiarthritic effects, reducing inflammation, oxidative stress, and joint degradation while boosting the body's antioxidant defenses. These findings highlight a promising, safer therapeutic strategy for RA management."
+        }
+      ],
+      "keywords": [
+        "BM-MSCs",
+        "antioxidant",
+        "exosomes",
+        "oxidative stress",
+        "rutin",
+        "rutin-chitosan-pectin nanoparticles"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (adjuvansartrit hos dyr); præklinisk, ikke klinisk evidens"
+    },
+    {
       "pmid": "41932981",
       "languages": [
         "eng"
@@ -44503,6 +46229,45 @@
       "first_seen": "2026-03-26"
     },
     {
+      "pmid": "41878957",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "Arthritis Rheumatol",
+      "first_author": "Scher",
+      "last_author": "Ritchlin",
+      "date": "2026-03-25",
+      "title": "Combination Therapy in Participants With Active Psoriatic Arthritis Using Subcutaneous Guselkumab and Golimumab: Week 24 Results From a Phase 2a, Multicenter, Randomized, Double-Blind, Proof-of-Concept Study.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To assess guselkumab + golimumab combination therapy versus guselkumab monotherapy in participants with active psoriatic arthritis (PsA) and inadequate response to tumor necrosis factor inhibitors (TNFi-IR)."
+        },
+        {
+          "label": "METHODS",
+          "text": "Adults with active TNFi-IR PsA (three or more tender/swollen joints) were randomized (2:1) to subcutaneous guselkumab (100 mg) + golimumab (50 mg) combination therapy (n = 59) or guselkumab monotherapy (n = 32) every 4 weeks through week 20. The primary endpoint was week 24 minimal disease activity (MDA) achievement. Additional endpoints included ≥20%/50%/70% improvement in American College of Rheumatology response criteria (ACR20/50/70): improvements in psoriasis, dactylitis, and enthesitis; changes in patient-reported physical function; and impact of screening C-reactive protein (CRP) on MDA/ACR50 response."
+        },
+        {
+          "label": "RESULTS",
+          "text": "At baseline, participants had a median of 13 tender and 8 swollen joints and psoriatic body surface area of 3%; 23% had dactylitis. At week 24, 29% and 22% of participants achieved MDA with guselkumab + golimumab combination therapy and guselkumab monotherapy, respectively (odds ratio [OR] 1.4 [90% confidence interval 0.6-3.3]; P = 0.557); 44% and 22% achieved ACR50 (nominal P = 0.034). Participants with CRP levels ≥0.3mg/dL (intended enrollment population) receiving combination therapy (n = 40; monotherapy n = 22) had greater odds of achieving MDA (OR 12.3; nominal P = 0.025; 32% vs 5%) and ACR50 (OR 9.6; nominal P = 0.003; 55% vs 14%) at week 24. Combination therapy was associated with higher ACR20 (66% vs 44%) and ACR70 (27% vs 16%) responses and greater physical function improvements than monotherapy. Improvements in psoriasis, dactylitis, and enthesitis were similar across groups. No new safety signals and no tuberculosis/opportunistic infections occurred through week 36."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Although the primary endpoint was not achieved, secondary endpoints and exploratory analyses suggest that participants with TNFi-IR PsA, particularly those with elevated CRP levels, could derive clinically meaningful benefits with guselkumab + golimumab combination therapy, with no new safety concerns, warranting further investigation."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "41877128",
       "evidence_type": "RCT",
       "tier": 4,
@@ -44537,6 +46302,69 @@
         "Randomized Controlled Trial"
       ],
       "first_seen": "2026-03-25"
+    },
+    {
+      "pmid": "42072279",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SSc"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Biomedicines",
+      "first_author": "Tuzcu",
+      "last_author": "Uyanıkgil",
+      "date": "2026-03-24",
+      "title": "Interobserver Variability and Histopathologic Correlation of Lung Ultrasonography in a Bleomycin-Induced Mouse Model of Systemic Sclerosis.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Objectives: Interstitial lung disease (ILD) is a major cause of morbidity and mortality in patients with systemic sclerosis (SSc). This study aimed to evaluate interobserver variability and the relationship between lung ultrasonography (LUS) findings and histological fibrosis severity in a bleomycin (BLM)-induced mouse model of SSc. Materials and Methods: Twenty female BALB/c mice were randomly assigned to a control group (n = 10) or a BLM-treated group (n = 10). Pulmonary fibrosis was induced by daily subcutaneous administration of BLM for three weeks. Two blinded observers (a radiologist and a rheumatologist) performed LUS using a high-frequency linear probe and calculated scores based on B-line distribution. Lung fibrosis was evaluated by Masson's trichrome staining and quantified using the Ashcroft scoring system. Interobserver agreement was assessed with Cohen's kappa, and correlations were analyzed using Spearman's rank test. Results: Control mice exhibited normal lung architecture, whereas all BLM-treated mice developed moderate to severe fibrosis, with significantly higher Ashcroft scores. LUS revealed multiple B-lines, pleural irregularities, and loss of A-lines in BLM-treated mice. LUS scores were considerably higher in the BLM group (p < 0.001). Radiologist-assessed scores showed a strong correlation with Ashcroft scores (ρ = 0.78), while rheumatologist-assessed scores demonstrated a moderate correlation (ρ ≈ 0.62). Interobserver agreement was moderate, with discrepancies mainly in intermediate fibrosis stages. Conclusions: LUS is a useful non-invasive method for semiquantitative assessment of pulmonary fibrosis in this SSc model. Its correlation with histological severity supports clinical relevance, while moderate interobserver variability highlights the need for standardized protocols and training."
+        }
+      ],
+      "keywords": [
+        "Ashcroft score",
+        "bleomycin",
+        "interobserver variability",
+        "interstitial lung disease",
+        "lung ultrasonography",
+        "pulmonary fibrosis",
+        "systemic sclerosis"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (mus); præklinisk, ikke klinisk evidens"
+    },
+    {
+      "pmid": "41872105",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 4,
+      "journal": "Chin Med J (Engl)",
+      "first_author": "Leng",
+      "last_author": "Zeng",
+      "date": "2026-03-24",
+      "title": "Efficacy and safety of secukinumab in patients with active psoriatic arthritis at Week 16 and up to 52 weeks: Results from a Phase III, randomized, double-blind, placebo-controlled bridging study in China.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": ""
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "41895312",
@@ -44800,6 +46628,51 @@
         "Journal Article"
       ],
       "first_seen": "2026-03-23"
+    },
+    {
+      "pmid": "41863717",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Clin Rheumatol",
+      "first_author": "Guo",
+      "last_author": "Qiu",
+      "date": "2026-03-21",
+      "title": "Pharmacodynamic evaluation and mechanism study of cord blood nucleated cell extract in the treatment of rheumatoid arthritis.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To assess the effectiveness of cord blood nucleated cell extract (CBNCE) in rheumatoid arthritis (RA) and explore the mechanism preliminarily."
+        },
+        {
+          "label": "METHODS",
+          "text": "CBNCE injection was prepared by adding HClO4 and KOH to cord blood. The efficacy of CBNCE was assessed through a lymphocyte proliferation assay. Subsequently, the CIA model was utilized as the RA model, with rats being randomly assigned to a normal group, model group, CBNCE group (1 mL/d), and HSS group (hydrocortisone sodium succinate, 0.2 mL/d). Following a 7-day period of immune system enhancement, continuous medication was administered for the subsequent 21 days. Foot swelling tests, HE staining, flow cytometry, ELISA, WB, and immunofluorescence were conducted."
+        },
+        {
+          "label": "RESULTS",
+          "text": "The average inhibitory rate of CBNCE on lymphocyte proliferation was 83.51%. Compared with the model group, rats in the CBNCE group showed a decrease of inflammatory cell infiltration in ankle tissue. The left hindfoot volume (days 5, 9, 10, and 12-21), Th17 percentage and Th17/Treg ratio in peripheral blood, and the levels of IL-1, IL-6, IL-8, and IL-17 in ankle effusion, as well as the MMP-3 protein expression in synovial tissue were significantly decreased (P < 0.05). There were significant (P < 0.05) increases in the fluorescence intensity of Aggrecan and Collagen type I, as well as in the amounts of IL-4 and IL-10."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "CBNCE modulates the Th17/Treg balance by decreasing the Th17 cells, suppressing the secretion of IL-1, IL-6, IL-8, and IL-17, enhancing the secretion of IL-4 and IL-10, and further inhibiting the expression of MMP-3 protein, thereby increasing the level of Aggrecan and Collagen type I. Ultimately, CBNCE alleviates RA. Key Points • Our study was the first to explore the effect and mechanism of cord blood nucleated cell extract in the treatment of rheumatoid arthritis. • This study offers a theoretical foundation and introduces a novel concept for utilizing cord blood in the treatment of rheumatoid arthritis."
+        }
+      ],
+      "keywords": [
+        "Cord blood nucleated cell extract",
+        "Mechanism",
+        "Pharmacodynamic evaluation",
+        "Rheumatoid arthritis"
+      ],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (rotter); præklinisk, ikke klinisk evidens"
     },
     {
       "pmid": "41865948",
@@ -45067,6 +46940,34 @@
         "Research Support, Non-U.S. Gov't"
       ],
       "first_seen": "2026-03-17"
+    },
+    {
+      "pmid": "41883322",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Histol Histopathol",
+      "first_author": "Zhang",
+      "last_author": "Zhang",
+      "date": "2026-03-16",
+      "title": "Influence of heat-reinforcing Needling on the PPAR-γ/NF-κB signaling pathway in the synovial membrane of rats with rheumatoid arthritis.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "The study seeks to examine how heat-reinforcing needling (HRN) affects the PPAR-γ/NF-κB signaling pathway in synovial membranes of rats with rheumatoid arthritis (RA). Forty-eight male Sprague-Dawley rats were randomly assigned to four groups (control, model, rosiglitazone, and HRN groups). RA was induced using bovine type II collagen and Freund's adjuvant in cold and moist conditions. The rats in the rosiglitazone group were given an intraperitoneal injection of 10 mg/kg rosiglitazone, whereas those in the acupuncture group received treatment at the Zusanli acupoint. Following the 14-day intervention, synovial tissue was stained with H&amp;E to examine pathological alterations and blood levels of TNF-α, IL-6, IL-1β, and IL-4. The expressions of PPAR-γ and NF-κB in synovial tissue were determined by Western blot analysis and real-time PCR. The model group exhibited higher fibrous tissue growth and inflammatory cell infiltration in comparison with the control group, but serum IL-4 and PPAR-γ expressions were inhibited (p<0.01), and TNF-α, IL-6, IL-1β, and NF-κB expression levels in the serum were elevated (p<0.01). In comparison with the model group, the HRN and rosiglitazone groups showed lower serum levels of TNF-α, IL-6, IL-1β, and NF-κB and higher levels of serum IL-4 and PPAR-γ (p<0.05). In the RA cold syndrome model rats, HRN may reduce joint swelling and suppress inflammation of the synovial membrane, possibly via controlling the PPAR-γ/NF-κB signaling pathway. This method could provide a fresh therapeutic approach to RA symptom management."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23",
+      "flagged": "Dyreforsøg (rotter); præklinisk, ikke klinisk evidens"
     },
     {
       "pmid": "42682341",
@@ -47430,6 +49331,45 @@
       "first_seen": "2026-01-28"
     },
     {
+      "pmid": "42370118",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 3,
+      "journal": "EULAR Rheumatol Open",
+      "first_author": "Matsuno",
+      "last_author": "Burmester",
+      "date": "2026-01-27",
+      "title": "Efficacy, safety, and immunogenicity of proposed biosimilar RGB-19 and tocilizumab intravenously administered to adults with active rheumatoid arthritis and an inadequate response to methotrexate: a phase 3, randomised study.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "This phase 3 study (jRCT2031220512) evaluated the equivalence in efficacy, and compared the serum concentration, pharmacodynamics, safety, and immunogenicity of proposed biosimilar RGB-19 and tocilizumab in adults with active rheumatoid arthritis (RA)."
+        },
+        {
+          "label": "METHODS",
+          "text": "Participants were randomly assigned 1:1 to intravenous infusions of 8 mg/kg RGB-19 or tocilizumab every 4 weeks, with efficacy evaluated to week 52 and safety follow-up to week 54. The primary endpoint was the mean change from baseline (CfB) in Disease Activity Score based on 28 joints with erythrocyte sedimentation rate (DAS28-ESR), with equivalence determined if the 2-sided 95% CI for the pooled difference between groups was within the predefined equivalence margin (±0.6 at week 12). Secondary objectives were other efficacy indicators, serum drug concentration, pharmacodynamics, safety, and immunogenicity."
+        },
+        {
+          "label": "RESULTS",
+          "text": "In total, 368 participants were randomly assigned to treatment (RGB-19 N = 182; tocilizumab N = 186). At week 12, the difference in mean DAS28-ESR CfB between groups (RGB-19 n = 173; tocilizumab n = 181) was -0.21 (95% CI: -0.43, 0.02; within the equivalence margin). All other efficacy indicators and serum drug concentration values were similar between groups up to week 52. Median absolute neutrophil count, C-reactive protein, and soluble interleukin-6 receptor values were similar between groups to week 52. Safety profiles were similar, with a similar incidence of treatment-emergent adverse events and adverse drug reactions to week 54. The incidence of treatment-emergent antidrug and neutralising antibodies was similarly low in both groups."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "This study demonstrated equivalent efficacy, and similar safety and immunogenicity, of RGB-19 and reference tocilizumab for participants with active RA."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
+    },
+    {
       "pmid": "41588246",
       "evidence_type": "Evidence synthesis",
       "tier": 2,
@@ -47456,6 +49396,45 @@
         "Review"
       ],
       "first_seen": "2026-01-26"
+    },
+    {
+      "pmid": "42540177",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SLE"
+      ],
+      "evidence_type": "RCT",
+      "tier": 3,
+      "journal": "EULAR Rheumatol Open",
+      "first_author": "Ghosh",
+      "last_author": "Vendel",
+      "date": "2026-01-25",
+      "title": "Efficacy and safety of venanprubart, a BTLA agonist antibody, in patients with active systemic lupus erythematosus.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "This phase 2 study's objective was to determine whether venanprubart is superior to placebo for inducing remission of rash and/or arthritis in patients with at least moderately active systemic lupus erythematosus (SLE)."
+        },
+        {
+          "label": "METHODS",
+          "text": "Patients (N = 85) were randomly assigned in a 1:1 ratio to venanprubart (N = 42) or placebo (N = 43) in a multinational, multicentre, randomised, double-blind, placebo-controlled, parallel-group, 2-arm, phase 2 clinical trial. Treatment (450 mg venanprubart or placebo) was administered subcutaneously every 2 weeks along with standard of care for 24 weeks. The primary endpoint was remission of rash and/or arthritis as defined by the Systemic Lupus Erythematosus Disease Activity Index (SLEDAI) 2000 at week (W) 24. Patients who discontinued the study or violated concomitant medication rules were imputed to nonresponse."
+        },
+        {
+          "label": "RESULTS",
+          "text": "The study was terminated early based on lack of efficacy at the interim analysis. Venanprubart did not separate from placebo in inducing remission of rash and/or arthritis in 54 patients (26 on venanprubart; 28 on placebo) with SLE at W24. Patients treated with venanprubart were not significantly different from placebo for SLEDAI-4 response or Systemic Lupus Erythematosus Responder Index-4 response through W24. The number of treatment-emergent adverse events was similar across treatment groups. Patients treated with venanprubart reported 4 (9.5%) serious adverse events, whereas patients treated with placebo reported 1 (2.3%). No deaths occurred during the study. B and T lymphocyte attenuator receptor occupancy approached saturation on B cells, CD4+ T cells, and CD8+ T cells at all postrandomisation time points."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Venanprubart did not demonstrate superiority to placebo in achieving remission of rash and/or arthritis. Venanprubart was safe and well tolerated."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-09-23"
     },
     {
       "pmid": "41578353",

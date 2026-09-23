@@ -48,15 +48,33 @@ DISEASE_QUERIES = {
     "SSc": '("systemic sclerosis"[tiab] OR "scleroderma"[tiab])',
     "Crystal": '("gout"[tiab] OR "gouty arthritis"[tiab] OR "calcium pyrophosphate"[tiab] OR "pseudogout"[tiab] OR "monosodium urate"[tiab])',
     # "TRAPS"[tiab] alone also matches the plain word "traps" wherever it
-    # appears -- PubMed's [tiab] is case-insensitive -- which pulled in
-    # unrelated basic-science papers about "neutrophil extracellular traps"
-    # (PMID 42598105, an obesity/diabetes review with no rheumatology content
-    # at all). Excluding that exact phrase removes the collision without
-    # narrowing genuine TRAPS-disease hits, which essentially never contain it.
-    "Autoinflammatory": '("VEXAS syndrome"[tiab] OR "autoinflammatory disease"[tiab] OR "familial mediterranean fever"[tiab] OR "adult-onset Still"[tiab] OR ("TRAPS"[tiab] NOT "extracellular traps"[tiab]) OR "cryopyrin-associated periodic syndrome"[tiab])',
+    # appears -- PubMed's [tiab] is case-insensitive. Excluding one phrase
+    # ("neutrophil extracellular traps", the collision behind PMID 42598105)
+    # only ever addressed one meaning of the word; the rest kept arriving,
+    # every one of them from this clause: traffic-related air pollutants
+    # ("TRAPs", PMID 42097215), a PARP inhibitor that "traps PARP1"
+    # (41979035), mosquito traps (41932981), fly control for trachoma
+    # (41895312), camera traps in a nature reserve (42751159). Blacklisting
+    # meanings one at a time is unwinnable -- any noun can be trapped -- so
+    # the acronym now has to appear alongside the vocabulary of the disease.
+    # Naming the syndrome in full alongside it costs nothing and gains the
+    # papers that never abbreviate: over the 190 days to 2026-09-23 this
+    # clause returns 397 records where the old one returned 1334, while
+    # catching 33 of 33 genuine TRAPS papers since 2025 against the old
+    # clause's 31.
+    "Autoinflammatory": '("VEXAS syndrome"[tiab] OR "autoinflammatory disease"[tiab] OR "familial mediterranean fever"[tiab] OR "adult-onset Still"[tiab] OR "cryopyrin-associated periodic syndrome"[tiab] OR "tumor necrosis factor receptor-associated periodic syndrome"[tiab] OR "tumour necrosis factor receptor-associated periodic syndrome"[tiab] OR "TNF receptor-associated periodic syndrome"[tiab] OR ("TRAPS"[tiab] AND ("periodic fever"[tiab] OR "periodic syndrome"[tiab] OR "autoinflammatory"[tiab] OR "autoinflammation"[tiab])))',
     "General": '("rheumatic disease"[tiab] OR "inflammatory rheumatic disease"[tiab] OR "rheumatology"[ti])',
 }
 
+# Naming four phrasings only moved the wall: "randomised, double-blind,
+# placebo-controlled trial" contains none of them, so the last three clauses
+# describe a trial by its design instead of by its name. They are deliberately
+# loose -- a review discussing trials trips "double-blind" too -- and that is
+# the right way round. A mistyped record is corrected three times over
+# downstream (classify_evidence_type, the AI sanity-check, refresh_pending_types);
+# a record never fetched is invisible to all three. Over 190 days the three
+# clauses return 54 records the named phrasings miss, about two a week.
+#
 # The RCT clause spells out the phrasings journals actually use, not just the
 # one PubMed's PublicationType is named after. A trial whose [pt] tag hasn't
 # been assigned yet (every ahead-of-print record) rests entirely on the [tiab]
@@ -74,7 +92,8 @@ DISEASE_QUERIES = {
 EVIDENCE_FILTERS = {
     "RCT": ('("Randomized Controlled Trial"[pt] OR "randomized controlled trial"[tiab]'
             ' OR "randomized clinical trial"[tiab] OR "randomised controlled trial"[tiab]'
-            ' OR "randomised clinical trial"[tiab])'),
+            ' OR "randomised clinical trial"[tiab] OR "randomly assigned"[tiab]'
+            ' OR "double-blind"[tiab] OR "placebo-controlled"[tiab])'),
     "Guideline/consensus": '("Guideline"[pt] OR "Practice Guideline"[pt] OR "Consensus Development Conference"[pt] OR "recommendations"[ti])',
     "Evidence synthesis": '("Systematic Review"[pt] OR "Meta-Analysis"[pt])',
     "Observational": '("Observational Study"[pt] OR "cohort study"[tiab] OR "case-control"[tiab] OR registry[tiab])',

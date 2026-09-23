@@ -127,6 +127,20 @@ arteritis) — one clinical spectrum, so GCA sits here rather than under Vasculi
 `Crystal` is gout and CPPD/pseudogout. Classification checks PMR/GCA before
 Vasculitis, since GCA matches both.
 
+**Blacklisting the meanings of an ambiguous acronym one at a time is unwinnable.**
+The `TRAPS` clause used to read `"TRAPS"[tiab] NOT "extracellular traps"[tiab]` —
+one excluded meaning, and every other meaning of the word kept arriving: traffic-
+related air pollutants (PMID 42097215), a PARP inhibitor that "traps PARP1"
+(41979035), mosquito traps (41932981), fly control for trachoma (41895312), camera
+traps in a nature reserve (42751159). Any noun can be trapped, so the acronym now
+has to appear alongside the vocabulary of the disease itself ("periodic fever",
+"periodic syndrome", "autoinflammatory", "autoinflammation"), and the syndrome's
+full name is listed beside it for the papers that never abbreviate. Over the 190
+days to 2026-09-23 the clause returns 397 records where the old one returned 1334,
+while catching 33 of 33 genuine TRAPS papers since 2025 against the old clause's 31
+— more precise *and* more sensitive, which is the shape to aim for: a positive
+context requirement, not a growing NOT list.
+
 **Bare acronyms are ambiguous and need disambiguation, in the PubMed query and in
 `DISEASE_PATTERNS` alike.** `"TRAPS"[tiab]` alone also matches the plain word
 "traps" wherever it appears — PubMed's `[tiab]` is case-insensitive — which pulled
@@ -228,10 +242,20 @@ point: a mistyped record is corrected downstream by `classify_evidence_type`, th
 AI sanity-check and `refresh_pending_types`, but a record that was never fetched is
 invisible to all three. Prefer recall in the finding query, precision afterwards.
 
-Known gap, same shape: phrasings like "randomised, double-blind, placebo-controlled
-trial" still match none of the four, so such a trial is found only once PubMed
-assigns its `[pt]` tag — which `refresh_pending_types` cannot help with either,
-since that only revisits records already in the library.
+Naming four phrasings only moved the wall — "randomised, double-blind,
+placebo-controlled trial" contains none of them — so three more clauses describe a
+trial by its *design* rather than its name: `"randomly assigned"`, `"double-blind"`,
+`"placebo-controlled"`. They are loose on purpose (a review discussing trials trips
+"double-blind" too) and cost about two extra records a week to review.
+
+**The price of that looseness is animal studies**, a noise class the narrow clause
+never let through: "rats were randomly assigned to four groups" is a phrasing match
+like any other. Thirteen of the 47 records in the second backfill round were
+preclinical — mouse and rat models, one veterinary trial in dogs, one on goslings —
+and they are flagged, not dropped, because no deterministic rule covers them yet. A
+title-only regex in the `PROTOCOL_TITLE` mould ("in rats", "in mice", "mouse/murine
+model", "in dogs") would catch about half; the rest only say so in the abstract.
+When this recurs, that's the rule to write.
 
 Each record stores its `publication_types` so this stays auditable without re-fetching.
 
