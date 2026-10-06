@@ -25,6 +25,17 @@ from pathlib import Path
 
 # Order matters: more specific groups checked before General
 DISEASE_PATTERNS = [
+    # First in the list because it is the most specific entry in it and the
+    # most easily stolen: IgG4-RD is defined by the organs it infiltrates, so
+    # its papers routinely name another disease in passing ("mimicking
+    # Sjögren", "IgG4-related aortitis", "ANCA-negative"), and whichever
+    # pattern below ran first would claim them. Nothing is lost the other way
+    # round -- this pattern requires the disease's own vocabulary, never the
+    # bare isotype, so an "IgG4 monoclonal antibody" trial in RA still falls
+    # through to RA (see the query's own note in fetch_pubmed.py).
+    ("IgG4-RD", r"igg4[- ]related|\bIgG4-RD\b|immunoglobulin g4[- ]related|"
+                r"mikulicz|riedel'?s? thyroiditis|k[uü]ttner tumou?r|"
+                r"type 1 autoimmune pancreatitis"),
     ("RA", r"rheumatoid arthritis"),
     ("PsA/SpA", r"psoriatic arthritis|spondyloarthritis|ankylosing spondylitis"),
     ("SLE", r"systemic lupus erythematosus|\blupus\b"),

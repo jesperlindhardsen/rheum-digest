@@ -1,7 +1,7 @@
 """
 fetch_pubmed.py
 
-Deterministic PubMed fetcher. Runs all 55 queries (11 disease groups x 5 evidence
+Deterministic PubMed fetcher. Runs all 60 queries (12 disease groups x 5 evidence
 types) against NCBI E-utilities for the past 7 days (by Entrez date), parses the
 XML, and returns hits as plain dicts. Title, authors, dates, journal, keywords,
 and the structured abstract are extracted verbatim -- nothing here paraphrases
@@ -46,6 +46,32 @@ DISEASE_QUERIES = {
     "PMR/GCA": '("polymyalgia rheumatica"[tiab] OR "giant cell arteritis"[tiab] OR "temporal arteritis"[tiab])',
     "Sjögren": '("sjogren syndrome"[tiab] OR "sjögren"[tiab])',
     "SSc": '("systemic sclerosis"[tiab] OR "scleroderma"[tiab])',
+    # IgG4-RD had no query at all, so it reached the library only when a paper
+    # happened to also say "vasculitis" or "ANCA" -- 131 of the 148 records
+    # this clause returns over the 190 days to 2026-10-06 were missed outright,
+    # a phase 2 trial of rilzabrutinib among them.
+    #
+    # "IgG4"[tiab] on its own is the same shape of collision as bare "TRAPS"
+    # below: IgG4 is an antibody isotype long before it is a disease, so that
+    # clause returns every "humanised IgG4 monoclonal antibody" paper in
+    # rheumatology and oncology alike (58 extra records in the same window,
+    # none of them about this disease). The requirement is therefore positive
+    # context -- "-related", the word that turns the isotype into the entity --
+    # not a NOT list of the isotype's uses. Spelled-out "immunoglobulin G4-
+    # related" and the "IgG4-RD" abbreviation are named beside it because a
+    # paper that uses only one of those forms in title and abstract is
+    # otherwise invisible (one of them, IgG4-RD of the genitourinary system,
+    # is in this window).
+    #
+    # The eponyms and "type 1 autoimmune pancreatitis" are IgG4-RD by
+    # definition and are often written without naming IgG4 at all; they add 7
+    # records over the window. Bare "autoimmune pancreatitis" and
+    # "retroperitoneal fibrosis" are deliberately NOT here: both have common
+    # non-IgG4 causes, and over the same window they added 28 records of which
+    # 23 were gastroenterology (type 2 AIP, pancreatitis in IBD, pancreatic
+    # cancer mimics, endoscopic needle comparisons) -- recall that costs four
+    # flags a week to buy one record is the wrong trade.
+    "IgG4-RD": '("IgG4-related"[tiab] OR "immunoglobulin G4-related"[tiab] OR "IgG4-RD"[tiab] OR "Mikulicz disease"[tiab] OR "Riedel thyroiditis"[tiab] OR "Kuttner tumor"[tiab] OR "type 1 autoimmune pancreatitis"[tiab])',
     "Crystal": '("gout"[tiab] OR "gouty arthritis"[tiab] OR "calcium pyrophosphate"[tiab] OR "pseudogout"[tiab] OR "monosodium urate"[tiab])',
     # "TRAPS"[tiab] alone also matches the plain word "traps" wherever it
     # appears -- PubMed's [tiab] is case-insensitive. Excluding one phrase

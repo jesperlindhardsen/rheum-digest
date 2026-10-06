@@ -4,7 +4,7 @@
 Weekly rheumatology evidence digest. Runs autonomously, no prompts needed once set up.
 
 ## Architecture
-- **fetch_pubmed.py** (deterministic script): runs all 55 PubMed queries, parses XML —
+- **fetch_pubmed.py** (deterministic script): runs all 60 PubMed queries, parses XML —
   title/authors/dates/abstracts extracted verbatim, no AI involved
 - **AI**: reads each fetched hit and assigns `disease_groups` — labels only, never touches
   the fetched content. While it's already reading the hit, it also sanity-checks
@@ -92,7 +92,7 @@ knowing:
 
 ## STEP 1 — SEARCH (PubMed)
 - Date window: past 7 days (Entrez EDAT)
-- `fetch_pubmed.py` runs all 55 queries (11 disease groups × 5 evidence types) via PubMed
+- `fetch_pubmed.py` runs all 60 queries (12 disease groups × 5 evidence types) via PubMed
   E-utilities and parses results in code — title, journal, authors, PMID, date, and
   **structured abstract** (PubMed's labeled `AbstractText` sections — Background/Methods/
   Results/Conclusion — kept as separate `{label, text}` pairs) are extracted verbatim,
@@ -114,9 +114,10 @@ automatically (see below).
   Not for passing mentions: a paper is cross-listed when both groups are its subject.
   Tab counts therefore sum to more than the record count; that's expected.
 
-### Disease groups (11)
+### Disease groups (12)
 Display order (`DISEASE_ORDER` in `docs/index.html`, also used for digest grouping):
-RA, PsA/SpA, PMR/GCA, Crystal, General, SLE, IIM, Vasculitis, Sjögren, SSc, Autoinflammatory
+RA, PsA/SpA, PMR/GCA, Crystal, SLE, IIM, Vasculitis, Sjögren, SSc, IgG4-RD,
+Autoinflammatory, General
 
 That order is for reading, not for classifying: `DISEASE_PATTERNS` in
 `update_library.py` runs in its own precedence order (most specific first,
@@ -126,6 +127,47 @@ PMR/GCA ahead of Vasculitis, General last). Reordering one must not reorder the 
 arteritis) — one clinical spectrum, so GCA sits here rather than under Vasculitis.
 `Crystal` is gout and CPPD/pseudogout. Classification checks PMR/GCA before
 Vasculitis, since GCA matches both.
+
+`IgG4-RD` is IgG4-related disease in all its organ manifestations (autoimmune
+pancreatitis type 1, sclerosing cholangitis, retroperitoneal fibrosis,
+dacryoadenitis/sialadenitis a.k.a. Mikulicz, Riedel thyroiditis, tubulointerstitial
+nephritis, orbital and pulmonary disease, aortitis/periaortitis). It is the group
+added last, in October 2026, and the gap it closed is worth stating plainly: there
+had never been a query for it, so a paper reached the library only if it happened
+to also say "vasculitis" or "ANCA". The 190-day sweep that the new clause recovered
+returned 148 records, **131 of them never fetched at all** — among them a phase 2
+trial of rilzabrutinib (PMID 42481271), the NEJM phase 3 of obexelimab (42233621)
+and an NEJM clinical image of type 1 AIP (42555935). Its overlaps are real and
+cross-list normally: ANCA-associated vasculitis (42482707, 42206045, 42105181) and
+SLE (42133588, 42440567) both coexist with it.
+
+**The clause requires the disease's vocabulary, not the isotype.** IgG4 is an
+antibody subclass long before it is a disease, so `"IgG4"[tiab]` returns every
+"humanised IgG4 monoclonal antibody" paper there is — 58 extra records over the
+same window, none of them this disease, one of them a first-in-human RA trial
+already in the library under RA. The gate is therefore the word that turns the
+isotype into the entity (`"IgG4-related"`, with the spelled-out and `IgG4-RD`
+forms beside it for papers that use only one of those), plus the eponyms and
+`"type 1 autoimmune pancreatitis"`, which are IgG4-RD by definition and often
+written without naming IgG4 at all. Same shape as the `TRAPS` fix below: a
+positive context requirement, not a NOT list.
+
+Bare `"autoimmune pancreatitis"` and `"retroperitoneal fibrosis"` are deliberately
+left out. Both have common non-IgG4 causes, and over the same window they added 28
+records of which 23 were gastroenterology with no IgG4-RD content (type 2 AIP,
+pancreatitis in IBD, pancreatic-cancer mimics, endoscopic needle comparisons)
+against about 5 genuine ones. This is the one place where ROUTINE's "prefer recall
+in the finding query" gives way: the records it would buy are *organ* papers, which
+the IgG4 terms already catch when the disease is actually present.
+
+**Expect a high flag rate from this group** — 26 of 137 in the backfill, against
+~14% for a normal week. IgG4 is a diagnostic *marker*, so the literature is full of
+papers where an elevated IgG4 or an IgG4-RD differential is the only connection:
+Castleman disease, Rosai-Dorfman, orbital xanthogranuloma, inflammatory
+myofibroblastic tumours, lymphomas and liposarcomas mimicking IgG4-RD. These are
+classified General and flagged, not dropped — several are genuinely useful to a
+reader working through an IgG4-RD differential, which is exactly why the flag is a
+pointer and not a verdict.
 
 **Blacklisting the meanings of an ambiguous acronym one at a time is unwinnable.**
 The `TRAPS` clause used to read `"TRAPS"[tiab] NOT "extracellular traps"[tiab]` —
@@ -412,6 +454,16 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
 - All three pseudo-values are viewer-only (`TOP_EVIDENCE` / `ALL_EVIDENCE` /
   `ALL_GROUP` in `docs/index.html`), never stored, so they stay out of
   `DISEASE_ORDER`, out of `disease_groups`, and out of the digests.
+- **Adding a group has to carry the readers who already have filters saved.**
+  The chip row, the correction form and the digest sections all come off
+  `DISEASE_ORDER`, so a new group needs one entry there and one in
+  `DISEASE_LABEL` — but `restoreFilters()` reads a *stored* selection, and a
+  reader who had all eleven groups ticked would have had the twelfth silently
+  off, i.e. the new group hidden from everyone who had ever used the page.
+  `saveFilters()` therefore records `allGroups` alongside the list, and a
+  selection stored before that field existed counts as all-on when it holds
+  every group except the ones in `GROUPS_ADDED_SINCE`. Entries can be dropped
+  from that list once no stored selection predates them.
 - `DISEASE_LABEL` is display only — `Autoinflammatory` reads as
   "Autoinflammation" on the page while the stored key, the regexes in
   `update_library.py`, and the digests keep the original spelling.

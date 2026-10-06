@@ -70,14 +70,19 @@
 // "General" sits last: it is the catch-all the classifier falls back to when
 // nothing more specific fits, so it reads as the end of the list rather than
 // as a peer wedged between Crystal and SLE.
-const DISEASE_ORDER = ["RA","PsA/SpA","PMR/GCA","Crystal","SLE","IIM","Vasculitis","Sjögren","SSc","Autoinflammatory","General"];
+const DISEASE_ORDER = ["RA","PsA/SpA","PMR/GCA","Crystal","SLE","IIM","Vasculitis","Sjögren","SSc","IgG4-RD","Autoinflammatory","General"];
 // A viewer-only pseudo-group shown first and selected by default: never a
 // stored label, so it stays out of DISEASE_ORDER and out of the digests.
 const ALL_GROUP = "__all__";
+// Groups added after a reader could already have stored a filter selection.
+// Read only by restoreFilters, to tell an old "Alle" from an old deliberate
+// pick of everything-that-existed-then.
+const GROUPS_ADDED_SINCE = ["IgG4-RD"];
 const DISEASE_LABEL = {
   "RA": "RA", "PsA/SpA": "PsA/SpA", "SLE": "SLE", "IIM": "IIM",
   "Vasculitis": "Vaskulitis", "PMR/GCA": "PMR og GCA", "Sjögren": "Sjögren", "SSc": "SSc",
-  "Crystal": "Krystalartrit", "Autoinflammatory": "Autoinflammation", "General": "Generelt",
+  "Crystal": "Krystalartrit", "IgG4-RD": "IgG4-RD",
+  "Autoinflammatory": "Autoinflammation", "General": "Generelt",
   [ALL_GROUP]: "Alle"
 };
 const EVIDENCE_ORDER = ["RCT","Guideline/consensus","Evidence synthesis","Observational","Clinical case/survey"];
@@ -372,7 +377,7 @@ function overrideDate(o) {
 
 // A set, not a single value: the groups are independent facets, and a reader
 // following two of them had to keep switching back and forth. "Alle" is the
-// all-on state rather than a twelfth group, so a cross-listed record still
+// all-on state rather than a thirteenth group, so a cross-listed record still
 // appears once.
 let activeGroups = new Set(DISEASE_ORDER);
 let activeEvidence = null;
@@ -472,7 +477,7 @@ try {
 let onlyStarred = false;
 
 // ---------- Free-text search ----------
-// The disease groups are eleven broad buckets; they can't answer "what have
+// The disease groups are twelve broad buckets; they can't answer "what have
 // we got on bimekizumab". This can, because it reads the abstract too.
 let searchQuery = "";
 // Keyed by pmid rather than stored on the record: applyOverrides() rebuilds
@@ -549,6 +554,12 @@ function saveFilters() {
   try {
     localStorage.setItem(FILTER_STORAGE_KEY, JSON.stringify({
       evidence: activeEvidence, groups: [...activeGroups], tiers: [...activeTiers],
+      // Recorded alongside the list, because the list alone can't say whether
+      // a reader picked every group or just happened to tick them all: when a
+      // group is added later, a stored all-on selection has to stay all-on
+      // (see restoreFilters) or the new group is hidden from everyone who has
+      // used the page before.
+      allGroups: allGroupsOn(),
     }));
   } catch (e) { /* best effort */ }
 }
@@ -563,7 +574,17 @@ function restoreFilters() {
   // for the groups as for the tiers.
   if (Array.isArray(saved.groups)) {
     const kept = saved.groups.filter(g => DISEASE_ORDER.includes(g));
-    if (kept.length) activeGroups = new Set(kept);
+    // A reader who had every group on means everything, not "the eleven that
+    // existed in October" -- so an all-on selection picks up groups added
+    // since. Selections stored before `allGroups` was written carry no flag;
+    // one that holds every group except GROUPS_ADDED_SINCE was all-on when it
+    // was stored, and is treated as such. Entries can be dropped from that
+    // list once no stored selection predates them.
+    const wasAll = saved.allGroups === true || (saved.allGroups === undefined
+      && kept.length === saved.groups.length
+      && DISEASE_ORDER.every(g => kept.includes(g) || GROUPS_ADDED_SINCE.includes(g)));
+    if (wasAll) activeGroups = new Set(DISEASE_ORDER);
+    else if (kept.length) activeGroups = new Set(kept);
   } else if (saved.disease) {
     // Written by the single-select version of this row. Carried over rather
     // than dropped, so the one group someone was reading survives the change.
@@ -641,7 +662,7 @@ function toggleGroup(group) {
   refresh();
 }
 
-// One control for the two things you actually want from a row of twelve:
+// One control for the two things you actually want from a row of thirteen:
 // everything, or a clean slate to pick from.
 function toggleAllGroups() {
   activeGroups = allGroupsOn() ? new Set() : new Set(DISEASE_ORDER);
