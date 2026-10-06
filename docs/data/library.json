@@ -11717,6 +11717,60 @@
       "first_seen": "2026-09-07"
     },
     {
+      "pmid": "42761401",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 4,
+      "journal": "Front Gastroenterol (Lausanne)",
+      "first_author": "Qasim",
+      "last_author": "Patel",
+      "date": "2026-09-04",
+      "title": "Gastrointestinal complications of cocaine use: a narrative literature review.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Cocaine is the second most widely used illicit substance worldwide and exerts potent sympathomimetic effects by inhibiting the reuptake of norepinephrine, dopamine, and serotonin. While cardiovascular and neurological complications are well recognized, gastrointestinal (GI) manifestations are increasingly reported. These arise from multifactorial mechanisms including vasospasm, endothelial dysfunction, thrombosis, ischemia, and direct mucosal toxicity, often with severe clinical consequences."
+        },
+        {
+          "label": "OBJECTIVE",
+          "text": "This narrative review summarizes the mechanisms, pharmacokinetics, pharmacodynamics, routes of use, and spectrum of GI complications associated with cocaine exposure, with emphasis on ischemic, ulcerative, hemorrhagic, inflammatory, fibrotic, hepatobiliary, and pancreatic sequelae; provides a differential-diagnosis and diagnostic algorithm; and critically appraises the strength of the supporting evidence and its principal confounders."
+        },
+        {
+          "label": "METHODS",
+          "text": "PubMed/MEDLINE, Embase, and Scopus were searched from January 1, 1987 through July 17, 2026, using the Boolean strings detailed in the Methods section. Case reports, case series, retrospective cohort/case-control studies, and systematic reviews published in English were eligible; both abstract and, where accessible, full text were screened. Reference lists of retrieved articles were hand-searched (snowballing) for additional citations."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Cocaine induces GI injury through vasoconstriction, pro-thrombotic effects, microvascular dysfunction, and direct cytotoxicity. Reported complications span ischemic/vascular disease (mesenteric ischemia/infarction, colonic ischemia, ischemic/hemorrhagic colitis, vascular thrombosis), ulcerative/perforative disease (peptic ulcer disease; gastric, duodenal, small-, and large-bowel perforation), inflammatory/fibrotic disease (enteritis, enterocolitis, strictures, retroperitoneal fibrosis), hepatobiliary and pancreatic injury, splenic infarction/hematoma/rupture, and other presentations including gastric antral vascular ectasia, an inflammatory bowel disease (IBD)-mimicking phenotype, and, rarely, acalculous cholecystitis. A systematic review of 53 studies (69 patients) found broadly similar mortality and surgical rates across routes of cocaine use, and two hybrid cohort/case-control studies of cocaine-associated ischemic colitis reported substantially higher mortality and surgical intervention rates than non-cocaine-related ischemic colitis. Polysubstance use - particularly concurrent alcohol (via the metabolite cocaethylene) and tobacco - and pre-existing vascular disease are common but incompletely characterized confounders. Notably, the evidence base underlying nearly every complication described here remains dominated by single case reports and small case series rather than comparative studies, a limitation that should temper the strength of any causal inference drawn from it."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Cocaine use is a significant and under-recognized contributor to severe GI morbidity and mortality, with complications spanning ischemia and perforation to hepatopancreatic injury. The evidentiary foundation remains overwhelmingly derived from case reports and small series; only three comparative or aggregated studies provide quantitative risk data, two limited to ischemic colitis and one examining route of use across the wider intestinal-ischemia literature. Clinicians should maintain a high index of suspicion for cocaine-related GI disease in young patients presenting with abdominal pain or ischemic features, use the differential-diagnosis framework and algorithm proposed here to avoid diagnostic delay, and account for polysubstance use when interpreting presentations. Future research should prioritize registry-based or multicenter comparative studies to better quantify risk, outcomes, and the independent contribution of confounders."
+        }
+      ],
+      "keywords": [
+        "bowel perforation",
+        "cocaine",
+        "gastrointestinal complications",
+        "hemorrhage",
+        "ischemic colitis",
+        "mesenteric ischemia",
+        "pancreatitis",
+        "retroperitoneal fibrosis"
+      ],
+      "first_seen": "2026-10-06",
+      "flagged": "Kokain-GI-komplikationer review; retroperitoneal fibrose kun nævnt"
+    },
+    {
       "pmid": "42760948",
       "languages": [
         "eng"
@@ -22356,6 +22410,39 @@
       "first_seen": "2026-08-20"
     },
     {
+      "pmid": "42761729",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IgG4-RD"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Cureus",
+      "first_author": "El Moudane",
+      "last_author": "Barki",
+      "date": "2026-08-19",
+      "title": "Clinical Presentation, Management, and Outcomes of Retroperitoneal Fibrosis: A 10-Year Single-Center Study of 24 Cases.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Background and objective Retroperitoneal fibrosis (RPF) is a rare fibro-inflammatory condition characterized by the formation of fibrous tissue in the retroperitoneal space. It can lead to ureteral obstruction and renal complications. Due to its nonspecific clinical presentation, diagnosis may be delayed. This study aimed to describe the clinical presentation, diagnostic findings, management strategies, and clinical outcomes of patients with RPF. Materials and methods We conducted a retrospective, single-center, descriptive study over 10 years, from May 2015 to May 2025, in the Department of Urology at Mohammed VI University Hospital, Oujda, Morocco. Twenty-four patients diagnosed with RPF were included. Results The cohort comprised 18 men (75%) and six women (25%), with a mean age of 54 years. The most common presenting symptom was low back pain, observed in 19 patients (79.2%), followed by weight loss in 17 patients (70.8%). Anuria was noted in three patients (12.5%). Acute renal failure was observed in 15 patients (62.5%). The diagnosis was established by CT in all patients, while biopsy was performed in five patients (20.8%). Idiopathic RPF was identified in 18 patients (75%). A history of retroperitoneal surgery was found in five patients (20.8%), and atherosclerosis was noted in one patient (4.2%). All patients underwent urinary drainage using a double-J stent and received systemic corticosteroid therapy. Renal function improved in six of the 15 patients presenting with acute renal failure (40%) after two months of treatment. Relapse occurred in four patients (16.7%) during a mean follow-up period of five years. Conclusions RPF should be considered in patients presenting with systemic symptoms and obstructive renal failure. In this case series, CT played a key role in the diagnosis, and urinary drainage combined with corticosteroid therapy was the main treatment approach. Long-term follow-up remains essential, as recurrence may occur over time."
+        }
+      ],
+      "keywords": [
+        "case series",
+        "corticosteroid therapy",
+        "d-j stents",
+        "retroperitoneal fibrosis",
+        "ureteral obstruction"
+      ],
+      "first_seen": "2026-10-06"
+    },
+    {
       "pmid": "42615128",
       "languages": [
         "eng"
@@ -30566,6 +30653,49 @@
         "Journal Article"
       ],
       "first_seen": "2026-08-06"
+    },
+    {
+      "pmid": "42620745",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IgG4-RD"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Front Immunol",
+      "first_author": "Malatesta",
+      "last_author": "Vaglio",
+      "date": "2026-08-05",
+      "title": "Case Report: Ureteral obstruction reveals rare underlying fibro-inflammatory, infiltrative, and proliferative disorders: report of four cases.",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "Ureteral wall thickening or a periureteral \"sleeve\" on imaging often raise concern for malignancy, but rare non-carcinomatous disorder can mimic this presentation. We report radiology and pathology findings of four prototypical cases of ureteral obstruction due to rare diseases."
+        },
+        {
+          "label": "CASE PRESENTATION",
+          "text": "We describe four cases presenting with nonspecific urological symptoms such as flank pain, hydronephrosis, and variable degrees of renal dysfunction, in whom computed tomography revealed segmental or circumferential periureteral thickening suggestive of an infiltrative process. Given the absence of specific clinical or laboratory findings, a biopsy was required to confirm the diagnosis in all cases. Four different and rare diseases were diagnosed, namely light-chain amyloidosis, idiopathic retroperitoneal fibrosis, Erdheim-Chester disease, and Gardner's syndrome. Key imaging and pathology features are presented."
+        },
+        {
+          "label": "DISCUSSION AND CONCLUSIONS",
+          "text": "Obstructive nephropathy may reveal rare fibro-inflammatory, infiltrative and proliferative diseases that require a thorough diagnostic work-up. Raising awareness of these rare conditions is crucial to guarantee timely diagnosis and effective treatment."
+        }
+      ],
+      "keywords": [
+        "Erdheim-Chester disease",
+        "Gardner syndrome",
+        "amyloidosis AL",
+        "case report",
+        "retroperitoneal fibrosis"
+      ],
+      "first_seen": "2026-10-06",
+      "flagged": "Ureterobstruktion ved fire sjældne sygdomme; RPF kun én af dem"
     },
     {
       "pmid": "42620698",
@@ -49450,6 +49580,43 @@
       "first_seen": "2026-06-18"
     },
     {
+      "pmid": "42303544",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Transplant Proc",
+      "first_author": "Mendonça",
+      "last_author": "Andraus",
+      "date": "2026-06-17",
+      "title": "Treacherous Pitfalls in Liver Transplantation for Budd-Chiari Syndrome: When the Devil Hides in the Shadows-A Case Report.",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "Budd-Chiari syndrome (BCS) is a rare vascular liver disorder characterized by obstruction of the hepatic venous outflow, involving the hepatic veins and/or the inferior vena cava (IVC). Etiology varies geographically, with thrombophilic conditions and myeloproliferative disorders predominating in Western countries, and membranous IVC obstruction being more frequent in Eastern countries. Liver transplantation (LT) remains the definitive treatment for patients with acute liver failure or advanced disease refractory to medical and interventional therapies, but it presents unique surgical challenges due to hepatomegaly, retroperitoneal fibrosis, and potential IVC stenosis or thrombosis."
+        },
+        {
+          "label": "CASE REPORT",
+          "text": "We report a 33-year-old male with BCS who underwent deceased-donor LT using the piggyback technique. Intraoperatively, the retrohepatic IVC was fibrotic and narrowed; a diamond-shaped side-to-side cavocaval anastomosis was performed to optimize venous outflow. Despite an initially well-perfused graft, the patient developed primary graft nonfunction on the first postoperative day. Urgent retransplantation revealed severe venous outflow obstruction caused by an unrecognized stenosis of the native suprahepatic IVC near the right atrium. The first graft exhibited extensive congestion and coagulative necrosis. Retransplantation was successfully performed using conventional technique without veno-venous bypass, completely removing the recipient's IVC."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "This case illustrates the potential for subtle anatomical anomalies, such as suprahepatic IVC stenosis, to cause acute post-transplant hepatic venous outflow obstruction in BCS. Awareness of these \"Budd-Chiari pitfalls\" is critical for surgical planning and intraoperative decision-making. LT remains a safe and effective therapy for carefully selected BCS patients, provided that meticulous attention is paid to venous anatomy and possible intraoperative challenges."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-10-06",
+      "flagged": "Levertransplantation ved Budd-Chiari; RPF kun kirurgisk forhold"
+    },
+    {
       "pmid": "42491879",
       "languages": [
         "eng"
@@ -52155,6 +52322,41 @@
       "first_seen": "2026-06-01"
     },
     {
+      "pmid": "42217044",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
+      ],
+      "disease_groups": [
+        "IgG4-RD"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Rheumatol Int",
+      "first_author": "Niksińska",
+      "last_author": "Tłustochowicz",
+      "date": "2026-05-30",
+      "title": "Comparable effectiveness of intensive intravenous and less intensive immunosuppressive treatment in retroperitoneal fibrosis: a retrospective real-world cohort study.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Retroperitoneal fibrosis (RPF) is a rare fibro-inflammatory disease frequently complicated by ureteral obstruction and renal impairment. Due to its rarity, heterogeneous clinical course, and the absence of standardized treatment guidelines, optimal immunosuppressive management of RPF remains uncertain. This study aimed to evaluate the real-world effectiveness and safety of different immunosuppressive treatment strategies in patients with RPF. A retrospective, single-center observational study was conducted including patients with idiopathic or immune-mediated RPF treated between 2010 and 2025. Patients were grouped according to treatment strategy: intensive intravenous therapy with cyclophosphamide or rituximab, or less intensive oral immunosuppressive therapy including methotrexate, mycophenolate mofetil or azathioprine. Treatment effectiveness was assessed using a composite endpoint incorporating clinical, laboratory and radiological response. Secondary outcomes included renal function, relapse, treatment safety, and glucocorticoid exposure. Twenty-nine patients were included in the analysis, of whom 11 received intensive therapy and 18 were treated with less intensive oral immunosuppressive regimens. Overall treatment effectiveness was achieved in 68% of evaluable patients and did not differ significantly between groups (OR 2.67, 95% CI 0.41-17.17). Clinical, laboratory, and radiological responses did not differ significantly between treatment groups. Hydronephrosis resolved in 75% of affected patients. Median serum creatinine levels improved during follow-up in both treatment groups, without significant intergroup differences at last observation (1.20 mg/dL [1.10-1.30] vs. 1.20 mg/dL [0.80-1.40]). The median relative reduction in periaortic mass thickness was 41.2% (24.45-53.95). No significant differences in overall safety outcomes were observed. In this real-world cohort of patients with RPF, intensive intravenous immunosuppressive regimens were not associated with superior treatment effectiveness compared with less intensive oral therapies. These findings support an individualized approach to treatment selection in RPF, taking disease severity, renal involvement and patient-specific factors into account. Prospective studies in larger cohorts are needed to further define optimal long-term management strategies for this rare disease."
+        }
+      ],
+      "keywords": [
+        "Cohort study",
+        "Glucocorticoids",
+        "Immunosuppressive agents",
+        "Renal outcome",
+        "Retroperitoneal fibrosis",
+        "Rituximab"
+      ],
+      "first_seen": "2026-10-06"
+    },
+    {
       "pmid": "42218474",
       "languages": [
         "eng"
@@ -54287,6 +54489,41 @@
       "first_seen": "2026-05-13"
     },
     {
+      "pmid": "42181957",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IgG4-RD"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Radiol Case Rep",
+      "first_author": "du Preez",
+      "last_author": "Reiner",
+      "date": "2026-05-12",
+      "title": "Necrotizing pancreatitis with multifocal hepatic artery pseudoaneurysms: Diagnostic limitations and rare appearance of suspected IgG-4 related disease.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "IgG-4 related disease is an auto-immune fibroinflammatory disease that affects nearly all organs, most commonly being the pancreas and other retroperitoneal organs. Many mixed inflammatory and fibrotic processes are associated, including, but not limited to, autoimmune pancreatitis, tubulointerstitial nephritis, and retroperitoneal fibrosis. Due to the broad manifestations of this disease, multiple diagnostic paradigms have been proposed and are currently in use. A 60-year-old female presented to our Emergency Department with complaints of severe low back pain, epigastric pain, hypotension, and vomiting. Initial laboratory evaluation included a Leukocytosis, hyperglycemia, and elevated inflammatory markers. Initial imaging revealed acute necrotizing pancreatitis. These findings, alongside elevated IgG-4 titers obtained in the outpatient setting, suggested, somewhat classically, IgG-4 RD. This case report is written to showcase the rare development of multiple pseudoaneurysms and a medium-sized vasculitis within the hepatic arteries distal to the site of pancreatic inflammation."
+        }
+      ],
+      "keywords": [
+        "CTA",
+        "DSA",
+        "IgG-4",
+        "Pseudoaneurysm",
+        "Rheumatology",
+        "Vasculitis"
+      ],
+      "first_seen": "2026-10-06"
+    },
+    {
       "pmid": "42206045",
       "languages": [
         "eng"
@@ -55970,6 +56207,53 @@
         "Journal Article"
       ],
       "first_seen": "2026-04-30"
+    },
+    {
+      "pmid": "42254113",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IgG4-RD"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Ann Med Surg (Lond)",
+      "first_author": "Alkhunaizi",
+      "last_author": "Alshaqaq",
+      "date": "2026-04-29",
+      "title": "Clinical outcomes and management of idiopathic retroperitoneal fibrosis: a case series.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Idiopathic retroperitoneal fibrosis (IRF) is a rare fibro-inflammatory disorder that often leads to ureteral obstruction and renal impairment. This case series evaluated clinical presentation, diagnostic evaluation, management strategies, and outcomes in nine patients diagnosed with IRF at a single tertiary center."
+        },
+        {
+          "label": "METHODS",
+          "text": "We retrospectively reviewed nine patients diagnosed with IRF between January 2015 and December 2024. Clinical presentation, comorbidities, laboratory parameters, imaging findings, targeted immunologic and pathology tests, treatment regimens, and longitudinal outcomes were extracted from electronic medical records."
+        },
+        {
+          "label": "RESULTS",
+          "text": "All nine patients (100%) presented with hydronephrosis, bilateral in eight (89%) and unilateral in one (11%). Biopsy to exclude malignancy was performed in six patients (67%). Medical therapy comprised prednisone alone or in combination with mycophenolate mofetil in six (67%) and azathioprine in two (22%). Ureteral stenting was performed in seven patients (78%). Clinical improvement occurred in eight patients (89%), radiologic improvement in six (67%), and renal function stabilized or improved in all cases (100%). Complications occurred in five patients (56%): acute kidney injury in two (22%), persistent unilateral renal nonfunction in two (22%), and chronic kidney disease in one (11%)."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "IRF posed significant diagnostic and therapeutic challenges. Early use of multimodal imaging enabled prompt diagnosis, and combined corticosteroid plus immunosuppressive therapy achieved high rates of clinical response, but was associated with notable morbidity, underscoring individualized management and close monitoring."
+        }
+      ],
+      "keywords": [
+        "autoimmune fibrosis",
+        "case series",
+        "fibrosis regression",
+        "hydronephrosis",
+        "idiopathic retroperitoneal fibrosis",
+        "ureteral obstruction",
+        "urology"
+      ],
+      "first_seen": "2026-10-06"
     },
     {
       "pmid": "42220855",
@@ -66835,6 +67119,34 @@
         "Research Support, U.S. Gov't, Non-P.H.S."
       ],
       "first_seen": "2025-12-02"
+    },
+    {
+      "pmid": "42485369",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IgG4-RD"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "S D Med",
+      "first_author": "Roberts",
+      "last_author": "Ahmed",
+      "date": "2025-12-01",
+      "title": "A Case of Idiopathic Retroperitoneal Fibrosis and Inflammatory Abdominal Aortic Aneurysm in a 73-year-old Patient.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Retroperitoneal fibrosis (RPF) involves an inflammatory fibrous retroperitoneal development that surrounds the abdominal aorta. Oftentimes, extension into the iliac arteries and ureters is seen, which can cause hydronephrosis and lead to renal failure. There are a variety of causes for RPF including an idiopathic presentation, complication of infection such as syphilis or tuberculosis, or a complication of autoimmune disease. A case of idiopathic retroperitoneal fibrosis in a 73-year-old male will be examined. The patient presented with bilateral flank pain, hematuria, and low urine output that had lasted for about 4 days. Initial laboratory workup had shown increased levels of BUN at 49 mg/dL, CRP at 61.6 mg/L, and creatinine at 6.28 mg/dL. A 5.1 cm abdominal aortic aneurysm extending into the bilateral common iliac arteries was seen on CTA of the abdomen and pelvis. Surrounding the aneurysm was a soft tissue mass that had extension into the ureters bilaterally and caused hydronephrosis. Rheumatological and infectious workup of the soft tissue mass was negative. Vascular surgery performed endovascular aneurysm repair and urology performed bilateral cystoscopy and placed ureteral stents. High dose steroids were prescribed for a month. On follow up, CTA imaging showed a reduction of the mass as well as return of inflammatory markers to baseline."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-10-06"
     },
     {
       "pmid": "40953951",

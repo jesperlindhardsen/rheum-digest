@@ -33,9 +33,10 @@ DISEASE_PATTERNS = [
     # round -- this pattern requires the disease's own vocabulary, never the
     # bare isotype, so an "IgG4 monoclonal antibody" trial in RA still falls
     # through to RA (see the query's own note in fetch_pubmed.py).
-    ("IgG4-RD", r"igg4[- ]related|\bIgG4-RD\b|immunoglobulin g4[- ]related|"
+    ("IgG4-RD", r"igg-?4[- ]related|\bIgG-?4-RD\b|immunoglobulin g-?4[- ]related|"
                 r"mikulicz|riedel'?s? thyroiditis|k[uü]ttner tumou?r|"
-                r"type 1 autoimmune pancreatitis"),
+                r"type 1 autoimmune pancreatitis|retroperitoneal fibrosis|"
+                r"ormond'?s? disease"),
     ("RA", r"rheumatoid arthritis"),
     ("PsA/SpA", r"psoriatic arthritis|spondyloarthritis|ankylosing spondylitis"),
     ("SLE", r"systemic lupus erythematosus|\blupus\b"),

@@ -152,15 +152,38 @@ forms beside it for papers that use only one of those), plus the eponyms and
 written without naming IgG4 at all. Same shape as the `TRAPS` fix below: a
 positive context requirement, not a NOT list.
 
-Bare `"autoimmune pancreatitis"` and `"retroperitoneal fibrosis"` are deliberately
-left out. Both have common non-IgG4 causes, and over the same window they added 28
-records of which 23 were gastroenterology with no IgG4-RD content (type 2 AIP,
-pancreatitis in IBD, pancreatic-cancer mimics, endoscopic needle comparisons)
-against about 5 genuine ones. This is the one place where ROUTINE's "prefer recall
-in the finding query" gives way: the records it would buy are *organ* papers, which
-the IgG4 terms already catch when the disease is actually present.
+**There are three spellings, and PubMed treats them as three terms.** The hyphen
+in `IgG-4` does not normalise away, so `"IgG4-related"[tiab]` does not return a
+paper written "IgG-4 related disease" — PMID 42181957 among them, which reached
+the library on `"retroperitoneal fibrosis"` alone and matches none of the IgG4
+terms. `"IgG-4 related"[tiab]` is therefore named alongside, and the fallback
+regex uses `igg-?4`. Worth remembering before trusting any single spelling of an
+abbreviation that carries a number.
 
-**Expect a high flag rate from this group** — 26 of 137 in the backfill, against
+**`"retroperitoneal fibrosis"` is in the clause unqualified, and the measurement
+that first kept it out was simply the wrong measurement.** It had been counted
+together with bare `"autoimmune pancreatitis"`, the pair added 28 records of which
+23 were gastroenterology noise, and both were dropped on that one number. Measured
+apart over the same 190 days, the noise is almost all AIP's: AIP adds 18 records
+the rest of the clause misses (type 2 AIP, pancreatitis in IBD, pancreatic-cancer
+mimics, endoscopic needle comparisons), RPF adds 7 of which 5 are squarely in scope
+— a 24-case single-centre series (42761729), a case series of idiopathic RPF
+(42254113) and a Rheumatol Int comparison of intensive vs. less intensive
+immunosuppression (42217044). One record a month, mostly real, is worth having; so
+RPF is in and AIP stays out. The lesson is about the measuring, not the terms: two
+candidate clauses counted as one can only ever justify keeping both or dropping
+both, and the cheap one pays for the expensive one's noise.
+
+**Idiopathic RPF belongs in this group even when it is IgG4-negative.** Chronic
+periaortitis / Ormond disease is the same clinic, the same imaging and the same
+treatment decision as IgG4-related RPF; splitting the seronegative half of one
+entity into General would hide it from the reader looking for it. Secondary RPF
+(malignancy, radiation, drugs, infection) arrives with the term and is flagged, not
+dropped. `"periaortitis"` was measured alongside and left out — 2 records over the
+window, both post-EVAR graft complications, neither the idiopathic entity — since
+`IgG4-related periaortitis` already comes in on the IgG4 terms.
+
+**Expect a high flag rate from this group** — 29 of 145 in the backfill, against
 ~14% for a normal week. IgG4 is a diagnostic *marker*, so the literature is full of
 papers where an elevated IgG4 or an IgG4-RD differential is the only connection:
 Castleman disease, Rosai-Dorfman, orbital xanthogranuloma, inflammatory

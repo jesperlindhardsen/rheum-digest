@@ -65,13 +65,38 @@ DISEASE_QUERIES = {
     #
     # The eponyms and "type 1 autoimmune pancreatitis" are IgG4-RD by
     # definition and are often written without naming IgG4 at all; they add 7
-    # records over the window. Bare "autoimmune pancreatitis" and
-    # "retroperitoneal fibrosis" are deliberately NOT here: both have common
-    # non-IgG4 causes, and over the same window they added 28 records of which
-    # 23 were gastroenterology (type 2 AIP, pancreatitis in IBD, pancreatic
-    # cancer mimics, endoscopic needle comparisons) -- recall that costs four
-    # flags a week to buy one record is the wrong trade.
-    "IgG4-RD": '("IgG4-related"[tiab] OR "immunoglobulin G4-related"[tiab] OR "IgG4-RD"[tiab] OR "Mikulicz disease"[tiab] OR "Riedel thyroiditis"[tiab] OR "Kuttner tumor"[tiab] OR "type 1 autoimmune pancreatitis"[tiab])',
+    # records over the window.
+    #
+    # "retroperitoneal fibrosis" is here too, unqualified, and the measurement
+    # that first kept it out was the wrong measurement: it lumped RPF together
+    # with bare "autoimmune pancreatitis", and the 28 records that pair added
+    # were almost all AIP's. Measured apart, over the same 190 days, AIP adds
+    # 18 records the rest of this clause misses (type 2 AIP, pancreatitis in
+    # IBD, pancreatic-cancer mimics, endoscopic needle comparisons) while RPF
+    # adds 7, five of them squarely in scope: a 24-case single-centre series,
+    # a case series of idiopathic RPF, and a Rheumatol Int comparison of
+    # intensive vs. less intensive immunosuppression. One a month, mostly
+    # real, is a trade worth making; AIP's is not, so it stays out.
+    #
+    # Idiopathic RPF is included on purpose even when it is IgG4-NEGATIVE.
+    # Chronic periaortitis / Ormond disease is the same clinic and the same
+    # treatment decision as IgG4-related RPF, and splitting the seronegative
+    # half of one entity into General would hide it from the reader looking
+    # for it. Secondary RPF (malignancy, radiation, drugs, infection) does
+    # arrive with it and is flagged, not dropped.
+    #
+    # "periaortitis" was measured alongside and left out: it added 2 records
+    # over the window, both post-EVAR graft complications (one Listeria
+    # infection), neither the idiopathic entity. "IgG4-related periaortitis"
+    # already comes in on the IgG4 terms, and the RPF term covers the rest.
+    # "IgG-4 related" is a THIRD spelling and a separate token sequence in
+    # PubMed: the hyphen after IgG does not normalise away, so
+    # "IgG4-related"[tiab] does not return it. The RPF term is what exposed
+    # this -- PMID 42181957 (necrotising pancreatitis with hepatic artery
+    # pseudoaneurysms, "suspected IgG-4 related disease") came in on
+    # retroperitoneal fibrosis alone, and nothing in the IgG4 terms matches
+    # it. Three records in the window use this spelling.
+    "IgG4-RD": '("IgG4-related"[tiab] OR "IgG-4 related"[tiab] OR "immunoglobulin G4-related"[tiab] OR "IgG4-RD"[tiab] OR "Mikulicz disease"[tiab] OR "Riedel thyroiditis"[tiab] OR "Kuttner tumor"[tiab] OR "type 1 autoimmune pancreatitis"[tiab] OR "retroperitoneal fibrosis"[tiab] OR "Ormond disease"[tiab])',
     "Crystal": '("gout"[tiab] OR "gouty arthritis"[tiab] OR "calcium pyrophosphate"[tiab] OR "pseudogout"[tiab] OR "monosodium urate"[tiab])',
     # "TRAPS"[tiab] alone also matches the plain word "traps" wherever it
     # appears -- PubMed's [tiab] is case-insensitive. Excluding one phrase
