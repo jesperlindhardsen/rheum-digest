@@ -116,6 +116,12 @@ const EVIDENCE_BADGE = {
 const MONTHS_DA = ["januar","februar","marts","april","maj","juni",
                    "juli","august","september","oktober","november","december"];
 
+// The newest few open their abstracts by themselves, recounted on every
+// filter change: picking IIM or SLE should put that group's latest reading in
+// front of you, not a row of summaries to click through one at a time. Five
+// is about what fits before scrolling stops feeling like arriving somewhere.
+const AUTO_OPEN_ABSTRACTS = 5;
+
 const TIERS = [1, 2, 3, 4];
 // What the tiers actually mean, in the reader's words. Stored as 1-4 so the
 // data stays language-neutral; only the viewer names them.
@@ -870,7 +876,7 @@ function proposeCorrection(pmid) {
   applyOverride(pmid, patch);
 }
 
-function renderItem(rec) {
+function renderItem(rec, openAbstract) {
   const sections = rec.abstract_sections.map(s =>
     s.label ? `<p><strong>${s.label}:</strong> ${s.text}</p>` : `<p>${s.text}</p>`
   ).join("");
@@ -924,7 +930,7 @@ function renderItem(rec) {
       ${flag}
       ${chips}
       <div class="toggle-row">
-        <details class="abstract-toggle">
+        <details class="abstract-toggle"${openAbstract ? " open" : ""}>
           <summary>Abstract</summary>
           <div class="abstract-full">${sections}</div>
         </details>
@@ -954,18 +960,27 @@ function renderGroupedItems(items, emptyMessage) {
   });
 
   const months = [...byMonth.keys()].sort().reverse();
+  // Enough leading sections to actually contain the newest five. The top one
+  // alone is usually plenty, but a narrow group can have a month with one
+  // article in it -- and an abstract opened inside a collapsed section is an
+  // abstract nobody sees.
+  let need = AUTO_OPEN_ABSTRACTS, openThrough = 0;
+  for (let j = 0; j < months.length && need > 0; j++) {
+    need -= byMonth.get(months[j]).length;
+    openThrough = j;
+  }
+  let shown = 0;
   panel.innerHTML = months.map((key, i) => {
     const monthItems = byMonth.get(key);
     // Only the run month earns the generic label -- in a sparse group the top
     // section can be months old, and calling that "Seneste måned" would misread.
     const label = key === currentMonth ? "Seneste måned" : monthLabel(key);
-    // Only the top section. Six were expanded before, which on a phone made
-    // the page 361 screens tall before a single filter had been touched.
-    const openAttr = i === 0 ? " open" : "";
+    const openAttr = i <= openThrough ? " open" : "";
     return `
       <details${openAttr} class="time-bucket">
         <summary>${label} (${monthItems.length})</summary>
-        <div class="bucket-items">${monthItems.map(renderItem).join("")}</div>
+        <div class="bucket-items">${monthItems
+          .map(rec => renderItem(rec, shown++ < AUTO_OPEN_ABSTRACTS)).join("")}</div>
       </details>`;
   }).join("");
 }
