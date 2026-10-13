@@ -563,8 +563,12 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   the active evidence type and search. Applies to everything — tab counts and which
   disease tabs appear follow it, so a count never promises items the filter is
   hiding. With every tier unchecked the panel reads "Vælg mindst én tidsskrifttype."
-- **Search** over title, journal, authors, keywords and abstract text; every term
-  must match, so more words narrow. It composes with the filters rather than
+- **Search** over PMID, title, journal, authors, keywords and abstract text;
+  every term must match, so more words narrow. PMID is in there so an identifier
+  copied out of a reference list, or off the card itself, finds its article —
+  it was the one thing on the page the search couldn't match. The placeholder
+  still reads "Søg i titel, nøgleord…": naming PMID as well needs 182px of the
+  170px the field has, and a truncated hint reads as broken. It composes with the filters rather than
   overriding them, but because the page opens narrowed, any hits the filters are
   holding back are counted above the results with a button that releases them.
   The input sits in the header — top-right on a wide screen, a full-width row of
@@ -587,8 +591,19 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   question you asked once, not a way of browsing.
 - Within each disease × evidence-type combo: one collapsible section per calendar
   month, newest first, each with a count, at the same font size as the disease tabs.
-  Only the topmost section is open on load — six were, which is what made the
-  default view 361 screens tall.
+  Enough leading sections are open to hold the newest five articles — usually
+  just the top one; six were open once, which is what made the default view 361
+  screens tall. A narrow group can have a month with one article in it, and the
+  rule exists so the auto-opened abstracts below are not left inside a
+  collapsed section.
+- **The newest five open their abstracts**, recounted on every filter change
+  (`AUTO_OPEN_ABSTRACTS` in `docs/index.html`). Picking IIM or SLE should put
+  that group's latest reading in front of you rather than a row of summaries to
+  click through one at a time. Counted across sections, since in a sparse group
+  the newest five can straddle two months. Note that `renderItem` takes the
+  open flag as its second argument, so it must be called from an explicit
+  arrow — a bare `map(renderItem)` would pass the index there and open
+  everything but the first.
   - The section for the run's own month is labelled "Seneste måned"; every other
     section carries month + year ("Juli 2026"). A sparse combo whose newest items
     are months old therefore opens on a dated section, not on "Seneste måned".
