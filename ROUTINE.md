@@ -499,8 +499,12 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   the active evidence type and search. Applies to everything — tab counts and which
   disease tabs appear follow it, so a count never promises items the filter is
   hiding. With every tier unchecked the panel reads "Vælg mindst én tidsskrifttype."
-- **Search** over title, journal, authors, keywords and abstract text; every term
-  must match, so more words narrow. It composes with the filters rather than
+- **Search** over PMID, title, journal, authors, keywords and abstract text;
+  every term must match, so more words narrow. PMID is in there so an identifier
+  copied out of a reference list, or off the card itself, finds its article —
+  it was the one thing on the page the search couldn't match. The placeholder
+  still reads "Søg i titel, nøgleord…": naming PMID as well needs 182px of the
+  170px the field has, and a truncated hint reads as broken. It composes with the filters rather than
   overriding them, but because the page opens narrowed, any hits the filters are
   holding back are counted above the results with a button that releases them.
   The input sits in the header — top-right on a wide screen, a full-width row of
