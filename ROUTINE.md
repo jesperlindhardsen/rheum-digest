@@ -239,6 +239,26 @@ through and needs manual removal — there's no PubMed field to catch it by.
 Query strings and evidence-type filters live in `fetch_pubmed.py`
 (`DISEASE_QUERIES`, `EVIDENCE_FILTERS`) — edit there, not here, to keep one source of truth.
 
+**A rate-limited request is retried, because one 429 used to cost the whole
+sweep.** NCBI answers a tripped rate limit with `429` rather than queueing, and
+nothing caught it: the 2026-10-12 run died on query 2 of 60 and the run had to be
+restarted by hand. `_get()` now wraps every E-utilities call with exponential
+backoff (2s doubling to a 60s cap, six attempts, honouring a numeric
+`Retry-After`) over `429` and the 5xx/dropped-connection failures a 60-query run
+meets occasionally. A non-retryable error — a malformed query, say — still raises
+on the first attempt rather than being retried six times. It is transport only:
+nothing in it reads or rewrites a payload, so the parsers see exactly what they
+saw before.
+
+The limit counts **per IP**, and this routine shares its egress address with
+whatever else its container is doing, which is why pacing at the published 3
+req/sec was not in fact safe. `REQUEST_DELAY` keeps a little headroom (0.40s)
+instead. Setting `PUBMED_API_KEY` (free from an NCBI account's "API Key
+Management" panel) raises the ceiling to 10 req/sec and drops the delay to 0.12s,
+cutting the sweep from ~30s of deliberate waiting to ~8s; it is optional and the
+routine runs without it exactly as it always has. Same env-var discipline as
+`PUBMED_CONTACT_EMAIL` — never hardcoded, so it stays out of a public repo.
+
 Evidence types (5), by stored key: RCT, Guideline/consensus, Evidence synthesis,
 Observational, Clinical case/survey. The viewer relabels these for display
 (`EVIDENCE_LABEL` for the tabs, `EVIDENCE_BADGE` for the shorter on-card chip, both
@@ -321,6 +341,50 @@ and they are flagged, not dropped, because no deterministic rule covers them yet
 title-only regex in the `PROTOCOL_TITLE` mould ("in rats", "in mice", "mouse/murine
 model", "in dogs") would catch about half; the rest only say so in the abstract.
 When this recurs, that's the rule to write.
+
+**Myositis ossificans is not myositis, and that collision has now earned its own
+rule.** Myositis ossificans is heterotopic bone inside a muscle — an orthopaedic
+lesion sharing one word with inflammatory myopathy and nothing else. It arrived
+three times in the 2026-10-12 run alone (PMIDs 42851920, 42851928, 42859843),
+each hand-flagged with the same reason, which is exactly the signal above to stop
+re-flagging and write the rule. `OSSIFICANS_TITLE` in `fetch_pubmed.py` therefore
+drops a record whose title names the entity under any of its names: `myositis
+ossificans`, `fibrodysplasia ossificans` (the genetic bone disease once called
+myositis ossificans progressiva), or bare `heterotopic ossification`.
+
+**The route in is PubMed's `[tiab]`, which covers author keywords too.** That is
+worth knowing before trusting any `[tiab]` clause to mean "title or abstract":
+the IIM query's `"myositis"[tiab]` matched PMID 42699877 (pelvic heterotopic
+ossification) on the phrase "myositis ossificans traumatica" sitting in its
+*keyword list*, with neither word in its title or abstract. PMID 42809642
+(radioulnar synostosis after an ulna fracture) came in the same way on a bare
+`myositis` keyword, and that one the rule does **not** catch — a bare-keyword
+match carries no phrase to key on, and dropping on `myositis` in a keyword list
+would take real papers with it. It stays a flag case.
+
+**The drop is gated on the record having no other reason to be here.**
+"Heterotopic ossification after hip arthroplasty in ankylosing spondylitis" is a
+real paper shape and belongs under PsA/SpA, so `is_ossificans_only()` strikes the
+ossification phrases out of title + keywords + abstract and asks whether any
+rheumatic subject survives (`RHEUM_SUBJECT`); only a record left with nothing is
+dropped. Same shape as the `TRAPS` fix above — a positive context requirement,
+not a NOT list. Two things about that gate are worth keeping in mind:
+
+- **The exclusion is at parse time, not in the query**, deliberately. A
+  `NOT "myositis ossificans"[tiab]` clause would also lose a real dermatomyositis
+  paper that merely lists it as a differential, and per the asymmetry above a
+  record never fetched is invisible to every later correction.
+- **`myositis` in `RHEUM_SUBJECT` is deliberately unanchored at the front**, so it
+  also matches dermato- and polymyositis. An anchored `\bmyositis\b` does not, and
+  with it the gate dropped "Myositis ossificans mimicking a flare of juvenile
+  dermatomyositis" — caught by a test, not by a run. The same trap as the `TRAPS`
+  anchor, from the other direction: there the anchor was load-bearing, here it was
+  the bug.
+
+Measured over the 24-month library: drops 4 of 1926 records, all four already
+hand-flagged off-topic, no record dropped that wasn't. The gate itself never had
+to save a record in that window, so it is insurance against the shape rather than
+a measured save.
 
 Each record stores its `publication_types` so this stays auditable without re-fetching.
 
@@ -564,6 +628,13 @@ disease group.
 ## Notes for whoever (AI or human) runs this weekly
 - Run order each week: `fetch_pubmed.fetch_all_hits()` → AI assigns `disease_groups` to each
   hit (reading only, never rewriting title/authors/abstract) → `update_library.update_library()`.
+- **Run the scripts with the interpreter `pip` installed into, not whatever `python3`
+  resolves to.** In the 2026-10-12 container they were different Pythons — `pip` was
+  3.13's while `python3` was a 3.11 on an earlier `PATH` entry — so
+  `pip install -r requirements.txt` reported success and `import fetch_pubmed` then
+  failed on `No module named 'requests'`, which looks like a broken dependency and is
+  not one. `python3 -m pip install -r requirements.txt` ties the two together; failing
+  that, `pip --version` prints the version it serves and that is the interpreter to use.
 - If PubMed's structured-abstract labels are missing for a record, don't invent them —
   store as a single unlabeled section (`fetch_pubmed.py` already does this automatically).
 - Tier is assigned automatically by `fetch_pubmed.journal_tier()` from the journal's

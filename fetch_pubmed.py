@@ -32,7 +32,28 @@ EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 CONTACT_EMAIL = os.environ.get("PUBMED_CONTACT_EMAIL", "")
 TOOL_NAME = "reuma-evidens-digest"
 
-REQUEST_DELAY = 0.35  # ~3 req/sec, the no-API-key rate limit
+# An NCBI API key raises the per-IP rate limit from 3 to 10 requests/sec. Free
+# from the "API Key Management" panel of an NCBI account; set via env var like
+# the contact address, so it stays out of the repo. Optional -- unset, the
+# routine runs at the lower limit, which is what it has always done.
+API_KEY = os.environ.get("PUBMED_API_KEY", "")
+
+# Nominally 3 req/sec without a key, 10 with one, with a little headroom: the
+# limiter counts per IP and this routine shares its egress address with
+# whatever else the container is doing, so pacing exactly at the published
+# limit leaves no room for anyone else's traffic.
+REQUEST_DELAY = 0.12 if API_KEY else 0.40
+
+# NCBI answers a tripped rate limit with 429 rather than queueing, and the
+# 2026-10-12 run died on query 2 of 60 that way, losing the whole sweep. The
+# limit is a short burst window, so a few seconds of backoff clears it --
+# cheaper than pacing the other 59 queries slowly enough to never risk it, and
+# unlike a bigger delay it also covers the 5xx and dropped connections that a
+# 60-query run meets occasionally.
+MAX_ATTEMPTS = 6
+BACKOFF_START = 2.0  # seconds, doubling per attempt
+BACKOFF_CAP = 60.0
+RETRY_STATUS = {429, 500, 502, 503, 504}
 
 # Order matters only for readability -- search terms, not classification.
 # (Final disease_group is assigned by AI reading the fetched hit; see ROUTINE.md.)
@@ -265,6 +286,63 @@ PROTOCOL_TITLE = re.compile(
     r"^protocol\b|\bpilot (study|trial)\b|\brationale and design\b",
     re.IGNORECASE)
 
+# Myositis ossificans is heterotopic bone in muscle -- an orthopaedic lesion
+# that shares a word with inflammatory myopathy and nothing else. It arrived
+# three times in the 2026-10-12 run alone (PMIDs 42851920, 42851928, 42859843),
+# each flagged by hand with the same reason, which is the signal in ROUTINE.md
+# to write the rule instead of re-flagging it every week. Fibrodysplasia
+# ossificans progressiva (the genetic bone disease once called "myositis
+# ossificans progressiva") and bare "heterotopic ossification" are the same
+# entity under its other names, and reach us the same way.
+#
+# Note the route in: PubMed's [tiab] covers author keywords as well as title
+# and abstract, so the IIM query's "myositis"[tiab] matches a paper whose only
+# myositis is the word "myositis ossificans" in its keyword list -- which is
+# how PMID 42699877 (pelvic heterotopic ossification) got here with neither
+# phrase in its title.
+OSSIFICANS_TITLE = re.compile(
+    r"\b(myositis|fibrodysplasia) ossificans\b|\bheterotopic ossification\b",
+    re.IGNORECASE)
+
+# ...but the drop is gated on the record having no other reason to be here.
+# "Heterotopic ossification after hip arthroplasty in ankylosing spondylitis"
+# is a real paper shape, and it belongs under PsA/SpA. So the ossification
+# phrases are struck out of the record's searchable text and what remains is
+# asked whether any rheumatic subject survives; only a record left with
+# nothing is dropped. Same shape as the TRAPS fix above -- a positive context
+# requirement, not a NOT list. Over the 24-month library this gate never had
+# to save a record, so it is insurance against the shape rather than a
+# measured save; the four it drops were all flagged off-topic by hand.
+#
+# "myositis" is deliberately left unanchored at the front so it also matches
+# dermatomyositis and polymyositis -- an anchored \bmyositis\b does not, and
+# with it this gate dropped "Myositis ossificans mimicking a flare of juvenile
+# dermatomyositis". It cannot match back into the ossification phrases: those
+# are struck out before this runs.
+RHEUM_SUBJECT = re.compile(
+    r"myositis\b|\bmyopath|rheumatoid|psoriatic|spondyl|lupus|antisynthetase|"
+    r"vasculit|ANCA|polyangiitis|arteritis|polymyalgia|sj[oö]gren|"
+    r"systemic sclerosis|scleroderma|\bgout\b|pseudogout|pyrophosphate|igg-?4|"
+    r"periodic fever|autoinflammat|still'?s disease|beh[cç]et|juvenile idiopathic",
+    re.IGNORECASE)
+
+
+def is_ossificans_only(title: str, keywords: list, abstract_sections: list) -> bool:
+    """
+    Whether an ossification lesion is this record's only link to the library.
+
+    Gated on the title so a passing mention in an abstract can't drop a real
+    paper; the keywords and abstract are read only to look for a rheumatic
+    subject that would keep it.
+    """
+    if not title or not OSSIFICANS_TITLE.search(title):
+        return False
+    searchable = " ".join(
+        [title] + list(keywords or [])
+        + [s.get("text") or "" for s in (abstract_sections or [])]
+    )
+    return not RHEUM_SUBJECT.search(OSSIFICANS_TITLE.sub(" ", searchable))
+
 # Only English- and Danish-language articles. Applied twice: as a PubMed search
 # filter (LANGUAGE_FILTER, so we don't fetch what we'd discard) and again on the
 # parsed <Language> tags (ALLOWED_LANGUAGES), which are authoritative.
@@ -333,13 +411,45 @@ def _session() -> requests.Session:
     s.params = {"tool": TOOL_NAME}
     if CONTACT_EMAIL:
         s.params["email"] = CONTACT_EMAIL
+    if API_KEY:
+        s.params["api_key"] = API_KEY
     return s
 
 
+def _get(session: requests.Session, endpoint: str, params: dict, timeout: int):
+    """
+    One E-utilities GET, retried through the transient failures NCBI returns
+    under load. Transport only -- it neither reads nor rewrites the payload,
+    so what the parsers see is unchanged. A non-retryable error (a malformed
+    query, say) still raises on the first attempt.
+    """
+    delay = BACKOFF_START
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            resp = session.get(f"{EUTILS}/{endpoint}", params=params, timeout=timeout)
+        except requests.exceptions.RequestException as exc:
+            failure = exc
+        else:
+            if resp.status_code not in RETRY_STATUS:
+                resp.raise_for_status()
+                return resp
+            failure = requests.exceptions.HTTPError(
+                f"{resp.status_code} from {endpoint}", response=resp)
+            # NCBI sometimes says how long to wait. Its number beats ours.
+            retry_after = (resp.headers.get("Retry-After") or "").strip()
+            if retry_after.isdigit():
+                delay = min(max(delay, float(retry_after)), BACKOFF_CAP)
+        if attempt == MAX_ATTEMPTS:
+            raise failure
+        time.sleep(delay)
+        delay = min(delay * 2, BACKOFF_CAP)
+
+
 def _esearch(session: requests.Session, term: str, mindate: str, maxdate: str) -> list:
-    resp = session.get(
-        f"{EUTILS}/esearch.fcgi",
-        params={
+    resp = _get(
+        session,
+        "esearch.fcgi",
+        {
             "db": "pubmed",
             "term": term,
             "retmax": 200,
@@ -350,14 +460,14 @@ def _esearch(session: requests.Session, term: str, mindate: str, maxdate: str) -
         },
         timeout=30,
     )
-    resp.raise_for_status()
     return resp.json().get("esearchresult", {}).get("idlist", [])
 
 
 def _efetch(session: requests.Session, pmids: list) -> ET.Element:
-    resp = session.get(
-        f"{EUTILS}/efetch.fcgi",
-        params={
+    resp = _get(
+        session,
+        "efetch.fcgi",
+        {
             "db": "pubmed",
             "id": ",".join(pmids),
             "rettype": "abstract",
@@ -365,7 +475,6 @@ def _efetch(session: requests.Session, pmids: list) -> ET.Element:
         },
         timeout=60,
     )
-    resp.raise_for_status()
     return ET.fromstring(resp.content)
 
 
@@ -473,6 +582,12 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
         abstract_sections = [{"label": None, "text": ""}]
 
     keywords = _parse_keywords(pubmed_article)
+
+    # Checked here rather than beside COMMENT_TITLE/PROTOCOL_TITLE above
+    # because its gate reads the keywords and abstract, which aren't parsed
+    # yet up there.
+    if is_ossificans_only(title, keywords, abstract_sections):
+        return None
 
     raw_text = title + " " + " ".join(s["text"] for s in abstract_sections)
 
