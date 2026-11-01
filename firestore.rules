@@ -47,11 +47,46 @@ service cloud.firestore {
       ]);
     }
 
+    // Checking the field names was never enough on its own: the values land
+    // in the page as text, so a free-text evidence_type or group name was a
+    // way to put arbitrary content on every reader's card. The viewer escapes
+    // everything now, and this is the other half -- a correction may only
+    // choose from the values the form itself offers.
+    //
+    // Keep these two lists in step with DISEASE_ORDER and EVIDENCE_ORDER in
+    // docs/index.html. A new group added there and not here is rejected with
+    // "permission-denied", which the page reports as a failed save.
+    function knownGroups() {
+      return ['RA', 'PsA/SpA', 'PMR/GCA', 'Crystal', 'SLE', 'IIM',
+        'Vasculitis', 'Sjögren', 'SSc', 'IgG4-RD', 'Autoinflammatory',
+        'General'];
+    }
+
+    function knownEvidence() {
+      return ['RCT', 'Guideline/consensus', 'Evidence synthesis',
+        'Observational', 'Clinical case/survey'];
+    }
+
+    // Each field is checked only if the write carries it, since a correction
+    // sends just what it changes.
+    function valuesAreValid() {
+      let d = request.resource.data;
+      return (!('hidden' in d) || d.hidden is bool)
+        && (!('dismissed_flag' in d) || d.dismissed_flag is bool)
+        && (!('evidence_type' in d) || (d.evidence_type is string
+              && d.evidence_type in knownEvidence()))
+        && (!('disease_groups' in d) || (d.disease_groups is list
+              && d.disease_groups.size() <= 12
+              && d.disease_groups.hasOnly(knownGroups())))
+        && (!('by' in d) || (d.by is string && d.by.size() <= 120));
+    }
+
     match /overrides/{pmid} {
       allow read: if true;
 
       allow create, update: if isOwner()
-        || (knownFieldsOnly() && request.resource.data.acknowledged == false);
+        || (knownFieldsOnly() && valuesAreValid()
+            && request.resource.data.acknowledged == false);
 
       allow delete: if isOwner();
     }

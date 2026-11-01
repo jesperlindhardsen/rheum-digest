@@ -59,6 +59,21 @@ the owner may delete. The owner's own edits are written already-acknowledged,
 since there's nobody else to review them. The owner signs in with an address and password created by hand in the
 Firebase console; nobody else signs in at all.
 
+**Nothing from `library.json` or from an override is trusted as markup.** Every
+record-derived value goes through `esc()` on its way into a template, and the few
+that land inside an inline handler go through `escJs()` first, since the HTML
+parser decodes entities before the JS is parsed. Two separate things made this
+necessary. PubMed abstracts contain bare `<` in running text — PMID 42606328 has
+`ULN <IgG4< 2 × ULN` — and the browser read that as a tag and swallowed the rest
+of the section. And a correction is written by anyone reading the site, so an
+`evidence_type` or a group name arrived as arbitrary text and was rendered raw.
+`firestore.rules` is the other half: `valuesAreValid()` now checks the values as
+well as the field names, so a correction may only choose from the groups and
+evidence types the form itself offers. **The two lists in that function must stay
+in step with `DISEASE_ORDER` and `EVIDENCE_ORDER` in `docs/index.html`** — a new
+group added in the viewer and not in the rules is rejected as `permission-denied`,
+which the page reports as a failed save.
+
 **What stops a script rather than a person is App Check**, enforced in the Firebase
 console rather than in the rules — it runs before them and rejects anything without
 a token from the real page. That is a weaker guarantee than a login, and it is a

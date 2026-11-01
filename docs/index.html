@@ -202,6 +202,28 @@ let overridesMap = new Map();
 //               failed. What's shown is still right; new edits are lost.
 let overridesOffline = null;
 
+// Nothing that reaches the page is trusted as markup. Two sources make that
+// necessary rather than precautionary. PubMed abstracts contain bare "<" in
+// running text -- "ULN <IgG4< 2 x ULN" is one real example -- and the browser
+// reads that as the start of a tag and swallows the rest of the section.
+// And an override is written by anyone reading the site: firestore.rules
+// checks which fields a correction carries, never what is in them, so an
+// evidence_type or a group name arrives as arbitrary text. Both end up in the
+// same template, so both go through esc().
+function esc(v) {
+  return String(v == null ? "" : v)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+// For a value that lands inside an inline handler, where the HTML parser
+// decodes entities before the JS is parsed -- so a bare &#39; would close the
+// string literal esc() was meant to protect. Backslash-escaping first means
+// the decoded character arrives as \' and stays inside the string.
+function escJs(v) {
+  return esc(String(v == null ? "" : v).replace(/\\/g, "\\\\").replace(/'/g, "\\'"));
+}
+
 // The edit controls are drawn only when there is something behind them. A
 // failed write may well be a passing blip, so those buttons stay (retrying
 // is the useful thing to do); a failed read leaves nothing to act on.
@@ -743,12 +765,12 @@ function renderCorrectionBody(rec) {
   const currentGroups = groupsOf(rec);
   const groupChecks = DISEASE_ORDER.map(g => `
     <label class="correction-chip">
-      <input type="checkbox" id="grp-${rec.pmid}-${g}" ${currentGroups.includes(g) ? "checked" : ""}>${DISEASE_LABEL[g]}
+      <input type="checkbox" id="grp-${esc(rec.pmid)}-${esc(g)}" ${currentGroups.includes(g) ? "checked" : ""}>${esc(DISEASE_LABEL[g])}
     </label>`).join("");
   const evidenceOptions = EVIDENCE_ORDER.map(t =>
-    `<option value="${t}" ${t === rec.evidence_type ? "selected" : ""}>${EVIDENCE_LABEL[t]}</option>`).join("");
+    `<option value="${esc(t)}" ${t === rec.evidence_type ? "selected" : ""}>${esc(EVIDENCE_LABEL[t])}</option>`).join("");
   const dismissRow = rec.flagged
-    ? `<label class="correction-check"><input type="checkbox" id="dismiss-${rec.pmid}"> Afvis flag (ingen ændring nødvendig)</label>`
+    ? `<label class="correction-check"><input type="checkbox" id="dismiss-${esc(rec.pmid)}"> Afvis flag (ingen ændring nødvendig)</label>`
     : "";
   return `
     <div class="correction-body">
@@ -758,11 +780,11 @@ function renderCorrectionBody(rec) {
       </div>
       <div class="correction-field">
         <span class="correction-label">Evidenstype</span>
-        <select id="ev-${rec.pmid}">${evidenceOptions}</select>
+        <select id="ev-${esc(rec.pmid)}">${evidenceOptions}</select>
       </div>
-      <label class="correction-check"><input type="checkbox" id="excl-${rec.pmid}"> Ekskludér denne artikel helt</label>
+      <label class="correction-check"><input type="checkbox" id="excl-${esc(rec.pmid)}"> Ekskludér denne artikel helt</label>
       ${dismissRow}
-      <button type="button" class="correction-submit" onclick="proposeCorrection('${rec.pmid}')">Gem rettelse</button>
+      <button type="button" class="correction-submit" onclick="proposeCorrection('${escJs(rec.pmid)}')">Gem rettelse</button>
     </div>`;
 }
 
@@ -883,12 +905,12 @@ function proposeCorrection(pmid) {
 
 function renderItem(rec) {
   const sections = rec.abstract_sections.map(s =>
-    s.label ? `<p><strong>${s.label}:</strong> ${s.text}</p>` : `<p>${s.text}</p>`
+    s.label ? `<p><strong>${esc(s.label)}:</strong> ${esc(s.text)}</p>` : `<p>${esc(s.text)}</p>`
   ).join("");
   const chips = `<div class="chip-row">`
-    + `<span class="evidence-chip">${EVIDENCE_BADGE[rec.evidence_type] || rec.evidence_type}</span>`
-    + groupsOf(rec).map(g => `<span class="disease-chip">${DISEASE_LABEL[g]}</span>`).join("")
-    + (rec.keywords || []).map(k => `<span class="keyword-chip">${k}</span>`).join("")
+    + `<span class="evidence-chip">${esc(EVIDENCE_BADGE[rec.evidence_type] || rec.evidence_type)}</span>`
+    + groupsOf(rec).map(g => `<span class="disease-chip">${esc(DISEASE_LABEL[g] || g)}</span>`).join("")
+    + (rec.keywords || []).map(k => `<span class="keyword-chip">${esc(k)}</span>`).join("")
     + `</div>`;
   // A hidden record is only ever seen from the review queue, where the one
   // question is whether to keep it hidden or bring it back. Everything that
@@ -904,10 +926,10 @@ function renderItem(rec) {
   // fallback path behind them any more, drawing them when Firestore is
   // unreachable would just be buttons that quietly do nothing.
   const flag = rec.flagged
-    ? `<p class="flag-note"><span>⚑ ${rec.flagged}</span>
+    ? `<p class="flag-note"><span>⚑ ${esc(rec.flagged)}</span>
         ${editsEnabled() && !isHidden ? `<span class="flag-actions">
-          <button type="button" class="accept-flag-btn" onclick="acceptFlag('${rec.pmid}')">Ryd flag</button>
-          <button type="button" class="delete-flag-btn" onclick="deleteRecord('${rec.pmid}')">🗑 Fjern artikel</button>
+          <button type="button" class="accept-flag-btn" onclick="acceptFlag('${escJs(rec.pmid)}')">Ryd flag</button>
+          <button type="button" class="delete-flag-btn" onclick="deleteRecord('${escJs(rec.pmid)}')">🗑 Fjern artikel</button>
         </span>` : ""}
       </p>`
     : "";
@@ -916,10 +938,10 @@ function renderItem(rec) {
   // gets the two closing actions; for everyone else it's just a note.
   const ov = rec.__ov;
   const edit = (ov && !ov.acknowledged)
-    ? `<p class="edit-note"><span>✎ ${ov.hidden ? "skjult" : "rettet"}${overrideDate(ov) ? " " + overrideDate(ov) : ""}${ov.by ? " af " + ov.by : ""}${rec.__was ? `<span class="edit-was"> · ${rec.__was.join(" · ")}</span>` : ""}</span>
+    ? `<p class="edit-note"><span>✎ ${ov.hidden ? "skjult" : "rettet"}${overrideDate(ov) ? " " + overrideDate(ov) : ""}${ov.by ? " af " + esc(ov.by) : ""}${rec.__was ? `<span class="edit-was"> · ${rec.__was.map(esc).join(" · ")}</span>` : ""}</span>
         ${isOwner() ? `<span class="edit-actions">
-          <button type="button" class="ack-edit-btn" onclick="acknowledgeEdit('${rec.pmid}')">Behold ændring</button>
-          <button type="button" class="revert-edit-btn" onclick="revertEdit('${rec.pmid}')">↩ Fortryd ændring</button>
+          <button type="button" class="ack-edit-btn" onclick="acknowledgeEdit('${escJs(rec.pmid)}')">Behold ændring</button>
+          <button type="button" class="revert-edit-btn" onclick="revertEdit('${escJs(rec.pmid)}')">↩ Fortryd ændring</button>
         </span>` : ""}
       </p>`
     : "";
@@ -927,10 +949,10 @@ function renderItem(rec) {
   return `
     <div class="item">
       <button type="button" class="star-btn${starred ? " starred" : ""}"
-        onclick="toggleStar('${rec.pmid}')" aria-label="${starred ? "Fjern fra mine valgte" : "Vælg artikel"}"
+        onclick="toggleStar('${escJs(rec.pmid)}')" aria-label="${starred ? "Fjern fra mine valgte" : "Vælg artikel"}"
         aria-pressed="${starred}">${starred ? "★" : "☆"}</button>
-      <p class="title">${rec.title}</p>
-      <p class="meta">${authorLine(rec)} · <span class="journal">${rec.journal}</span> · ${rec.date} · <a href="https://pubmed.ncbi.nlm.nih.gov/${rec.pmid}/" target="_blank">PMID ${rec.pmid}</a> <span class="tier-badge t${rec.tier}">${TIER_LABEL[rec.tier]}</span></p>
+      <p class="title">${esc(rec.title)}</p>
+      <p class="meta">${esc(authorLine(rec))} · <span class="journal">${esc(rec.journal)}</span> · ${esc(rec.date)} · <a href="https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(rec.pmid)}/" target="_blank">PMID ${esc(rec.pmid)}</a> <span class="tier-badge t${esc(rec.tier)}">${esc(TIER_LABEL[rec.tier] || "")}</span></p>
       ${edit}
       ${flag}
       ${chips}
