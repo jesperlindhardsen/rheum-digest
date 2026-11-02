@@ -180,6 +180,16 @@ def update_library(new_hits: list, library_path: str, today: datetime = None) ->
         if datetime.strptime(rec["date"], "%Y-%m-%d") >= cutoff
     ]
 
+    # EXCLUDE_TYPES is applied at fetch time, so a type added to that set only
+    # ever kept *future* records out -- anything already stored stayed. Applied
+    # here as well, the next run clears them out: three trial protocols typed
+    # as RCT and one retraction notice, as of 2026-11.
+    from fetch_pubmed import EXCLUDE_TYPES
+    library = [
+        rec for rec in library
+        if not (set(rec.get("publication_types") or []) & EXCLUDE_TYPES)
+    ]
+
     # first_seen is when a record entered this library, which is not its
     # publication date: one weekly sweep returns articles dated weeks apart,
     # so a date range can't answer "what is new since I last looked". Records
