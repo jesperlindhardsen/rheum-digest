@@ -261,8 +261,14 @@ def classify_evidence_type(publication_types, fallback: str, title: str = "") ->
 # as an RCT. "Editorial" alone is NOT excluded: a society's own recommendations
 # are sometimes published in that format (PMID 41652650, the Qazaq College of
 # Rheumatology's guidance), and that is real content, not commentary.
+# "Retraction Notice" is the notice itself, a separate record from the paper
+# it retracts; "Retraction of Publication" and "Retracted Publication" cover
+# the other two sides of that and were already here. A "Clinical Trial
+# Protocol" describes a trial that has not reported yet -- it was being typed
+# RCT and landing in the default view as if it had results.
 EXCLUDE_TYPES = {"Preprint", "Published Erratum", "Retraction of Publication",
-                 "Retracted Publication", "Comment"}
+                 "Retracted Publication", "Retraction Notice",
+                 "Clinical Trial Protocol", "Comment"}
 
 # Comment letters carry PublicationType "Letter", identical to a letter with
 # real content (a case report, a consensus statement) -- PubMed's structured

@@ -62,6 +62,30 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   line-height: 1.45;
 }
 .site-header .offline-banner[hidden] { display: none; }
+.site-header .stale-banner {
+  border-color: var(--line);
+  background: var(--paper-2);
+  color: var(--ink-2);
+}
+
+/* Announced, never drawn: the counts are already on the chips. */
+.result-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* 86 records carry no abstract. The toggle used to open onto empty space. */
+.no-abstract {
+  font-size: var(--fs-cap);
+  color: var(--ink-4);
+  font-style: italic;
+}
 .brand {
   display: flex;
   align-items: center;
@@ -81,7 +105,9 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 #updated-date {
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
-  color: var(--ink-4);
+  /* --ink-4 failed contrast outright (2.37:1) and --ink-3 lands at 4.35:1,
+     still short of 4.5. This line is micro-size, so it stays quiet anyway. */
+  color: var(--ink-2);
   letter-spacing: var(--tracking-wide);
   max-width: none;
   margin: var(--s-5) 0 0 0;
@@ -242,6 +268,12 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   gap: 2px;
 }
 .tab-item {
+  appearance: none;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -256,6 +288,13 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
               color var(--dur-fast) var(--ease-out);
 }
 .tab-item:hover { background: var(--paper-2); }
+.tab-item:focus-visible,
+.tier-chip:focus-within,
+.group-chip:focus-within,
+.star-btn:focus-visible {
+  outline: 2px solid var(--moss-deep);
+  outline-offset: 2px;
+}
 .tab-item.active {
   background: var(--moss-wash);
   color: var(--moss-deep);
@@ -386,6 +425,14 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   gap: var(--s-2);
   flex: 1 1 100%;
   margin: var(--s-4) 0 0;
+}
+.tier-filter-hint {
+  display: block;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: var(--w-reg);
+  font-size: var(--fs-micro);
+  color: var(--ink-4);
 }
 .tier-filter-label {
   font-size: var(--fs-cap);
@@ -952,6 +999,20 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   /* Full width of its own row in the header: at 390px there is nothing left
      of the bar to put it beside. */
   .search-input { flex: 1 1 100%; }
+
+  /* --- Vertical space. Nothing is removed here that carries information;
+     what goes is padding, and the keyword chips, which are three lines of a
+     card and are reachable by search anyway. --- */
+  #app { padding: var(--s-4); gap: var(--s-4); }
+  .item { padding: var(--s-4); }
+  .item .title { margin-bottom: var(--s-1); }
+  .chip-row { margin-top: var(--s-2); }
+  .toggle-row { margin-top: var(--s-3); }
+  /* Still in the search haystack, still on the desktop card. */
+  .keyword-chip { display: none; }
+  .time-bucket > summary { padding: var(--s-2) 0; }
+  .filter-row { margin-bottom: var(--s-3); }
+  .site-header { padding: var(--s-2) var(--s-4); }
 }
 
 /* Phone: the badges keep their icon and count and shed their prose, which is
