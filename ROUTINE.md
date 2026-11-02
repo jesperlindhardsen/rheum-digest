@@ -620,6 +620,19 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   library buried what most readers came for and made the page 361 phone screens
   tall. "Alt" and the "Øvrige" chip sit right there with their counts, so the
   full library is one tap away.
+- **The page says when it has gone stale.** `renderStaleBanner()` draws a bar
+  under the header once `generated_at` is `STALE_AFTER_DAYS` (10) or more behind
+  today. This exists because of 2026-10-26: that run succeeded and committed, but
+  to a branch that never reached `master`, so the site served a two-week-old
+  library and a failed run looked exactly like a quiet week.
+- **`library.json` is fetched for revalidation, not re-download** —
+  `fetch("data/library.json", {cache: "no-cache"})`. It used to carry
+  `?t=Date.now()` with `cache: "no-store"`, which made every visit a new URL and
+  a fresh 5.4 MB. `no-cache` still checks the server every load; GitHub Pages
+  answers 304 when nothing changed, so the file only crosses the wire after a
+  new run. Do not "fix" this back to `no-store`.
+- **Search is debounced by 150 ms.** Each keystroke re-filtered every record —
+  641 ms a key on a throttled phone.
 - All three pseudo-values are viewer-only (`TOP_EVIDENCE` / `ALL_EVIDENCE` /
   `ALL_GROUP` in `docs/index.html`), never stored, so they stay out of
   `DISEASE_ORDER`, out of `disease_groups`, and out of the digests.
@@ -642,9 +655,19 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
   group chips, the correction form's checkboxes, and the weekly digest's
   section order — all three move together.
 - Tier filter: T1–T4 checkboxes, T4 off by default, each showing its count within
-  the active evidence type and search. Applies to everything — tab counts and which
-  disease tabs appear follow it, so a count never promises items the filter is
-  hiding. With every tier unchecked the panel reads "Vælg mindst én tidsskrifttype."
+  **every** other active filter — disease groups included. Counts used to leave
+  `inDisease` out of their predicate, so picking one group dropped the list from
+  253 cards to 39 while every chip kept its old number. Applies to everything —
+  tab counts and which disease tabs appear follow it, so a count never promises
+  items the filter is hiding. With every tier unchecked the panel reads
+  "Vælg mindst én tidsskrifttype."
+- **Guidelines are exempt from the tier filter** (`inTier()` in
+  `docs/index.html`). A guideline is worth reading wherever it was printed, and
+  the tier grades the journal, not the document: *Kidney Int* sits at tier 9 and
+  *BMJ Open* at tier 10, so 30 of 97 guidelines were hidden from a default view
+  named "RCT + retningslinjer". The tier chips still govern everything else, and
+  the row says so under its label — though that label is hidden below 820px, so
+  on a phone the exemption is silent.
 - **Search** over PMID, title, journal, authors, keywords and abstract text;
   every term must match, so more words narrow. PMID is in there so an identifier
   copied out of a reference list, or off the card itself, finds its article —
@@ -686,6 +709,18 @@ Pass the classified hits into `update_library(new_hits, "docs/data/library.json"
     are months old therefore opens on a dated section, not on "Seneste måned".
   - Records post-dated past the run month (journals publish issues ahead) are
     folded into the "Seneste måned" section rather than sorting above it.
+- **Keyboard and screen reader.** The evidence rail is a `<button>`, not a div
+  with an `onclick`; it was the primary navigation and was unreachable without a
+  mouse. Every filter row is redrawn by `innerHTML` on each refresh, which threw
+  focus away, so each control carries a `data-focus-key` and `refresh()` puts
+  focus back on the equivalent control afterwards. `#result-status` is an
+  `aria-live` region announcing how many articles the current filters show.
+- **Phone layout.** Below 820px the card sheds its keyword chips (still searchable,
+  still on the desktop card) and its padding drops a step. A card was 468px of an
+  844px screen; it is 283px now, which is 3 cards a screen instead of 1.8.
+- Records with no abstract text at all — 86 of them — show "Intet abstract"
+  instead of a toggle that opened onto empty space.
+
 - Each item, in order: title + tier badge (T1–T4, color-coded, sort-only — no
   explanation shown to user); reference line (authors as "Name" when first and last
   author match, otherwise "First...Last"; journal in bold; date; PMID link); PubMed
