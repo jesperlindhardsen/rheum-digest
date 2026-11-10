@@ -8,8 +8,12 @@ Takes raw PubMed search hits (list of dicts, one per article) and:
 - dedups against existing data/library.json by PMID
 - prepends new records (newest first)
 - drops records >24 months old
-- recomputes time-bucket for ALL records (buckets shift as weeks pass)
+- stamps first_seen on new records, and strips any leftover time_bucket
 - writes data/library.json as {"generated_at": "YYYY-MM-DD", "records": [...]}
+
+Also exposes days_since_last_run(), which is how the weekly run decides how
+far back to search: a missed week has to be fetched by the next one or it is
+never fetched at all.
 
 Usage: import this module and call update_library(new_hits, library_path)
 new_hits: list of dicts with keys:
@@ -117,6 +121,45 @@ def load_library(path: Path) -> list:
     if isinstance(data, list):
         return data
     return data.get("records", [])
+
+
+def days_since_last_run(library_path: str, today: datetime = None,
+                        minimum: int = 7) -> int:
+    """
+    How many days the next PubMed sweep has to cover, from `generated_at`.
+
+    The window used to be a fixed 7 days, which silently assumed that last
+    week's run reached the library. On 2026-11-09 it hadn't: the 2026-11-02 run
+    searched, classified, committed and pushed 135 records, and then its pull
+    request sat unmerged, so `library.json` was still a week behind and nobody
+    saw an error anywhere. A 7-day window would have skipped that week for
+    good, and ROUTINE.md is explicit about why that is the one unrecoverable
+    failure -- a mistyped record gets corrected downstream, a record that was
+    never fetched is invisible to every later correction.
+
+    So the window is derived rather than assumed: the gap since the run that
+    actually produced the current file, plus a day of overlap, and never less
+    than `minimum`. Re-fetching is free -- update_library dedups by PMID -- so
+    the only cost of a too-wide window is classifying records that are already
+    in the library.
+
+    A record recovered this way is stamped with the run that fetched it, not
+    the run that missed it; first_seen means "when this library first saw it",
+    and backfilling it to look otherwise would park it permanently behind
+    every reader's "seen" marker.
+    """
+    today = today or datetime.now()
+    path = Path(library_path)
+    if not path.exists():
+        return minimum
+    generated_at = json.loads(path.read_text(encoding="utf-8")).get("generated_at")
+    if not generated_at:
+        return minimum
+    try:
+        last_run = datetime.strptime(generated_at, "%Y-%m-%d")
+    except ValueError:
+        return minimum
+    return max(minimum, (today - last_run).days + 1)
 
 
 def update_library(new_hits: list, library_path: str, today: datetime = None) -> dict:
