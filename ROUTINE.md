@@ -106,7 +106,24 @@ knowing:
   recategorised via an override still appears under its original group there.
 
 ## STEP 1 — SEARCH (PubMed)
-- Date window: past 7 days (Entrez EDAT)
+- Date window: **from the last run that actually reached `library.json`**, not a fixed
+  week (Entrez EDAT). `update_library.days_since_last_run("docs/data/library.json")`
+  returns the gap since `generated_at` plus a day of overlap, never less than 7, and
+  that is what `fetch_all_hits(days=...)` takes. A normal week asks for 8 days; the
+  week after a run that never landed asks for 15 and recovers it.
+  - **Why this isn't the fixed 7 days it used to be.** On 2026-11-09 the library was
+    two weeks stale: the 2026-11-02 run had searched, classified, committed and pushed
+    135 records, and then its pull request sat unmerged (#28). Nothing failed, nothing
+    logged an error, and `library.json` was simply a week behind. A 7-day window would
+    have skipped that week permanently — the one failure mode this file keeps coming
+    back to, because a mistyped record is corrected downstream by three different
+    mechanisms and a record that was never fetched is invisible to all of them.
+  - Re-fetching costs nothing: `update_library` dedups by PMID, so a wider window only
+    means classifying some hits that are already in the library. Prefer the wider
+    window whenever there is any doubt.
+  - A record recovered this way carries the `first_seen` of the run that fetched it,
+    not of the run that missed it. Don't backfill it to look otherwise; see the
+    `first_seen` note in STEP 2.
 - `fetch_pubmed.py` runs all 60 queries (12 disease groups × 5 evidence types) via PubMed
   E-utilities and parses results in code — title, journal, authors, PMID, date, and
   **structured abstract** (PubMed's labeled `AbstractText` sections — Background/Methods/
@@ -251,6 +268,19 @@ Known gap: a critique with neither a recognisable title nor a `Comment` tag (e.g
 PMID 42170841, "'More guidelines than rules': reconsidering key gaps...") slips
 through and needs manual removal — there's no PubMed field to catch it by.
 
+**An abbreviation and a comma were enough to get two comment letters through.**
+`COMMENT_TITLE` listed four opening phrases and allowed only a colon or a space
+after them. The 2026-11-09 run met both halves of one exchange in J Am Acad
+Dermatol: the critique titled "RE: Hydroxychloroquine Use and 5-Year
+Cardiometabolic Profile..." (42977166), which no listed phrase covers, and the
+authors' answer titled `Response to, "RE: ..."` (42977168), which the "response
+to" arm missed because a comma followed it. Both are now matched (`[:,\s]`, plus
+a bare `^re\s*:`), and both additions were measured against the 24-month library
+first: they match those two records and nothing else. Note what the measurement
+protects — the only other title beginning "Response" is "Response of
+ultrasound-assessed synovitis to baricitinib" (42025496), a real paper, and it
+survives because the pattern requires "response **to**".
+
 Query strings and evidence-type filters live in `fetch_pubmed.py`
 (`DISEASE_QUERIES`, `EVIDENCE_FILTERS`) — edit there, not here, to keep one source of truth.
 
@@ -319,6 +349,36 @@ PMID 42592900, a gout self-management app whose abstract says it tests "the over
 feasibility of a **future** randomized controlled trial." When the actual trial is
 later published with results, that record arrives on its own merits; this only
 excludes the preparatory paper.
+
+**A trial's design paper is still a protocol, whatever it calls itself.**
+`PROTOCOL_TITLE` matched "study protocol" and "rationale and design" but not
+"study design of", so PMID 42991098 — "VERANDA-SSc: study design of a phase III,
+randomised, placebo-controlled trial", whose abstract says the trial "will
+investigate" — arrived as a completed RCT. The clause now reads `study design
+(of|and)`, and the shape of that choice is the point: a bare `study design`
+matches the same single record over the library, so the required preposition
+costs no recall while keeping meta-research *about* study design out. The
+obvious neighbour `trial design` was measured and **rejected** — the only record
+it matches is PMID 42785113, "Consensus recommendations for optimal trial design
+and reporting of core domains in urate-lowering trials", a real consensus paper
+it would have thrown away. Measure the neighbour before adding it.
+
+**A veterinary journal doesn't publish human rheumatology, and the queries reach
+into them constantly.** "Canis lupus" is a lupus match; blackleg in cattle and
+masticatory muscle myositis in a dog are myositis matches. The 2026-11-09 run
+hand-flagged seven in one sweep — a wolf's faecal microbiome (42983427), a canine
+forensic autopsy (42939154), clostridial myonecrosis in cattle (42983528),
+Sarcocystis in a dog (42965615), canine blepharitis (42928512), FDG-PET in a
+septic dog (42960181), an erysipelas outbreak in pheasants (42937681) — which is
+exactly the signal below to write a rule instead of re-flagging the shape every
+week. `VET_JOURNAL` in `fetch_pubmed.py` therefore drops a record by its journal's
+ISO abbreviation (`vet`, `veterin…`, `animal(s)`, `avian`, `equine`, each
+`\b`-anchored so "Veterans" and longer words don't match). Measured over the
+24-month library it drops 11 records of 2446 and **all 11 had already been
+flagged off-topic by hand** — so unlike `is_ossificans_only` this one needs no
+rheumatic-subject gate: there is no human rheumatology paper in Can Vet J to
+protect. It also closes the veterinary part of the preclinical-noise gap noted
+above; an animal study in a *human* journal still only gets a flag.
 
 **A title asserting what the article is outranks the finding-query fallback.**
 `TITLE_ASSERTS_SYNTHESIS` catches titles ending "...: a systematic review" / "...: a
@@ -437,6 +497,13 @@ from there, both places the user already checks on their own schedule:
 Flagged records are **not excluded** — they're included under AI's best-guess
 classification, same as any other hit, just visibly marked. The flag is a pointer
 for the user to look, not a verdict.
+
+**Write the reason in Danish.** It is rendered verbatim on the card (`⚑ <reason>`)
+and in the digest, on a Danish-language site, for a reader deciding whether to
+clear the flag or remove the article — so it is user-facing text, not a run log.
+Keep the house shape: what the paper actually is, then why it's here, separated by
+a semicolon, under ~15 words. E.g. `Veterinær retsmedicinsk hundecase; fundet via
+'Canis lupus familiaris'`, `Statin-kardiovaskulær kohorte; RA kun justeringsvariabel`.
 
 **How a flag actually gets resolved: on the site, in one click, immediately.** A
 `flagged` field, once set, would otherwise sit on that record forever —
@@ -633,26 +700,63 @@ No AI involvement in this step — it's pure JS reading JSON.
 
 ## STEP 4 — MARKDOWN ARCHIVE (optional, weekly audit trail)
 This week's new items only, same grouping logic.
-Format: `**{title}** — {first_author}...{last_author}, {journal} [T{tier}], PMID {pmid}`
+Format: `**{title}** -- {first_author}...{last_author}, {journal} [T{tier}], PMID {pmid}`
 
 If any of this week's hits carry a `flagged` reason (see Step 1), open with a
-"## Til gennemsyn" section listing them — `**{title}** — {flagged reason}, PMID
-{pmid}` — before the normal per-group listing. Omit the section entirely when
-nothing was flagged.
+"## Til gennemsyn" section listing them — `**{title}** -- {flagged reason}, PMID
+{pmid}` — before the normal per-group listing, sorted by title. Omit the section
+entirely when nothing was flagged.
+
+**The separator inside a line is ` -- `, two hyphens, not an em dash.** Every
+digest since 2026-09-14 is written that way and a reader greps across them; the
+em dash appears only in the `# Weekly Digest — YYYY-MM-DD` heading. (This file
+said `—` in both places until 2026-11-10, against ten files that didn't.)
 
 Commit to `digests/YYYY-MM-DD.md`.
+
+## STEP 5 — DELIVER (commit, push, PR, merge)
+**The run is not finished when it pushes. It is finished when the change is on
+the default branch (`master` — there is no `main`).** A cloud session may only
+push to its own `claude/*` branch, so every week arrives as a pull request, and
+a pull request nobody merges is a week that silently never happened: that is how
+the 2026-11-02 run was lost (#28, opened 04:16, still open a week later) while
+its session reported success and its branch held all 135 records.
+
+So the last step of the run, in order, and it is pre-approved — no confirmation
+needed for any of it:
+1. Commit `docs/data/library.json` and `digests/YYYY-MM-DD.md`.
+2. `git push -u origin <branch>`.
+3. Open a pull request against `master` — or find the one the push created
+   automatically, which has the commit message as its body, and fill in the real
+   description rather than opening a second one.
+4. **Merge it** (a merge commit, as every earlier weekly digest did).
+5. Verify by reading `docs/data/library.json` back off `origin/master`:
+   `generated_at` is the run date and the new PMIDs are there.
+
+And at the **start** of each run, before fetching: list open pull requests. An
+open weekly digest PR from an earlier week means that week never landed —
+`days_since_last_run()` already widens the window to re-fetch it, but say so in
+the report, and don't try to merge the stale PR afterwards: its `library.json`
+conflicts with the one the current run just wrote, and the records are already
+recovered. Close it and cherry-pick its `digests/` file if the archive gap
+matters.
 
 ## Retention
 24 months. Older records are pruned automatically by `update_library.py` on every run.
 
 ## DONE criteria
-`docs/data/library.json` updated AND `docs/index.html` unchanged (static, no regen needed) AND
-(optionally) `digests/YYYY-MM-DD.md` committed. Report: records added + total + hit count per
-disease group.
+`docs/data/library.json` updated **and merged to `master`** (see STEP 5 — a pushed
+branch is not done) AND `docs/index.html` unchanged (static, no regen needed) AND
+`digests/YYYY-MM-DD.md` committed. Report: records added + total + hit count per
+disease group + `refresh_pending_types` numbers + count and PMIDs of anything
+flagged this week, and say outright if a window wider than 8 days was used and why.
 
 ## Notes for whoever (AI or human) runs this weekly
-- Run order each week: `fetch_pubmed.fetch_all_hits()` → AI assigns `disease_groups` to each
-  hit (reading only, never rewriting title/authors/abstract) → `update_library.update_library()`.
+- Run order each week: check for an unmerged weekly PR (STEP 5) →
+  `fetch_pubmed.fetch_all_hits(days=update_library.days_since_last_run("docs/data/library.json"))`
+  → AI assigns `disease_groups` to each hit (reading only, never rewriting
+  title/authors/abstract) → `update_library.update_library()` →
+  `update_library.refresh_pending_types()` → digest → commit, push, PR, **merge**.
 - **Run the scripts with the interpreter `pip` installed into, not whatever `python3`
   resolves to.** In the 2026-10-12 container they were different Pythons — `pip` was
   3.13's while `python3` was a 3.11 on an earlier `PATH` entry — so
@@ -660,6 +764,16 @@ disease group.
   failed on `No module named 'requests'`, which looks like a broken dependency and is
   not one. `python3 -m pip install -r requirements.txt` ties the two together; failing
   that, `pip --version` prints the version it serves and that is the interpreter to use.
+- **In the cloud container `pip install` cannot reach PyPI at all, and that is not a
+  problem to solve.** `pypi.org` sits in the container's `no_proxy` list while the
+  container has no direct DNS, so the install dies on `Name or service not known`
+  before it reads `requirements.txt`. The only requirement is `requests>=2.31`, and
+  `python3.13` — the interpreter `pip` itself serves — already has it (2.34.2 in the
+  2026-11-09 container). Check with
+  `python3.13 -c "import requests; print(requests.__version__)"`, run the whole
+  routine under `python3.13`, and report the failed install as satisfied-anyway
+  rather than as a broken dependency. Don't disable TLS verification or unset
+  `HTTPS_PROXY` chasing it; PubMed itself is reachable through the proxy.
 - If PubMed's structured-abstract labels are missing for a record, don't invent them —
   store as a single unlabeled section (`fetch_pubmed.py` already does this automatically).
 - Tier is assigned automatically by `fetch_pubmed.journal_tier()` from the journal's

@@ -2,7 +2,7 @@
 fetch_pubmed.py
 
 Deterministic PubMed fetcher. Runs all 60 queries (12 disease groups x 5 evidence
-types) against NCBI E-utilities for the past 7 days (by Entrez date), parses the
+types) against NCBI E-utilities over a recent date window (by Entrez date), parses the
 XML, and returns hits as plain dicts. Title, authors, dates, journal, keywords,
 and the structured abstract are extracted verbatim -- nothing here paraphrases
 or edits fetched content. Preprints, errata/retractions, and anything not in
@@ -269,7 +269,21 @@ EXCLUDE_TYPES = {"Preprint", "Published Erratum", "Retraction of Publication",
 # fields don't distinguish them. Title wording is the only signal available
 # without reading the abstract, and MEDLINE's own convention for a comment
 # letter is to open with one of these phrases.
-COMMENT_TITLE = re.compile(r"^(comment on|correspondence on|reply to|response to)\s*[:\s]", re.IGNORECASE)
+#
+# Two spellings were missing and both arrived in the same 2026-11-09 run, on
+# the same exchange in J Am Acad Dermatol: the critique came in as "RE:
+# Hydroxychloroquine Use and 5-Year Cardiometabolic Profile..." (42977166) and
+# the authors' answer as 'Response to, "RE: ..."' (42977168). The first never
+# matched because a bare "RE:" wasn't listed; the second because the phrase was
+# followed by a comma where this pattern allowed only a colon or a space. Both
+# were flagged by hand as correspondence. Measured over the 24-month library,
+# the two additions match those two records and nothing else -- no real paper
+# in it opens "RE:", and the only other title starting "Response" is "Response
+# of ultrasound-assessed synovitis to baricitinib" (42025496), which the
+# "response to" arm cannot reach.
+COMMENT_TITLE = re.compile(
+    r"^(comment on|correspondence on|reply to|response to)\s*[:,\s]|^re\s*:",
+    re.IGNORECASE)
 
 # A protocol/feasibility/pilot paper describes a trial that hasn't produced
 # results yet -- a plan to generate evidence, not evidence itself. PubMed
@@ -281,9 +295,21 @@ COMMENT_TITLE = re.compile(r"^(comment on|correspondence on|reply to|response to
 # randomized controlled trial" -- the opposite of being one. When the actual
 # trial is later published with results, that record arrives on its own
 # merits; this only excludes the preparatory paper.
+#
+# "study design of" joined the list after PMID 42991098, "VERANDA-SSc: study
+# design of a phase III, randomised, placebo-controlled trial", whose abstract
+# says the trial "will investigate" -- it arrived as a completed RCT in a tier-3
+# journal. It is kept narrow deliberately. A bare "\bstudy design\b" matches the
+# same single record over the 24-month library, so the words "of"/"and" cost no
+# recall while keeping meta-research about trial design out; and the obvious
+# neighbour "\btrial design\b" was measured and rejected, because the only record
+# it matches is PMID 42785113, "Consensus recommendations for optimal trial
+# design and reporting of core domains in urate-lowering trials" -- a real
+# consensus paper this would have thrown away.
 PROTOCOL_TITLE = re.compile(
     r"\bfeasibility (study|trial)\b|\bstudy protocol\b|\bprotocol for\b|"
-    r"^protocol\b|\bpilot (study|trial)\b|\brationale and design\b",
+    r"^protocol\b|\bpilot (study|trial)\b|\brationale and design\b|"
+    r"\bstudy design (of|and)\b",
     re.IGNORECASE)
 
 # Myositis ossificans is heterotopic bone in muscle -- an orthopaedic lesion
@@ -342,6 +368,32 @@ def is_ossificans_only(title: str, keywords: list, abstract_sections: list) -> b
         + [s.get("text") or "" for s in (abstract_sections or [])]
     )
     return not RHEUM_SUBJECT.search(OSSIFICANS_TITLE.sub(" ", searchable))
+
+# A veterinary journal does not publish human rheumatology, and the disease
+# queries reach into them constantly: "Canis lupus" is a lupus match, blackleg
+# in cattle and masticatory muscle myositis in a dog are myositis matches. The
+# 2026-11-09 run flagged seven by hand in one sweep -- a wolf's faecal
+# microbiome (42983427), a canine forensic autopsy (42939154), clostridial
+# myonecrosis in cattle (42983528), Sarcocystis in a dog (42965615), canine
+# blepharitis (42928512), 18F-FDG PET in a septic dog (42960181) and an
+# erysipelas outbreak in pheasants (42937681) -- which is the signal in
+# ROUTINE.md to write the rule rather than re-flag the shape every week.
+#
+# Measured over the 24-month library this matches 11 records of 2446, and all
+# 11 had already been flagged off-topic by hand: no record it drops was one
+# anybody wanted. That is why this one is decided by the journal alone, with
+# no is_ossificans_only-style rheumatic-subject gate -- there is no human
+# rheumatology paper in Can Vet J to protect. It also closes part of the
+# preclinical-noise gap ROUTINE.md describes (the loose RCT design clauses
+# match "rats were randomly assigned" like any other phrasing), though only
+# the part that is published in veterinary journals; an animal study in a
+# human journal still needs a flag.
+#
+# \b anchors matter: "vet" must not match "Veterans", and "animal" must not
+# match "Animal" inside a longer word. The names are ISO abbreviations, which
+# is what we store -- Can Vet J, Vet Ophthalmol, Vet Res Commun, BMC Vet Res,
+# Avian Dis, Animals (Basel), Equine Vet J.
+VET_JOURNAL = re.compile(r"\b(vet|veterin\w*|animals?|avian|equine)\b", re.IGNORECASE)
 
 # Only English- and Danish-language articles. Applied twice: as a PubMed search
 # filter (LANGUAGE_FILTER, so we don't fetch what we'd discard) and again on the
@@ -575,6 +627,8 @@ def _parse_article(pubmed_article: ET.Element, evidence_type: str) -> dict:
     last_author = last_names[-1] if last_names else first_author
 
     iso_abbrev = _text(article.find(".//Journal/ISOAbbreviation")) or "Unknown"
+    if VET_JOURNAL.search(iso_abbrev):
+        return None
     tier = journal_tier(iso_abbrev)
 
     abstract_sections = _parse_abstract(article)
@@ -622,8 +676,15 @@ def fetch_all_hits(days: int = 7, evidence_types: list = None) -> list:
     days (by Entrez date) and returns deduped hit dicts (no disease_group set --
     that's assigned afterward by AI, per ROUTINE.md).
 
+    days: the weekly run does NOT pass the 7-day default -- it passes
+    update_library.days_since_last_run(), which measures the gap back to the run
+    that actually reached library.json. A week whose pull request never merged
+    leaves the file behind, and only a wider window recovers it. Re-fetching is
+    free (update_library dedups by PMID), so the default is a floor, not a
+    recommendation.
+
     evidence_types: restrict to a subset of EVIDENCE_FILTERS' keys (e.g. for a
-    backfill covering a longer window than the weekly 7-day production run).
+    backfill covering a much longer window, where 60 queries would be slow).
     Defaults to all 5 types, i.e. the normal weekly behavior.
     """
     evidence_types = evidence_types or list(EVIDENCE_FILTERS.keys())
