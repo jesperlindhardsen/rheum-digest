@@ -49,6 +49,20 @@ quietly looking like a normal record:
   **Fortryd ændring** (delete the override; the record falls straight back to
   what `library.json` says). A hidden card shows only these two -- the flag
   actions and the correction form are meaningless on something already gone.
+- **Clearing the flag queue in bulk.** Signed in, every card in the flagged view
+  carries a **Fjern** tick box beside "Ryd flag". Ticking one marks the card and
+  raises a bar at the foot of the screen — *N* markeret, **Vælg alle**, **Fjern N
+  valgte** — and the removal goes out as one Firestore batch (chunked at 400;
+  the SDK caps a batch at 500). Details that matter:
+  - Ticking never redraws the list. Mid-way through a 253-card queue, a redraw
+    would throw away where you had scrolled to.
+  - The bar counts `flaggedSelectable()` — what is on screen after the search
+    box and the group chips. Narrowing the search drops ticks that are no longer
+    visible, so a removal can never reach a card you cannot see.
+  - A failed write clears nothing: the ticks stay so the same set can be retried,
+    and the offline bar says the write failed.
+  - Leaving the flagged view drops the ticks; they belong to that pass through
+    the queue.
 - That review view is the only place a *hidden* record can still be reached, which
   is why hidden records are kept in their own list rather than dropped — otherwise
   a wrongly hidden article would be invisible to the one person who can restore it.

@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=30">
+<link rel="stylesheet" href="assets/style.css?v=31">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -62,6 +62,10 @@
     </div>
     <p id="result-status" class="result-status" role="status" aria-live="polite"></p>
     <div id="panel"></div>
+    <!-- Only ever drawn in the flagged view, and only for the owner. After
+         the panel, so that sticking it to the bottom of the screen reserves
+         its space at the end of the list rather than above it. -->
+    <div id="bulk-bar" class="bulk-bar" hidden></div>
   </div>
 </div>
 
@@ -745,6 +749,7 @@ function passesFlagFilter(rec) {
 
 function toggleFlaggedOnly() {
   onlyFlagged = !onlyFlagged;
+  bulkRemove = new Set();
   if (onlyFlagged) { onlyStarred = false; onlyEdited = false; onlyNew = false; }  // one bypass view at a time
   resetFilters();
   refresh();
@@ -851,6 +856,92 @@ async function applyOverride(pmid, patch) {
   }
 }
 
+// Working through the flag queue one card at a time meant a confirm dialog
+// per article. Tick what goes, remove the lot in one write instead. Owner
+// only, and only inside the flagged view -- everywhere else the per-card
+// "Fjern artikel" button is still the way to remove one.
+let bulkRemove = new Set();
+
+function bulkRemoveActive() {
+  return onlyFlagged && isOwner() && editsEnabled();
+}
+
+function toggleBulkRemove(pmid, on) {
+  if (on) bulkRemove.add(pmid); else bulkRemove.delete(pmid);
+  // Deliberately not a full refresh: that would redraw the list and throw
+  // away where you had scrolled to, mid-way through ticking.
+  renderBulkBar();
+  const card = document.getElementById(`card-${pmid}`);
+  if (card) card.classList.toggle("marked-for-removal", on);
+}
+
+function selectAllFlagged(on) {
+  bulkRemove = on ? new Set(flaggedSelectable().map(r => r.pmid)) : new Set();
+  refresh();
+}
+
+// What the bar counts and what "Vælg alle" ticks: the cards actually on
+// screen, after the search box and the group chips have had their say.
+function flaggedSelectable() {
+  return library.filter(r => r.flagged && !(r.__ov && r.__ov.hidden) && matchesQuery(r));
+}
+
+function renderBulkBar() {
+  const el = document.getElementById("bulk-bar");
+  if (!el) return;
+  if (!bulkRemoveActive()) { el.hidden = true; el.innerHTML = ""; bulkRemove = new Set(); return; }
+  const selectable = flaggedSelectable();
+  // A card can leave the queue while it is ticked -- cleared from another
+  // device, or filtered out by a search -- and a removal must never reach
+  // something that is no longer on screen.
+  const live = new Set(selectable.map(r => r.pmid));
+  bulkRemove.forEach(pmid => { if (!live.has(pmid)) bulkRemove.delete(pmid); });
+  const n = bulkRemove.size;
+  el.hidden = n === 0;
+  if (!n) { el.innerHTML = ""; return; }
+  const allOn = n === selectable.length && selectable.length > 0;
+  el.innerHTML = `<span class="bulk-count">${n} markeret</span>
+    <span class="bulk-actions">
+      <button type="button" class="bulk-select-all" onclick="selectAllFlagged(${allOn ? "false" : "true"})">
+        ${allOn ? "Ryd markering" : `V\u00e6lg alle ${selectable.length}`}</button>
+      <button type="button" class="bulk-remove-btn" onclick="removeSelected()">\u{1F5D1} Fjern ${n} valgte</button>
+    </span>`;
+}
+
+// One batch, so the queue either loses all of them or none. Firestore caps a
+// batch at 500 writes; the queue has never been near that, but a run that
+// flags heavily could be, so it goes in chunks.
+async function removeSelected() {
+  if (!bulkRemoveActive() || bulkRemove.size === 0) return;
+  const pmids = [...bulkRemove];
+  if (!confirm(`Fjern ${pmids.length} ${pmids.length === 1 ? "artikel" : "artikler"} fra biblioteket?`)) return;
+  const stamped = {
+    hidden: true,
+    updated_at: firebase.firestore.FieldValue.serverTimestamp(),
+    acknowledged: true,
+  };
+  try {
+    for (let i = 0; i < pmids.length; i += 400) {
+      const batch = db.batch();
+      pmids.slice(i, i + 400).forEach(pmid =>
+        batch.set(db.collection("overrides").doc(pmid), stamped, { merge: true }));
+      await batch.commit();
+    }
+    pmids.forEach(pmid => overridesMap.set(pmid, {
+      ...(overridesMap.get(pmid) || {}), ...stamped, updated_at: new Date().toISOString(),
+    }));
+    bulkRemove = new Set();
+    applyOverrides(rawLibrary);
+    setOverridesOffline(null);
+    refresh();
+  } catch (err) {
+    console.error("Kunne ikke fjerne de valgte artikler", err);
+    // Nothing is cleared on a failure: the ticks stay so the whole set can be
+    // tried again rather than guessed at.
+    setOverridesOffline({ scope: "writes", detail: offlineDetail(err) });
+  }
+}
+
 // One-click shortcut for the common case: the flag was a false alarm, dismiss
 // it with no other change -- so the flagged-only view (the badge) is
 // somewhere you can actually clear items from, not just look at them.
@@ -953,9 +1044,14 @@ function renderItem(rec) {
   // The actions only exist if there's somewhere for them to write. With no
   // fallback path behind them any more, drawing them when Firestore is
   // unreachable would just be buttons that quietly do nothing.
+  const marked = bulkRemove.has(rec.pmid);
+  const bulkBox = bulkRemoveActive() && !isHidden
+    ? `<label class="bulk-check"><input type="checkbox" ${marked ? "checked" : ""}
+        onchange="toggleBulkRemove('${escJs(rec.pmid)}', this.checked)"> Fjern</label>`
+    : "";
   const flag = rec.flagged
     ? `<p class="flag-note"><span>⚑ ${esc(rec.flagged)}</span>
-        ${editsEnabled() && !isHidden ? `<span class="flag-actions">
+        ${editsEnabled() && !isHidden ? `<span class="flag-actions">${bulkBox}
           <button type="button" class="accept-flag-btn" onclick="acceptFlag('${escJs(rec.pmid)}')">Ryd flag</button>
           <button type="button" class="delete-flag-btn" onclick="deleteRecord('${escJs(rec.pmid)}')">🗑 Fjern artikel</button>
         </span>` : ""}
@@ -975,7 +1071,7 @@ function renderItem(rec) {
     : "";
   const starred = isStarred(rec);
   return `
-    <div class="item">
+    <div class="item${marked ? " marked-for-removal" : ""}" id="card-${esc(rec.pmid)}">
       <button type="button" class="star-btn${starred ? " starred" : ""}"
         onclick="toggleStar('${escJs(rec.pmid)}')" aria-label="${starred ? "Fjern fra mine valgte" : "Vælg artikel"}"
         aria-pressed="${starred}">${starred ? "★" : "☆"}</button>
@@ -1128,6 +1224,7 @@ function refresh() {
     renderFlagBanner();
     renderEditBanner();
     renderPanel();
+    renderBulkBar();
     return;
   }
 
@@ -1137,6 +1234,7 @@ function refresh() {
   renderFlagBanner();
   renderEditBanner();
   renderPanel();
+  renderBulkBar();
   restoreFocus(focused);
 }
 

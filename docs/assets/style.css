@@ -80,6 +80,86 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   white-space: nowrap;
 }
 
+/* Working the flag queue: tick what goes, remove the lot at the end. The bar
+   only exists while something is ticked, and only the owner ever sees it.
+   Stuck to the foot of the screen rather than the foot of the list, so it is
+   reachable from wherever you stopped ticking. */
+.bulk-bar {
+  position: sticky;
+  bottom: var(--s-4);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--clay-soft);
+  border-radius: var(--r-md);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-md);
+}
+.bulk-bar[hidden] { display: none; }
+.bulk-count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--clay-deep);
+}
+.bulk-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }
+.bulk-select-all {
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--ink-2);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.bulk-select-all:hover { background: var(--paper-2); }
+.bulk-remove-btn {
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--bg-elevated);
+  background: var(--clay-deep);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 4px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.bulk-remove-btn:hover { background: var(--clay); }
+.bulk-select-all:focus-visible,
+.bulk-remove-btn:focus-visible,
+.bulk-check:focus-within {
+  outline: 2px solid var(--moss-deep);
+  outline-offset: 2px;
+}
+/* Sits in the flag row beside "Ryd flag", so it reads as the third thing you
+   can do with a flagged card rather than a stray control. */
+.bulk-check {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--clay-deep);
+  cursor: pointer;
+  white-space: nowrap;
+}
+/* A ticked card is visibly on its way out, so a long queue still reads at a
+   glance after scrolling back up. */
+.item.marked-for-removal {
+  border-color: var(--clay);
+  background: var(--clay-wash);
+}
+
 /* 86 records carry no abstract. The toggle used to open onto empty space. */
 .no-abstract {
   font-size: var(--fs-cap);
