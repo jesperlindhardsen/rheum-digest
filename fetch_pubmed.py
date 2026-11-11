@@ -287,8 +287,15 @@ EXCLUDE_TYPES = {"Preprint", "Published Erratum", "Retraction of Publication",
 # in it opens "RE:", and the only other title starting "Response" is "Response
 # of ultrasound-assessed synovitis to baricitinib" (42025496), which the
 # "response to" arm cannot reach.
+# A plural opening was the third time this list came up one word short. The
+# 2026-11-11 run met PMID 43001412, a Letter titled "Comments on: Real-World
+# Data of Tofacitinib Versus Tumor Necrosis Factor Inhibitors..." -- a comment
+# on someone else's cohort study, which "comment on" could not reach because
+# the author wrote it plural. Measured over the 24-month library the plural
+# arm matches no record at all, and over the run's own 136 hits it matches
+# that one Letter, so it costs nothing in recall.
 COMMENT_TITLE = re.compile(
-    r"^(comment on|correspondence on|reply to|response to)\s*[:,\s]|^re\s*:",
+    r"^(comments? on|correspondence on|reply to|response to)\s*[:,\s]|^re\s*:",
     re.IGNORECASE)
 
 # A protocol/feasibility/pilot paper describes a trial that hasn't produced

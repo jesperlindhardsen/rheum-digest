@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09",
+  "generated_at": "2026-11-11",
   "records": [
     {
       "pmid": "42964757",
@@ -54,6 +54,53 @@
         "Vasculitis"
       ],
       "first_seen": "2026-11-09"
+    },
+    {
+      "pmid": "43002619",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "J Eval Clin Pract",
+      "first_author": "Arpaci",
+      "last_author": "Meşeli",
+      "date": "2026-12-01",
+      "title": "Self-Reported Awareness of Periodontal-Systemic Health Associations Among Physicians: A Descriptive Cross-Sectional Study.",
+      "abstract_sections": [
+        {
+          "label": "RATIONALE, AIMS AND OBJECTIVES",
+          "text": "Physicians' recognition of oral-systemic health relationships may support medical-dental communication, although its relationship with clinical practice remains uncertain. This study described overall and disease-specific patterns of self-reported awareness in a convenience sample of physicians in Türkiye and explored differences according to demographic and professional characteristics."
+        },
+        {
+          "label": "METHOD",
+          "text": "This descriptive cross-sectional online survey included physicians with at least 1 year of clinical experience who were recruited through professional networks. Following ethical approval, responses included in the final dataset were submitted between 17 March and 7 May 2026. Self-reported awareness was assessed using a Turkish-adapted 10-item questionnaire that had not undergone formal cross-cultural validation. The items formed a study-specific summary index ranging from 0 to 40 (Cronbach's α = 0.847). Disease-specific responses were treated as the primary findings, whereas the summary index and subgroup comparisons were secondary and exploratory."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Among 109 physicians, the median summary index score was 34/40 (IQR: 30-38), and the mean was 33.26 ± 6.67. Twenty-five participants (22.9%) attained the maximum score, indicating a substantial ceiling effect and limited discrimination at the upper end. Agreement was highest for the general oral-systemic relationship (98.2%), the impact of oral disease on quality of life (96.3%), and the periodontal disease-cardiovascular disease association (93.6%). Recognition was lower for chronic kidney disease (63.3%) and rheumatoid arthritis (54.1%). Exploratory estimates for sex, specialist status, and graduation year were imprecise, with confidence intervals including zero and allowing potentially meaningful associations in either direction."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "In this convenience sample, self-reported awareness was generally high but varied across specific periodontal-systemic associations. The findings represent self-reported recognition rather than objective knowledge, competence, or referral behaviour and should not be generalised to physicians in Türkiye overall. Representative samples, validated instruments, and objective or vignette-based measures are needed to determine whether self-reported awareness is associated with oral-health assessment or dental referral."
+        }
+      ],
+      "keywords": [
+        "cross‐sectional survey",
+        "exploratory study",
+        "oral–systemic health",
+        "periodontal disease",
+        "physicians",
+        "self‐reported awareness"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Survey om lægers paradentose-viden; RA kun ét spørgsmål"
     },
     {
       "pmid": "42952289",
@@ -243,6 +290,737 @@
         "tear cytokines"
       ],
       "first_seen": "2026-11-09"
+    },
+    {
+      "pmid": "43012507",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "Arthritis Rheumatol",
+      "first_author": "Merola",
+      "last_author": "Ogdie",
+      "date": "2026-11-11",
+      "title": "Durable and Additive Disease Control at 52 Weeks With Ixekizumab Plus Tirzepatide Versus Ixekizumab Alone in Adults With Psoriatic Arthritis and Obesity or Overweight: Additional Results From a Randomized Clinical Trial.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "Obesity or overweight occurs in 72% to 82% of individuals with psoriatic arthritis (PsA). Previous data revealed greater disease control with concomitant ixekizumab (IXE) and tirzepatide (TZP) versus IXE alone in adults with active PsA and obesity or overweight with at least one weight-related comorbidity at the week 36 primary end point. The objective of this report is to evaluate the effect of IXE+TZP versus IXE on psoriatic disease control and safety measures up to week 52."
+        },
+        {
+          "label": "METHODS",
+          "text": "TOGETHER-PsA (ClinicalTrials.gov ID NCT06588296) is a phase 3b, randomized, open-label, assessor-blinded 52-week trial. Participants were randomized 1:1 to IXE+TZP or IXE using US-approved doses. Week 52 outcomes were prespecified, non-multiplicity-controlled, and exploratory. Outcomes included 50% improvement in American College of Rheumatology response criteria (ACR50) and rheumatologic, dermatologic, patient-reported, metabolic, and safety outcomes."
+        },
+        {
+          "label": "RESULTS",
+          "text": "A total of 271 participants were randomized (IXE+TZP, n = 138; IXE, n = 133). The proportion achieving the primary outcome of simultaneous ACR50 and ≥10% weight reduction continued to increase from week 36 through week 52 for IXE+TZP (39.2%) versus IXE (1.7%) (Δ37.5%; P < 0.001). ACR50 continued to diverge after week 36, with a clinically meaningful difference at week 52 for IXE+TZP (43.7%) versus IXE (15.7%) (Δ 28.0%; P < 0.001). IXE+TZP demonstrated significant improvements in ACR20, minimal disease activity, Disease Activity Index for Psoriatic Arthritis, patient-reported outcomes, and metabolic outcomes versus IXE alone. Safety profiles were consistent with previous studies for each drug."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Comprehensive improvements in disease activity, including ACR50, quality of life, weight, and metabolic outcomes, continued through week 52 and were greater with IXE+TZP than IXE alone, with no new safety concerns. These findings support concomitant IXE+TZP in patients with active PsA and immunometabolic disease."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43004123",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Autoinflammatory"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Clin Rheumatol",
+      "first_author": "Kaya",
+      "last_author": "Yılmaz",
+      "date": "2026-11-10",
+      "title": "Clinical and laboratory outcomes during sequential anakinra and canakinumab treatment in familial Mediterranean fever: a retrospective within-patient study.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "To describe clinical, laboratory, disease-severity, and safety outcomes after switching from anakinra to canakinumab in FMF patients who required treatment change because of inadequate response and/or intolerance to anakinra."
+        },
+        {
+          "label": "METHODS",
+          "text": "This retrospective within-patient sequential cohort study included 26 adult FMF patients who received anakinra followed by canakinumab between January 2017 and September 2024. Demographic, clinical, genetic, laboratory, treatment-related data, and reasons for switching were obtained from medical records. Annual attack count, C-reactive protein (CRP), erythrocyte sedimentation rate (ESR), 24-h proteinuria, International Severity Score for FMF (ISSF), attack manifestations, and adverse events were evaluated using paired analyses."
+        },
+        {
+          "label": "RESULTS",
+          "text": "The median age was 35.0 years, and 13 patients (50.0%) were female. During canakinumab treatment, annual attack count [2.0 (1.0-3.0) vs 4.0 (4.0-4.0), p < 0.001], CRP [5.0 (4.0-6.0) vs 20.0 (16.2-61.2) mg/L, p < 0.001], ESR [8.5 (5.5-12.0) vs 35.5 (27.5-63.8) mm/h, p < 0.001], 24-h proteinuria [125.0 (96.8-217.5) vs 310.0 (204.0-702.2) mg/day, p < 0.001], and ISSF score [1 (1-2) vs 2 (2-3), p = 0.002] were significantly lower than during anakinra treatment. Fever and peritonitis were also less frequent during canakinumab treatment. The primary reasons for switching were inadequate response in 18 patients (69.2%) and intolerance or adverse events leading to treatment discontinuation in 8 patients (30.8%)."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "In this small retrospective switch cohort, canakinumab treatment was associated with lower attack frequency, lower inflammatory markers, and lower retrospectively calculated ISSF scores after switching from anakinra. Proteinuria findings remain exploratory. These findings suggest that canakinumab may be a useful subsequent option in selected difficult-to-treat FMF patients, but prospective controlled studies are needed to confirm these observations."
+        }
+      ],
+      "keywords": [
+        "Anakinra",
+        "Canakinumab",
+        "Familial Mediterranean fever",
+        "ISSF",
+        "Interleukin-1 inhibition",
+        "Proteinuria"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43007626",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Int Urol Nephrol",
+      "first_author": "Liu",
+      "last_author": "Hua",
+      "date": "2026-11-10",
+      "title": "Integrated biochemical and immune markers as predictors of renal function decline in chronic kidney disease: a retrospective cohort study.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Early prediction of renal function decline in patients with chronic kidney disease (CKD) is crucial for improving prognosis."
+        },
+        {
+          "label": "OBJECTIVE",
+          "text": "This study aims to evaluate the predictive value of comprehensive biochemical and immunological markers for rapid decline in renal function in CKD patients."
+        },
+        {
+          "label": "METHOD",
+          "text": "This retrospective cohort study included 196 stage 3-4 CKD patients (98 rapid decliners, eGFR loss ≥5 mL/min/1.73m2/year; 98 stable) from a county‑level hospital (2022-2026). Main markers: creatinine (Cr), urea nitrogen (BUN), cystatin C (Cys‑C), β2‑microglobulin (β2‑MG), and retinol‑binding protein (RBP). Secondary markers: parathyroid hormone, antinuclear antibody, anti‑neutrophil cytoplasmic antibody (ANCA), immunoglobulins (IgG/A/M), and complements C3/C4. Multivariable Cox regression including age, sex, baseline eGFR, proteinuria, and comorbidities as covariates identified independent predictors. Bootstrap internal validation assessed model performance."
+        },
+        {
+          "label": "RESULT",
+          "text": "Cys‑C, β2‑MG, and RBP were significantly higher in rapid decliners (all p<0.01). Cys‑C (HR=2.86, 95% CI 1.52-5.38) and β2‑MG (HR=2.13, 95% CI 1.23-3.69) were independent predictors. Complement C3 was lower (0.89 vs. 1.12 g/L, p=0.01) and ANCA positivity was higher (22.2% vs. 5.6%, p=0.03) in rapid decliners. The Cys‑C+β2‑MG model yielded an AUC of 0.86 (95% CI 0.80-0.92); adding C3 and ANCA increased AUC to 0.89. Bootstrap validation showed an optimism‑corrected AUC of 0.874 (shrinkage factor 0.94)."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Cys-C, β2-MG, complement C3, and ANCA can serve as effective predictive markers for rapid renal function decline in CKD patients. Combined detection is helpful for early identification of high-risk individuals."
+        }
+      ],
+      "keywords": [
+        "Anti-neutrophil cytoplasmic antibody",
+        "Chronic kidney disease",
+        "Complement C3",
+        "Cystatin C",
+        "Renal function decline",
+        "β2 microglobulin"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "CKD-prognosemarkører; ANCA kun én variabel blandt mange"
+    },
+    {
+      "pmid": "43008934",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Vasculitis"
+      ],
+      "evidence_type": "RCT",
+      "tier": 4,
+      "journal": "Clin Microbiol Infect",
+      "first_author": "Terrier",
+      "last_author": "Launay",
+      "date": "2026-11-10",
+      "title": "Reinforced strategies versus standard pneumococcal vaccination regimen in patients with ANCA-associated vasculitides receiving rituximab therapy: A Multicenter Randomized Controlled Trial.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "To assess whether reinforced pneumococcal vaccination strategies improve immunogenicity in patients with ANCA-associated vasculitis (AAV) receiving rituximab."
+        },
+        {
+          "label": "METHODS",
+          "text": "PNEUMOVAS was a multicentre, open-label, randomized phase 2 superiority trial. Between February 2018 and May 2020, adults with newly diagnosed or relapsing granulomatosis with polyangiitis or microscopic polyangiitis scheduled for rituximab induction were randomized (1:1:1) to: standard vaccination (Arm A: one PCV13 dose at day 0 followed by PPV23 at month 5), reinforced regimen 1 (Arm B: two PCV13 doses at day 0 and two at day 7 followed by PPV23), or reinforced regimen 2 (Arm C: four PCV13 doses at day 0 followed by PPV23). The primary endpoint was the breadth of the ELISA antibody response at month 6, categorized as a response to 0-3, 4-6, 7-9, or 10-12 of 12 shared serotypes, and analyzed with an age-adjusted proportional odds model in the modified intention-to-treat population."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Of 120 planned patients, 96 were randomized (30, 32, and 34 in Arms A, B, and C) and 95 were analyzed (median age 62 years; 47/95 [49.5%] male; median follow-up 17.9 months). At month 6, 1/30 (3.3%), 5/32 (15.6%), and 2/33 (6.1%) participants in Arms A, B, and C responded to 7-9 serotypes, and none to 10-12. Compared with the standard regimen, Arm B significantly improved the breadth of the response (proportional OR 4.14, 97.5% CI 1.08 to 15.88; p=0.018), whereas Arm C showed a non-significant trend (pOR 3.08, 97.5% CI 0.80 to 11.92). Reinforced schedules also improved opsonophagocytic activity for several serotypes. Vaccine responses declined over time in all groups. Vaccination was overall well tolerated, with no vaccine-related serious adverse events."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "In AAV patients receiving rituximab, reinforced pneumococcal vaccination strategies improved humoral immunogenicity compared with the standard regimen (ClinicalTrials.gov Identifier: NCT03069703)."
+        }
+      ],
+      "keywords": [
+        "ANCA-associated vasculitis",
+        "Pneumococcal vaccination",
+        "immune response",
+        "randomized clinical trial",
+        "rituximab",
+        "vaccine"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43007916",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SLE"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Lupus",
+      "first_author": "Beltagy",
+      "last_author": "Elbahoty",
+      "date": "2026-11-10",
+      "title": "Eltrombopag in the treatment of immune thrombocytopenia secondary to SLE: A double-edged sword.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "ObjectiveTo evaluate the efficacy and safety of eltrombopag in patients with systemic lupus erythematosus (SLE)-associated immune thrombocytopenia, with a particular focus on thrombotic risk.MethodsWe conducted a retrospective cohort study of 23 patients with SLE-associated thrombocytopenia treated with eltrombopag. Baseline clinical characteristics, treatment patterns, and outcomes were collected. The primary outcomes were sustained platelet response (≥50 ×109/L at last follow-up) and occurrence of thrombotic events. Exploratory analyses assessed associations between antiphospholipid antibody (aPL) status and thrombosis.ResultsThe mean age was 33.7 ± 12.3 years, and 65.2% were female. aPL positivity was present in 52.2% of patients. A sustained platelet response was achieved in 65.2% of patients, and 21.7% were successfully weaned off corticosteroids. Thrombotic events occurred in 8 patients (34.8%), with arterial events accounting for 50% of cases. The median time to thrombosis was 5.5 months. Thrombosis occurred across a range of platelet counts and was not consistently associated with thrombocytosis. A higher proportion of thrombotic events was observed in aPL-positive patients (41.7% vs 27.3%), although this did not reach statistical significance (OR 1.90, 95% CI 0.33-11.01, p = 0.667).ConclusionEltrombopag was associated with platelet response in this cohort. Thrombosis was numerically more common in aPL-positive patients, but the small sample and imprecise estimate preclude conclusions about its independent contribution. Without a comparator group, whether these events reflect eltrombopag, the prothrombotic milieu of SLE and aPL antibodies, or their interaction cannot be determined."
+        }
+      ],
+      "keywords": [
+        "antiphospholipid antibodies",
+        "eltrombopag",
+        "immune thrombocytopenia",
+        "systemic lupus erythematosus",
+        "thrombopoietin receptor agonist",
+        "thrombosis"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43007997",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SLE"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "PLoS One",
+      "first_author": "Kim",
+      "last_author": "Hong",
+      "date": "2026-11-10",
+      "title": "Prevalence and prognostic significance of extrarenal manifestations in patients with lupus nephritis: A retrospective cohort study.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "To evaluate the prevalence and prognostic implications of extrarenal involvement in lupus nephritis (LN), with emphasis on treatment response and the risk of future renal and extrarenal flares."
+        },
+        {
+          "label": "METHODS",
+          "text": "We retrospectively reviewed patients newly diagnosed with LN between January 2006 and December 2022 and categorized them according to the presence of extrarenal involvement at diagnosis. Renal response and remission at 12 months, defined according to the Definition of Remission in SLE (DORIS), as well as the incidence of renal and extrarenal flares during follow-up, were compared between groups. Factors associated with DORIS remission and renal response were assessed using multivariable logistic regression analyses."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Among 348 patients with LN, 156 (44.8%) had extrarenal involvement at diagnosis, most commonly hematological manifestations (59.0%). Rates of complete renal response (CRR) and DORIS remission at 12 months were comparable between patients with and without extrarenal involvement (CRR: 57.1% vs. 46.9%, p = 0.06; DORIS remission: 21.8% vs. 29.7%, p = 0.09). Over a median follow-up of 79.6 months, the incidence of renal flares (28.8% vs. 26.0%, p = 0.56) and extrarenal flares (26.3% vs. 24.5%, p = 0.74) did not differ significantly between groups. In multivariable analyses, baseline extrarenal involvement was not associated with DORIS remission (odds ratio [OR], 1.307; 95% confidence interval [CI]: 0.779-2.193; p = 0.310) or renal response (OR, 0.974; 95% CI: 0.564-1.682; p = 0.925)."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Extrarenal involvement is present in nearly half of patients at LN diagnosis, however, it does not appear to influence renal response, DORIS remission, or the long-term risk of renal or extrarenal flares."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43008126",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "RCT",
+      "tier": 1,
+      "journal": "JAMA Dermatol",
+      "first_author": "Rosenbach",
+      "last_author": "Damsky",
+      "date": "2026-11-10",
+      "title": "Efficacy and Safety of Brepocitinib in Cutaneous Sarcoidosis: A Phase 2 Randomized Clinical Trial.",
+      "abstract_sections": [
+        {
+          "label": "IMPORTANCE",
+          "text": "Cutaneous sarcoidosis (CS) is a chronic granulomatous skin disease associated with substantial morbidity and no approved therapies."
+        },
+        {
+          "label": "OBJECTIVE",
+          "text": "To evaluate the efficacy and safety of brepocitinib, an oral, selective, tyrosine kinase 2 (TYK2) and Janus kinase 1 (JAK1) inhibitor, in adults with CS."
+        },
+        {
+          "label": "DESIGN, SETTING, AND PARTICIPANTS",
+          "text": "BEACON is an ongoing, global, multicenter, randomized, double-blind, placebo-controlled phase 2/3 trial. This prespecified interim analysis evaluated the 16-week, dose-ranging phase 2 portion of the study conducted between April 9, 2025, and July 18, 2025. Adults with biopsy-proven active CS were randomized 3:2:2 to receive brepocitinib, 45 mg; brepocitinib, 15 mg; or placebo once daily."
+        },
+        {
+          "label": "MAIN OUTCOMES AND MEASURES",
+          "text": "The primary efficacy outcome was change from baseline in the Cutaneous Sarcoidosis Activity and Morphology Instrument-Activity (CSAMI-A) score at week 16. Additional outcomes included achievement of Cutaneous Sarcoidosis Activity-Investigator Global Assessment (CSA-IGA) clear or almost clear with a 2 or greater category improvement, CSAMI-A response (≥50% relative improvement), 10-point or greater CSAMI-A score reduction, achievement of a CSAMI-A score less than 5, patient-reported outcomes, and safety."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Thirty-one participants (mean [SD] age, 53.3 [9.6] years; 18 female individuals [58%] and 13 male individuals [42%]) were enrolled. Both brepocitinib doses achieved rapid, significant improvements in CS disease activity: by week 16, CSAMI-A scores improved by 22.3 points in the 45-mg group and 22.2 points in the 15-mg group compared with a 0.7-point improvement with placebo (P < .001). Across increasingly stringent responder-based and cutaneous remission-oriented end points, efficacy consistently favored brepocitinib, 45 mg, supporting a dose-dependent treatment effect. Compared with placebo, brepocitinib, 45 mg, resulted in higher rates of CSA-IGA clear or almost clear disease (69.2% vs 0%; P = .01), CSAMI-A response (76.9% vs 0%; P = .003), ≥10-point CSAMI-A reduction (100% vs 14.3%; P < .001), and achievement of a CSAMI-A score of less than 5 (61.5% vs 0%; P = .005). Clinical benefit extended to difficult to treat phenotypes, including lupus pernio, despite protocol-mandated systemic glucocorticoid discontinuation, and was accompanied by substantial improvements in skin-related quality of life. No deaths or serious adverse events occurred."
+        },
+        {
+          "label": "CONCLUSIONS AND RELEVANCE",
+          "text": "In the phase 2 portion of the BEACON randomized clinical trial, brepocitinib produced rapid, dose-dependent, and clinically meaningful improvements in CS. As the first randomized, placebo-controlled trial to demonstrate efficacy of a targeted therapy in CS, these findings support selective TYK2/JAK1 inhibition as a potentially promising therapeutic strategy for CS and support ongoing phase 3 evaluation."
+        },
+        {
+          "label": "TRIAL REGISTRATION",
+          "text": "ClinicalTrials.gov Identifier: NCT06978725."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43004006",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article",
+        "Review",
+        "Systematic Review"
+      ],
+      "disease_groups": [
+        "Vasculitis"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 3,
+      "journal": "Rheumatol Int",
+      "first_author": "Alghaithi",
+      "last_author": "Alnaqbi",
+      "date": "2026-11-10",
+      "title": "Rheumatoid factor positivity in ANCA-negative eosinophilic granulomatosis with polyangiitis: cardiac mimicry, mononeuritis multiplex, and long-term outcome in a case-based systematic review.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Eosinophilic granulomatosis with polyangiitis (EGPA) is a rare small- to medium-vessel vasculitis characterized by asthma, eosinophilia, and multisystem involvement. Diagnosis is challenging in ANCA-negative disease, particularly when misleading serology is present. We describe a 42-year-old woman with long-standing asthma and a rheumatoid factor (RF) of 322 IU/mL, who initially presented with myocardial infarction-like cardiac involvement with non-obstructive coronary arteries. Over the subsequent seven months, progressive eosinophilia, chronic rhinosinusitis with nasal polyposis, and mononeuritis multiplex emerged. ANCA-negative EGPA was diagnosed after connective tissue disease, infection, malignancy, and other causes of hypereosinophilia were excluded. She was treated with prednisolone and azathioprine and subsequently remained off immunosuppressive therapy for more than nine years without reported relapse. On later clinical reassessment, she remained stable apart from mild residual neuropathic symptoms. We also conducted a case-based review following the CABARET standards, searching PubMed/MEDLINE, Scopus, Embase, and Web of Science up to 15 August 2026. We identified 38 published cases of ANCA-negative, RF-positive EGPA, 36 of them without pre-existing rheumatoid arthritis. In these 36, the median age was 53 years and 69% were female. Peripheral neuropathy was reported in 72% and cardiac involvement in 47%; with both occurring in 25%; two patients died of cardiac causes. Among 12 cases with sufficient data to standardize RF relative to the assay upper limit of normal, 75% had RF levels > 3 × ULN. Reporting was often incomplete: both MPO- and PR3-ANCA were documented in only 42% of cases and anti-CCP in 11%. No included published case reported prolonged treatment-free remission, although follow-up and treatment status were incompletely reported in several cases. Based on these gaps, the authors propose a reporting checklist for future EGPA case reports. RF positivity, even at high titer, should not dissuade clinicians from considering EGPA when asthma, eosinophilia, ENT disease, neuropathy, or other compatible manifestations are present."
+        }
+      ],
+      "keywords": [
+        "Anti-neutrophil cytoplasmic antibody-associated vasculitis",
+        "Eosinophilia",
+        "Eosinophilic granulomatosis with polyangiitis",
+        "Mononeuropathies",
+        "Myocardial infarction",
+        "Rheumatoid factor"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43007285",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article",
+        "Network Meta-Analysis",
+        "Review"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 4,
+      "journal": "Arch Immunol Ther Exp (Warsz)",
+      "first_author": "Liu",
+      "last_author": "Nie",
+      "date": "2026-11-10",
+      "title": "Comparative Efficacy of Different Biologic Agents on Radiographic Progression in Patients with Rheumatoid Arthritis: A Network Meta-Analysis.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Radiographic progression in rheumatoid arthritis (RA) reflects irreversible joint damage. Whether different classes of biologic disease-modifying antirheumatic drugs (bDMARDs) offer comparable structural protection remains uncertain. To compare six bDMARD classes (tumor necrosis factor [TNF]-α inhibitors, interleukin [IL]-17 inhibitors, T-cell co-stimulation modulators, B-cell depleting agents, IL-6 receptor antagonists, and IL-23 inhibitors) in suppressing radiographic progression in RA. PubMed, Embase, Web of Science, and CENTRAL were searched to 31 December 2025 for randomized controlled trials (RCT); change in modified Total Sharp Score (mTSS) at 12 months was the primary outcome. A Bayesian random-effects network meta-analysis was fitted, with SUCRA-based ranking. 27 RCTs (11,650 patients) were included. All six classes significantly inhibited mTSS progression versus placebo. Relative to TNF-α inhibitors (TNF-i), greater inhibition was seen with B-cell depleting agents (mean difference [MD] = -18.46, 95% CI -20.86 to -16.06), IL-23 inhibitors (MD = -18.14, 95% CI -21.11 to -15.16), IL-17 inhibitors (MD = -15.67), T-cell co-stimulation modulators (MD = -14.99) and IL-6 receptor antagonists (MD = -13.73); the first two were also superior to IL-6 receptor antagonists. For bone erosion (13 RCTs), IL-17, B-cell depleting, IL-6 receptor and T-cell agents, but not IL-23 inhibitors, were superior to TNF-i. For ACR20 (20 RCTs), IL-23 (OR = 2.75, 95% CI 1.31-5.76), IL-6 (OR = 2.12) and IL-17 (OR = 1.86) inhibitors were superior to TNF-i. Serious adverse events (10 RCTs) did not differ from placebo. B-cell depleting agents and IL-23 inhibitors ranked highest; as several comparisons rest on few trials, this ordering is hypothesis generating."
+        }
+      ],
+      "keywords": [
+        "B-cell depleting agents",
+        "Biologic agents",
+        "IL-23 inhibitors",
+        "Network meta-analysis",
+        "Radiographic progression",
+        "Rheumatoid arthritis"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43003304",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "J Infect Chemother",
+      "first_author": "Shinozaki",
+      "last_author": "Saito",
+      "date": "2026-11-09",
+      "title": "Imported melioidosis with septic shock in a short-term visitor from Cambodia to Japan: a case report and literature review of imported cases in Japan.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Melioidosis is a potentially fatal infectious disease caused by Burkholderia pseudomallei, a soil-dwelling Gram-negative bacterium endemic to Southeast Asia and northern Australia; however, it remains a rare imported disease in Japan. Here, we report a case of melioidosis in a 70-year-old Cambodian man who developed septic shock during a short-term visit to Japan. We also performed a literature review of all reported cases of imported melioidosis in Japan. The patient presented with a three-day history of abdominal pain and diarrhea. He was immunocompromised and was receiving prednisolone and tocilizumab for adult-onset Still's disease. Blood cultures obtained on admission revealed Gram-negative rods. The organism was initially identified as Burkholderia thailandensis by MALDI-TOF mass spectrometry but was later confirmed to be B. pseudomallei at the reference laboratory. The patient developed septic shock but recovered with intensive supportive care and antimicrobial therapy consisting of meropenem and trimethoprim-sulfamethoxazole. This case and our literature review highlight that, even in non-endemic countries, melioidosis should be included in the differential diagnosis in patients with a history of travel to, or residence in, endemic regions, and that prompt diagnosis and timely initiation of appropriate treatment are essential."
+        }
+      ],
+      "keywords": [
+        "Burkholderia pseudomallei",
+        "MALDI-TOF mass spectrometry",
+        "Melioidosis",
+        "Septic shock",
+        "Travel medicine"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Importeret melioidose-case; ingen reumatologisk sygdom"
+    },
+    {
+      "pmid": "43011523",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Autoinflammatory"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "J Gen Fam Med",
+      "first_author": "Takahashi",
+      "last_author": "Nishikomori",
+      "date": "2026-11-09",
+      "title": "Clinical Practice Profiles Among Japanese General Medicine Physicians in Treating Adult Patients With Periodic Fever Associated With Autoinflammatory Diseases: A Nationwide Cross-Sectional Survey.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "In Japan, general medicine physicians (GMPs) may treat adult patients who have periodic fever associated with autoinflammatory diseases. However, little is known about the status of practice among GMPs in treating these patients. Although prescribing cimetidine is a therapeutic option for periodic fever, aphthous stomatitis, pharyngitis, and adenitis (PFAPA) syndrome, GMPs' prescribing behavior is uncertain. We aimed to investigate: (1) practice among GMPs in treating adult patients with periodic fever associated with autoinflammatory diseases; (2) prescription of cimetidine by GMPs for patients with periodic fever associated with autoinflammatory diseases in general."
+        },
+        {
+          "label": "METHODS",
+          "text": "A nationwide cross-sectional study was conducted using an anonymous online questionnaire in May and June 2025. Physicians who were affiliated with three general medicine-related academic societies in Japan were selected. The questionnaire examined whether respondents had experience treating patients with periodic fever associated with autoinflammatory diseases, current cimetidine prescription practices, the number of patients by age, and respondents' characteristics. Descriptive statistical analysis was performed."
+        },
+        {
+          "label": "RESULTS",
+          "text": "We analyzed data from 247 respondents. Of these, 181 respondents reported having experience treating periodic fever. Among respondents, 159 (87.8%) had experience treating familial Mediterranean fever, and more than half had experience treating Behçet's disease or PFAPA syndrome; 31 (17.1%) were currently prescribing cimetidine to 44 patients. Among patients, 32 (72.7%) were aged between 18 and 39 years. Colchicine and corticosteroids were the main concomitant and alternative medications related to cimetidine."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "The current results describe clinical practice profiles among Japanese GMPs treating adult patients with periodic fever associated with autoinflammatory diseases (250/250 words)."
+        }
+      ],
+      "keywords": [
+        "autoinflammatory diseases",
+        "cimetidine",
+        "general medicine physician",
+        "japan",
+        "nationwide survey",
+        "periodic fever"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43009150",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Crystal"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "J Korean Med Sci",
+      "first_author": "Do",
+      "last_author": "Moon",
+      "date": "2026-11-09",
+      "title": "Risk Factors for Gout Flares After Urate-Lowering Therapy: A Nationwide Prospective Cohort Study.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Gout is an inflammatory arthritis caused by the monosodium urate crystal deposition in joints, with some patients experiencing recurrent flares. This study compared the clinical characteristics of patients who experienced gout flares with those who did not."
+        },
+        {
+          "label": "METHODS",
+          "text": "Data were analyzed from the Urate Lowering TheRApy in Gout registry, including adults aged ≥ 18 years who met the 2015 American College of Rheumatology/European League Against Rheumatism gout classification criteria. Patients were designated into flare or no-flare groups based on the occurrence of at least one gout flare within the first 6 months."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Among 327 patients, 29.0% experienced at least one gout flare within 6 months. Compared with the no-flare group, patients with flares had higher gout impact scale (P = 0.019) and EuroQoL 5-Dimension 3-Level scores (P = 0.012), and more frequent bone erosion (P < 0.001), and tophi (P = 0.031). Multivariate logistic regression showed that radiographic bone erosion (P = 0.013) and poorer quality of life (gout impact scale, P = 0.037; EuroQoL 5-Dimension 3-Level scores, P = 0.014) were independently associated with increased gout flare risk. Fewer patients in the flare group achieved target serum urate levels at 6 months (P = 0.006)."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Impaired quality of life, and radiographic evidence of bone erosion were identified as independent risk factors for gout flare in this prospective cohort study. These findings highlight the importance of comprehensive clinical assessment to identify high-risk patients for future flares and optimize individualized management strategies."
+        }
+      ],
+      "keywords": [
+        "Clinical Feature",
+        "Flare",
+        "Gout",
+        "Risk Factor"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43003101",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "disease_groups": [
+        "IgG4-RD"
+      ],
+      "evidence_type": "Guideline/consensus",
+      "tier": 2,
+      "journal": "Lancet Rheumatol",
+      "first_author": "Perugino",
+      "last_author": "Khosroshahi",
+      "date": "2026-11-09",
+      "title": "The IgG4ward! Foundation guidelines on the treatment of IgG4-related disease.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "IgG4-related disease is a chronic, immune-mediated, systemic condition that presents as tumour-like masses. Since publication of the last international consensus statement on the treatment of IgG4-related disease in 2015, the related literature has expanded considerably, with two phase 3, randomised, placebo-controlled trials published within the past 2 years. This foundation of evidence for treatment decisions justified new, dedicated treatment guidelines. 62 investigators-comprising 52 physicians, one medical reference librarian, eight patients, and one caregiver from 15 countries across six continents-were assembled to form a treatment guidelines group. The physicians had a broad range of specialties and patient representation spanned the full spectrum of organ involvement. The treatment guidelines group generated 183 candidate questions, which were consolidated into 40 final questions approved by the IgG4ward! Advisory Board. These questions formed the basis of a systematic literature search, led by a medical reference librarian, which informed the development of 28 treatment statements. Supporting evidence for each statement was independently graded using the 2011 Oxford Centre for Evidence-Based Medicine Levels of Evidence framework. The 52 physicians voted electronically on their level of agreement with each statement; consensus required more than 80% to agree or strongly agree with the statement, and was reached for 22 of the 28 statements. The evidence base reflects marked recent progress due to the publication of phase 3 clinical trials, although most statements still rely on low-level evidence. This effort provides cohesive, consensus-based guidelines from a geographically and professionally diverse group of experts in IgG4-related disease, reflecting the evolution in the field since 2015. Despite this progress, important knowledge gaps remain, and are highlighted to guide future research."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43001026",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IIM"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 2,
+      "journal": "Arthritis Rheumatol",
+      "first_author": "Jud",
+      "last_author": "D'Orazio",
+      "date": "2026-11-09",
+      "title": "Ulcerated Gottron's papules in anti-MDA5 dermatomyositis.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": ""
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43004578",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "J Dermatol",
+      "first_author": "Tsuruta",
+      "last_author": "Imafuku",
+      "date": "2026-11-09",
+      "title": "Drug Survival of Systemic Therapies for Psoriasis in the Western Japan Psoriasis Registry: 2024 Update.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Drug survival is a useful composite measure reflecting treatment effectiveness, safety, convenience, and patient satisfaction in routine clinical practice. The Western Japan Psoriasis Registry (WJPR) is a prospective multicenter observational registry involving 34 dermatology centers in western Japan that continuously collects real-world data on systemic therapies for patients with psoriasis. Yanase et al. previously reported drug survival in 1674 treatment episodes initiated between 2010 and 2020 within the WJPR; however, large-scale real-world data including recently introduced agents remain limited. We analyzed the drug survival of systemic therapies using data from 2251 patients and 4002 treatment episodes recorded in the WJPR between 2018 and 2024. Drug survival was assessed using the Kaplan-Meier method, and analyses were performed overall and stratified according to body mass index (BMI), psoriatic arthritis (PsA), previous biologic exposure, and sex. Multivariable Cox proportional hazards analyses were also performed for drugs with approved indications for PsA. Drug survival differed among treatments, with risankizumab demonstrating the most favorable persistence throughout the observation period, while guselkumab and ixekizumab also showed favorable drug survival. No significant differences in drug survival were observed according to BMI category. However, drug survival tended to be lower overall in patients with PsA, biologic-experienced patients, and women. Among patients with PsA, bimekizumab maintained relatively favorable drug survival despite the generally lower treatment persistence observed in this subgroup. Multivariable analyses identified previous biologic exposure as the most consistent predictor of treatment discontinuation, whereas BMI was not independently associated with drug survival in any analyzed drug."
+        }
+      ],
+      "keywords": [
+        "biologics",
+        "drug survival",
+        "psoriasis",
+        "real‐world evidence",
+        "registry study"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Psoriasis-registerstudie om lægemiddeloverlevelse; ingen artritdata"
+    },
+    {
+      "pmid": "43000455",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Eur J Clin Pharmacol",
+      "first_author": "Duch",
+      "last_author": "Kristensen",
+      "date": "2026-11-09",
+      "title": "Comparing algorithms for estimating glucocorticoid exposure in Danish patients with rheumatoid arthritis: a study using national registers and DANBIO data.",
+      "abstract_sections": [
+        {
+          "label": "PURPOSE",
+          "text": "Estimating glucocorticoid exposure in patients with rheumatoid arthritis (RA) is challenging because Danish national registries provide data on redeemed prescriptions but lack information on daily drug dosage and intraarticular injections. This study compares different methods for estimating glucocorticoid exposure in patients with RA, utilizing data from national registries and hospital records."
+        },
+        {
+          "label": "METHODS",
+          "text": "Estimated oral glucocorticoid dose was calculated from registry information, using three methods: (reverse) waiting time distribution ((r)WTD), defined daily dose (DDD), and 90 days average dose. Information on physician prescribed glucocorticoid dosage was gathered from hospital records from 585 patients with RA to validate estimated dose, in both an incident, and a mixed incident and prevalent cohort. Validation was compared using percentage relative difference (RD), limit of agreement ratio (LOAR), sensitivity, and specificity. For glucocorticoid injections, binary agreement between hospital records and registries was presented."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Among included models, rWTD performed best for incident populations when comparing physician prescribed glucocorticoid exposure, with registry information (RD: -0.07%, LOAR: 14.34, sensitivity: 1.00, specificity: 0.92). In the mixed cohort, DDD (RD: -23.31%, LOAR: 10.99, sensitivity: 1.00, specificity: 0.95) performed well despite 9% of (r)WTD models showed a lower RD. All LOAR were high. Procedure codes in the registries identified 79% of injections in hospital records in the year following first visit, and 70% of injections in the mixed cohort."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "In the incident cohort, rWTD performed well while both WTD and DDD performed well in the mixed cohort. For injections, procedure codes showed high alignment with hospital records."
+        }
+      ],
+      "keywords": [
+        "Danish national patient registry",
+        "Drug dosage",
+        "Glucocorticoids",
+        "Rheumatoid arthritis"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43000185",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "disease_groups": [
+        "Crystal"
+      ],
+      "evidence_type": "Evidence synthesis",
+      "tier": 4,
+      "journal": "Diabetes Obes Metab",
+      "first_author": "Lee",
+      "last_author": "Song",
+      "date": "2026-11-08",
+      "title": "Effects of GLP-1 Receptor Agonists on Hyperuricemia, Serum Uric Acid and Gout: A Systematic Review and Meta-Analysis.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "Hyperuricemia and gout are common but underappreciated comorbidities in Type 2 diabetes (T2D), obesity and chronic kidney disease (CKD). We aimed to quantify the pooled effects of glucagon-like peptide-1 receptor agonists (GLP-1 RAs) and dual glucose-dependent insulinotropic polypeptide (GIP)/GLP-1 receptor agonists on serum uric acid (SUA), incident gout and hyperuricemia, and to determine whether these effects vary by drug class and are mediated by weight loss."
+        },
+        {
+          "label": "METHODS",
+          "text": "We searched PubMed/MEDLINE, Embase, CENTRAL and ClinicalTrials.gov through July 2026 for RCTs of ≥ 12 weeks' duration reporting SUA change, gout flares or hyperuricemia incidence. Random-effects meta-analysis, subgroup and sensitivity analyses and meta-regression were performed. Registered with PROSPERO (CRD420261468511)."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Eighteen RCTs (77 942 participants) met inclusion criteria. Incretin-based therapy significantly reduced SUA versus control (weighted mean difference [WMD] -0.44 mg/dL, 95% CI -0.52 to -0.35), reduced incident gout flares (hazard ratio [HR] 0.62, 95% CI 0.53-0.72), and reduced hyperuricemia incidence (odds ratio [OR] 0.61, 95% CI 0.53-0.70). Dual GIP/GLP-1 RA (tirzepatide) produced greater SUA lowering than mono GLP-1 RAs (-0.62 vs. -0.35 mg/dL, p = 0.001). Body-weight loss was a significant moderator of SUA reduction (β = -0.041 mg/dL per kg, p < 0.001), explaining 84.7% of between-trial heterogeneity, with a significant weight-independent intercept (-0.19 mg/dL, p < 0.001). The SUA reduction was robust in all sensitivity analyses, including restriction to placebo-controlled trials. GRADE certainty was high for SUA and moderate for gout flares (owing to small-study effects) and hyperuricemia incidence."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Incretin-based therapies were associated with modest reductions in SUA and with a lower incidence of gout flares and hyperuricemia, an effect largely related to weight loss. The clinical relevance of these effects, and the mechanism of any weight-independent component, remains uncertain and warrant confirmation in dedicated trials."
+        }
+      ],
+      "keywords": [
+        "GLP‐1 receptor agonist",
+        "gout",
+        "hyperuricemia",
+        "meta‐analysis",
+        "semaglutide",
+        "serum uric acid",
+        "tirzepatide"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43000040",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SLE"
+      ],
+      "evidence_type": "RCT",
+      "tier": 2,
+      "journal": "Lancet Rheumatol",
+      "first_author": "Li",
+      "last_author": "Li",
+      "date": "2026-11-08",
+      "title": "Efficacy and safety of obinutuzumab β in patients with active systemic lupus erythematosus: a multicentre, randomised, double-blind, placebo-controlled, phase 2 trial.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "B cells play a central role in the pathogenesis of systemic lupus erythematosus (SLE) and are a therapeutic target. We therefore assessed the efficacy and safety of obinutuzumab β, a glycoengineered type II anti-CD20 monoclonal antibody, in patients with active SLE."
+        },
+        {
+          "label": "METHODS",
+          "text": "In this multicentre, randomised, double-blind, placebo-controlled, phase 2 trial, we enrolled patients who were aged 18-80 years, fulfilled the 2019 European Alliance of Associations for Rheumatology-American College of Rheumatology classification criteria for SLE, and had active disease (defined as a Systemic Lupus Erythematosus Disease Activity Index 2000 [SLEDAI-2K] score of 8 or more and positivity for antinuclear antibodies or anti-double stranded DNA antibodies) at 30 tertiary hospitals in China. Participants were randomly allocated 1:1 to receive obinutuzumab β or placebo, stratified by SLEDAI-2K score and 24-h urine protein level. Patients, investigators, and the sponsor were masked to treatment allocation. Patients received intravenous infusions of obinutuzumab β (1000 mg) or placebo on days 1, 15, 169, 183, 365, and 379. All patients maintained their background standard therapy. The primary efficacy endpoint was the proportion of patients with an SLE Responder Index (SRI)-4 response at week 12 assessed in all patients who were randomly assigned and received at least one dose of study treatment (ie, the full analysis set). Safety was assessed in all patients who received any study treatment and had at least one post-dose safety assessment (ie, the safety analysis set) over 52 weeks. The study was registered at ClinicalTrials.gov (NCT05796206) and is complete. People with lived experience were not involved as research partners in this study."
+        },
+        {
+          "label": "FINDINGS",
+          "text": "Between May 26, 2023, and July 29, 2024, 171 patients were screened for eligibility. Of these, 123 patients were randomly assigned to receive obinutuzumab β (n=61) or placebo (n=62) and were included in both the full analysis set and safety analysis sets. The mean age was 36·1 years (SD 10·3). 115 (93%) of 123 patients were female, eight (7%) were male, and 117 (95%) were Han Chinese ethnicity. At week 12, 32 (52%) of 61 patients in the obinutuzumab β group and 21 (34%) of 62 in the placebo group had an SRI-4 response (adjusted risk difference 19 percentage points, 95% CI 3-36; p=0·022). Serious adverse events occurred in 12 (20%) patients in the obinutuzumab β group and 14 (23%) in the placebo group. One fatal treatment-emergent adverse event (sepsis) occurred in the placebo group."
+        },
+        {
+          "label": "INTERPRETATION",
+          "text": "Obinutuzumab β plus standard therapy improved SRI-4 response at week 12 in Chinese patients with active SLE, with a generally manageable safety profile over 52 weeks. These phase 2 findings support further evaluation and longer-term safety follow-up."
+        },
+        {
+          "label": "FUNDING",
+          "text": "Beijing Mabworks Biotech."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11"
     },
     {
       "pmid": "42999023",
@@ -638,6 +1416,125 @@
       "flagged": "Lumbal fusionskohorte; RA kun baggrundsvariabel"
     },
     {
+      "pmid": "43001865",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SLE"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Clin Exp Rheumatol",
+      "first_author": "Crum",
+      "last_author": "Hilhorst",
+      "date": "2026-11-05",
+      "title": "CD163+ macrophage infiltration reflects disease activity and early treatment response in lupus nephritis.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "Lupus nephritis (LN) is a severe manifestation of systemic lupus erythematosus, potentially leading to progressive kidney damage and end-stage kidney disease. Emerging evidence suggests that macrophages play a key role in LN pathogenesis. The aim of this study was to investigate associations between renal macrophage infiltration and clinical, histopathological, and long-term renal outcomes in LN."
+        },
+        {
+          "label": "METHODS",
+          "text": "This retrospective cohort study included 58 biopsy-proven LN patients (2002-2018), with a mean follow-up of 77 months. Immunohistochemistry for CD68, CD163, CD206, and C5aR1 macrophage markers was performed on baseline kidney biopsies. Correlations with histological features and clinical parameters such as kidney function (eGFR), proteinuria and long-term renal outcomes were analysed using correlation matrices and linear mixed models."
+        },
+        {
+          "label": "RESULTS",
+          "text": "CD163+ macrophage infiltration in glomerular and tubulointerstitial compartments was significantly associated with clinical and histological activity, including lower baseline eGFR, lower complement levels, more leukocyturia/erythrocyturia and higher activity index scores. Patients with high CD163+ infiltration demonstrated significantly greater improvement of eGFR and proteinuria during the first 6 months of treatment post-diagnosis. Conversely, low CD163+ infiltration was associated with increased likelihood of requiring a repeat biopsy. These associations were not observed when stratifying by LN class. CD68+ macrophages showed a similar trend. CD206+ and C5aR1+ macrophages were not associated with markers of disease activity, although high glomerular C5aR1+ infiltration was linked to repeat biopsy. None of the macrophage markers were associated with long-term outcomes such as renal flares, dialysis, or transplantation."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "CD163+ macrophage infiltration at baseline is associated with active disease and early treatment response in LN, independent of received treatment. While LN class guides treatment choice, CD163+ macrophage infiltration may offer additional prognostic value regarding early therapeutic response. These findings support further investigation of CD163+ macrophages as a biomarker not only providing prognostic information but also helping guide treatment choices beyond the current LN classification system."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43002385",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Swiss Med Wkly",
+      "first_author": "Costa",
+      "last_author": "Marchetti",
+      "date": "2026-11-05",
+      "title": "Human granulocytic anaplasmosis acquired in Switzerland: a case report.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Human granulocytic anaplasmosis, caused by Anaplasma phagocytophilum, is a tick-borne disease endemic in North America that is emerging in Europe and may be underdiagnosed in Switzerland."
+        },
+        {
+          "label": "CASE PRESENTATION",
+          "text": "A man in his early seventies receiving methotrexate for ankylosing spondylitis and exposed to ticks presented with a 2-day history of fever, headache and dizziness. Despite empirical broad-spectrum beta-lactam and macrolide therapy, high fever of undetermined origin persisted, and neurological deterioration occurred (somnolence, dysarthria, ataxia, diplopia). Cerebrospinal fluid analysis showed 10 mononuclear cells/µL (normal <5 cells/µL) and protein 476 mg/l (150-450 mg/l). Brain MRI revealed nonspecific leukoencephalopathy. Intravenous doxycycline 100 mg twice daily was empirically initiated on day 7 after symptom onset, resulting in clinical cure within 3 days. Human granulocytic anaplasmosis was retrospectively confirmed by IgG seroconversion against A. phagocytophilum after 6 weeks (8-fold titre increase from <1:64 to 1:512)."
+        },
+        {
+          "label": "DISCUSSION",
+          "text": "Human granulocytic anaplasmosis represents a diagnostic challenge in non-endemic areas. The human granulocytic anaplasmosis clinical spectrum ranges from mild self-limiting flu-like illness to severe, life-threatening multisystem disease, especially in older immunocompromised patients. Acute-phase diagnosis relies on blood PCR testing. Seroconversion with a 4-fold increase in IgG titre within 2-4 weeks is the gold standard for diagnosis in the convalescent phase. Doxycycline is the first-line antimicrobial therapy."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Human granulocytic anaplasmosis is an emerging tick-borne disease which can be acquired in Switzerland. Early diagnostic work-up using blood PCR and empirical doxycycline therapy are key in patients at risk of exposure to ticks who present with severe acute febrile illness without an alternative diagnosis."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11",
+      "flagged": "Anaplasmose-case; ankyloserende spondylitis kun baggrund for methotrexat"
+    },
+    {
+      "pmid": "43001851",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PsA/SpA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Clin Exp Rheumatol",
+      "first_author": "Li",
+      "last_author": "Pan",
+      "date": "2026-11-05",
+      "title": "WTAP regulates PTEN through m6A methylation to modulate the inflammatory response in CD4+ T cells from patients with ankylosing spondylitis.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "This study aimed to investigate how Wilms' tumour 1-related protein (WTAP)-mediated m6A methylation regulates PTEN and thereby influences the inflammatory response in ankylosing spondylitis (AS) through a combination of a case-control study and cellular experiments."
+        },
+        {
+          "label": "METHODS",
+          "text": "The study enrolled 45 AS patients and 45 age- and gender-matched healthy controls. Peripheral venous blood (10 mL) was drawn from each participant, and CD4+ T lymphocytes were isolated using a human positive selection kit. mRNA expression levels of WTAP and PTEN were measured by quantitative real-time PCR (qRT-PCR). Plasma was separated by centrifugation and subjected to enzyme-linked immunosorbent assay (ELISA) to quantify inflammatory cytokine concentrations. A WTAP-knockdown model was established in human Jurkat T cells using small interfering RNA (siRNA), followed by analysis of downstream gene transcription and protein expression via qRT-PCR and Western blotting, respectively. After WTAP knockdown, the m6A modification level of PTEN mRNA in Jurkat cells was determined by MeRIP-qPCR."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Results showed that WTAP and PTEN expression levels in CD4+ T lymphocytes were significantly downregulated in AS patients compared to healthy controls, and both were inversely correlated with TNF-α levels. Moreover, WTAP knockdown in Jurkat T cells led to a marked decrease in both PTEN expression and its m6A modification, which coincided with a significant increase in TNF-α expression."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "In conclusion, WTAP downregulation promotes AS inflammation by decreasing PTEN expression through an m6A-dependent mechanism."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11"
+    },
+    {
       "pmid": "42988264",
       "languages": [
         "eng"
@@ -848,6 +1745,42 @@
         "Systemic inflammation"
       ],
       "first_seen": "2026-11-09"
+    },
+    {
+      "pmid": "43001244",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Cureus",
+      "first_author": "Ahmad",
+      "last_author": "Weir",
+      "date": "2026-11-04",
+      "title": "Multifocal Cutaneous Angiosarcoma of the Lower Limbs Presenting With Severe Tumour-Related Haemorrhage: A Case Report.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Cutaneous angiosarcoma (CAS) is a rare and highly aggressive vascular tumour of endothelial origin with a poor prognosis. It can present with atypical skin lesions, making early diagnosis challenging. We present a case of a man in his late 80s who presented with a two-year history of weight loss, fatigue, iron-deficiency anaemia, and persistently elevated inflammatory markers. He subsequently developed rapidly progressive, multifocal violaceous nodules affecting both lower limbs. Initial differential diagnoses included melanocytic and nodular vasculitis. Skin biopsy confirmed high-grade CAS. The lesions progressed to fungation with recurrent bleeding, resulting in severe symptomatic anaemia requiring repeated blood transfusions. Management was complicated by his background of a persistent endoleak after endovascular aneurysm repair (EVAR) of a large abdominal aortic aneurysm (AAA). This case highlights the importance of considering CAS in rapidly evolving, atypically located skin lesions. Early diagnosis and patient-centred multidisciplinary management are essential, particularly when advanced disease and significant comorbidities limit therapeutic options."
+        }
+      ],
+      "keywords": [
+        "angiosarcoma",
+        "cutaneous malignancy",
+        "palliative radiotherapy",
+        "pulmonary embolism (pe)",
+        "transfusion-dependent anaemia",
+        "tumour bleeding"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Kutant angiosarkom-case; ingen reumatologisk sygdom"
     },
     {
       "pmid": "42980467",
@@ -2426,6 +3359,97 @@
       "first_seen": "2026-11-09"
     },
     {
+      "pmid": "43000989",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Int J Rheum Dis",
+      "first_author": "Jia",
+      "last_author": "Zheng",
+      "date": "2026-11-01",
+      "title": "The Association Between Oxidative Balance Score and All-Cause Mortality in Patients With Rheumatoid Arthritis.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "This study aimed to explore the associations of the oxidative balance score (OBS) and all-cause and cardiovascular disease (CVD) mortality in patients with rheumatoid arthritis (RA), and to analyze the mediating role of the neutrophil-to-lymphocyte ratio (NLR)."
+        },
+        {
+          "label": "METHODS",
+          "text": "Data were obtained from the National Health and Nutrition Examination Survey. Cox proportional hazards models were used to assess the associations of total OBS, dietary OBS, and lifestyle OBS with all-cause and CVD mortality. Restricted cubic spline (RCS) analysis was performed to explore dose-response relationships, while subgroup analysis was conducted to verify the robustness of the results. Mediation analysis examined NLR-mediated association between OBS and all-cause mortality."
+        },
+        {
+          "label": "RESULTS",
+          "text": "887 RA patients were analyzed, with 79 deaths during follow-up. In the fully adjusted model, each 1-unit increase in total OBS, dietary OBS, and lifestyle OBS was associated with a 6%, 7%, and 25% lower risk of all-cause mortality, respectively. Total OBS was negatively associated with CVD mortality when analyzed as a continuous variable, but not when categorized into tertiles. RCS analysis confirmed linear dose-response relationships between total OBS, dietary OBS, lifestyle OBS, and all-cause mortality. NLR mediated a small proportion of the associations of total OBS (5.47%) and dietary OBS (4.89%) with all-cause mortality. Subgroup analysis showed that the negative association between total OBS and all-cause mortality across several subgroups."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Higher total OBS, dietary OBS, and lifestyle OBS were significantly associated with reduced all-cause mortality in RA patients, with a linear dose-response relationship."
+        }
+      ],
+      "keywords": [
+        "all‐cause mortality",
+        "cardiovascular disease mortality",
+        "oxidative balance score",
+        "rheumatoid arthritis"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43012374",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Immun Inflamm Dis",
+      "first_author": "Wu",
+      "last_author": "Zhao",
+      "date": "2026-11-01",
+      "title": "Rheumatoid Arthritis and Thrombocytopenia: Causal Evidence and Prognostic Implications From Observational and Mendelian Randomization Analyzes.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Rheumatoid arthritis (RA) is a systemic autoimmune disease associated with hematological abnormalities, and we aimed to investigate the clinical significance and causal relationship of thrombocytopenia (TP) in RA. We integrated observational data with genetic approaches, characterized the clinical features of RA patients with TP, and evaluated their prognostic implications."
+        },
+        {
+          "label": "MATERIALS AND METHODS",
+          "text": "Data from the National Health and Nutrition Examination Survey were used to analyze clinical characteristics and survival outcomes of RA patients. Survey-weighted Cox regression models were applied to evaluate the association between TP and mortality. Two-sample Mendelian randomization (MR) analysis was performed to evaluate the causal relationship between RA and TP."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Among 2667 RA participants with available platelet measurements, 135 had TP (< 150 × 109/L). In the common complete-case sample, TP remained associated with higher all-cause mortality after full survey-weighted adjustment (HR 1.92, 95% CI 1.17-3.16; p = 0.009). Lower serum albumin and higher urinary albumin concentration were also associated with mortality in the fully adjusted model. In the MR analysis using 52 SNPs, fixed-effect IVW yielded OR 1.054 (95% CI 1.002-1.108; p = 0.042), but alternative estimators were not significant and the MR-Egger intercept indicated directional pleiotropy (p = 0.0016)."
+        },
+        {
+          "label": "DISCUSSION",
+          "text": "Thrombocytopenia was associated with poorer survival among RA participants, whereas MR did not provide robust evidence for a causal effect of RA liability on thrombocytopenia. These findings warrant further prospective validation."
+        }
+      ],
+      "keywords": [
+        "Mendelian randomization",
+        "NHANES",
+        "all‐cause mortality",
+        "autoimmunity",
+        "rheumatoid arthritis",
+        "thrombocytopenia"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
       "pmid": "42989570",
       "languages": [
         "eng"
@@ -3278,6 +4302,115 @@
       "first_seen": "2026-11-09"
     },
     {
+      "pmid": "43012838",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IIM"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Medicine (Baltimore)",
+      "first_author": "Luan",
+      "last_author": "Hou",
+      "date": "2026-10-30",
+      "title": "Anti-MDA5 antibody-positive dermatomyositis complicated by unilateral vocal cord paralysis: A case report.",
+      "abstract_sections": [
+        {
+          "label": "RATIONALE",
+          "text": "Hoarseness is a well-recognized feature in patients with anti-melanoma differentiation-associated protein 5 antibody-positive dermatomyositis (MDA5-DM); however, vocal cord paralysis (VCP) is a distinctly uncommon complication. To date, VCP has been rarely reported in MDA5-DM or other inflammatory myopathies, and the limited published cases have described exclusively bilateral cord involvement; unilateral VCP has not been documented. Although Janus kinase inhibitors have shown some effectiveness in treating refractory MDA5-DM, their therapeutic role in VCP remains unclear."
+        },
+        {
+          "label": "PATIENT CONCERNS",
+          "text": "A 47-year-old Chinese woman with MDA5-DM had clinical improvement after treatment with glucocorticoids and cyclosporine; then she was discharged. However, 2 day after discharge, she experienced a sudden onset of hoarseness, difficulty swallowing liquids, chest tightness, and shortness of breath."
+        },
+        {
+          "label": "DIAGNOSES",
+          "text": "Flexible laryngoscopy showed immobility of the left vocal cord, consistent with left VCP. After ruling out causes such as neck surgery, trauma, and mechanical compression, we determined that the unilateral recurrent laryngeal nerve injury was related to MDA5-DM."
+        },
+        {
+          "label": "INTERVENTIONS",
+          "text": "Because of severe gingival hyperplasia and worsening hoarseness, cyclosporine was discontinued and replaced with tacrolimus. Tofacitinib was added, along with voice therapy."
+        },
+        {
+          "label": "OUTCOMES",
+          "text": "By day 13, the patient's hoarseness and choking had improved substantially; by day 20, these symptoms had resolved completely."
+        },
+        {
+          "label": "LESSONS",
+          "text": "Unilateral VCP may represent a rare neurological complication in patients with MDA5-DM. For patients who present with hoarseness, difficulty swallowing liquids, or unexplained worsening of shortness of breath, laryngoscopy should be considered to facilitate early diagnosis. If calcineurin inhibitors are not tolerated or the response is inadequate, adding a Janus kinase inhibitor such as tofacitinib may be considered as part of a comprehensive immunosuppressive regimen; however, because multiple interventions were used concurrently in this case, the independent contribution of tofacitinib to neurological recovery could not be determined."
+        }
+      ],
+      "keywords": [
+        "anti-MDA5 positive",
+        "dermatomyositis",
+        "recurrent laryngeal nerve injury",
+        "tofacitinib",
+        "vocal cord paralysis"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43012796",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Medicine (Baltimore)",
+      "first_author": "Kimura",
+      "last_author": "Miyazaki",
+      "date": "2026-10-30",
+      "title": "Intravascular large B-cell lymphoma presenting as unilateral lymphedema in a patient with rheumatoid arthritis and sarcoidosis: A case report.",
+      "abstract_sections": [
+        {
+          "label": "RATIONALE",
+          "text": "Intravascular large B-cell lymphoma (IVLBCL) is an uncommon subtype of diffuse large B-cell lymphoma, typically presenting with nonspecific symptoms and lacking lymphadenopathy or visible tumor lesions, which makes early diagnosis challenging."
+        },
+        {
+          "label": "PATIENT CONCERNS",
+          "text": "A 66-year-old female developed progressive unilateral lymphedema despite ongoing treatment for rheumatoid arthritis and sarcoidosis. Sarcoidosis-related lymph node lesions were also considered as a potential cause, and the prednisolone dose was increased. Despite these measures, the edema worsened, and a fever of around 38°C developed. At the initial evaluation, the serum soluble interleukin-2 receptor level was already elevated at 9985 U/mL."
+        },
+        {
+          "label": "DIAGNOSES",
+          "text": "Initial investigations, including imaging, bone marrow aspiration, and random skin biopsies, failed to reveal malignancy. Subsequent monitoring revealed that the serum level of serum soluble interleukin-2 receptor had risen further to 19,835 U/mL and that thrombocytopenia was present, prompting a repeat random skin biopsy that ultimately confirmed IVLBCL through the identification of intravascular cluster of differentiation 20-positive lymphoma cells."
+        },
+        {
+          "label": "INTERVENTIONS",
+          "text": "Chemotherapy with rituximab, cyclophosphamide, doxorubicin, vincristine, and prednisone was initiated. However, the patient developed peripheral neuropathy, suspected to be an adverse drug reaction. Consequently, the regimen was switched to polatuzumab vedotin, rituximab, cyclophosphamide, doxorubicin, and prednisolone."
+        },
+        {
+          "label": "OUTCOMES",
+          "text": "After completing 8 courses, the patient achieved remission. The left lower-limb lymphedema improved significantly."
+        },
+        {
+          "label": "LESSONS",
+          "text": "This case highlights several clinically significant points: first, IVLBCL can present solely as unilateral lymphedema without detectable lymph node enlargement or tumorous lesions, underscoring the diagnostic difficulty. Second, repeated random skin biopsies, including adipose-rich vascular tissue, are crucial in establishing a definitive diagnosis when initial biopsies are inconclusive. Third, patients with underlying autoimmune conditions such as rheumatoid arthritis and sarcoidosis, particularly those receiving immunosuppressive therapies, may have an increased susceptibility to lymphoma, suggesting that systemic immune dysregulation could contribute to disease onset."
+        }
+      ],
+      "keywords": [
+        "intravascular large B-cell lymphoma",
+        "lymphedema",
+        "random skin biopsy",
+        "rheumatoid arthritis",
+        "sarcoidosis"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Intravaskulært lymfom-case; RA og sarkoidose kun komorbiditet"
+    },
+    {
       "pmid": "42960890",
       "languages": [
         "eng"
@@ -3667,6 +4800,45 @@
         "transferrin"
       ],
       "first_seen": "2026-11-09"
+    },
+    {
+      "pmid": "43001864",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Vasculitis"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Clin Exp Rheumatol",
+      "first_author": "Cao",
+      "last_author": "Li",
+      "date": "2026-10-29",
+      "title": "Glycolipid metabolic changes during remission induction in ANCA-associated vasculitis: a retrospective study of the lipid paradox.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "To investigate dynamic changes in glycolipid metabolism in patients with antineutrophil cytoplasmic antibody-associated vasculitis (AAV) during remission induction and to explore their associations with inflammatory markers, treatment and ANCA antigen specificity."
+        },
+        {
+          "label": "METHODS",
+          "text": "In this retrospective cohort study of 973 patients with AAV, baseline glycolipid profiles and the prevalence of dyslipidaemia were assessed. Paired baseline and post-remission induction glycolipid parameters were compared in the longitudinal cohort. Multivariable models were used to evaluate factors associated with baseline dyslipidaemia and exploratory associations with metabolic changes. Additional analyses compared patients with and without longitudinal data and assessed the relationship between changes in inflammatory markers and metabolic parameters."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Dyslipidaemia was highly prevalent at baseline. Inflammatory markers, including erythrocyte sedimentation rate (ESR) and C-reactive protein (CRP), were associated with dyslipidaemia. During remission induction, triglyceride, total cholesterol and LDL-C levels increased, whereas fasting glucose and the TC/HDL-C ratio decreased, consistent with a lipid-paradox pattern. Additional analyses suggested potential selection bias in the longitudinal cohort."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Patients with AAV show a high burden of baseline dyslipidaemia and dynamic glycolipid metabolic changes during remission induction. The observed increase in lipid concentrations together with decreases in fasting glucose and the TC/HDL-C ratio suggests a lipid-paradox pattern and a close relationship between inflammation and metabolic status. Further prospective studies with standardised treatment exposure and cardiovascular outcome assessment are needed to clarify the clinical significance of these metabolic trajectories."
+        }
+      ],
+      "keywords": [],
+      "first_seen": "2026-11-11"
     },
     {
       "pmid": "42956788",
@@ -4323,6 +5495,98 @@
       "first_seen": "2026-11-09"
     },
     {
+      "pmid": "43011368",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Front Med (Lausanne)",
+      "first_author": "Zou",
+      "last_author": "Li",
+      "date": "2026-10-27",
+      "title": "Case Report: When infection wears a rheumatic mask: probable systemic brucellosis mimicking seronegative inflammatory arthritis with sicca symptoms and suspected cervical spondylitis.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Brucellosis is a zoonotic infection with protean manifestations. Osteoarticular disease is common, but presentation as seronegative inflammatory arthritis with sicca symptoms, generalized lymphadenopathy, and cervical spondylitis may be mistaken for autoimmune rheumatic disease."
+        },
+        {
+          "label": "CASE PRESENTATION",
+          "text": "A 58-year-old male cattle farmer presented with intermittent chills, sicca symptoms, symmetric polyarthritis, weight loss, anemia, hypoalbuminemia, and elevated inflammatory markers. Autoimmune serology was negative. Ultrasonography confirmed synovial hyperplasia and tenosynovitis. 18F-FDG PET/CT showed generalized lymphadenopathy and focal C5 uptake; MRI showed C5 marrow edema. Lymph-node biopsy demonstrated non-necrotizing granulomatous inflammation with negative acid-fast and periodic acid-Schiff stains. Positive Rose Bengal and Brucella IgG tests, a standard tube agglutination titer of 1:100, and the clinical context prompted a working diagnosis of probable systemic brucellosis. Blood and bone marrow cultures were negative; paired serology was unavailable. At telephone follow-up, the patient reported taking outpatient rifampicin and doxycycline for 2 years, near-resolution of cervical pain at approximately 3 months, and normalization of inflammatory markers and hemoglobin after more than 6 months. A negative local agglutination result reported by his daughter at approximately 3 months could not be verified. Intermittent bilateral hip and knee pain persisted, requiring as-needed etoricoxib and, at the latest follow-up, a walking aid. Treatment had been extended because symptoms persisted, but the cause of the functional impairment remained undetermined."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Probable systemic brucellosis merits consideration in exposed patients with seronegative inflammatory arthritis, sicca symptoms, and granulomatous lymphadenopathy. Occupational seropositivity, incomplete microbiological confirmation, and unverified follow-up testing limit diagnostic certainty. Symptomatic improvement during antibiotics does not establish the etiology or microbiological cure, and persistent disability warrants reassessment for infection, structural disease, and coexisting rheumatic pathology."
+        }
+      ],
+      "keywords": [
+        "brucellosis",
+        "cervical spondylitis",
+        "granulomatous lymphadenitis",
+        "seronegative inflammatory arthritis",
+        "sicca symptoms",
+        "zoonotic infection"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43011091",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Front Pharmacol",
+      "first_author": "Israel",
+      "last_author": "Merzon",
+      "date": "2026-10-27",
+      "title": "Antiprotozoal drug exposure and reduced long-term mortality and morbidity: a multi-cohort pharmacoepidemiologic study.",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "Medications may affect age-related morbidity and overall survival beyond their original indications. Systematic identification of such effects may inform drug repurposing strategies for healthy aging. We aimed to identify medications associated with longevity and reduced age-related morbidity using large-scale electronic health record data."
+        },
+        {
+          "label": "METHODS",
+          "text": "We conducted a stepwise pharmacoepidemiologic investigation in two independent healthcare systems. Using electronic health records from a nationwide health provider, we performed an exploratory medication-wide case-control screen comparing medication exposure during a 10-year window between 14,986 individuals who died before sex-specific median life expectancy and matched controls who survived beyond their life expectancy. Two leading candidate drugs, atovaquone-proguanil and mefloquine, are antiprotozoal agents with activity against Toxoplasma gondii. Their effects on mortality and age-related morbidity were further evaluated within a historical cohort of 3,876 exposed individuals and 77,520 matched controls using Cox proportional hazards models adjusted for baseline characteristics. External validation was performed in the United States-based TriNetX network, including cohorts exposed to atovaquone-proguanil (n = 24,498), mefloquine (n = 3,400), and nirmatrelvir-ritonavir (n = 124,681), each matched to unexposed controls."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Atovaquone-proguanil and mefloquine, together with nirmatrelvir-ritonavir, a protease inhibitor with reported antiprotozoal effects, were associated with consistent reductions in all-cause mortality across cohorts and lower incidence of multiple age-related conditions, including dementia, diabetes mellitus, cardiovascular disease, chronic kidney disease, and selected malignancies. Consistent increases in specific conditions were also observed, including hearing loss, Sjögren's syndrome/dry eye, and lichen planus, suggesting shared underlying mechanisms, although confounding cannot be excluded."
+        },
+        {
+          "label": "DISCUSSION",
+          "text": "Findings were consistent across healthcare systems and drug classes, including in populations exposed to non-travel-associated medications. While causality cannot be established, these results support further investigation into potential links between chronic protozoal infections and aging-related diseases."
+        }
+      ],
+      "keywords": [
+        "Toxoplasma gondii",
+        "aging",
+        "antiprotozoal agents",
+        "atovaquone-proguanil",
+        "drug repurposing",
+        "mefloquine",
+        "mortality",
+        "pharmacoepidemiology"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Lægemiddel-repurposing mod aldring; ingen reumatologisk sygdom"
+    },
+    {
       "pmid": "42967160",
       "languages": [
         "eng"
@@ -4570,6 +5834,134 @@
       ],
       "keywords": [],
       "first_seen": "2026-11-09"
+    },
+    {
+      "pmid": "43005857",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Int J Surg Case Rep",
+      "first_author": "Ali",
+      "last_author": "Sharifian Paghaleh",
+      "date": "2026-10-26",
+      "title": "Infiltrative retroperitoneal metastasis causing obstructive uropathy and gastric outlet obstruction secondary to an occult sigmoid colon adenocarcinoma: a rare case report and literature review.",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "Colorectal cancer most often presents with gastrointestinal problems such as obstruction and abdominal pain, or is detected early by screening colonoscopy. Retroperitoneal metastasis that mimics the findings of retroperitoneal fibrosis is rare and can cause diagnostic challenges, especially in patients in whom contrast-enhanced imaging is contraindicated."
+        },
+        {
+          "label": "CASE PRESENTATION",
+          "text": "A 49-year-old woman was admitted with severe bilateral flank pain, oliguria, intermittent nausea, and loss of appetite without abdominal distention or constipation. Due to a known allergy to contrast media, a non-contrast CT scan was performed and showed bilateral hydronephrosis and evidence of retroperitoneal fibrosis. Although double-J ureteral stents were inserted, the patient's renal function progressively deteriorated, requiring hemodialysis. After that, the patient experienced intractable vomiting, and the evaluation confirmed gastric outlet obstruction (GOO) caused by mass effect from a retroperitoneal mass. Magnetic resonance imaging findings continued to favor retroperitoneal fibrosis despite the presence of some suspicious pulmonary nodules. Surgical intervention with retroperitoneal biopsy was performed, during which an incidental sigmoid mass was detected and resected. Histopathology revealed well-differentiated sigmoid adenocarcinoma with retroperitoneal metastasis."
+        },
+        {
+          "label": "DISCUSSION",
+          "text": "Malignancy-associated retroperitoneal fibrosis faces critical diagnostic challenges due to its radiologic findings that can mimic a benign fibroinflammatory process. Unlike previous reports that focus on retroperitoneal fibrosis in patients with known primary malignancies, this case presented without a history or symptoms of colorectal cancer. Additionally, the inability to perform a contrast-enhanced CT scan contributed to a delayed diagnosis. Failure of ureteral stenting and GOO symptoms were two main indicators of infiltrative malignant disease. Timely tissue diagnosis remains essential for atypical manifestations of retroperitoneal fibrosis."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Occult sigmoid adenocarcinoma may rarely present with multi-level obstructive complications, even without typical large-bowel obstruction symptoms. Timely diagnosis and intervention require interdisciplinary collaboration to achieve critical, life-saving outcomes."
+        }
+      ],
+      "keywords": [
+        "case report",
+        "gastric outlet obstruction",
+        "obstructive uropathy",
+        "retroperitoneal fibrosis",
+        "sigmoid adenocarcinoma"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Malign retroperitoneal metastase; mimicker retroperitoneal fibrose"
+    },
+    {
+      "pmid": "43005061",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Front Oncol",
+      "first_author": "Zhang",
+      "last_author": "Wang",
+      "date": "2026-10-26",
+      "title": "Lymphedema as an initial manifestation of paraneoplastic rheumatic syndromes: a case series of six patients.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVE",
+          "text": "Lymphedema as the initial symptom poses significant challenges in the early diagnosis of underlying malignancies masquerading as rheumatic diseases."
+        },
+        {
+          "label": "METHODS",
+          "text": "This study retrospectively analyzed six patients who were hospitalized at Beijing Shijitan Hospital between October 2015 and October 2025 with paraneoplastic rheumatic syndromes (PRS) presenting with lymphedema as the initial manifestation. Data on clinical manifestation, laboratory and imaging findings, diagnoses, treatments, and prognosis were collected."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Six patients (3 males, 3 females; median age 66 years) presented with lymphedema as the initial manifestation of PRS. The initial rheumatologic diagnoses were leukocytoclastic vasculitis (n=2), undifferentiated connective tissue disease (n=2), Sjögren's syndrome (n=1), and anti-synthetase syndrome (n=1). The median interval from lymphedema onset to rheumatic diagnosis was 5.5 months. All patients received glucocorticoids, and four received immunosuppressants; none achieved durable benefit. The median interval from rheumatic diagnosis to therapy failure was 1 month, and from therapy failure to cancer diagnosis was 1 month. The underlying malignancies included lymphoma (n=3), lung adenocarcinoma (n=2), and gastric adenocarcinoma (n=1). During a follow-up of 1 to 13 months, two patients showed significant improvement in lymphedema, whereas the remaining four died."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Malignancies may present with lymphedema as the initial symptom, mimicking rheumatic diseases. Underlying malignancy should be highly suspected, particularly when there is a poor response to immunosuppressive therapy. Early recognition and screening for malignancies are crucial for improving patient outcomes."
+        }
+      ],
+      "keywords": [
+        "early detection",
+        "lymphedema",
+        "lymphoma",
+        "malignancy",
+        "paraneoplastic rheumatic syndromes"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43005885",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article",
+        "Review"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Front Immunol",
+      "first_author": "Jia",
+      "last_author": "Luo",
+      "date": "2026-10-26",
+      "title": "Rare paraneoplastic syndromes associated with thymoma: case reports and literature review.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Thymoma is the most common anterior mediastinal tumor, which is linked to the loss of self-tolerance and the presence of autoimmunity. Various interactions between thymoma and autoimmune diseases have been identified, including myasthenia gravis, systemic lupus erythematosus, pure red cell aplasia, and pemphigus. In this retrospective case series, we reported rare autoimmune disorders with different organ involvement associated with thymoma. These included ocular paraneoplastic pemphigus, neuromyelitis optica spectrum disorder, diffuse panbronchiolitis and myositis. Our series broadens the spectrum of autoimmune disorders with shared T cell-mediated and B cell-dependent pathogenesis, underscoring the recurrence or relapse of thymoma-associated autoimmunity. The recognition of rare autoimmune presentations charts future treatment decisions and multidisciplinary care."
+        }
+      ],
+      "keywords": [
+        "autoimmunity",
+        "paraneoplastic pemphigus",
+        "paraneoplastic syndromes",
+        "rare",
+        "thymoma"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Thymom-paraneoplastiske cases; SLE kun nævnt i baggrunden"
     },
     {
       "pmid": "42932257",
@@ -5267,6 +6659,52 @@
       ],
       "first_seen": "2026-10-26",
       "flagged": "VZV-vaskulopati med subduralt hæmatom; ikke reumatisk vaskulit"
+    },
+    {
+      "pmid": "43011534",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "PMR/GCA"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Rheumatol Adv Pract",
+      "first_author": "Twohig",
+      "last_author": "Muller",
+      "date": "2026-10-23",
+      "title": "Analgesic prescribing in people with polymyalgia rheumatica: a retrospective cohort study in the Clinical Practice Research Datalink.",
+      "abstract_sections": [
+        {
+          "label": "OBJECTIVES",
+          "text": "To report primary care prescribing rates of analgesics in people with PMR treated with glucocorticoids (GCs), overall and stratified by age, sex and deprivation."
+        },
+        {
+          "label": "METHODS",
+          "text": "A sample of >43 000 individuals ≥50 years of age with a coded PMR diagnosis from January 2010 to March 2022 and prescribed GCs within 21 days of the first PMR diagnosis code was constructed in the Clinical Practice Research Datalink Aurum. Prescriptions for 'all analgesics', opioids, NSAIDs, gabapentinoids and amitriptyline were defined as prevalent (pre-PMR diagnosis), incident (at diagnosis) or late (post-diagnosis, still GC-treated) and reported overall and stratified by age/sex/deprivation."
+        },
+        {
+          "label": "RESULTS",
+          "text": "While they were receiving GCs for PMR, 56.1% of participants were prescribed an analgesic. Opioids were the most frequently co-prescribed analgesics, followed by NSAIDs. Opioid prescribing was more common in females than males, at older ages and in more deprived areas. Amitriptyline and gabapentinoids were less commonly prescribed but followed the same sex and deprivation trends as opioids. NSAID prescribing was lower with older age, higher for males than females and did not vary with deprivation."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Analgesics are frequently co-prescribed with GCs in people with PMR despite a lack of evidence of effectiveness and risks of adverse events. This shows an unmet need for better pain management in PMR. The identified variation in prescribing of opioids and gabapentinoids by gender/deprivation is consistent with prescribing data for the general population and people with other painful musculoskeletal conditions and suggests that psychosocial and cultural factors affect pain and pain management in patients being treated for PMR. This needs further exploration to address inequalities and reduce iatrogenic harm."
+        }
+      ],
+      "keywords": [
+        "analgesia",
+        "glucocorticoids",
+        "pain",
+        "polymyalgia rheumatica",
+        "prescribing",
+        "primary care"
+      ],
+      "first_seen": "2026-11-11"
     },
     {
       "pmid": "42937723",
@@ -8207,6 +9645,39 @@
       "first_seen": "2026-10-19"
     },
     {
+      "pmid": "43001194",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SSc"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "JAAD Case Rep",
+      "first_author": "Wang",
+      "last_author": "Gropper",
+      "date": "2026-10-17",
+      "title": "Extensive guttate morphea in an adolescent.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": ""
+        }
+      ],
+      "keywords": [
+        "Guttate morphea",
+        "morphea variants",
+        "pediatric",
+        "scleroderma"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
       "pmid": "42914632",
       "languages": [
         "eng"
@@ -9138,6 +10609,50 @@
       "first_seen": "2026-10-19"
     },
     {
+      "pmid": "43007867",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SLE"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Am J Nephrol",
+      "first_author": "Wei",
+      "last_author": "Zhu",
+      "date": "2026-10-15",
+      "title": "Tubuloreticular Inclusions in Kidney Tissues of Patients With Lupus Nephritis: An Ultrastructural Biomarker of Type I Interferon-Driven Disease Activity.",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "Tubuloreticular inclusions (TRIs) in kidney tissues associate with type I interferon (IFN-I) pathway activation, but their clinical and pathological significance in lupus nephritis (LN) remains incompletely defined."
+        },
+        {
+          "label": "METHODS",
+          "text": "We conducted a retrospective cohort study of 327 patients with biopsy-confirmed LN at the National Clinical Research Center for Kidney Diseases from January 2023 to December 2025. TRIs were identified in kidney tissues by transmission electron microscopy in both glomerular endothelial cells (GECs) and peritubular capillary (PTC) endothelial cells. For semi-quantitative assessment, 10 capillary loops per glomerulus and 10 peritubular capillaries per case were examined; in cases with more than one glomerulus, loops were randomly selected from each glomerulus and the maximum score across all glomeruli was recorded as the GEC-TRI grade. The final TRI grade for each case was defined as the higher of the GEC-TRI and PTC-TRI grades, classified as grade 0 (no TRIs), grade 1 (TRIs in 1 of 10 capillary profiles) or grade 2 (TRIs in ≥2 of 10 capillary profiles), with patients subsequently grouped as TRI-negative (grade 0) or TRI-positive (grade 1 or 2). Clinical, pathological, immunofluorescence and extrarenal manifestations were compared between groups. In a subset, peripheral blood RNA sequencing was performed to calculate IFN-I scores and assess pathway activation."
+        },
+        {
+          "label": "RESULTS",
+          "text": "TRIs were observed in 207 of 327 patients (63.3%). Pathologically, TRI-positive patients exhibited lower chronicity index, higher frequency of segmental loop necrosis, along with reduced rates of vascular lesions, interstitial fibrosis and tubular atrophy (all p < 0.05). On immunofluorescence, increased deposition of IgM and C1q and a higher prevalence of full-house pattern were observed in TRI-positive patients (all p < 0.05); C3 deposition showed a significant stepwise increase across TRI grades (p = 0.03), though the dichotomized comparison was not significant (p = 0.06). Clinically, they had higher SLE Disease Activity Index scores, increased urinary red blood cell counts and elevated proteinuria (all p < 0.05). They also demonstrated lower serum complement levels, increased immunoglobulin levels (e.g., IgA) and higher prevalence of multiple autoantibodies (e.g., anti-dsDNA; all p < 0.05). TRI-positive patients also showed heightened IFN-I signatures and higher prevalence of extrarenal manifestations, including mucocutaneous, musculoskeletal, hematological, pulmonary involvement, serositis and organic brain syndrome (all p < 0.05)."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "TRIs are highly prevalent in kidney tissues of patients with LN. They identify a distinct IFN-I-driven disease subset, offering a practical histopathological marker of heightened activity and potential target for therapeutic stratification."
+        }
+      ],
+      "keywords": [
+        "Lupus nephritis",
+        "Tubuloreticular inclusions",
+        "Type I interferon",
+        "Ultrastructure"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
       "pmid": "42959264",
       "languages": [
         "eng"
@@ -9771,6 +11286,53 @@
       ],
       "keywords": [],
       "first_seen": "2026-10-19"
+    },
+    {
+      "pmid": "43006119",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "SSc"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Int J Surg Case Rep",
+      "first_author": "González-Cancino",
+      "last_author": "Muñoz-Gómez",
+      "date": "2026-10-14",
+      "title": "A challenging sequence of ipsilateral femoral neck fracture, revision total hip arthroplasty, and periprosthetic femoral fracture in a transtibial amputee: a case report.",
+      "abstract_sections": [
+        {
+          "label": "INTRODUCTION",
+          "text": "Patients with transtibial amputation may present gait asymmetry, altered load distribution, and increased risk of falls. Hip fracture treatment and arthroplasty in this population are uncommon and technically demanding."
+        },
+        {
+          "label": "CASE PRESENTATION",
+          "text": "We report the case of a 59-year-old woman with systemic sclerosis, chronic corticosteroid exposure, osteopenia, and a prior left transtibial amputation secondary to severe vascular disease. Six months after the amputation, she sustained a displaced femoral neck fracture and underwent unipolar hemiarthroplasty at an outside institution. Persistent pain and poor functional recovery prompted conversion to total hip arthroplasty. Intraoperatively, femoral component retroversion was identified. Eighteen months later, she sustained a new fall resulting in a Vancouver type C periprosthetic femoral fracture, which was treated with open reduction and internal fixation. At 24 months after the last procedure, she had satisfactory pain relief, stable implants, fracture union, and functional ambulation with a prosthesis."
+        },
+        {
+          "label": "DISCUSSION",
+          "text": "This case suggests that systemic fragility, altered biomechanics, recurrent falls, and technical factors may have interacted during this patient's course. The observed sequence should be interpreted as a plausible multifactorial progression rather than a proven causal cascade."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Hip arthroplasty in transtibial amputees requires careful preoperative planning, accurate component positioning, and attention to systemic risk factors such as poor bone quality and fall risk. Nevertheless, given the complexity and unique nature of this case, these recommendations should be considered cautiously, as they are based on a single clinical observation."
+        }
+      ],
+      "keywords": [
+        "case report",
+        "hemiarthroplasty",
+        "periprosthetic fracture",
+        "total hip arthroplasty",
+        "transtibial amputation"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Ortopædkirurgisk hoftecase; systemisk sklerose kun komorbiditet"
     },
     {
       "pmid": "42959841",
@@ -11882,6 +13444,41 @@
         "rheumatoid arthritis"
       ],
       "first_seen": "2026-10-12"
+    },
+    {
+      "pmid": "43005224",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Vasculitis"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Cureus",
+      "first_author": "Hashimoto",
+      "last_author": "Takahara",
+      "date": "2026-10-09",
+      "title": "Clinical Features Suggestive of Underlying Eosinophilic Granulomatosis With Polyangiitis Before Dupilumab Therapy in Patients With Chronic Rhinosinusitis With Nasal Polyps.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Dupilumab is effective for eosinophilic chronic rhinosinusitis (ECRS); however, eosinophilic granulomatosis with polyangiitis (EGPA) may become clinically apparent after treatment initiation. We retrospectively reviewed three patients with chronic rhinosinusitis with nasal polyps who developed systemic manifestations leading to a diagnosis of EGPA shortly after dupilumab initiation. All three patients had bronchial asthma and peripheral eosinophilia before treatment. EGPA developed within two weeks to two months after dupilumab initiation, with manifestations including fever, arthralgia, peripheral neuropathy, weight loss, and hypertrophic pachymeningitis. Two patients achieved remission with systemic corticosteroids and mepolizumab, whereas one patient with pre-existing myeloperoxidase-antineutrophil cytoplasmic antibody (MPO-ANCA) positivity had a fatal outcome despite intensive immunosuppressive therapy. Their pretreatment courses suggested that systemic eosinophilic disease may already have been evolving before biologic therapy, particularly in the patient with pre-existing MPO-ANCA positivity. Notably, the timing at which EGPA criteria were fulfilled differed between Japan's Ministry of Health, Labour and Welfare (MHLW) diagnostic criteria and the European Alliance of Associations for Rheumatology/American College of Rheumatology (EULAR/ACR) classification criteria in these patients, highlighting that reliance on a single set of criteria may delay recognition of evolving EGPA. These cases emphasize the importance of evaluating unexplained marked eosinophilia, ANCA positivity, and systemic symptoms before initiating dupilumab and of distinguishing transient treatment-associated eosinophilia from emerging systemic vasculitis during follow-up."
+        }
+      ],
+      "keywords": [
+        "chronic rhinosinusitis with nasal polyp",
+        "dupilumab",
+        "eosinophilic chronic rhinosinusitis",
+        "eosinophilic granulomatosis with polyangiitis",
+        "peripheral eosinophilia",
+        "prodromal egpa"
+      ],
+      "first_seen": "2026-11-11"
     },
     {
       "pmid": "42930571",
@@ -14042,7 +15639,9 @@
         "eng"
       ],
       "publication_types": [
-        "Journal Article"
+        "Journal Article",
+        "Multicenter Study",
+        "Observational Study"
       ],
       "disease_groups": [
         "General"
@@ -21910,6 +23509,40 @@
         "Systemic scleroderma"
       ],
       "first_seen": "2026-09-28"
+    },
+    {
+      "pmid": "43001248",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Vasculitis"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "JAAD Case Rep",
+      "first_author": "Abdel Hamid",
+      "last_author": "Gruber",
+      "date": "2026-09-25",
+      "title": "Cutaneous polyarteritis nodosa preceding acute myeloid leukemia with plasmacytoid dendritic cell differentiation and leukemia cutis.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": ""
+        }
+      ],
+      "keywords": [
+        "cutaneous polyarteritis nodosa",
+        "dermatohistopathology",
+        "leukemia cutis",
+        "plasmacytoid dendritic cell acute myeloid leukemia",
+        "vasculitis"
+      ],
+      "first_seen": "2026-11-11"
     },
     {
       "pmid": "42936176",
@@ -29842,7 +31475,8 @@
         "eng"
       ],
       "publication_types": [
-        "Journal Article"
+        "Journal Article",
+        "Randomized Controlled Trial"
       ],
       "disease_groups": [
         "IIM"
@@ -38332,6 +39966,82 @@
       "first_seen": "2026-08-31"
     },
     {
+      "pmid": "43001236",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "Vasculitis"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "J Vasc Surg Cases Innov Tech",
+      "first_author": "Cabot",
+      "last_author": "Sgroi",
+      "date": "2026-08-31",
+      "title": "Intravascular lithotripsy for calcific stenosis of the abdominal aorta in a patient with Takayasu arteritis.",
+      "abstract_sections": [
+        {
+          "label": null,
+          "text": "Takayasu arteritis is a rare large-vessel vasculitis that predominantly affects the aorta and its major branches. Although stenotic lesions and fibrotic wall thickening are common, extensive aortic calcification with mesenteric involvement is exceedingly rare. Diffuse calcification of the aorta poses significant challenges for both open and endovascular treatment. We report the case of Takayasu arteritis with near-circumferential calcification of the entire aorta and most visceral branches, successfully managed with intravascular lithotripsy."
+        }
+      ],
+      "keywords": [
+        "Calcific aortic stenosis",
+        "Endovascular revascularization",
+        "Intravascular lithotripsy",
+        "Mesenteric occlusive disease",
+        "Takayasu arteritis"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43011635",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IIM"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Eur Heart J Case Rep",
+      "first_author": "ELBekiey",
+      "last_author": "ElGendi",
+      "date": "2026-08-31",
+      "title": "Anti-Ku myositis presenting with progressive inflammatory myocarditis: diagnostic pitfalls in a fatal case-case report.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Anti-Ku antibodies are rare disease of overlap myositis and often signal multisystem involvement. Overt heart failure, however, is seldom reported."
+        },
+        {
+          "label": "CASE SUMMARY",
+          "text": "A 60-year-old man presented with progressive exertional dyspnoea and chest tightness. Initial echocardiography showed mildly reduced left ventricular ejection fraction (LVEF 49%), and coronary angiography was normal, leading to a diagnosis of MINOCA. One month later, he re-presented with worsening breathlessness, dysphagia, and proximal muscle weakness. Laboratory tests revealed serum creatine kinase 2154-2680 IU/L, troponin 1437 ng/L, and pro-BNP 3290 ng/L. Repeat echocardiography demonstrated dilated ventricles and LVEF 35%. During admission, he developed high-grade AV dissociation requiring dual-chamber pacing and abrupt thrombocytopenia. Cardiac MRI identified a diffuse infiltrative pattern with LVEF 18%. Myositis-specific immunoblot detected high-titre anti-Ku antibodies, and deltoid biopsy confirmed inflammatory myopathy. Despite high-dose corticosteroids, mycophenolate, cyclophosphamide, rituximab and intravenous immunoglobulin, cardiac function deteriorated to LVEF 12%. Recurrent aspiration pneumonia necessitated gastrostomy. Eight months after initial presentation, the patient died following transition to palliative care."
+        },
+        {
+          "label": "DISCUSSION",
+          "text": "This case highlights the danger of assuming that an elevated troponin level is equivalent to myocardial infarction. Non-dynamic troponin elevation with global LV dysfunction and non-obstructive coronaries indicates myocardial injury and warrants investigation for inflammatory and other non-ischaemic causes. Systemic 'red flags' such as dysphagia must trigger early multidisciplinary evaluation to avoid fatal diagnostic delay."
+        }
+      ],
+      "keywords": [
+        "Anti-Ku myositis",
+        "Cardiomyopathy",
+        "Case report",
+        "Heart failure",
+        "Inflammatory myopathies"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
       "pmid": "42891369",
       "languages": [
         "eng"
@@ -44702,40 +46412,6 @@
       "first_seen": "2026-08-21"
     },
     {
-      "pmid": "42627074",
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Journal Article",
-        "Retraction Notice"
-      ],
-      "disease_groups": [
-        "PsA/SpA"
-      ],
-      "evidence_type": "Clinical case/survey",
-      "tier": 4,
-      "journal": "Mol Med Rep",
-      "first_author": "Li",
-      "last_author": "Ma",
-      "date": "2026-08-21",
-      "title": "[Retracted] Aberrant expression of miR‑130a‑3p in ankylosing spondylitis and its role in regulating T‑cell survival.",
-      "abstract_sections": [
-        {
-          "label": null,
-          "text": "Following the publication of the above paper, it was drawn to the Editor's attention by a concerned reader that the expression of BAX protein in Jurkat T cells, as shown in the western blots in Fig. 6A on p. 3392, was unexpected, since Jurkat cells have been reported to be BAX‑null [see the paper \"A genome‑wide survey of mutations in the Jurkat cell line\" by Gioia et al, Vol. 19, article no. 334 (2018)]. Furthermore, upon performing an independent analysis of the data in this paper, it came to light that the control β‑actin western blots featured in Fig. 4A and flow cytometric data included in Fig. 5B were strikingly similar to data that had already been submitted for publication to other journals in other articles written by different authors at different research institutes, one of which has since been retracted. Owing to the fact that the contentious data in the above article had already been submitted for publication prior to its submission to Molecular Medicine Reports, the Editor has decided that this paper should be retracted from the Journal. The authors were asked for an explanation to account for these concerns, but the Editorial Office did not receive a reply. The Editor apologizes to the readership for any inconvenience caused. [Molecular Medicine Reports 20: 3388‑3394, 2019; DOI: 10.3892/mmr.2019.10573]."
-        }
-      ],
-      "keywords": [
-        "HOXB1",
-        "T cells",
-        "ankylosing spondylitis",
-        "miR‑130a‑3p"
-      ],
-      "flagged": "retracted publication (Retraction Notice) — should not be presented as new evidence",
-      "first_seen": "2026-08-21"
-    },
-    {
       "pmid": "42630069",
       "languages": [
         "eng"
@@ -45778,6 +47454,53 @@
         "DMARD"
       ],
       "first_seen": "2026-08-20"
+    },
+    {
+      "pmid": "43010101",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Observational Study"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Observational",
+      "tier": 3,
+      "journal": "Adv Rheumatol",
+      "first_author": "Tupinambá",
+      "last_author": "Sousa Maia",
+      "date": "2026-08-19",
+      "title": "Understanding barriers: patient experience with immune-mediated rheumatic diseases in Brazilian public health.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Immune-mediated rheumatic diseases (IMRDs) encompass a wide range of rheumatological conditions that have a substantial impact on morbidity and mortality globally. Due to the diversified nature of IMRD symptoms, timely recognition of these conditions in primary care settings can be challenging. The duration between symptom onset and treatment initiation is a key factor influencing prognosis of IMRD. Therefore, this study aims to evaluate the medical journey of individuals with IMRD from symptom onset to treatment."
+        },
+        {
+          "label": "METHODS",
+          "text": "Cross-sectional observational study based on the analysis of questionnaire responses from 1,327 patients with IMRDs at two reference centers for rheumatic disease treatment in Rio de Janeiro. Quantitative variables were compared using the Mann-Whitney or Kruskal-Wallis test, while categorical and nominal variables were analyzed using McNemar's test."
+        },
+        {
+          "label": "RESULTS",
+          "text": "The median time until the first rheumatologist consultation after symptom onset was 7 months (0,5-216 months) and the median time to obtain a definitive diagnosis of IMRD was 12 months (0,5-216 months). This period was shorter for individuals with systemic lupus erythematosus (SLE), with a median of 8 months (0.5-216 months), and longer for those with psoriatic arthritis (PsA), with a median of 33 months (2-195 months). Additionally, the median time from symptom onset to specific treatment initiation was also 12 months. It was shown that consulting two or more non-rheumatologists doctors before seeing a rheumatologist significantly delayed the IMRD diagnosis (p-value < 0.001). The diagnosis of IMRD had a negative impact on emotional well-being and occupational capacity on 85.9% (n = 1,139) of participants' and 68.1% (n = 903) indicated that their work was somehow affected in a negative way. Throughout the diagnostic journey, negative feelings predominated in the period in which the diagnosis was not defined, but there was a notable shift after the confirmation of the diagnosis with an increase in positive emotions such as happiness, comfort, and well-being."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "This study provides valuable information on the challenges faced in the medical journey of patients with IMRDs, from delays in diagnosis to barriers in accessing treatment and the impact on well-being, highlighting the need for multifaceted interventions to improve the management of these complex conditions."
+        }
+      ],
+      "keywords": [
+        "Barriers",
+        "Diagnosis",
+        "Disease Management",
+        "Rheumatic diseases",
+        "Rheumatology",
+        "Therapeutics"
+      ],
+      "first_seen": "2026-11-11"
     },
     {
       "pmid": "42761729",
@@ -48523,6 +50246,52 @@
       "first_seen": "2026-08-15"
     },
     {
+      "pmid": "43009871",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Comparative Study",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "General"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "BMC Ophthalmol",
+      "first_author": "Boltz",
+      "last_author": "Vécsei-Marlovits",
+      "date": "2026-08-14",
+      "title": "Comparison of morphological and functional parameters after switching therapy from brolucizumab to faricimab in neovascular age-related macular degeneration.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Brolucizumab, an anti-vascular endothelial growth factor (VEGF) agent, offers extended dosing intervals in neovascular age-related macular degeneration (nAMD) but carries a rare risk of retinal vasculitis. Faricimab, a bispecific antibody targeting VEGF and angiopoietin-2 (Ang-2), maintained efficacy with dosing intervals of up to 16 weeks in the TENAYA and LUCERNE trials and carries a lower reported inflammatory risk. Patients may therefore be switched from brolucizumab to faricimab. This study examines the morphological and functional response after such a switch."
+        },
+        {
+          "label": "METHODS",
+          "text": "Patients with nAMD were included in this retrospective case series. Eligibility required at least three consecutive brolucizumab injections before switching to faricimab. The primary outcome was the change in central retinal thickness (CRT); secondary outcomes were the change in best-corrected visual acuity (VA) and adverse events."
+        },
+        {
+          "label": "RESULTS",
+          "text": "The study included 31 eyes from 28 patients treated with brolucizumab and switched to faricimab. Mean visual acuity (VA) was 0.3 logMAR (Snellen equivalent ~20/40) at visit -3, with no significant change after three brolucizumab injections (0.3 logMAR, ~20/40, p=0.932). After switching to faricimab, mean VA was 0.332 logMAR (~20/40) with no statistically significant difference from the value after three brolucizumab injections (p=0.187). Central retinal thickness (CRT) remained stable before (355.00µm to 347.29µm, p=0.538) and after switching (366.54µm, p=0.190). Of the 11 eyes that were free of fluid before the switch, 10 did not remain dry, and CRT increased significantly (282.9µm to 367.9µm, p=0.013) after extending intervals on average by +2.3 weeks (min 0 to max +5 weeks). However, visual function remained stable (p=0.559). In contrast, two eyes became dry with shorter intervals (-2 weeks), one eye remained dry (+2 weeks) and 18 eyes remained active (-0.5 weeks)."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Overall, morphological and functional parameters remained stable after switching to faricimab, and the safety profile was stable. Because every eye received both agents sequentially and no concurrent brolucizumab control group was included, this was not a head-to-head comparison. The increase in retinal thickness in some cases highlights the need for individualized treatment based on patient response."
+        }
+      ],
+      "keywords": [
+        "Brolucizumab",
+        "Faricimab",
+        "Macular neovascularization",
+        "Switch"
+      ],
+      "first_seen": "2026-11-11",
+      "flagged": "Øjenstudie om AMD-behandlingsskift; vaskulitis kun nævnt som bivirkning"
+    },
+    {
       "pmid": "42707816",
       "languages": [
         "eng"
@@ -50314,6 +52083,91 @@
       "first_seen": "2026-08-12"
     },
     {
+      "pmid": "43000235",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "BMC Nephrol",
+      "first_author": "Cetinkaya",
+      "last_author": "Akoğlu",
+      "date": "2026-08-11",
+      "title": "The sequential occurrence of Bullous pemphigoid, membranous nephropathy and rheumatoid arthritis: all in one patient, a case report.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Bullous pemphigoid (BP) is an autoimmune disease of the skin and mucous membranes. The presentation of BP as a multiple autoimmune syndrome has rarely been reported."
+        },
+        {
+          "label": "CASE PRESENTATION",
+          "text": "We report a 49-year-old man with multiple blistering skin lesions and nephrotic syndrome. Skin-punch and kidney biopsy revealed BP and membranous nephropathy (MN), respectively. Subsequent workup did not reveal a secondary cause for MN. The patient was treated with rituximab and methylprednisolone and his skin lesions and renal disease resolved. Arthritis occurred after discontinuation of the steroid therapy and he was diagnosed with rheumatoid arthritis (RA). The patient started methotrexate treatment, and during the 12-month treatment period, he was free of skin lesions and arthritis with normal kidney function."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "This case describes the rare temporal coexistence of BP, MN, and subsequently diagnosed RA. Physicians should be aware of developing an additional autoimmune disease in patients who already have co-existing autoimmune diseases."
+        }
+      ],
+      "keywords": [
+        "Bullous pemphigoid",
+        "Case report",
+        "Membranous nephropathy",
+        "Methotrexate",
+        "Rheumatoid arthritis",
+        "Rituximab"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
+      "pmid": "43004366",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "RA"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "BMC Pulm Med",
+      "first_author": "Zhu",
+      "last_author": "Jiang",
+      "date": "2026-08-11",
+      "title": "Occult lung adenocarcinoma diagnosed by EBUS-TBNA after pneumothorax resolution in an RA-ILD patient with respiratory failure.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "RA-ILD is a serious complication of RA. Patients are prone to spontaneous pneumothorax and have a higher risk of lung cancer.Given poor lung function and high risk of pneumothorax recurrence, conventional biopsy is challenging, making diagnosis difficult."
+        },
+        {
+          "label": "CASE PRESENTATION",
+          "text": "A 67-year-old male with a history of smoking and well-controlled rheumatoid arthritis presented with chest tightness and pleuritic chest pain. On admission, he was found to have respiratory failure (PaO₂ 58.9mmHg). Chest CT revealed left-sided pneumothorax with interstitial lung disease.Following closed thoracic drainage, the pneumothorax resolved, which was confirmed by follow-up chest X-ray.But the persistence of the patient's chest pain despite resolution of the pneumothorax prompted further investigation.CT pulmonary angiography identified a suspicious mass in the left lower lobe with adjacent rib destruction and mediastinal lymphadenopathy. Given the high risk of recurrent pneumothorax from percutaneous biopsy in a patient with recent pneumothorax and pre-existing respiratory failure, a multidisciplinary team recommended Endobronchial ultrasound-guided transbronchial needle aspiration(EBUS-TBNA) as a safer alternative. EBUS of enlarged mediastinal lymph nodes (stations 7 and 11L) confirmed poorly differentiated lung adenocarcinoma.The patient subsequently received first-line chemotherapy with pemetrexed, cisplatin, and bevacizumab, after which his condition gradually stabilized."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Both pneumothorax and interstitial lung disease can mask an occult malignancy, underscoring the need for clinical vigilance. EBUS-TBNA is a safe and effective diagnostic option in such high-risk cases."
+        }
+      ],
+      "keywords": [
+        "EBUS-TBNA",
+        "Lung adenocarcinoma",
+        "Pneumothorax",
+        "Respiratory failure",
+        "Rheumatoid arthritis-associated interstitial lung disease"
+      ],
+      "first_seen": "2026-11-11"
+    },
+    {
       "pmid": "42989386",
       "languages": [
         "eng"
@@ -51369,6 +53223,50 @@
         "Randomized Controlled Trial"
       ],
       "first_seen": "2026-08-11"
+    },
+    {
+      "pmid": "43000386",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Journal Article",
+        "Validation Study"
+      ],
+      "disease_groups": [
+        "Vasculitis"
+      ],
+      "evidence_type": "Observational",
+      "tier": 4,
+      "journal": "Ital J Pediatr",
+      "first_author": "Chen",
+      "last_author": "Zhang",
+      "date": "2026-08-10",
+      "title": "Construction and internal validation of a predictive model for risk of severe gastrointestinal involvement in children with IgA vasculitis.",
+      "abstract_sections": [
+        {
+          "label": "BACKGROUND",
+          "text": "Early identification of the severity of gastrointestinal (GI) involvement in children with IgA vasculitis (IgAV) is crucial for prognosis assessment and formulation of treatment plans. This study aimed to develop a risk predictive model for severe GI involvement in pediatric IgAV to assist clinicians in decision-making."
+        },
+        {
+          "label": "METHOD",
+          "text": "In a single-center retrospective cohort study, 293 eligible children were divided into two cohorts based on the time of admission: a training set and a validation set. Candidate risk indicators were identified using binary logistic regression, and a predictive model was developed to predict severe GI involvement in pediatric IgAV based on training set. The receiver operating characteristic (ROC) curve was utilized as a tool to evaluate the performance of the logistic regression model. Furthermore, a nomogram model was developed, and its calibration curve was visualized using a 1000-time bootstrap resampling method. The validity of these results was verified on an independent validation set."
+        },
+        {
+          "label": "RESULTS",
+          "text": "Vomiting, lymphocyte count, C-reactive protein and thickening of intestinal wall displayed on abdominal ultrasound were identified as the potentially predictors for severe GI involvement in pediatric IgAV. The predictive model had area under the ROC curve of 0.816 and 0.802 in the training and validation set, with a sensitivity and specificity of 80.0% and 72.4%, 82.8% and 69.8%, respectively. The calibration curve demonstrated favorable predictive accuracy of the predictive model. Decision curve analysis indicated that the predictive model possesses clinical applicability."
+        },
+        {
+          "label": "CONCLUSIONS",
+          "text": "Our research has identified potentially predictive indicators for severe GI involvement in children with IgAV. The risk prediction model we established can assist pediatricians in early prediction and identification of high-risk children, especially those at high risk of severe GI bleeding."
+        }
+      ],
+      "keywords": [
+        "Child",
+        "Gastrointestinal",
+        "IgA vasculitis"
+      ],
+      "first_seen": "2026-11-11"
     },
     {
       "pmid": "42989160",
@@ -75769,51 +77667,6 @@
       "first_seen": "2026-09-23"
     },
     {
-      "pmid": "42285573",
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
-      ],
-      "disease_groups": [
-        "General"
-      ],
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "BMJ Open",
-      "first_author": "Portal",
-      "last_author": "da Rocha",
-      "date": "2026-06-12",
-      "title": "Add-on tocilizumab versus placebo for resistant major depression in psychiatric outpatients with low-grade inflammation in a tertiary public hospital in Southern Brazil: randomised triple-blind clinical trial protocol.",
-      "abstract_sections": [
-        {
-          "label": "INTRODUCTION",
-          "text": "Emerging evidence supports a role for interleukin 6 (IL-6), a pro-inflammatory cytokine, in the pathogenesis of treatment-resistant major depressive disorder (TRD). However, interventional studies targeting IL-6 in this population remain scarce. Tocilizumab is a humanised monoclonal antibody that inhibits IL-6 signalling and is approved for the treatment of autoimmune conditions such as rheumatoid arthritis. The primary objective of this study is to examine whether IL-6 inhibition via tocilizumab can impact depressive symptoms, inflammation-related biomarkers and cognition in patients with TRD. A secondary objective is to compare the biological profiles of patients with TRD with elevated inflammation to those of healthy controls."
-        },
-        {
-          "label": "METHODS AND ANALYSIS",
-          "text": "This is a proof-of-concept, randomised, parallel-group, triple-blind, placebo-controlled clinical trial. 22 adult outpatients diagnosed with TRD and evidence of low-grade inflammation (serum C reactive protein≥3 mg/L) will be randomised (1:1) to receive either one intravenous infusion of tocilizumab (8 mg/kg; maximum 800 mg) or normal saline, administered as an add-on to their ongoing treatment. Psychiatric, cognitive and biomarker assessments will be performed at baseline and at follow-up visits on days 7, 14 and 28 post-infusion. Additionally, 10 healthy controls with no psychiatric history will undergo the same baseline assessments for biomarker comparison."
-        },
-        {
-          "label": "ETHICS AND DISSEMINATION",
-          "text": "The study has been approved by the Research Ethics Committee of the Hospital de Clínicas de Porto Alegre (Project number: 2025-0245, CAAE: 88904825.7.0000.5327). Findings will be disseminated through peer-reviewed publications, scientific meetings and, on request, lay summaries for participants."
-        },
-        {
-          "label": "TRIAL REGISTRATION NUMBER",
-          "text": "NCT07052058."
-        }
-      ],
-      "keywords": [
-        "Depression & mood disorders",
-        "Protocols & guidelines",
-        "Randomized Controlled Trial"
-      ],
-      "first_seen": "2026-09-23",
-      "flagged": "Studieprotokol for depressionsforsøg; psykiatri, ingen resultater endnu"
-    },
-    {
       "pmid": "42756399",
       "languages": [
         "eng"
@@ -89893,7 +91746,8 @@
         "eng"
       ],
       "publication_types": [
-        "Journal Article"
+        "Journal Article",
+        "Randomized Controlled Trial"
       ],
       "first_seen": "2026-01-08"
     },
@@ -90153,6 +92007,59 @@
         "Randomized Controlled Trial"
       ],
       "first_seen": "2026-01-03"
+    },
+    {
+      "pmid": "43001159",
+      "languages": [
+        "eng"
+      ],
+      "publication_types": [
+        "Case Reports",
+        "Journal Article"
+      ],
+      "disease_groups": [
+        "IIM"
+      ],
+      "evidence_type": "Clinical case/survey",
+      "tier": 4,
+      "journal": "Rom J Ophthalmol",
+      "first_author": "Corduneanu",
+      "last_author": "Moscalciuc",
+      "date": "2026-01-01",
+      "title": "Autoimmune retinal microangiopathy.",
+      "abstract_sections": [
+        {
+          "label": "PURPOSE",
+          "text": "To describe a patient with proliferative vascular retinopathy as an ocular complication of an autoimmune connective tissue disease."
+        },
+        {
+          "label": "METHOD",
+          "text": "Case report."
+        },
+        {
+          "label": "RESULTS",
+          "text": "A 27-year-old female patient was referred for a regular eye examination, 5 months after the onset of dermatomyositis. On examination, visual acuity was 20/20 in both eyes. The anterior segment was normal. Funduscopy showed microhemorrhages and numerous retinal neovessels in both eyes. The established diagnosis was proliferative vascular retinopathy in dermatomyositis. The patient received treatment with multiple intravitreal anti-VEGF injections. Despite a good response to dermatomyositis treatment with methylprednisolone 4 mg per day and methotrexate 15 mg per week, the retinal neovascularisation reactivated within 3-4 months after anti-VEGF injections. Laser retinal photocoagulation has been performed, and the patient's follow-up continues."
+        },
+        {
+          "label": "DISCUSSION",
+          "text": "Proliferative vascular retinopathy represents an exceedingly rare ocular manifestation of dermatomyositis. The marked bilateral retinal capillary nonperfusion and recurrent neovascularization observed in this patient are consistent with a severe ischemic microangiopathic process, potentially related to immune-mediated endothelial injury. Only isolated cases of proliferative retinopathy associated with overlap connective tissue disease have been reported, underscoring the unusual nature of this case."
+        },
+        {
+          "label": "CONCLUSION",
+          "text": "Proliferative vascular retinopathy may occur secondary to dermatomyositis. All clinicians must recognize this rare association to detect and treat it early."
+        }
+      ],
+      "keywords": [
+        "BCVA = best corrected",
+        "CTDs = Connective tissue diseases",
+        "DM = Dermatomyositis",
+        "SD-OCT = spectral domain optical coherence tomography",
+        "VEGF = vascular endothelial growth factor",
+        "autoimmune connective tissue diseases",
+        "dermatomyositis",
+        "proliferative vascular retinopathy"
+      ],
+      "first_seen": "2026-11-11"
     },
     {
       "pmid": "42989758",
@@ -92593,53 +94500,6 @@
       "publication_types": [
         "Journal Article",
         "Review"
-      ],
-      "first_seen": "2025-12-18"
-    },
-    {
-      "pmid": "41412621",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "BMJ Open",
-      "first_author": "Dag",
-      "last_author": "de Jong",
-      "date": "2025-12-18",
-      "title": "PeRsonalIsed MEdicine in Rheumatoid Arthritis (PRIMERA) trial: a multicentre, open-label, randomised controlled trial comparing routine care with a tailor-made approach.",
-      "abstract_sections": [
-        {
-          "label": "INTRODUCTION",
-          "text": "Rheumatoid arthritis (RA) is a heterogeneous disease, which current treatment guidelines insufficiently accommodate, as they predominantly emphasise the suppression of disease activity. However, a step towards personalised medicine is preferred to further optimise treatment and requires homogeneous subgroups with similarities in pathophysiological mechanisms and treatment responses. Prior research has already demonstrated notable differences in the pathophysiology of patients with autoantibody-positive and autoantibody-negative RA, as well as differences in treatment responses, which may serve as a strong basis for personalised medicine. Additionally, there is evidence suggesting that an early treatment response is indicative of future courses. Based on these findings, we designed a personalised medicine trial in RA that compares the effectiveness and cost-effectiveness of a tailor-made approach with routine care."
-        },
-        {
-          "label": "METHODS AND ANALYSIS",
-          "text": "The PeRsonalIsed Medicine in RA (PRIMERA) trial is a multicentre, open-label, randomised controlled trial that includes 300 adult patients with newly diagnosed, DMARD-naïve RA, according to 2010 American College of Rheumatology/EULAR criteria. Patients are randomised into either routine care or a tailor-made approach. Both management approaches use a treat-to-target strategy, aiming for low disease activity (LDA, Disease Activity Score using 44 joints (DAS) ≤2.4). In routine care, initial treatment consists of methotrexate along with a single intramuscular dose of glucocorticoids (GCs) and treatment can be intensified after 3, 7 and 10 months if LDA is not reached. Conversely, initial treatment in the tailor-made approach depends on the presence of autoantibodies, with patients with autoantibody-positive and autoantibody-negative RA starting with hydroxychloroquine or methotrexate together with a single intramuscular dose of GCs, respectively. Medication intensifications will be allowed at months 1, 3, 4, 7 and 10. Intensifications at months 1 and 4 depend on whether patients have an early sufficient response to GCs and targeted synthetic disease-modifying antirheumatic drugs (tsDMARDs), respectively. The tailor-made approach is superior to routine care if no more biological DMARDs (bDMARDs) or tsDMARDs are used after 10 months of treatment, while the mean DAS over time is lower. Our primary outcome is the proportional difference in bDMARD or tsDMARD usage after 10 months of treatment between routine care and the tailor-made approach. Secondary outcomes are DAS over time, time to achieve LDA, cost-effectiveness and patient-reported outcome measurements over time."
-        },
-        {
-          "label": "ETHICS AND DISSEMINATION",
-          "text": "Ethical approval has been granted by Erasmus MC Medical Ethics Review Committee (MEC-2020-0825). The results will be disseminated through peer-review journals and medical congresses."
-        },
-        {
-          "label": "TRIAL REGISTRATION NUMBER",
-          "text": "ISRCTN16170070."
-        }
-      ],
-      "keywords": [
-        "disease management",
-        "health care costs",
-        "patient reported outcome measures",
-        "randomized controlled trial",
-        "rheumatology",
-        "treatment outcome"
-      ],
-      "disease_groups": [
-        "RA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
       ],
       "first_seen": "2025-12-18"
     },
@@ -96335,50 +98195,6 @@
         "Randomized Controlled Trial"
       ],
       "first_seen": "2025-10-16"
-    },
-    {
-      "pmid": "41067765",
-      "evidence_type": "RCT",
-      "tier": 4,
-      "journal": "BMJ Open",
-      "first_author": "Samson",
-      "last_author": "Bonnotte",
-      "date": "2025-10-09",
-      "title": "Immediate versus gradual TocilizuMab discontinuAtion in GIant Cell Arteritis: protocol of the multicentre randomised open-label MAGICA trial.",
-      "abstract_sections": [
-        {
-          "label": "INTRODUCTION",
-          "text": "Giant cell arteritis (GCA) is a large-vessel vasculitis occurring in people aged over 50 years. Recent studies have shown that tocilizumab (TCZ), an anti-IL-6 receptor monoclonal antibody, is remarkably effective in treating GCA and allows significant dose sparing of glucocorticoids. However, it makes it difficult to monitor disease activity. Furthermore, treatment is often prolonged over 1 year due to the fear of relapse after stopping TCZ and/or the absence of an optimal discontinuation scheme."
-        },
-        {
-          "label": "METHODS AND ANALYSIS",
-          "text": "This study aims at comparing two discontinuation regimens in a population of GCA patients who have been treated with TCZ for 12-36 months and have discontinued glucocorticoids for at least 12 weeks. Patients will be randomised with a 1:1 ratio between two arms: immediate discontinuation (cessation) versus gradual discontinuation of TCZ (162 mg subcutaneously every 2 weeks for 12 weeks and then every 4 weeks for 12 additional weeks). Patients will be followed up for 78 weeks. The primary endpoint is relapse-free survival after 26 weeks of follow-up. A total of 120 patients will be randomised (60 in each group) for a period of 3 years."
-        },
-        {
-          "label": "ETHICS AND DISSEMINATION",
-          "text": "The trial was approved by an independent ethics committee (CPP Sud Ouest et Outre Mer IV) and the French health authority (French National Agency for Medicines and Health Products Safety-ANSM) through the Clinical Trials Information System (CTIS) provided by the European Medicines Agency (EMA). The informed consent complies with the ICH GCP guideline and regulatory requirements. Eligible patients may only be included in the study after providing informed consent. Findings will be published in peer-reviewed journals and conference presentations."
-        },
-        {
-          "label": "TRIAL REGISTRATION NUMBER",
-          "text": "NCT06037460."
-        }
-      ],
-      "keywords": [
-        "Clinical Trial",
-        "INTERNAL MEDICINE",
-        "Randomized Controlled Trial"
-      ],
-      "disease_groups": [
-        "PMR/GCA"
-      ],
-      "languages": [
-        "eng"
-      ],
-      "publication_types": [
-        "Clinical Trial Protocol",
-        "Journal Article"
-      ],
-      "first_seen": "2025-10-09"
     },
     {
       "pmid": "41053902",
