@@ -348,10 +348,13 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   gap: 2px;
 }
 .tab-item {
+  /* Element defaults cleared: this is a <button> so it can be reached by
+     keyboard. No width here -- .tabs-col is a flex column and stretches its
+     children on its own, while below 820px the same row scrolls sideways and
+     a width of 100% made every type as wide as the whole scroller. */
   appearance: none;
   border: none;
   background: none;
-  width: 100%;
   text-align: left;
   font-family: inherit;
   display: flex;
