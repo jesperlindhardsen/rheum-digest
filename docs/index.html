@@ -6,7 +6,7 @@
 <title>Reuma-evidens</title>
 <!-- Bump ?v= when the stylesheet changes: GitHub Pages caches assets, so
      without it a deploy can leave visitors on the previous CSS. -->
-<link rel="stylesheet" href="assets/style.css?v=29">
+<link rel="stylesheet" href="assets/style.css?v=31">
 <!-- Optional live-write layer (see the firebaseConfig comment in the script
      below) -- safe to load even before a real project is configured. -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -36,6 +36,8 @@
            aria-label="Søg" oninput="setQuery(this.value)">
   </span>
   <p id="offline-banner" class="offline-banner" hidden></p>
+  <!-- A failed weekly run is otherwise indistinguishable from a quiet week. -->
+  <p id="stale-banner" class="offline-banner stale-banner" hidden></p>
 </header>
 
 <div id="app">
@@ -58,7 +60,12 @@
       <div id="disease-tabs" class="tabs-row"></div>
       <div id="tier-filter" class="tier-filter"></div>
     </div>
+    <p id="result-status" class="result-status" role="status" aria-live="polite"></p>
     <div id="panel"></div>
+    <!-- Only ever drawn in the flagged view, and only for the owner. After
+         the panel, so that sticking it to the bottom of the screen reserves
+         its space at the end of the list rather than above it. -->
+    <div id="bulk-bar" class="bulk-bar" hidden></div>
   </div>
 </div>
 
@@ -247,6 +254,20 @@ function setOverridesOffline(state) {
   // repainted -- but only once there are cards, since the startup read
   // resolves before the library does.
   if (rawLibrary.length && before !== (state && state.scope)) refresh();
+}
+
+const STALE_AFTER_DAYS = 10;
+
+function renderStaleBanner() {
+  const el = document.getElementById("stale-banner");
+  if (!el) return;
+  const days = libraryGeneratedAt
+    ? Math.floor((Date.now() - Date.parse(libraryGeneratedAt + "T00:00:00Z")) / 86400000)
+    : 0;
+  el.hidden = !(days >= STALE_AFTER_DAYS);
+  if (el.hidden) return;
+  el.innerHTML = `\u26a0 <strong>Ingen ny udgave i ${days} dage.</strong> `
+    + `Den ugentlige k\u00f8rsel er sat til mandag; sidste udgave er fra ${esc(libraryGeneratedAt)}.`;
 }
 
 function renderOfflineBanner() {
@@ -542,9 +563,14 @@ function matchesQuery(rec) {
   return searchQuery.split(/\s+/).every(term => hay.includes(term));
 }
 
+let searchTimer = null;
 function setQuery(value) {
-  searchQuery = value.trim().toLowerCase();
-  refresh();
+  if (searchTimer) clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchTimer = null;
+    searchQuery = value.trim().toLowerCase();
+    refresh();
+  }, 150);
 }
 
 // Used by the note above the results: a search that composes with the
@@ -656,7 +682,13 @@ let currentMonth = null;  // "YYYY-MM" of the digest run
 
 // The tier filter applies everywhere, not just to the list: tab counts and the
 // set of visible tabs follow it, so a count never promises hidden items.
-function inTier(rec) { return activeTiers.has(rec.tier); }
+// A guideline is worth reading wherever it was printed -- Kidney Int sits at
+// tier 9 and BMJ Open at tier 10, and the tier filter was hiding a third of
+// all guidelines from a default view called "RCT + retningslinjer". The tier
+// chips still govern everything else; the chip row says so.
+function inTier(rec) {
+  return rec.evidence_type === "Guideline/consensus" || activeTiers.has(rec.tier);
+}
 
 // Journals post-date issues, so a record can be dated ahead of the run month.
 // Those belong in the current month's section -- they arrived in this digest —
@@ -717,6 +749,7 @@ function passesFlagFilter(rec) {
 
 function toggleFlaggedOnly() {
   onlyFlagged = !onlyFlagged;
+  bulkRemove = new Set();
   if (onlyFlagged) { onlyStarred = false; onlyEdited = false; onlyNew = false; }  // one bypass view at a time
   resetFilters();
   refresh();
@@ -823,6 +856,92 @@ async function applyOverride(pmid, patch) {
   }
 }
 
+// Working through the flag queue one card at a time meant a confirm dialog
+// per article. Tick what goes, remove the lot in one write instead. Owner
+// only, and only inside the flagged view -- everywhere else the per-card
+// "Fjern artikel" button is still the way to remove one.
+let bulkRemove = new Set();
+
+function bulkRemoveActive() {
+  return onlyFlagged && isOwner() && editsEnabled();
+}
+
+function toggleBulkRemove(pmid, on) {
+  if (on) bulkRemove.add(pmid); else bulkRemove.delete(pmid);
+  // Deliberately not a full refresh: that would redraw the list and throw
+  // away where you had scrolled to, mid-way through ticking.
+  renderBulkBar();
+  const card = document.getElementById(`card-${pmid}`);
+  if (card) card.classList.toggle("marked-for-removal", on);
+}
+
+function selectAllFlagged(on) {
+  bulkRemove = on ? new Set(flaggedSelectable().map(r => r.pmid)) : new Set();
+  refresh();
+}
+
+// What the bar counts and what "Vælg alle" ticks: the cards actually on
+// screen, after the search box and the group chips have had their say.
+function flaggedSelectable() {
+  return library.filter(r => r.flagged && !(r.__ov && r.__ov.hidden) && matchesQuery(r));
+}
+
+function renderBulkBar() {
+  const el = document.getElementById("bulk-bar");
+  if (!el) return;
+  if (!bulkRemoveActive()) { el.hidden = true; el.innerHTML = ""; bulkRemove = new Set(); return; }
+  const selectable = flaggedSelectable();
+  // A card can leave the queue while it is ticked -- cleared from another
+  // device, or filtered out by a search -- and a removal must never reach
+  // something that is no longer on screen.
+  const live = new Set(selectable.map(r => r.pmid));
+  bulkRemove.forEach(pmid => { if (!live.has(pmid)) bulkRemove.delete(pmid); });
+  const n = bulkRemove.size;
+  el.hidden = n === 0;
+  if (!n) { el.innerHTML = ""; return; }
+  const allOn = n === selectable.length && selectable.length > 0;
+  el.innerHTML = `<span class="bulk-count">${n} markeret</span>
+    <span class="bulk-actions">
+      <button type="button" class="bulk-select-all" onclick="selectAllFlagged(${allOn ? "false" : "true"})">
+        ${allOn ? "Ryd markering" : `V\u00e6lg alle ${selectable.length}`}</button>
+      <button type="button" class="bulk-remove-btn" onclick="removeSelected()">\u{1F5D1} Fjern ${n} valgte</button>
+    </span>`;
+}
+
+// One batch, so the queue either loses all of them or none. Firestore caps a
+// batch at 500 writes; the queue has never been near that, but a run that
+// flags heavily could be, so it goes in chunks.
+async function removeSelected() {
+  if (!bulkRemoveActive() || bulkRemove.size === 0) return;
+  const pmids = [...bulkRemove];
+  if (!confirm(`Fjern ${pmids.length} ${pmids.length === 1 ? "artikel" : "artikler"} fra biblioteket?`)) return;
+  const stamped = {
+    hidden: true,
+    updated_at: firebase.firestore.FieldValue.serverTimestamp(),
+    acknowledged: true,
+  };
+  try {
+    for (let i = 0; i < pmids.length; i += 400) {
+      const batch = db.batch();
+      pmids.slice(i, i + 400).forEach(pmid =>
+        batch.set(db.collection("overrides").doc(pmid), stamped, { merge: true }));
+      await batch.commit();
+    }
+    pmids.forEach(pmid => overridesMap.set(pmid, {
+      ...(overridesMap.get(pmid) || {}), ...stamped, updated_at: new Date().toISOString(),
+    }));
+    bulkRemove = new Set();
+    applyOverrides(rawLibrary);
+    setOverridesOffline(null);
+    refresh();
+  } catch (err) {
+    console.error("Kunne ikke fjerne de valgte artikler", err);
+    // Nothing is cleared on a failure: the ticks stay so the whole set can be
+    // tried again rather than guessed at.
+    setOverridesOffline({ scope: "writes", detail: offlineDetail(err) });
+  }
+}
+
 // One-click shortcut for the common case: the flag was a false alarm, dismiss
 // it with no other change -- so the flagged-only view (the badge) is
 // somewhere you can actually clear items from, not just look at them.
@@ -925,9 +1044,14 @@ function renderItem(rec) {
   // The actions only exist if there's somewhere for them to write. With no
   // fallback path behind them any more, drawing them when Firestore is
   // unreachable would just be buttons that quietly do nothing.
+  const marked = bulkRemove.has(rec.pmid);
+  const bulkBox = bulkRemoveActive() && !isHidden
+    ? `<label class="bulk-check"><input type="checkbox" ${marked ? "checked" : ""}
+        onchange="toggleBulkRemove('${escJs(rec.pmid)}', this.checked)"> Fjern</label>`
+    : "";
   const flag = rec.flagged
     ? `<p class="flag-note"><span>⚑ ${esc(rec.flagged)}</span>
-        ${editsEnabled() && !isHidden ? `<span class="flag-actions">
+        ${editsEnabled() && !isHidden ? `<span class="flag-actions">${bulkBox}
           <button type="button" class="accept-flag-btn" onclick="acceptFlag('${escJs(rec.pmid)}')">Ryd flag</button>
           <button type="button" class="delete-flag-btn" onclick="deleteRecord('${escJs(rec.pmid)}')">🗑 Fjern artikel</button>
         </span>` : ""}
@@ -947,7 +1071,7 @@ function renderItem(rec) {
     : "";
   const starred = isStarred(rec);
   return `
-    <div class="item">
+    <div class="item${marked ? " marked-for-removal" : ""}" id="card-${esc(rec.pmid)}">
       <button type="button" class="star-btn${starred ? " starred" : ""}"
         onclick="toggleStar('${escJs(rec.pmid)}')" aria-label="${starred ? "Fjern fra mine valgte" : "Vælg artikel"}"
         aria-pressed="${starred}">${starred ? "★" : "☆"}</button>
@@ -957,10 +1081,10 @@ function renderItem(rec) {
       ${flag}
       ${chips}
       <div class="toggle-row">
-        <details class="abstract-toggle">
+        ${sections ? `<details class="abstract-toggle">
           <summary>Abstract</summary>
           <div class="abstract-full">${sections}</div>
-        </details>
+        </details>` : `<span class="no-abstract">Intet abstract</span>`}
         ${editsEnabled() && !isHidden ? `<details class="correction-toggle">
           <summary>Rettelse</summary>
           ${renderCorrectionBody(rec)}
@@ -972,9 +1096,17 @@ function renderItem(rec) {
 // Shared by the normal filtered view and the "Mine valgte" bypass view: one
 // collapsible section per calendar month, newest first (`library` is already
 // sorted newest-first, so each month keeps that order).
+// Screen-reader only: the visible counts are on the chips already, but
+// nothing said out loud that tapping a group had changed the list.
+function announceCount(n) {
+  const el = document.getElementById("result-status");
+  if (el) el.textContent = n === 1 ? "1 artikel vist" : `${n} artikler vist`;
+}
+
 function renderGroupedItems(items, emptyMessage) {
   const panel = document.getElementById("panel");
   if (items.length === 0) {
+    announceCount(0);
     panel.innerHTML = `<p class="empty-note">${emptyMessage}</p>`;
     return;
   }
@@ -986,6 +1118,7 @@ function renderGroupedItems(items, emptyMessage) {
     byMonth.get(key).push(rec);
   });
 
+  announceCount(items.length);
   const months = [...byMonth.keys()].sort().reverse();
   // Enough leading sections to actually contain the newest few. The top one
   // alone is usually plenty, but a narrow group can have a month with a single
@@ -1055,7 +1188,23 @@ function renderPanel() {
 // other filter by design (the user asked to see starred articles "uden de
 // andre filtre gælder"), so the tab/tier rows that don't apply are hidden
 // rather than shown disabled or stale.
+// The control that was focused is identified by what it is, not by the node:
+// the node is gone by the time we look for it again.
+function focusKey(el) {
+  if (!el || el === document.body) return null;
+  const chip = el.closest ? el.closest("[data-focus-key]") : null;
+  return chip ? chip.getAttribute("data-focus-key") : null;
+}
+
+function restoreFocus(key) {
+  if (!key) return;
+  const el = document.querySelector(`[data-focus-key="${CSS.escape(key)}"]`);
+  if (!el) return;
+  (el.matches("button, input") ? el : el.querySelector("button, input") || el).focus();
+}
+
 function refresh() {
+  const focused = focusKey(document.activeElement);
   // Signing out of the owner account while the review view is open would
   // otherwise leave someone stuck in a view they can no longer leave --
   // the badge that toggles it is gone by then.
@@ -1075,6 +1224,7 @@ function refresh() {
     renderFlagBanner();
     renderEditBanner();
     renderPanel();
+    renderBulkBar();
     return;
   }
 
@@ -1084,6 +1234,8 @@ function refresh() {
   renderFlagBanner();
   renderEditBanner();
   renderPanel();
+  renderBulkBar();
+  restoreFocus(focused);
 }
 
 function selectEvidence(type) {
@@ -1101,10 +1253,11 @@ function toggleTier(tier) {
 
 function renderTierFilter() {
   const el = document.getElementById("tier-filter");
-  el.innerHTML = `<span class="tier-filter-label">Tidsskrifttype</span>` + TIERS.map(tier => {
+  el.innerHTML = `<span class="tier-filter-label">Tidsskrifttype<span class="tier-filter-hint">retningslinjer vises altid</span></span>` + TIERS.map(tier => {
     const on = activeTiers.has(tier);
-    const count = library.filter(r => r.tier === tier && inEvidence(r) && matchesQuery(r)).length;
-    return `<label class="tier-chip t${tier}${on ? " on" : ""}">
+    const count = library.filter(r =>
+      r.tier === tier && inDisease(r) && inEvidence(r) && passesFlagFilter(r) && matchesQuery(r)).length;
+    return `<label class="tier-chip t${tier}${on ? " on" : ""}" data-focus-key="tier:${tier}">
       <input type="checkbox" ${on ? "checked" : ""} onchange="toggleTier(${tier})">${TIER_LABEL[tier]}
       <span class="tier-chip-count">${count}</span>
     </label>`;
@@ -1115,13 +1268,16 @@ function renderEvidenceTabs() {
   const el = document.getElementById("evidence-tabs");
   el.innerHTML = [TOP_EVIDENCE, ALL_EVIDENCE, ...EVIDENCE_ORDER].map(type => {
     const count = library.filter(r =>
-      inTier(r) && passesFlagFilter(r) && matchesQuery(r) && matchesEvidence(r, type)).length;
+      inTier(r) && inDisease(r) && passesFlagFilter(r) && matchesQuery(r)
+      && matchesEvidence(r, type)).length;
     const active = type === activeEvidence ? "active" : "";
     const short = EVIDENCE_LABEL_SHORT[type];
     const label = short
       ? `<span class="tab-long">${EVIDENCE_LABEL[type]}</span><span class="tab-short">${short}</span>`
       : EVIDENCE_LABEL[type];
-    return `<div class="tab-item ${active}" onclick="selectEvidence('${type}')"><span>${label}</span><span class="count">${count}</span></div>`;
+    return `<button type="button" class="tab-item ${active}" onclick="selectEvidence('${escJs(type)}')"
+      data-focus-key="ev:${esc(type)}" aria-pressed="${type === activeEvidence}"
+      ><span>${label}</span><span class="count">${count}</span></button>`;
   }).join("");
 }
 
@@ -1132,7 +1288,7 @@ function renderEvidenceTabs() {
 // already carries the counts.
 function renderDiseaseTabs() {
   const chip = (group, label, on, handler) => `
-    <label class="group-chip${on ? " on" : ""}" data-group="${group}">
+    <label class="group-chip${on ? " on" : ""}" data-group="${group}" data-focus-key="grp:${esc(group)}">
       <input type="checkbox" ${on ? "checked" : ""} onchange="${handler}">${label}
     </label>`;
   document.getElementById("disease-tabs").innerHTML =
@@ -1164,7 +1320,7 @@ syncStickyOffsets();
 });
 
 Promise.all([
-  fetch("data/library.json?t=" + Date.now(), {cache: "no-store"}).then(r => r.json()),
+  fetch("data/library.json", {cache: "no-cache"}).then(r => r.json()),
   loadOverrides()
 ])
   .then(([data]) => {
@@ -1177,6 +1333,7 @@ Promise.all([
     if (generatedAt) {
       document.getElementById("updated-date").textContent = "Sidst opdateret: " + generatedAt;
     }
+    renderStaleBanner();
     // Set before any rendering: monthKey() folds post-dated records into it.
     currentMonth = (generatedAt || new Date().toISOString()).slice(0, 7);
     initSeenRun(generatedAt);

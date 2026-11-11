@@ -62,6 +62,110 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   line-height: 1.45;
 }
 .site-header .offline-banner[hidden] { display: none; }
+.site-header .stale-banner {
+  border-color: var(--line);
+  background: var(--paper-2);
+  color: var(--ink-2);
+}
+
+/* Announced, never drawn: the counts are already on the chips. */
+.result-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Working the flag queue: tick what goes, remove the lot at the end. The bar
+   only exists while something is ticked, and only the owner ever sees it.
+   Stuck to the foot of the screen rather than the foot of the list, so it is
+   reachable from wherever you stopped ticking. */
+.bulk-bar {
+  position: sticky;
+  bottom: var(--s-4);
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-top: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--clay-soft);
+  border-radius: var(--r-md);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-md);
+}
+.bulk-bar[hidden] { display: none; }
+.bulk-count {
+  font-family: var(--font-mono);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--clay-deep);
+}
+.bulk-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }
+.bulk-select-all {
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--ink-2);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.bulk-select-all:hover { background: var(--paper-2); }
+.bulk-remove-btn {
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--bg-elevated);
+  background: var(--clay-deep);
+  border: none;
+  border-radius: var(--r-sm);
+  padding: 4px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.bulk-remove-btn:hover { background: var(--clay); }
+.bulk-select-all:focus-visible,
+.bulk-remove-btn:focus-visible,
+.bulk-check:focus-within {
+  outline: 2px solid var(--moss-deep);
+  outline-offset: 2px;
+}
+/* Sits in the flag row beside "Ryd flag", so it reads as the third thing you
+   can do with a flagged card rather than a stray control. */
+.bulk-check {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  font-family: var(--font-body);
+  font-size: var(--fs-cap);
+  font-weight: var(--w-semi);
+  color: var(--clay-deep);
+  cursor: pointer;
+  white-space: nowrap;
+}
+/* A ticked card is visibly on its way out, so a long queue still reads at a
+   glance after scrolling back up. */
+.item.marked-for-removal {
+  border-color: var(--clay);
+  background: var(--clay-wash);
+}
+
+/* 86 records carry no abstract. The toggle used to open onto empty space. */
+.no-abstract {
+  font-size: var(--fs-cap);
+  color: var(--ink-4);
+  font-style: italic;
+}
 .brand {
   display: flex;
   align-items: center;
@@ -81,7 +185,9 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
 #updated-date {
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
-  color: var(--ink-4);
+  /* --ink-4 failed contrast outright (2.37:1) and --ink-3 lands at 4.35:1,
+     still short of 4.5. This line is micro-size, so it stays quiet anyway. */
+  color: var(--ink-2);
   letter-spacing: var(--tracking-wide);
   max-width: none;
   margin: var(--s-5) 0 0 0;
@@ -242,6 +348,12 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   gap: 2px;
 }
 .tab-item {
+  appearance: none;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -256,6 +368,13 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
               color var(--dur-fast) var(--ease-out);
 }
 .tab-item:hover { background: var(--paper-2); }
+.tab-item:focus-visible,
+.tier-chip:focus-within,
+.group-chip:focus-within,
+.star-btn:focus-visible {
+  outline: 2px solid var(--moss-deep);
+  outline-offset: 2px;
+}
 .tab-item.active {
   background: var(--moss-wash);
   color: var(--moss-deep);
@@ -386,6 +505,14 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   gap: var(--s-2);
   flex: 1 1 100%;
   margin: var(--s-4) 0 0;
+}
+.tier-filter-hint {
+  display: block;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: var(--w-reg);
+  font-size: var(--fs-micro);
+  color: var(--ink-4);
 }
 .tier-filter-label {
   font-size: var(--fs-cap);
@@ -952,6 +1079,20 @@ a:hover { color: var(--moss); text-decoration: underline; text-underline-offset:
   /* Full width of its own row in the header: at 390px there is nothing left
      of the bar to put it beside. */
   .search-input { flex: 1 1 100%; }
+
+  /* --- Vertical space. Nothing is removed here that carries information;
+     what goes is padding, and the keyword chips, which are three lines of a
+     card and are reachable by search anyway. --- */
+  #app { padding: var(--s-4); gap: var(--s-4); }
+  .item { padding: var(--s-4); }
+  .item .title { margin-bottom: var(--s-1); }
+  .chip-row { margin-top: var(--s-2); }
+  .toggle-row { margin-top: var(--s-3); }
+  /* Still in the search haystack, still on the desktop card. */
+  .keyword-chip { display: none; }
+  .time-bucket > summary { padding: var(--s-2) 0; }
+  .filter-row { margin-bottom: var(--s-3); }
+  .site-header { padding: var(--s-2) var(--s-4); }
 }
 
 /* Phone: the badges keep their icon and count and shed their prose, which is
